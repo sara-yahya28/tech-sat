@@ -7,10 +7,9 @@
   /* ─── الروابط الموحدة ─── */
   var NAV_LINKS = [
     { label: 'الرئيسية', href: 'index.html' },
-    { label: 'الخدمات', href: 'index.html#features' },
+    { label: 'الخدمات', href: 'services.html' },
     { label: 'المنتجات', href: 'products.html' },
     { label: 'من نحن', href: 'about.html' },
-    { label: 'الأسئلة الشائعة', href: 'index.html#faq' },
     { label: 'تواصل معنا', href: 'contact.html' },
   ];
 
@@ -114,7 +113,6 @@
                   '<li><a href="about.html"><i class="bi bi-chevron-left"></i> من نحن</a></li>' +
                   '<li><a href="services.html"><i class="bi bi-chevron-left"></i> الخدمات</a></li>' +
                   '<li><a href="products.html"><i class="bi bi-chevron-left"></i> المنتجات</a></li>' +
-                  '<li><a href="index.html#faq"><i class="bi bi-chevron-left"></i> الأسئلة الشائعة</a></li>' +
                   '<li><a href="contact.html"><i class="bi bi-chevron-left"></i> تواصل معنا</a></li>' +
                 '</ul>' +
               '</div>' +
