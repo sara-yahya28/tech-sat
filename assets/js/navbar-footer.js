@@ -47,8 +47,7 @@
             '</a>' +
             '<div class="d-flex align-items-center">' +
               '<div class="social-links">' +
-                '<a href="#" class="facebook"><i class="bi bi-facebook"></i></a>' +
-                '<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>' +
+                '<a href="https://www.facebook.com/people/Tech-Sat/100064730084237/#" class="facebook"><i class="bi bi-facebook"></i></a>' +
                 '<a href="#" class="instagram"><i class="bi bi-instagram"></i></a>' +
                 '<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>' +
               '</div>' +
@@ -155,7 +154,7 @@
                 '<div class="contact-item">' +
                   '<div class="contact-icon"><i class="bi bi-headset"></i></div>' +
                   '<div class="contact-info">' +
-                    '<p>Support: support@tech-sat.com<br>+967 711 188 100</p>' +
+                    '<p>Support: support@tech-sat.com<br>00967-711188100</p>' +
                   '</div>' +
                 '</div>' +
 
@@ -177,7 +176,7 @@
             '<div class="row align-items-center">' +
               '<div class="col-lg-6">' +
                 '<div class="copyright">' +
-                  '<p>© <span>حقوق النشر</span> <strong class="px-1 sitename">Tech-Sat</strong> <span>جميع الحقوق محفوظة 2025</span></p>' +
+                  '<p>© <span>حقوق النشر</span> <strong class="px-1 sitename">Tech-Sat</strong> <span>جميع الحقوق محفوظة 2026</span></p>' +
                 '</div>' +
               '</div>' +
               '<div class="col-lg-6">' +
