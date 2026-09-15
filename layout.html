@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>اسم الصفحة — Tech-Sat</title>
+  <meta name="description" content="وصف الصفحة">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════════════
+       COLOR PALETTE (نفس الباليت في كل الصفحات)
+       ═══════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --palette-white: #F8F9FA;
+      --palette-light-blue: #D1D8E0;
+      --palette-mid-blue: #3A6EA5;
+      --palette-dark-navy: #0B1D33;
+
+      --default-font: "Tajawal", system-ui, sans-serif;
+      --heading-font: "Tajawal", system-ui, sans-serif;
+      --nav-font: "Tajawal", system-ui, sans-serif;
+
+      --default-color: var(--palette-dark-navy);
+      --heading-color: var(--palette-dark-navy);
+      --accent-color: var(--palette-mid-blue);
+      --surface-color: var(--palette-white);
+      --contrast-color: var(--palette-white);
+      --background-color: var(--palette-white);
+    }
+
+    body { font-family: 'Tajawal', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
+
+    /* ─── Header / Navbar ─── */
+    .header {
+      background-color: var(--palette-white) !important;
+      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
+    }
+    .header .logo h1 { color: var(--palette-dark-navy) !important; }
+    .header .social-links a { color: var(--palette-mid-blue) !important; }
+    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
+    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
+
+    /* ─── Buttons ─── */
+    .btn-primary {
+      background-color: var(--palette-mid-blue) !important;
+      border-color: var(--palette-mid-blue) !important;
+      color: var(--palette-white) !important;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all .25s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--palette-dark-navy) !important;
+      border-color: var(--palette-dark-navy) !important;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background-color: var(--palette-dark-navy) !important;
+      color: var(--palette-light-blue) !important;
+    }
+    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
+    .footer a { color: var(--palette-light-blue) !important; }
+    .footer a:hover { color: var(--palette-white) !important; }
+    .footer .social-links a { color: var(--palette-light-blue) !important; }
+    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
+
+    /* ─── Section Base ─── */
+    .section { padding: 80px 0; }
+    .section--alt { background: #F4F7FB; }
+    .section-title { text-align: center; margin-bottom: 56px; }
+    .section-title h2 {
+      color: var(--palette-dark-navy);
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      color: #64748B;
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ─── Page Hero (اختياري — استبدليه أو احذفيه) ─── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+      padding: 160px 0 80px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .page-hero h1 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .page-hero p {
+      color: var(--palette-light-blue);
+      font-size: 17px;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p { font-size: 15px; }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR — يُحقن تلقائيًا من Navbar-Footer.js
+       ═══════════════════════════════════════════════════════ -->
+  <div id="navbar-root"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT — محتوى كل صفحة
+       ═══════════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- ─── Page Hero ─── -->
+    <section class="page-hero">
+      <div class="container" data-aos="fade-up">
+        <h1>عنوان الصفحة</h1>
+        <p>وصف الصفحة هنا...</p>
+      </div>
+    </section>
+
+    <!-- ─── محتوى الصفحة ─── -->
+    <section class="section">
+      <div class="container">
+        <!-- المحتوى الخاص بالصفحة -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — يُحقن تلقائيًا من Navbar-Footer.js
+       ═══════════════════════════════════════════════════════ -->
+  <div id="footer-root"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       Vendor JS Files
+       ═══════════════════════════════════════════════════════ -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File (Core + Modal + Map + Navbar/Footer) -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Unified Navbar + Footer -->
+  <script src="assets/js/Navbar-Footer.js"></script>
+
+</body>
+
+</html>

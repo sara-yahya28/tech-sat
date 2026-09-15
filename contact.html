@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>تواصل معنا — Tech-Sat</title>
+  <meta name="description" content="تواصل مع Tech-Sat — فريقنا جاهز للإجابة على استفساراتك على مدار الساعة.">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <script src="assets/js/Navbar-Footer.js"></script>
+  <!-- Leaflet Map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════════════
+       COLOR PALETTE + PAGE STYLES
+       ═══════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --palette-white: #F8F9FA;
+      --palette-light-blue: #D1D8E0;
+      --palette-mid-blue: #3A6EA5;
+      --palette-dark-navy: #0B1D33;
+
+      --default-font: "Tajawal", system-ui, sans-serif;
+      --heading-font: "Tajawal", system-ui, sans-serif;
+      --nav-font: "Tajawal", system-ui, sans-serif;
+
+      --default-color: var(--palette-dark-navy);
+      --heading-color: var(--palette-dark-navy);
+      --accent-color: var(--palette-mid-blue);
+      --surface-color: var(--palette-white);
+      --contrast-color: var(--palette-white);
+      --background-color: var(--palette-white);
+    }
+
+    body { font-family: 'Tajawal', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
+
+    /* ─── Header / Navbar ─── */
+    .header {
+      background-color: var(--palette-white) !important;
+      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
+    }
+    .header .logo h1 { color: var(--palette-dark-navy) !important; }
+    .header .social-links a { color: var(--palette-mid-blue) !important; }
+
+    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
+    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
+
+    /* ─── Buttons ─── */
+    .btn-primary {
+      background-color: var(--palette-mid-blue) !important;
+      border-color: var(--palette-mid-blue) !important;
+      color: var(--palette-white) !important;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all .25s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--palette-dark-navy) !important;
+      border-color: var(--palette-dark-navy) !important;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background-color: var(--palette-dark-navy) !important;
+      color: var(--palette-light-blue) !important;
+    }
+    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
+    .footer a { color: var(--palette-light-blue) !important; }
+    .footer a:hover { color: var(--palette-white) !important; }
+    .footer .social-links a { color: var(--palette-light-blue) !important; }
+    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
+
+    /* ═══════════════════════════════════════════════════════
+       PAGE HERO
+       ═══════════════════════════════════════════════════════ */
+    .contact-hero {
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+      padding: 160px 0 80px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .contact-hero .container { position: relative; z-index: 2; }
+    .contact-hero .subtitle-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--palette-light-blue);
+      margin-bottom: 12px;
+    }
+    .contact-hero h1 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .contact-hero p {
+      color: var(--palette-light-blue);
+      font-size: 17px;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .contact-hero h1 { font-size: 34px; }
+      .contact-hero p { font-size: 15px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION BASE
+       ═══════════════════════════════════════════════════════ */
+    .section { padding: 80px 0; }
+    .section--alt { background: #F4F7FB; }
+    .section-title { text-align: center; margin-bottom: 56px; }
+    .section-title h2 {
+      color: var(--palette-dark-navy);
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      color: #64748B;
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CONTACT FORM
+       ═══════════════════════════════════════════════════════ */
+    .contact-form-wrap {
+      background: #fff;
+      border: 1px solid var(--palette-light-blue);
+      border-radius: 20px;
+      padding: 44px 40px;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.04);
+    }
+    @media (max-width: 576px) {
+      .contact-form-wrap { padding: 32px 24px; }
+    }
+
+    .contact-form-wrap h3 {
+      color: var(--palette-dark-navy);
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .contact-form-wrap > p {
+      color: #64748B;
+      font-size: 14.5px;
+      margin-bottom: 28px;
+    }
+
+    .form-field {
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-field label {
+      color: var(--palette-dark-navy);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-field label span { color: #DC2626; margin-right: 2px; }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--palette-light-blue);
+      border-radius: 10px;
+      background: #F8F9FA;
+      color: var(--palette-dark-navy);
+      font-family: inherit;
+      font-size: 14px;
+      transition: all .2s ease;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      outline: none;
+      border-color: var(--palette-mid-blue);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.12);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(11, 29, 51, 0.35);
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .send-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--palette-mid-blue);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s ease;
+      width: 100%;
+    }
+    .send-button:hover {
+      background: var(--palette-dark-navy);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(58, 110, 165, 0.3);
+    }
+    .send-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-status {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .form-status.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.1);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .form-status.error {
+      display: block;
+      background: rgba(220, 38, 38, 0.08);
+      color: #B91C1C;
+      border: 1px solid rgba(220, 38, 38, 0.2);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CONTACT SIDEBAR
+       ═══════════════════════════════════════════════════════ */
+   /* ═══════════════════════════════════════════════════════
+   CONTACT SIDEBAR (with mini cards)
+   ═══════════════════════════════════════════════════════ */
+.contact-sidebar-cards {
+  background: var(--palette-dark-navy);
+  border-radius: 20px;
+  padding: 36px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-sidebar-cards::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact-sidebar-cards > * { position: relative; z-index: 2; }
+
+/* ─── Sidebar Header ─── */
+.sidebar-header {
+  margin-bottom: 12px;
+}
+.sidebar-header h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.sidebar-header p {
+  color: var(--palette-light-blue);
+  font-size: 13.5px;
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+/* ─── Mini Card ─── */
+.mini-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(209, 216, 224, 0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: all .25s ease;
+  position: relative;
+}
+
+.mini-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(58, 110, 165, 0.5);
+  transform: translateX(-4px);
+}
+html[dir="ltr"] .mini-card:hover { transform: translateX(4px); }
+
+/* Primary (Hotline) */
+.mini-card--primary {
+  background: linear-gradient(135deg, var(--palette-mid-blue) 0%, #2a5280 100%);
+  border-color: transparent;
+}
+.mini-card--primary:hover {
+  background: linear-gradient(135deg, #2a5280 0%, #1e3d61 100%);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(58, 110, 165, 0.35);
+}
+
+/* Static (no arrow, no hover shift) */
+.mini-card--static {
+  cursor: default;
+}
+.mini-card--static:hover {
+  transform: none;
+}
+html[dir="rtl"] .mini-card--static:hover { transform: none; }
+
+/* ─── Icon ─── */
+.mini-card__icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: rgba(209, 216, 224, 0.1);
+  color: var(--palette-light-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  transition: transform .25s ease;
+}
+.mini-card:hover .mini-card__icon {
+  transform: scale(1.08);
+  background: rgba(58, 110, 165, 0.35);
+}
+.mini-card--primary .mini-card__icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+.mini-card--primary:hover .mini-card__icon {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Body ─── */
+.mini-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mini-card__label {
+  color: var(--palette-light-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+.mini-card--primary .mini-card__label {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.mini-card__value {
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-card__sub {
+  color: var(--palette-light-blue);
+  font-size: 12.5px;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* ─── Arrow ─── */
+.mini-card__arrow {
+  color: var(--palette-light-blue);
+  font-size: 14px;
+  opacity: 0.4;
+  transition: all .25s ease;
+  flex-shrink: 0;
+}
+.mini-card:hover .mini-card__arrow {
+  opacity: 1;
+  transform: translateX(-4px);
+}
+html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px); }
+.mini-card--primary .mini-card__arrow {
+  color: #fff;
+  opacity: 0.7;
+}
+.mini-card--primary:hover .mini-card__arrow {
+  opacity: 1;
+}
+
+/* ─── Working Hours ─── */
+.hours-mini {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+  width: 100%;
+}
+.hours-mini li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0;
+  border-bottom: 1px dashed rgba(209, 216, 224, 0.15);
+  font-size: 13px;
+}
+.hours-mini li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.hours-mini li span {
+  color: var(--palette-light-blue);
+  opacity: 0.85;
+}
+.hours-mini li strong {
+  color: #fff;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.hours-mini li strong.is-off {
+  color: #F87171;
+}
+
+/* ─── Sidebar Footer (Social) ─── */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(209, 216, 224, 0.12);
+}
+.sidebar-footer__label {
+  display: block;
+  color: var(--palette-light-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.65;
+}
+.sidebar-footer__social {
+  display: flex;
+  gap: 8px;
+}
+.sidebar-footer__social a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--palette-light-blue);
+  font-size: 16px;
+  transition: all .25s ease;
+  text-decoration: none;
+}
+.sidebar-footer__social a:hover {
+  background: var(--palette-mid-blue);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 992px) {
+  .contact-sidebar-cards {
+    padding: 28px 22px;
+  }
+}
+@media (max-width: 576px) {
+  .contact-sidebar-cards {
+    padding: 24px 18px;
+    gap: 10px;
+  }
+  .mini-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+  .mini-card__icon {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  .mini-card__value {
+    font-size: 13.5px;
+  }
+  .mini-card__arrow {
+    display: none;
+  }
+}    /* ═══════════════════════════════════════════════════════
+       BRANCHES
+       ═══════════════════════════════════════════════════════ */
+    .branch-card {
+      background: #fff;
+      border: 1px solid var(--palette-light-blue);
+      border-radius: 16px;
+      padding: 32px 26px;
+      text-align: center;
+      transition: all .3s ease;
+      height: 100%;
+    }
+    .branch-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--palette-mid-blue);
+      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
+    }
+    .branch-card__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--palette-mid-blue);
+      font-size: 26px;
+    }
+    .branch-card h4 {
+      color: var(--palette-dark-navy);
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .branch-card__role {
+      color: var(--palette-mid-blue);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .branch-card p {
+      color: #64748B;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SHADCN-STYLE ACCORDION FAQ
+       ═══════════════════════════════════════════════════════ */
+    .shadcn-accordion {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .shadcn-accordion .accordion-item {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--palette-light-blue);
+    }
+
+    .shadcn-accordion .accordion-item:first-child {
+      border-top: 0;
+    }
+
+    .shadcn-accordion .accordion-item:last-child {
+      border-bottom: 0;
+    }
+
+    .shadcn-accordion .accordion-header {
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    .shadcn-accordion .accordion-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      padding: 0.625rem 0;
+      background: transparent;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      box-shadow: none;
+      text-align: right;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--palette-dark-navy);
+      transition: border-color .15s, box-shadow .15s, background-color .15s;
+    }
+
+    .shadcn-accordion .accordion-button::after {
+      display: none;
+    }
+
+    .shadcn-accordion .accordion-button:not(.collapsed) {
+      background: transparent;
+      color: var(--palette-dark-navy);
+      box-shadow: none;
+    }
+
+    .shadcn-accordion .accordion-button:hover {
+      background: transparent;
+    }
+
+    .shadcn-accordion .accordion-button:focus {
+      box-shadow: none;
+      border-color: var(--palette-mid-blue);
+      outline: 0;
+    }
+
+    .shadcn-accordion .accordion-button:focus-visible {
+      box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.25);
+    }
+
+    .shadcn-accordion-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .shadcn-accordion-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--palette-light-blue);
+      color: var(--palette-mid-blue);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .shadcn-accordion-icon i {
+      font-size: 1rem;
+    }
+
+    .shadcn-accordion-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+      min-width: 0;
+      text-align: right;
+    }
+
+    .shadcn-accordion-title {
+      font-weight: 600;
+      color: var(--palette-dark-navy);
+      line-height: 1.3;
+    }
+
+    .shadcn-accordion-subtitle {
+      color: rgba(11, 29, 51, .55);
+      font-weight: 400;
+      font-size: 0.8125rem;
+      line-height: 1.3;
+    }
+
+    .shadcn-accordion-plus {
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: rgba(11, 29, 51, .5);
+      transition: transform .2s ease;
+    }
+
+    .shadcn-accordion .accordion-button:not(.collapsed) .shadcn-accordion-plus {
+      transform: rotate(45deg);
+    }
+
+    .shadcn-accordion .accordion-body.shadcn-accordion-content {
+      padding: 0 0 1rem 0;
+      margin-right: 3.5rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: rgba(11, 29, 51, .7);
+      background: transparent;
+      text-align: right;
+    }
+
+    .shadcn-accordion .accordion-collapse {
+      transition: height .25s ease;
+    }
+
+    @media (max-width: 575px) {
+      .shadcn-accordion .accordion-body.shadcn-accordion-content {
+        margin-right: 0;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CTA STRIP
+       ═══════════════════════════════════════════════════════ */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+      border-radius: 24px;
+      padding: 56px 44px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-strip > * { position: relative; z-index: 2; }
+    .cta-strip h2 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .cta-strip p {
+      color: var(--palette-light-blue);
+      font-size: 16px;
+      margin-bottom: 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--palette-dark-navy);
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+    .btn-light:hover {
+      background: var(--palette-light-blue);
+      transform: translateY(-2px);
+      color: var(--palette-dark-navy);
+    }
+    @media (max-width: 768px) {
+      .cta-strip { padding: 40px 24px; }
+      .cta-strip h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER / NAVBAR
+       ═══════════════════════════════════════════════════════ -->
+<div id="navbar-root"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- ─── Contact Hero ─── -->
+    <section class="contact-hero">
+      <div class="container" data-aos="fade-up">
+        <h1>نحن هنا لمساعدتك</h1>
+        <p>
+          فريقنا متاح على مدار الساعة للإجابة على استفساراتك. تواصل معنا عبر النموذج أو أي من قنوات الاتصال المباشرة.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Contact Form + Sidebar ─── -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Form -->
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="contact-form-wrap">
+              <h3>أرسل لنا رسالة</h3>
+              <p>سنرد عليك خلال 24 ساعة كحد أقصى.</p>
+
+              <form id="contactForm" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-field">
+                      <label for="userName">الاسم الكامل <span>*</span></label>
+                      <input type="text" name="name" id="userName" placeholder="مثال: أحمد الشامي" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-field">
+                      <label for="userEmail">البريد الإلكتروني <span>*</span></label>
+                      <input type="email" name="email" id="userEmail" placeholder="you@company.com" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-field">
+                      <label for="userPhone">رقم الهاتف</label>
+                      <input type="tel" name="phone" id="userPhone" placeholder="+967 7XX XXX XXX">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-field">
+                      <label for="userSubject">الموضوع <span>*</span></label>
+                      <input type="text" name="subject" id="userSubject" placeholder="طلب عرض سعر / استفسار" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="userMessage">الرسالة <span>*</span></label>
+                  <textarea name="message" id="userMessage" rows="5" placeholder="أخبرنا عن احتياجاتك..." required></textarea>
+                </div>
+
+                <button type="submit" class="send-button" id="sendBtn">
+                  <i class="bi bi-send"></i>
+                  إرسال الرسالة
+                </button>
+
+                <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+<!-- ═══ Contact Sidebar (Cards) ═══ -->
+<div class="col-lg-5" data-aos="fade-right">
+  <div class="contact-sidebar-cards">
+
+    <!-- Header -->
+    <div class="sidebar-header">
+      <h3>معلومات الاتصال</h3>
+      <p>تواصل معنا عبر أي من القنوات التالية</p>
+    </div>
+
+    <!-- Hotline Card (مميزة) -->
+    <a href="tel:+9672396056" class="mini-card mini-card--primary">
+      <div class="mini-card__icon">
+        <i class="bi bi-telephone-fill"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">الخط الساخن</span>
+        <span class="mini-card__value" dir="ltr">+967 2 396 056</span>
+      </div>
+      <i class="bi bi-arrow-left mini-card__arrow"></i>
+    </a>
+
+    <!-- Email Card -->
+    <a href="mailto:info@tech-sat.com" class="mini-card">
+      <div class="mini-card__icon">
+        <i class="bi bi-envelope-fill"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">البريد الإلكتروني</span>
+        <span class="mini-card__value">info@tech-sat.com</span>
+      </div>
+      <i class="bi bi-arrow-left mini-card__arrow"></i>
+    </a>
+
+    <!-- Sales Card -->
+    <a href="mailto:Sales@tech-sat.com" class="mini-card">
+      <div class="mini-card__icon">
+        <i class="bi bi-headset"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">قسم المبيعات</span>
+        <span class="mini-card__value">Sales@tech-sat.com</span>
+        <span class="mini-card__sub" dir="ltr">+967 730 001 222</span>
+      </div>
+      <i class="bi bi-arrow-left mini-card__arrow"></i>
+    </a>
+
+    <!-- Support Card -->
+    <a href="mailto:Support@tech-sat.com" class="mini-card">
+      <div class="mini-card__icon">
+        <i class="bi bi-tools"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">قسم الدعم الفني</span>
+        <span class="mini-card__value">Support@tech-sat.com</span>
+        <span class="mini-card__sub" dir="ltr">+967 711 188 100</span>
+      </div>
+      <i class="bi bi-arrow-left mini-card__arrow"></i>
+    </a>
+
+    <!-- Location Card -->
+    <div class="mini-card mini-card--static">
+      <div class="mini-card__icon">
+        <i class="bi bi-geo-alt-fill"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">الموقع</span>
+        <span class="mini-card__value">عدن، اليمن</span>
+        <span class="mini-card__sub">المقر الرئيسي</span>
+      </div>
+    </div>
+
+    <!-- Working Hours Card -->
+    <div class="mini-card mini-card--static mini-card--hours">
+      <div class="mini-card__icon">
+        <i class="bi bi-clock-fill"></i>
+      </div>
+      <div class="mini-card__body">
+        <span class="mini-card__label">ساعات العمل</span>
+        <ul class="hours-mini">
+          <li>
+            <span>السبت - الخميس</span>
+            <strong dir="ltr">8:00 — 17:00</strong>
+          </li>
+          <li>
+            <span>الجمعة</span>
+            <strong class="is-off">مغلق</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Footer -->
+    <div class="sidebar-footer">
+      <span class="sidebar-footer__label">تابعنا على</span>
+      <div class="sidebar-footer__social">
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Branches ─── -->
+<!-- ═══════════════════════════════════════════════════════
+     WORLD MAP (Replaces Branches)
+     ═══════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="coverage">
+  <div class="container">
+
+    <div class="section-title" data-aos="fade-up">
+      <h2>تغطيتنا العالمية</h2>
+      <p>نربط اليمن بالعالم عبر شبكة من المحطات والفروع الاستراتيجية</p>
+    </div>
+
+    <div class="map-wrapper" data-aos="zoom-in">
+      <div class="map-wrapper__head">
+        <h3 class="map-wrapper__title">
+          <i class="bi bi-globe2"></i>
+          شبكة Tech-Sat الإقليمية
+        </h3>
+        <span class="map-wrapper__hint">اضغط على العلامات لاستكشاف المواقع</span>
+      </div>
+      <div id="map"></div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FAQ (shadcn-style accordion)
+         ═══════════════════════════════════════════════════════ -->
+    <section id="faq" class="faq section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>الأسئلة الشائعة</h2>
+        <p>كل ما تحتاج معرفته عن خدماتنا وحلولنا</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+
+            <div class="accordion shadcn-accordion" id="faqAccordion">
+
+              <!-- 01 -->
+              <div class="accordion-item shadcn-accordion-item">
+                <h2 class="accordion-header shadcn-accordion-header">
+                  <button class="accordion-button shadcn-accordion-trigger" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">
+                    <span class="shadcn-accordion-left">
+                      <span class="shadcn-accordion-icon" aria-hidden="true">
+                        <i class="bi bi-satellite"></i>
+                      </span>
+                      <span class="shadcn-accordion-text">
+                        <span class="shadcn-accordion-title">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
+                        <span class="shadcn-accordion-subtitle">خدماتنا</span>
+                      </span>
+                    </span>
+                    <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
+                  </button>
+                </h2>
+                <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body shadcn-accordion-content">
+                    نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 02 -->
+              <div class="accordion-item shadcn-accordion-item">
+                <h2 class="accordion-header shadcn-accordion-header">
+                  <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                    <span class="shadcn-accordion-left">
+                      <span class="shadcn-accordion-icon" aria-hidden="true">
+                        <i class="bi bi-geo-alt"></i>
+                      </span>
+                      <span class="shadcn-accordion-text">
+                        <span class="shadcn-accordion-title">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
+                        <span class="shadcn-accordion-subtitle">التغطية</span>
+                      </span>
+                    </span>
+                    <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
+                  </button>
+                </h2>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body shadcn-accordion-content">
+                    نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 03 -->
+              <div class="accordion-item shadcn-accordion-item">
+                <h2 class="accordion-header shadcn-accordion-header">
+                  <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                    <span class="shadcn-accordion-left">
+                      <span class="shadcn-accordion-icon" aria-hidden="true">
+                        <i class="bi bi-tools"></i>
+                      </span>
+                      <span class="shadcn-accordion-text">
+                        <span class="shadcn-accordion-title">كم يستغرق تركيب نظام VSAT؟</span>
+                        <span class="shadcn-accordion-subtitle">التركيب</span>
+                      </span>
+                    </span>
+                    <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
+                  </button>
+                </h2>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body shadcn-accordion-content">
+                    يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 04 -->
+              <div class="accordion-item shadcn-accordion-item">
+                <h2 class="accordion-header shadcn-accordion-header">
+                  <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
+                    <span class="shadcn-accordion-left">
+                      <span class="shadcn-accordion-icon" aria-hidden="true">
+                        <i class="bi bi-headset"></i>
+                      </span>
+                      <span class="shadcn-accordion-text">
+                        <span class="shadcn-accordion-title">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
+                        <span class="shadcn-accordion-subtitle">الدعم الفني</span>
+                      </span>
+                    </span>
+                    <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
+                  </button>
+                </h2>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body shadcn-accordion-content">
+                    نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.
+                  </div>
+                </div>
+              </div>
+
+              <!-- 05 -->
+              <div class="accordion-item shadcn-accordion-item">
+                <h2 class="accordion-header shadcn-accordion-header">
+                  <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">
+                    <span class="shadcn-accordion-left">
+                      <span class="shadcn-accordion-icon" aria-hidden="true">
+                        <i class="bi bi-file-earmark-text"></i>
+                      </span>
+                      <span class="shadcn-accordion-text">
+                        <span class="shadcn-accordion-title">كيف أحصل على عرض سعر مخصص؟</span>
+                        <span class="shadcn-accordion-subtitle">الأسعار</span>
+                      </span>
+                    </span>
+                    <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
+                  </button>
+                </h2>
+                <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body shadcn-accordion-content">
+                    تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA Strip ─── -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-strip" data-aos="zoom-in">
+          <h2>جاهز لبدء مشروعك؟</h2>
+          <p>مهندسونا مستعدون لمساعدتك في اختيار الحل الأنسب. احصل على استشارة مجانية اليوم.</p>
+          <a href="#contact" class="btn-light" onclick="document.getElementById('userName').focus(); window.scrollTo({top: 800, behavior: 'smooth'}); return false;">
+            <i class="bi bi-chat-dots"></i>
+            ابدأ المحادثة
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+<div id="footer-root"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+   <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Leaflet JS (for World Map) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Main JS File (contains Map + Modal + Core) -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- ─── Page-Specific: Contact Form ─── -->
+  <script>
+    (function () {
+      'use strict';
+
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('formStatus');
+      var sendBtn = document.getElementById('sendBtn');
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var name = document.getElementById('userName').value.trim();
+          var email = document.getElementById('userEmail').value.trim();
+          var subject = document.getElementById('userSubject').value.trim();
+          var message = document.getElementById('userMessage').value.trim();
+
+          if (!name || !email || !subject || !message) {
+            status.className = 'form-status error';
+            status.textContent = 'الرجاء تعبئة جميع الحقول الإلزامية.';
+            return;
+          }
+
+          if (sendBtn) {
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> جاري الإرسال...';
+          }
+
+          setTimeout(function () {
+            status.className = 'form-status success';
+            status.textContent = '✓ تم استلام رسالتك. سنتواصل معك خلال 24 ساعة.';
+            if (sendBtn) {
+              sendBtn.disabled = false;
+              sendBtn.innerHTML = '<i class="bi bi-send"></i> إرسال الرسالة';
+            }
+            form.reset();
+            setTimeout(function () {
+              status.className = 'form-status';
+              status.textContent = '';
+            }, 6000);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
+</body>
+
+</html>

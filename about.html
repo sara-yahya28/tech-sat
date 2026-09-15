@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>من نحن — Tech-Sat</title>
+  <meta name="description" content="تعرّف على Tech-Sat — شركة يمنية رائدة في حلول الاتصالات الفضائية، الموزع الحصري لـ IEC Global Telecom.">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<script src="assets/js/Navbar-Footer.js"></script>
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════════════
+       COLOR PALETTE + PAGE STYLES
+       ═══════════════════════════════════════════════════════ -->
+  <style>
+    :root {
+      --palette-white: #F8F9FA;
+      --palette-light-blue: #D1D8E0;
+      --palette-mid-blue: #3A6EA5;
+      --palette-dark-navy: #0B1D33;
+
+      --default-font: "Tajawal", system-ui, sans-serif;
+      --heading-font: "Tajawal", system-ui, sans-serif;
+      --nav-font: "Tajawal", system-ui, sans-serif;
+
+      --default-color: var(--palette-dark-navy);
+      --heading-color: var(--palette-dark-navy);
+      --accent-color: var(--palette-mid-blue);
+      --surface-color: var(--palette-white);
+      --contrast-color: var(--palette-white);
+      --background-color: var(--palette-white);
+    }
+
+    body { font-family: 'Tajawal', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
+
+    /* ─── Header / Navbar ─── */
+    .header {
+      background-color: var(--palette-white) !important;
+      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
+    }
+    .header .logo h1 { color: var(--palette-dark-navy) !important; }
+    .header .social-links a { color: var(--palette-mid-blue) !important; }
+
+    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
+    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
+
+    /* ─── Buttons ─── */
+    .btn-primary {
+      background-color: var(--palette-mid-blue) !important;
+      border-color: var(--palette-mid-blue) !important;
+      color: var(--palette-white) !important;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all .25s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--palette-dark-navy) !important;
+      border-color: var(--palette-dark-navy) !important;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background-color: var(--palette-dark-navy) !important;
+      color: var(--palette-light-blue) !important;
+    }
+    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
+    .footer a { color: var(--palette-light-blue) !important; }
+    .footer a:hover { color: var(--palette-white) !important; }
+    .footer .social-links a { color: var(--palette-light-blue) !important; }
+    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
+
+    /* ═══════════════════════════════════════════════════════
+       PAGE HERO
+       ═══════════════════════════════════════════════════════ */
+    .about-hero {
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+      padding: 160px 0 80px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .about-hero .container { position: relative; z-index: 2; }
+    .about-hero .subtitle-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--palette-light-blue);
+      margin-bottom: 12px;
+    }
+    .about-hero h1 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .about-hero p {
+      color: var(--palette-light-blue);
+      font-size: 17px;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .about-hero h1 { font-size: 34px; }
+      .about-hero p { font-size: 15px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION BASE
+       ═══════════════════════════════════════════════════════ */
+    .section { padding: 80px 0; }
+    .section-title { text-align: center; margin-bottom: 56px; }
+    .section-title h2 {
+      color: var(--palette-dark-navy);
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      color: #64748B;
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ABOUT COMPANY BLOCK
+       ═══════════════════════════════════════════════════════ */
+    .company-story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 992px) {
+      .company-story { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .company-story__text h2 {
+      color: var(--palette-dark-navy);
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .company-story__text .lead {
+      color: var(--palette-dark-navy);
+      font-size: 17px;
+      line-height: 1.8;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .company-story__text p {
+      color: #64748B;
+      font-size: 15.5px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* Tag for exclusivity */
+    .exclusive-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(58, 110, 165, 0.1);
+      color: var(--palette-mid-blue);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    /* Image side */
+    .company-story__images {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 16px;
+    }
+    .company-story__images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.08);
+      transition: transform .4s ease;
+    }
+    .company-story__images img:hover {
+      transform: scale(1.03);
+    }
+    .company-story__images .img-large {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      height: 100%;
+    }
+    .company-story__images .img-small-1 { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .company-story__images .img-small-2 { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+    @media (max-width: 576px) {
+      .company-story__images {
+        grid-template-columns: 1fr;
+        grid-template-rows: 240px 160px 160px;
+      }
+      .company-story__images .img-large,
+      .company-story__images .img-small-1,
+      .company-story__images .img-small-2 {
+        grid-column: 1 / 2;
+        grid-row: auto;
+        height: 100%;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MILESTONES / VALUES CARDS
+       ═══════════════════════════════════════════════════════ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 992px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 576px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Milestone Card */
+    .milestone-card {
+      background: #fff;
+      border: 1px solid var(--palette-light-blue);
+      border-radius: 16px;
+      padding: 32px 26px;
+      text-align: center;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .milestone-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--palette-mid-blue);
+      transform: scaleX(0);
+      transition: transform .4s ease;
+      transform-origin: right;
+    }
+    .milestone-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--palette-mid-blue);
+      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
+    }
+    .milestone-card:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .milestone-card__year {
+      display: inline-block;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--palette-mid-blue);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+    .milestone-card__divider {
+      width: 40px;
+      height: 2px;
+      background: var(--palette-light-blue);
+      margin: 0 auto 16px;
+      border-radius: 2px;
+    }
+    .milestone-card__title {
+      color: var(--palette-dark-navy);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .milestone-card__desc {
+      color: #64748B;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+      flex: 1;
+    }
+
+    /* Value Card */
+    .value-card {
+      background: #fff;
+      border: 1px solid var(--palette-light-blue);
+      border-radius: 16px;
+      padding: 36px 26px;
+      text-align: center;
+      transition: all .3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--palette-mid-blue);
+      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
+    }
+    .value-card__icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--palette-mid-blue);
+      font-size: 30px;
+      transition: transform .3s ease;
+    }
+    .value-card:hover .value-card__icon {
+      transform: scale(1.08) rotate(-3deg);
+    }
+    .value-card__title {
+      color: var(--palette-dark-navy);
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .value-card__desc {
+      color: #64748B;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+      flex: 1;
+    }
+
+    /* Section with subtle bg */
+    .section--alt {
+      background: #F4F7FB;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER / NAVBAR
+       ═══════════════════════════════════════════════════════ -->
+  <div id="navbar-root"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- ─── About Hero ─── -->
+    <section class="about-hero">
+      <div class="container" data-aos="fade-up">
+        <h1>شركاؤك في الاتصال الفضائي</h1>
+        <p>
+          شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Company Story ─── -->
+    <section class="section">
+      <div class="container">
+        <div class="company-story">
+
+          <!-- Text -->
+          <div class="company-story__text" data-aos="fade-left">
+
+
+            <h2>من نحن؟</h2>
+
+            <p class="lead">
+              تأسست شركة Tech-Sat كشركة حلول متخصصة في توفير وتسليم حلول الاتصالات الفضائية الثابتة والمتنقلة عالية الموثوقية للشركات والمؤسسات العامة والمستهلكين.
+            </p>
+
+            <p>
+              توفر Tech-Sat تقنية عالية الجودة تعتمد على الأقمار الصناعية، وتمنح العملاء خدمات صوتية وبيانات شاملة وفعالة، متى وأينما كان ذلك مهمًا. نؤمن بأن نهجنا المتكامل في التصميم الداخلي والخبرة الهندسية يمنحنا ميزة تنافسية فريدة في المنطقة.
+            </p>
+
+            <p>
+              نخدم قطاعات حيوية تشمل الحكومة، والقطاع الإنساني، واللاسلكي، والإعلام، والطاقة، والمؤسسات، والقطاع البحري — بحلول مصممة خصيصًا لكل قطاع حسب احتياجاته الفريدة.
+            </p>
+
+            <p>
+              بفضل شراكتنا مع IEC Global Telecom، نقدم خدماتنا في الشرق الأوسط وأفريقيا وأوروبا، مع التزام كامل بالجودة والموثوقية.
+            </p>
+          </div>
+
+          <!-- Images -->
+          <div class="company-story__images" data-aos="fade-right">
+            <img class="img-large"
+                 src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800"
+                 alt="محطة VSAT">
+            <img class="img-small-1"
+                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600"
+                 alt="قمر صناعي">
+            <img class="img-small-2"
+                 src="https://images.unsplash.com/photo-1505705694340-019e1e335916?w=600"
+                 alt="اتصالات بحرية">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Milestones ─── -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>محطات مهمة في رحلتنا</h2>
+          <p>من شركة ناشئة إلى الموزع الحصري لشركة عالمية</p>
+        </div>
+
+        <div class="card-grid">
+
+          <!-- 2015 -->
+          <div class="milestone-card" data-aos="fade-up">
+            <span class="milestone-card__year">2015</span>
+            <div class="milestone-card__divider"></div>
+            <h3 class="milestone-card__title">التأسيس</h3>
+            <p class="milestone-card__desc">
+              انطلاق Tech-Sat في اليمن كشركة حلول متخصصة في الاتصالات الفضائية، برؤية واضحة لتقديم حلول موثوقة للقطاعات الحيوية.
+            </p>
+          </div>
+
+          <!-- 2018 -->
+          <div class="milestone-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="milestone-card__year">2018</span>
+            <div class="milestone-card__divider"></div>
+            <h3 class="milestone-card__title">شراكة IEC</h3>
+            <p class="milestone-card__desc">
+              أصبحنا الموزع الحصري لـ IEC Global Telecom في اليمن، مع توسيع نطاق الخدمات ليشمل الشرق الأوسط وأفريقيا وأوروبا.
+            </p>
+          </div>
+
+          <!-- 2021 -->
+          <div class="milestone-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="milestone-card__year">2021</span>
+            <div class="milestone-card__divider"></div>
+            <h3 class="milestone-card__title">توسّع إقليمي</h3>
+            <p class="milestone-card__desc">
+              توسّعنا لخدمة 15 دولة عبر تقنيات Ku و C-Band، مع إطلاق خدمات الشبكات المُدارة والدعم الفني على مدار الساعة.
+            </p>
+          </div>
+
+          <!-- 2025 -->
+          <div class="milestone-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="milestone-card__year">2025</span>
+            <div class="milestone-card__divider"></div>
+            <h3 class="milestone-card__title">+200 مشروع</h3>
+            <p class="milestone-card__desc">
+              تجاوزنا 200 مشروع منجز و500 عميل موثوق، مع خبرة متراكمة في خدمة الحكومة والإنساني والبحري والطاقة والإعلام.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Values ─── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>قيم الشركة</h2>
+          <p>المبادئ التي توجّه عملنا اليومي وعلاقتنا مع عملائنا وشركائنا</p>
+        </div>
+
+        <div class="card-grid">
+
+          <!-- Reliability -->
+          <div class="value-card" data-aos="fade-up">
+            <div class="value-card__icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h3 class="value-card__title">الموثوقية</h3>
+            <p class="value-card__desc">
+              نضمن استمرارية الاتصال على مدار الساعة، مع بنية تحتية مستقرة وخطوط احتياطية وتغطية شاملة في أصعب الظروف.
+            </p>
+          </div>
+
+          <!-- Innovation -->
+          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-card__icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h3 class="value-card__title">الابتكار</h3>
+            <p class="value-card__desc">
+              نتبنّى أحدث تقنيات الأقمار الصناعية في Ku و Ka-Band، ونطوّر حلولاً مخصصة تلبي كل تحدٍّ تقني.
+            </p>
+          </div>
+
+          <!-- Speed -->
+          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-card__icon">
+              <i class="bi bi-speedometer2"></i>
+            </div>
+            <h3 class="value-card__title">السرعة</h3>
+            <p class="value-card__desc">
+              نستجيب بسرعة لاحتياجات عملائنا، مع تركيب احترافي خلال 24-48 ساعة ودعم فني على مدار الساعة.
+            </p>
+          </div>
+
+          <!-- Customer Focus -->
+          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-card__icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h3 class="value-card__title">التركيز على العميل</h3>
+            <p class="value-card__desc">
+              نستمع، نفهم، ونصمم حلولاً تناسب احتياج كل عميل على حدة، ونتشارك معه رحلة النجاح خطوة بخطوة.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <div id="footer-root"></div>  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
