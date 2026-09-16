@@ -1,15 +1,4 @@
-/**
-* Template Name: LeadPage
-* Template URL: https://bootstrapmade.com/leadpage-bootstrap-landing-page-template/
-* Updated: Aug 12 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -57,9 +46,9 @@
   scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
+/* 
 # General Styling & Shared Classes
---------------------------------------------------------------*/
+ */
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -88,7 +77,7 @@ h6 {
 }
 
 /* PHP Email Form Messages
-------------------------------*/
+ */
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -139,9 +128,9 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Header
---------------------------------------------------------------*/
+ */
 .header {
   --background-color: rgba(255, 255, 255, 0);
   --default-color: #ffffff;
@@ -206,14 +195,14 @@ h6 {
 }
 
 /* Global Header on Scroll
-------------------------------*/
+          */
 .scrolled .header {
   --background-color: #1a1715;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Navigation Menu
---------------------------------------------------------------*/
+ */
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
   .navmenu {
@@ -448,9 +437,9 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Footer
---------------------------------------------------------------*/
+ */
 .footer {
   color: var(--default-color);
   background: var(--background-color);
@@ -765,9 +754,9 @@ textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Preloader
---------------------------------------------------------------*/
+ */
 #preloader {
   position: fixed;
   inset: 0;
@@ -800,9 +789,9 @@ textarea::placeholder {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Scroll Top Button
---------------------------------------------------------------*/
+ */
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -833,18 +822,18 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+ */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
+ */
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -895,9 +884,9 @@ textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Sections
---------------------------------------------------------------*/
+ */
 section,
 .section {
   color: var(--default-color);
@@ -915,9 +904,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Section Titles
---------------------------------------------------------------*/
+ */
 .section-title {
   text-align: center;
   padding-bottom: 60px;
@@ -970,9 +959,9 @@ section,
   text-wrap: balance;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Hero Section
---------------------------------------------------------------*/
+ */
 .hero {
   padding: 120px 0 60px 0;
   min-height: 100vh;
@@ -1107,9 +1096,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # About Section
---------------------------------------------------------------*/
+ */
 .about {
   padding-top: 60px;
   background-color: var(--background-color);
@@ -1275,9 +1264,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Clients Section
---------------------------------------------------------------*/
+ */
 .clients {
   padding-top: 30px;
   padding-bottom: 60px;
@@ -1325,9 +1314,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Features Section
---------------------------------------------------------------*/
+ */
 .features .tabs-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -1731,9 +1720,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Features Cards Section
---------------------------------------------------------------*/
+ */
 .features-cards .feature-card {
   height: 100%;
   background-color: var(--surface-color);
@@ -1914,17 +1903,9 @@ section,
   }
 }
 
-a.card.h-100 {
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-a.card.h-100:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-}
-
-/*--------------------------------------------------------------
+/* 
 # Call To Action Section
---------------------------------------------------------------*/
+ */
 .call-to-action {
   padding: 0;
 }
@@ -2016,9 +1997,9 @@ a.card.h-100:hover {
   z-index: 3;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Testimonials Section
---------------------------------------------------------------*/
+ */
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;
@@ -2103,9 +2084,9 @@ a.card.h-100:hover {
   background-color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Services Section
---------------------------------------------------------------*/
+ */
 .services .services-showcase {
   margin-bottom: 6rem;
 }
@@ -2392,9 +2373,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Pricing Section
---------------------------------------------------------------*/
+ */
 .pricing .pricing-item {
   background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
   padding: 40px 40px;
@@ -2531,9 +2512,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Faq Section
---------------------------------------------------------------*/
+ */
 .faq .faq-item {
   margin-bottom: 0;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -2718,9 +2699,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Portfolio Section
---------------------------------------------------------------*/
+ */
 .portfolio .portfolio-filters-wrapper {
   text-align: center;
   margin-bottom: 80px;
@@ -2906,9 +2887,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Team Section
---------------------------------------------------------------*/
+ */
 .team {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -3103,9 +3084,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Contact Section
---------------------------------------------------------------*/
+ */
 .contact .contact-form-container {
   padding: 60px 0;
 }
@@ -3380,9 +3361,9 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Service Details Section
---------------------------------------------------------------*/
+ */
 .service-details .service-hero {
   margin-bottom: 4rem;
 }
@@ -3883,16 +3864,16 @@ a.card.h-100:hover {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Starter Section Section
---------------------------------------------------------------*/
+ */
 .starter-section {
   /* Add your styles here */
 }
 
-/*--------------------------------------------------------------
+/* 
 # Portfolio Details Section
---------------------------------------------------------------*/
+ */
 .portfolio-details {
   --section-spacing: 5rem;
   --content-spacing: 4rem;
@@ -4448,9 +4429,9 @@ a.card.h-100:hover {
     border-radius: 0;
   }
 }
-/* ═══════════════════════════════════════════════════════
+/*  
    QUOTE MODAL
-   ═══════════════════════════════════════════════════════ */
+     */
 .quote-modal {
   position: fixed;
   inset: 0;
@@ -4735,4 +4716,160 @@ body.quote-modal-open {
  border: 0;
  padding: 10px 15px;
  width: 250px; 
+}
+
+/* ═══════════════════════════════════════════════════════
+   WORLD MAP (Leaflet)
+   ═══════════════════════════════════════════════════════ */
+.map-wrapper {
+  background: var(--palette-dark-navy);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(11, 29, 51, 0.15);
+}
+
+.map-wrapper__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.map-wrapper__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.map-wrapper__hint {
+  font-size: 12px;
+  color: var(--palette-light-blue);
+  opacity: 0.75;
+}
+
+#map {
+  width: 100%;
+  height: 520px;
+  border-radius: 16px;
+  border: 2px solid rgba(58, 110, 165, 0.3);
+  background: #0a1225;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  #map { height: 400px; }
+}
+
+/* ─── Custom Markers ─── */
+.custom-marker {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.custom-marker__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(58, 110, 165, 0.6);
+  animation: mapPulse 1.8s ease-out infinite;
+}
+
+.custom-marker__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--palette-mid-blue);
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px rgba(58, 110, 165, 0.9);
+}
+
+/* HQ Marker (Yemen) */
+.custom-marker--hq .custom-marker__ring {
+  background: rgba(209, 216, 224, 0.5);
+}
+.custom-marker--hq .custom-marker__dot {
+  width: 18px;
+  height: 18px;
+  background: var(--palette-light-blue);
+  box-shadow: 0 0 20px rgba(209, 216, 224, 1);
+}
+
+/* Hub Markers */
+.custom-marker--hub .custom-marker__ring {
+  background: rgba(58, 110, 165, 0.5);
+}
+
+@keyframes mapPulse {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* ─── Popup ─── */
+.leaflet-popup-content-wrapper {
+  background: var(--palette-dark-navy);
+  color: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(58, 110, 165, 0.5);
+  box-shadow: 0 10px 30px rgba(11, 29, 51, 0.4);
+}
+.leaflet-popup-tip {
+  background: var(--palette-dark-navy);
+  border: 1px solid rgba(58, 110, 165, 0.5);
+}
+.leaflet-popup-close-button {
+  color: var(--palette-light-blue) !important;
+}
+.leaflet-popup-content {
+  margin: 14px 18px;
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+.map-popup__title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.map-popup__desc {
+  font-size: 12.5px;
+  color: var(--palette-light-blue);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+.map-popup__badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--palette-light-blue);
+  color: var(--palette-dark-navy);
+  border-radius: 999px;
+}
+
+/* ─── Zoom Controls ─── */
+.leaflet-control-zoom a {
+  background: var(--palette-dark-navy) !important;
+  color: #fff !important;
+  border: 1px solid rgba(58, 110, 165, 0.5) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--palette-mid-blue) !important;
+}
+
+/* ─── Attribution ─── */
+.leaflet-control-attribution {
+  background: rgba(11, 29, 51, 0.85) !important;
+  color: var(--palette-light-blue) !important;
+  font-size: 10px !important;
+}
+.leaflet-control-attribution a {
+  color: var(--palette-mid-blue) !important;
 }

@@ -1,4 +1,5 @@
-/*TECH-SAT — Central Data (bilingual)*/
+/* TECH-SAT — Central Data */
+
 const DATA = {
 
   stats: [
@@ -8,51 +9,16 @@ const DATA = {
     { icon: 'bi-trophy', value: 10, label: 'سنوات خبرة', suffix: '+' },
   ],
 
-  packages: [
-    {
-      id: 'gov',
-      title:    { ar: 'باكيج القطاع العام', en: 'Public Sector Package' },
-      category: { ar: 'الأكثر طلبًا', en: 'Most Requested' },
-      image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800',
-      short:    { ar: 'حلول اتصالات آمنة للجهات الحكومية والمنظمات الإنسانية.', en: 'Secure communication solutions for government and humanitarian organizations.' },
-      features: [
-        { ar: 'VSAT مشفر', en: 'Encrypted VSAT' },
-        { ar: 'اتصالات آمنة', en: 'Secure communications' },
-        { ar: 'صوت وبيانات', en: 'Voice & data' },
-        { ar: 'نشر سريع', en: 'Rapid deployment' },
-        { ar: 'دعم 24/7', en: '24/7 support' }
-      ],
-      audience: { ar: 'وزارات، سفارات، UN، منظمات الإغاثة', en: 'Ministries, embassies, UN, relief organizations' }
-    },
-    {
-      id: 'field',
-      title:    { ar: 'باكيج العمليات الميدانية', en: 'Field Operations Package' },
-      image: 'https://images.unsplash.com/photo-1505705694340-019e1e335916?w=800',
-      short:    { ar: 'اتصالات موثوقة في المواقع النائية والظروف الصعبة.', en: 'Reliable communications in remote locations and harsh conditions.' },
-      features: [
-        { ar: 'Marine VSAT', en: 'Marine VSAT' },
-        { ar: 'أجهزة محمولة', en: 'Portable devices' },
-        { ar: 'نطاق عالي', en: 'High bandwidth' },
-        { ar: 'خطوط احتياطية', en: 'Backup lines' },
-        { ar: 'دعم ميداني', en: 'Field support' }
-      ],
-      audience: { ar: 'شركات الشحن، منصات النفط، القنوات التلفزيونية', en: 'Shipping companies, oil platforms, TV channels' }
-    },
-    {
-      id: 'ent',
-      title:    { ar: 'باكيج المؤسسات', en: 'Enterprise Package' },
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-      short:    { ar: 'حلول شبكات مُدارة للشركات متعددة الفروع.', en: 'Managed network solutions for multi-branch enterprises.' },
-      features: [
-        { ar: 'شبكة مُدارة', en: 'Managed network' },
-        { ar: 'VPN', en: 'VPN' },
-        { ar: 'ضمان SLA', en: 'SLA guarantee' },
-        { ar: 'مراقبة 24/7', en: '24/7 monitoring' },
-        { ar: 'تقارير أداء', en: 'Performance reports' }
-      ],
-      audience: { ar: 'بنوك، شركات اتصالات، مؤسسات كبرى', en: 'Banks, telecom companies, large enterprises' }
-    }
-  ],
+    products: [
+        { id: 'vsat-term', category: 'vsat', title: 'VSAT Terminal', image: 'assets/img/products/vsat_terminal.png', short: 'محطة أرضية عالية الأداء.', specs: ['Ku-Band', '20/5 Mbps', '1.2m'] },
+        { id: 'sat-phone', category: 'phones', title: 'Satellite Phone', image: 'assets/img/products/sat_phone.png', short: 'هاتف فضائي محمول.', specs: ['تغطية عالمية', 'بطارية 8h', 'GPS'] },
+        { id: 'marine', category: 'vsat', title: 'Marine VSAT Dome', image: 'assets/img/products/marine_vsat.png', short: 'اتصالات بحرية للسفن والموانئ.', specs: ['مقاوم للماء', 'تتبع تلقائي', 'High Gain'] },
+        { id: 'broadband', category: 'vsat', title: 'Broadband Kit', image: 'assets/img/products/vsat_terminal.png', short: 'مجموعة الإنترنت الفضائي المتكاملة.', specs: ['سهل التركيب', 'سرعة عالية'] },
+        { id: 'portable', category: 'vsat', title: 'Portable Terminal', image: 'assets/img/products/sat_phone.png', short: 'محطة اتصالات محمولة.', specs: ['حقيبة ظهر', 'وزن 8kg'] },
+        { id: 'antenna', category: 'antennas', title: 'Fixed Antenna Dish', image: 'assets/img/products/vsat_terminal.png', short: 'هوائي فضائي ثابت.', specs: ['قطر 1.8m', 'مقاوم للرياح'] },
+        { id: 'modem', category: 'modems', title: 'Satellite Modem', image: 'assets/img/products/marine_vsat.png', short: 'مودم فضائي عالي السرعة.', specs: ['Ku/Ka Band', '2W'] },
+        { id: 'router', category: 'modems', title: 'Network Gateway Router', image: 'assets/img/products/sat_phone.png', short: 'راوتر شبكات وإدارة البيانات.', specs: ['4 منافذ', 'WiFi 6'] },
+    ],
 
   services: [
     {
