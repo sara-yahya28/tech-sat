@@ -1,54 +1,37 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tech-Sat — حلول الاتصالات الفضائية</title>
+  <title>— حلول الاتصالات الفضائية</title>
   <meta name="description" content="Tech-Sat — الموزع الحصري لـ IEC Global Telecom في اليمن. حلول اتصالات فضائية موثوقة.">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <script src="assets/js/Navbar-Footer.js"></script>
-  <!-- Main CSS File -->
+  <!-- Shared CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/palette.css" rel="stylesheet">
+  <link href="assets/css/components.css" rel="stylesheet">
   <link href="assets/css/orbit.css" rel="stylesheet">
 
-  <!-- ═══════════════════════════════════════════════════════
-       COLOR PALETTE OVERRIDES
-       ═══════════════════════════════════════════════════════ -->
+  <!-- Navbar/Footer partial loader -->
+  <script src="assets/js/Navbar-Footer.js"></script>
+
+  <!-- Home-only overrides -->
   <style>
     :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
-
       --oh-cream: var(--palette-white);
       --oh-space: var(--palette-dark-navy);
       --oh-navy: var(--palette-mid-blue);
@@ -57,20 +40,6 @@
       --oh-beige: var(--palette-light-blue);
       --oh-white: #ffffff;
     }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover>a { color: var(--palette-mid-blue) !important; }
-
     .btn-primary, .oh-btn--teal {
       background-color: var(--palette-mid-blue) !important;
       border-color: var(--palette-mid-blue) !important;
@@ -80,24 +49,12 @@
       background-color: var(--palette-dark-navy) !important;
       border-color: var(--palette-dark-navy) !important;
     }
-
     .oh-btn--beige {
       background-color: var(--palette-light-blue) !important;
       color: var(--palette-dark-navy) !important;
       border-color: var(--palette-light-blue) !important;
     }
     .oh-btn--beige:hover { background-color: #b0bac6 !important; }
-
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-    .footer .copyright, .footer .credits { border-top-color: rgba(209, 216, 224, 0.1) !important; }
 
     .orbits-hero { background-color: var(--palette-white) !important; }
     .oh-orbit { stroke: var(--palette-light-blue) !important; }
@@ -118,7 +75,6 @@
       box-shadow: 0 20px 40px rgba(58, 110, 165, 0.3) !important;
     }
 
-    /* Card images with icons instead of image files */
     .feature-icon-box {
       height: 180px;
       display: flex;
@@ -129,72 +85,6 @@
       color: var(--palette-mid-blue);
     }
 
-    /* ═══ SHADCN-STYLE ACCORDION ═══ */
-    .shadcn-accordion { width: 100%; background: transparent; border: 0; }
-    .shadcn-accordion .accordion-item {
-      background: transparent; border: 0;
-      border-bottom: 1px solid var(--palette-light-blue);
-    }
-    .shadcn-accordion .accordion-item:first-child { border-top: 0; }
-    .shadcn-accordion .accordion-item:last-child { border-bottom: 0; }
-    .shadcn-accordion .accordion-header { margin: 0; font-size: inherit; font-weight: inherit; }
-    .shadcn-accordion .accordion-button {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; width: 100%; padding: 0.625rem 0;
-      background: transparent; background-image: none;
-      border: 1px solid transparent; border-radius: 0.5rem;
-      box-shadow: none; text-align: right;
-      font-family: inherit; font-size: 0.875rem; font-weight: 500;
-      color: var(--palette-dark-navy);
-      transition: border-color .15s, box-shadow .15s, background-color .15s;
-    }
-    .shadcn-accordion .accordion-button::after { display: none; }
-    .shadcn-accordion .accordion-button:not(.collapsed) {
-      background: transparent; color: var(--palette-dark-navy); box-shadow: none;
-    }
-    .shadcn-accordion .accordion-button:hover { background: transparent; }
-    .shadcn-accordion .accordion-button:focus {
-      box-shadow: none; border-color: var(--palette-mid-blue); outline: 0;
-    }
-    .shadcn-accordion .accordion-button:focus-visible {
-      box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.25);
-    }
-    .shadcn-accordion-left { display: flex; align-items: center; gap: 1rem; min-width: 0; }
-    .shadcn-accordion-icon {
-      display: inline-flex; align-items: center; justify-content: center;
-      flex-shrink: 0; width: 2.5rem; height: 2.5rem;
-      border-radius: 50%; border: 1px solid var(--palette-light-blue);
-      color: var(--palette-mid-blue); font-size: 1rem;
-    }
-    .shadcn-accordion-text {
-      display: flex; flex-direction: column; gap: 0.125rem;
-      min-width: 0; text-align: right;
-    }
-    .shadcn-accordion-title {
-      font-weight: 600; color: var(--palette-dark-navy); line-height: 1.3;
-    }
-    .shadcn-accordion-subtitle {
-      color: rgba(11, 29, 51, .55); font-weight: 400;
-      font-size: 0.8125rem; line-height: 1.3;
-    }
-    .shadcn-accordion-plus {
-      flex-shrink: 0; font-size: 1rem;
-      color: rgba(11, 29, 51, .5); transition: transform .2s ease;
-    }
-    .shadcn-accordion .accordion-button:not(.collapsed) .shadcn-accordion-plus {
-      transform: rotate(45deg);
-    }
-    .shadcn-accordion .accordion-body.shadcn-accordion-content {
-      padding: 0 0 1rem 0; margin-right: 3.5rem;
-      font-size: 0.875rem; line-height: 1.7;
-      color: rgba(11, 29, 51, .7); background: transparent;
-      text-align: right;
-    }
-    @media (max-width: 575px) {
-      .shadcn-accordion .accordion-body.shadcn-accordion-content { margin-right: 0; }
-    }
-
-    /* RTL adjustments */
     [dir="rtl"] .oh-text { text-align: right; }
     [dir="rtl"] .oh-actions { justify-content: flex-start; }
     @media (max-width: 1024px) {
@@ -203,16 +93,13 @@
     }
   </style>
 </head>
-
 <body class="index-page">
 
-<div id="navbar-root"></div>
+  <div id="navbar-root"></div>
 
   <main class="main">
 
-    <!-- ═══════════════════════════════════════
-         HERO — ORBITS
-         ═══════════════════════════════════════ -->
+    <!-- HERO — ORBITS -->
     <section id="hero" class="orbits-hero">
       <div class="oh-dots"></div>
       <div class="oh-glow oh-glow--teal"></div>
@@ -230,20 +117,20 @@
               حلول اتصالات فضائية موثوقة في أكثر المواقع النائية. حلول مخصصة لكل قطاع، بفلسفة تضع العميل في المقام الأول.
             </p>
             <div class="oh-actions" data-aos="fade-up" data-aos-delay="250">
-              <a href="#contact" class="oh-btn oh-btn--teal">
+              <a href="contact.html" class="oh-btn oh-btn--teal">
                 <span>تواصل معنا واستكشف الحلول</span>
                 <span class="oh-btn__arrow">←</span>
               </a>
-              <a href="#contact" class="oh-btn oh-btn--beige">اطلب عرض سعر</a>
+              <button type="button" class="oh-btn oh-btn--beige" data-open-quote>اطلب عرض سعر</button>
             </div>
           </div>
 
           <div class="oh-orbits" id="orbitsContainer">
             <div class="oh-stage">
               <svg class="oh-stage__svg" viewBox="0 0 500 500" aria-hidden="true">
-                <circle cx="250" cy="250" r="235" class="oh-orbit oh-orbit--outer" />
-                <circle cx="250" cy="250" r="190" class="oh-orbit oh-orbit--mid" />
-                <circle cx="250" cy="250" r="140" class="oh-orbit oh-orbit--inner" />
+                <ellipse cx="250" cy="250" rx="235" ry="150" class="oh-orbit oh-orbit--outer" />
+                <ellipse cx="250" cy="250" rx="190" ry="120" class="oh-orbit oh-orbit--mid" />
+                <ellipse cx="250" cy="250" rx="140" ry="90" class="oh-orbit oh-orbit--inner" />
                 <line x1="250" y1="5" x2="250" y2="20" class="oh-tick" />
                 <line x1="250" y1="480" x2="250" y2="495" class="oh-tick" />
                 <line x1="5" y1="250" x2="20" y2="250" class="oh-tick" />
@@ -252,37 +139,36 @@
 
               <div class="oh-center">
                 <span class="oh-center__ping"></span>
-                <span class="oh-center__icon">📡</span>
                 <span class="oh-center__label">TECH-SAT</span>
               </div>
 
               <div class="oh-stage__nodes" id="orbitsNodes">
                 <div class="oh-node" data-id="sat" data-orbit="3" data-angle="15" data-name="أقمار صناعية" data-cat="مدار GEO / LEO">
-                  <div class="oh-node__img"><span class="oh-node__icon">🛰️</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-globe-americas"></i></span></div>
                   <span class="oh-node__label">أقمار صناعية</span>
                 </div>
                 <div class="oh-node" data-id="vsat" data-orbit="1" data-angle="75" data-name="محطة VSAT" data-cat="محطة أرضية">
-                  <div class="oh-node__img"><span class="oh-node__icon">📡</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-broadcast-pin"></i></span></div>
                   <span class="oh-node__label">محطة VSAT</span>
                 </div>
                 <div class="oh-node" data-id="maritime" data-orbit="2" data-angle="140" data-name="البحري" data-cat="أساطيل وموانئ">
-                  <div class="oh-node__img"><span class="oh-node__icon">🚢</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-water"></i></span></div>
                   <span class="oh-node__label">البحري</span>
                 </div>
                 <div class="oh-node" data-id="gov" data-orbit="3" data-angle="195" data-name="الحكومة" data-cat="عمليات سيادية">
-                  <div class="oh-node__img"><span class="oh-node__icon">🏛️</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-bank"></i></span></div>
                   <span class="oh-node__label">الحكومة</span>
                 </div>
                 <div class="oh-node" data-id="energy" data-orbit="1" data-angle="250" data-name="الطاقة والنفط" data-cat="حقول النفط والغاز">
-                  <div class="oh-node__img"><span class="oh-node__icon">🛢️</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-fuel-pump"></i></span></div>
                   <span class="oh-node__label">الطاقة والنفط</span>
                 </div>
                 <div class="oh-node" data-id="broadcast" data-orbit="2" data-angle="305" data-name="الإعلام والبث" data-cat="بث حي">
-                  <div class="oh-node__img"><span class="oh-node__icon">📺</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-camera-video"></i></span></div>
                   <span class="oh-node__label">الإعلام</span>
                 </div>
                 <div class="oh-node" data-id="corp" data-orbit="3" data-angle="345" data-name="المؤسسات" data-cat="بنوك ومقرات">
-                  <div class="oh-node__img"><span class="oh-node__icon">🏢</span></div>
+                  <div class="oh-node__img"><span class="oh-node__icon"><i class="bi bi-buildings"></i></span></div>
                   <span class="oh-node__label">المؤسسات</span>
                 </div>
               </div>
@@ -292,11 +178,8 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         ABOUT
-         ═══════════════════════════════════════ -->
+    <!-- ABOUT -->
     <section id="about" class="about section">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
@@ -345,9 +228,7 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         FEATURES TABS (Products / Services / Packages)
-         ═══════════════════════════════════════ -->
+    <!-- FEATURES TABS -->
     <section id="features" class="features section">
       <div class="container section-title" data-aos="fade-up">
         <h2>حلولنا المتكاملة</h2>
@@ -362,9 +243,7 @@
                 <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
                   <div class="tab-content-preview">
                     <span class="tab-number">01</span>
-                    <div class="tab-text">
-                      <h6>المنتجات</h6><small>عتاد عالي الأداء</small>
-                    </div>
+                    <div class="tab-text"><h6>المنتجات</h6><small>عتاد عالي الأداء</small></div>
                   </div>
                 </a>
               </li>
@@ -372,9 +251,7 @@
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
                   <div class="tab-content-preview">
                     <span class="tab-number">02</span>
-                    <div class="tab-text">
-                      <h6>الخدمات</h6><small>حلول متخصصة</small>
-                    </div>
+                    <div class="tab-text"><h6>الخدمات</h6><small>حلول متخصصة</small></div>
                   </div>
                 </a>
               </li>
@@ -382,9 +259,7 @@
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
                   <div class="tab-content-preview">
                     <span class="tab-number">03</span>
-                    <div class="tab-text">
-                      <h6>الباكيجات</h6><small>عروض جاهزة</small>
-                    </div>
+                    <div class="tab-text"><h6>الباكيجات</h6><small>عروض جاهزة</small></div>
                   </div>
                 </a>
               </li>
@@ -392,8 +267,6 @@
           </div>
 
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-
-            <!-- ═══ PRODUCTS ═══ -->
             <div class="tab-pane fade active show" id="features-tab-1">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
@@ -429,7 +302,6 @@
               </div>
             </div>
 
-            <!-- ═══ SERVICES ═══ -->
             <div class="tab-pane fade" id="features-tab-2">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
@@ -465,7 +337,6 @@
               </div>
             </div>
 
-            <!-- ═══ PACKAGES ═══ -->
             <div class="tab-pane fade" id="features-tab-3">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
@@ -500,15 +371,12 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         TESTIMONIALS
-         ═══════════════════════════════════════ -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="testimonials section">
       <div class="container section-title" data-aos="fade-up">
         <h2>ماذا يقول عملاؤنا</h2>
@@ -516,8 +384,7 @@
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper init-swiper" data-speed="600" data-delay="5000"
-          data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+        <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
             {
               "loop": true,
@@ -532,82 +399,42 @@
             }
           </script>
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>فريق Tech-Sat قدّم لنا حلاً متكاملاً في وقت قياسي. الاتصال مستقر 100% في أصعب الظروف.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <h3>أحمد الشامي</h3>
-                <h4>مدير تقني — وزارة الاتصالات</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>خدمة VSAT البحرية نقلت عملياتنا لمرحلة جديدة. التغطية ممتازة حتى في عرض البحر.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <h3>خالد العمري</h3>
-                <h4>مدير العمليات — شركة الشحن الوطنية</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>الدعم الفني 24/7 أنقذ مشروعنا في لحظة حرجة. استجابة فورية واحترافية عالية.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <h3>سارة المقطري</h3>
-                <h4>مديرة مشاريع — منظمة إنسانية دولية</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>منذ أن تعاملنا مع Tech-Sat، اختفت مشاكل الاتصال تمامًا. احترافية نادرة في المنطقة.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <h3>محمد الحداد</h3>
-                <h4>الرئيس التنفيذي — شركة طاقة</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>حل VSAT ساعدنا في توصيل خدماتنا لمناطق لم تصلها أي شركة اتصالات أخرى.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <h3>فاطمة ناصر</h3>
-                <h4>مديرة تقنية — مؤسسة تعليمية</h4>
-              </div>
-            </div>
+            <div class="swiper-slide"><div class="testimonial-item">
+              <p><i class="bi bi-quote quote-icon-left"></i><span>فريق Tech-Sat قدّم لنا حلاً متكاملاً في وقت قياسي. الاتصال مستقر 100% في أصعب الظروف.</span><i class="bi bi-quote quote-icon-right"></i></p>
+              <h3>أحمد الشامي</h3><h4>مدير تقني — وزارة الاتصالات</h4>
+            </div></div>
+            <div class="swiper-slide"><div class="testimonial-item">
+              <p><i class="bi bi-quote quote-icon-left"></i><span>خدمة VSAT البحرية نقلت عملياتنا لمرحلة جديدة. التغطية ممتازة حتى في عرض البحر.</span><i class="bi bi-quote quote-icon-right"></i></p>
+              <h3>خالد العمري</h3><h4>مدير العمليات — شركة الشحن الوطنية</h4>
+            </div></div>
+            <div class="swiper-slide"><div class="testimonial-item">
+              <p><i class="bi bi-quote quote-icon-left"></i><span>الدعم الفني 24/7 أنقذ مشروعنا في لحظة حرجة. استجابة فورية واحترافية عالية.</span><i class="bi bi-quote quote-icon-right"></i></p>
+              <h3>سارة المقطري</h3><h4>مديرة مشاريع — منظمة إنسانية دولية</h4>
+            </div></div>
+            <div class="swiper-slide"><div class="testimonial-item">
+              <p><i class="bi bi-quote quote-icon-left"></i><span>منذ أن تعاملنا مع Tech-Sat، اختفت مشاكل الاتصال تمامًا. احترافية نادرة في المنطقة.</span><i class="bi bi-quote quote-icon-right"></i></p>
+              <h3>محمد الحداد</h3><h4>الرئيس التنفيذي — شركة طاقة</h4>
+            </div></div>
+            <div class="swiper-slide"><div class="testimonial-item">
+              <p><i class="bi bi-quote quote-icon-left"></i><span>حل VSAT ساعدنا في توصيل خدماتنا لمناطق لم تصلها أي شركة اتصالات أخرى.</span><i class="bi bi-quote quote-icon-right"></i></p>
+              <h3>فاطمة ناصر</h3><h4>مديرة تقنية — مؤسسة تعليمية</h4>
+            </div></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
 
-  
-    <!-- ═══════════════════════════════════════
-         CALL TO ACTION
-         ═══════════════════════════════════════ -->
+    <!-- CALL TO ACTION -->
     <section id="call-to-action" class="call-to-action section">
       <div class="container" data-aos="zoom-out">
         <div class="row g-5">
           <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
             <h3>جاهز لربط أعمالك <em>بالعالم</em>؟</h3>
-            <p>
-              مهندسونا ومستشارونا مستعدون لتحليل متطلبات موقعك وتصميم بنية اتصالات فضائية آمنة. احصل على استشارة مجانية اليوم، واكتشف كيف يمكن لـ Tech-Sat أن تدعم استمرارية أعمالك.
-            </p>
-<button type="button " class="btn-primary order-btn" data-open-quote>
-  <i class="bi bi-file-earmark-text"></i> اطلب عرض سعر
-</button>
+            <p>مهندسونا ومستشارونا مستعدون لتحليل متطلبات موقعك وتصميم بنية اتصالات فضائية آمنة. احصل على استشارة مجانية اليوم، واكتشف كيف يمكن لـ Tech-Sat أن تدعم استمرارية أعمالك.</p>
+            <button type="button" class="btn-primary order-btn" data-open-quote>
+              <i class="bi bi-file-earmark-text"></i> اطلب عرض سعر
+            </button>
           </div>
           <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
             <div class="img">
@@ -620,101 +447,68 @@
 
   </main>
 
-  <!-- ═══════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════ -->
-<div id="footer-root"></div>
+  <div id="footer-root"></div>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-<!-- ═══════════════════════════════════════════════════════
-     QUOTE REQUEST MODAL
-     ═══════════════════════════════════════════════════════ -->
-<div id="quoteModal" class="quote-modal" aria-hidden="true">
-  <div class="quote-modal__backdrop" data-close-quote></div>
-
-  <div class="quote-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
-
-    <!-- Close Button -->
-    <button class="quote-modal__close" type="button" data-close-quote aria-label="إغلاق">
-      <i class="bi bi-x-lg"></i>
-    </button>
-
-    <!-- Header -->
-    <div class="quote-modal__header">
-      <h3 id="quoteModalTitle" class="quote-modal__title">اطلب عرض سعر مخصص</h3>
-      <p class="quote-modal__subtitle">
-        أخبرنا بمتطلباتك، وسيصلك عرض مخصص خلال 24 ساعة
-      </p>
+  <!-- QUOTE MODAL -->
+  <div id="quoteModal" class="quote-modal" aria-hidden="true">
+    <div class="quote-modal__backdrop" data-close-quote></div>
+    <div class="quote-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+      <button class="quote-modal__close" type="button" data-close-quote aria-label="إغلاق"><i class="bi bi-x-lg"></i></button>
+      <div class="quote-modal__header">
+        <h3 id="quoteModalTitle" class="quote-modal__title">اطلب عرض سعر مخصص</h3>
+        <p class="quote-modal__subtitle">أخبرنا بمتطلباتك، وسيصلك عرض مخصص خلال 24 ساعة</p>
+      </div>
+      <form id="quoteForm" class="quote-form" novalidate>
+        <div class="quote-form__row">
+          <div class="quote-form__field">
+            <label for="qName">الاسم الكامل <span>*</span></label>
+            <input type="text" id="qName" name="name" required placeholder="مثال: أحمد الشامي">
+          </div>
+          <div class="quote-form__field">
+            <label for="qCompany">اسم الشركة / الجهة</label>
+            <input type="text" id="qCompany" name="company" placeholder="مثال: وزارة الاتصالات">
+          </div>
+        </div>
+        <div class="quote-form__row">
+          <div class="quote-form__field">
+            <label for="qEmail">البريد الإلكتروني <span>*</span></label>
+            <input type="email" id="qEmail" name="email" required placeholder="you@company.com">
+          </div>
+          <div class="quote-form__field">
+            <label for="qPhone">رقم الهاتف <span>*</span></label>
+            <input type="tel" id="qPhone" name="phone" required placeholder="+967 7XX XXX XXX">
+          </div>
+        </div>
+        <div class="quote-form__field">
+          <label for="qService">الخدمة المطلوبة</label>
+          <select id="qService" name="service">
+            <option value="">اختر الخدمة...</option>
+            <option value="vsat">حلول VSAT</option>
+            <option value="voice">صوت وبيانات</option>
+            <option value="integr">تكامل أنظمة</option>
+            <option value="field">خدمات ميدانية</option>
+            <option value="net">شبكات مُدارة</option>
+            <option value="support">دعم فني</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+        <div class="quote-form__field">
+          <label for="qMessage">تفاصيل إضافية</label>
+          <textarea id="qMessage" name="message" rows="4" placeholder="أخبرنا عن موقعك، عدد المستخدمين، أو أي متطلبات خاصة..."></textarea>
+        </div>
+        <div class="quote-form__actions">
+          <button type="submit" class="quote-form__submit"><i class="bi bi-send"></i> إرسال الطلب</button>
+          <button type="button" class="quote-form__cancel" data-close-quote>إلغاء</button>
+        </div>
+        <div id="quoteFormStatus" class="quote-form__status" role="status" aria-live="polite"></div>
+      </form>
     </div>
-
-    <!-- Body / Form -->
-    <form id="quoteForm" class="quote-form" novalidate>
-
-      <div class="quote-form__row">
-        <div class="quote-form__field">
-          <label for="qName">الاسم الكامل <span>*</span></label>
-          <input type="text" id="qName" name="name" required placeholder="مثال: أحمد الشامي">
-        </div>
-
-        <div class="quote-form__field">
-          <label for="qCompany">اسم الشركة / الجهة</label>
-          <input type="text" id="qCompany" name="company" placeholder="مثال: وزارة الاتصالات">
-        </div>
-      </div>
-
-      <div class="quote-form__row">
-        <div class="quote-form__field">
-          <label for="qEmail">البريد الإلكتروني <span>*</span></label>
-          <input type="email" id="qEmail" name="email" required placeholder="you@company.com">
-        </div>
-
-        <div class="quote-form__field">
-          <label for="qPhone">رقم الهاتف <span>*</span></label>
-          <input type="tel" id="qPhone" name="phone" required placeholder="+967 7XX XXX XXX">
-        </div>
-      </div>
-
-      <div class="quote-form__field">
-        <label for="qService">الخدمة المطلوبة</label>
-        <select id="qService" name="service">
-          <option value="">اختر الخدمة...</option>
-          <option value="vsat">حلول VSAT</option>
-          <option value="voice">صوت وبيانات</option>
-          <option value="integr">تكامل أنظمة</option>
-          <option value="field">خدمات ميدانية</option>
-          <option value="net">شبكات مُدارة</option>
-          <option value="support">دعم فني</option>
-          <option value="other">أخرى</option>
-        </select>
-      </div>
-
-      <div class="quote-form__field">
-        <label for="qMessage">تفاصيل إضافية</label>
-        <textarea id="qMessage" name="message" rows="4"
-          placeholder="أخبرنا عن موقعك، عدد المستخدمين، أو أي متطلبات خاصة..."></textarea>
-      </div>
-
-      <!-- Actions -->
-      <div class="quote-form__actions">
-        <button type="submit" class="quote-form__submit">
-          <i class="bi bi-send"></i>
-          إرسال الطلب
-        </button>
-        <button type="button" class="quote-form__cancel" data-close-quote>
-          إلغاء
-        </button>
-      </div>
-
-      <!-- Status Message -->
-      <div id="quoteFormStatus" class="quote-form__status" role="status" aria-live="polite"></div>
-    </form>
-
   </div>
-</div>
 
-  <!-- Vendor JS Files -->
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -724,12 +518,11 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Orbits Hero JS -->
+  <!-- Orbits Hero -->
   <script src="assets/js/orbit.js"></script>
 
 </body>
-
 </html>

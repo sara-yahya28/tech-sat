@@ -84,14 +84,19 @@
       });
     });
 
-    function updatePositions() {
-      data.forEach(function (n) {
-        var rad = ((n.angle + rotation) * Math.PI) / 180;
-        var r   = RADII[n.orbit] || 38;
-        n.el.style.left = (50 + r * Math.cos(rad)) + '%';
-        n.el.style.top  = (50 + r * Math.sin(rad)) + '%';
-      });
-    }
+function updatePositions() {
+  var OVAL_RATIO = 0.64;   // ← نفس النسبة المستخدمة في SVG (150/235 ≈ 0.64)
+
+  data.forEach(function (n) {
+    var rad = ((n.angle + rotation) * Math.PI) / 180;
+    var r   = RADII[n.orbit] || 38;
+    var rx  = r;                    // نصف القطر الأفقي
+    var ry  = r * OVAL_RATIO;        // نصف القطر العمودي (بيضاوي)
+
+    n.el.style.left = (50 + rx * Math.cos(rad)) + '%';
+    n.el.style.top  = (50 + ry * Math.sin(rad)) + '%';
+  });
+}
 
     function animate(now) {
       var delta = now - lastTime;
