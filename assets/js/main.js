@@ -321,54 +321,64 @@
   if (!mapEl) return;                          // لا تفعّل إن لم توجد خريطة
   if (typeof L === 'undefined') return;        // لا تفعّل إن لم تُحمّل Leaflet
 
-  /* ─── Locations ─── */
+  /* ─── Locations & Yemen Hubs ─── */
   var LOCATIONS = [
     {
-      id: 'yemen',
-      name: 'اليمن — المقر الرئيسي',
-      desc: 'مركز العمليات الفضائية 24/7 مع تغطية شاملة 100%',
-      lat: 15.3694,
-      lng: 44.191,
+      id: 'aden',
+      name_ar: 'عدن — المقر الرئيسي',
+      name_en: 'Aden — Headquarters',
+      desc_ar: 'المقر الرئيسي ومركز عمليات الشبكة الفضائية 24/7',
+      desc_en: 'Headquarters & 24/7 Network Operations Center',
+      lat: 12.7855,
+      lng: 45.0186,
       type: 'hq'
     },
     {
-      id: 'saudi',
-      name: 'المملكة العربية السعودية',
-      desc: 'محطات ترحيل إقليمية وربط تجاري متقدم',
-      lat: 24.7136,
-      lng: 46.6753,
-      type: 'hub'
+      id: 'sanaa',
+      name_ar: 'فرع صنعاء',
+      name_en: 'Sana\'a Branch',
+      desc_ar: 'فرع المبيعات والدعم التقني الميداني',
+      desc_en: 'Sales & Field Technical Support Branch',
+      lat: 15.3694,
+      lng: 44.1910,
+      type: 'branch'
     },
     {
-      id: 'djibouti',
-      name: 'جيبوتي',
-      desc: 'بوابة الاتصالات البحرية لمضيق باب المندب',
-      lat: 11.8251,
-      lng: 42.5903,
-      type: 'hub'
-    },
-    {
-      id: 'egypt',
-      name: 'مصر',
-      desc: 'محطات VSAT لممر قناة السويس البحري',
-      lat: 26.8206,
-      lng: 30.8025,
-      type: 'hub'
+      id: 'hodeidah',
+      name_ar: 'فرع الحديدة',
+      name_en: 'Hodeidah Branch',
+      desc_ar: 'مركز حلول الاتصالات البحرية والميدانية',
+      desc_en: 'Maritime Communication Solutions Hub',
+      lat: 14.7978,
+      lng: 42.9545,
+      type: 'branch'
     },
     {
       id: 'uae',
-      name: 'الإمارات',
-      desc: 'محور تبادل البيانات وشراكة IEC Telecom',
-      lat: 23.4241,
-      lng: 53.8478,
+      name_ar: 'الإمارات — IEC Telecom Hub',
+      name_en: 'UAE — IEC Telecom Hub',
+      desc_ar: 'محور الاتصال الإقليمي وتبادل البيانات الفضائية',
+      desc_en: 'Regional Satellite Teleport & Data Exchange',
+      lat: 25.2048,
+      lng: 55.2708,
+      type: 'hub'
+    },
+    {
+      id: 'saudi',
+      name_ar: 'المملكة العربية السعودية',
+      name_en: 'Saudi Arabia Teleport',
+      desc_ar: 'محطات ترحيل وربط تجاري متقدم',
+      desc_en: 'Regional Teleport & Commercial Satellite Link',
+      lat: 24.7136,
+      lng: 46.6753,
       type: 'hub'
     }
   ];
 
   /* ─── Init Map ─── */
   var map = L.map('map', {
-    center: [22, 45],
-    zoom: 4,
+    center: [16.5, 47],
+    zoom: 5,
     zoomControl: true,
     attributionControl: true,
     worldCopyJump: true,
@@ -391,50 +401,55 @@
   ).addTo(map);
 
   /* ─── Markers ─── */
-  LOCATIONS.forEach(function (loc) {
-    var isHQ = loc.type === 'hq';
+  function renderMarkers() {
+    var isAr = (window.TechSatI18n && window.TechSatI18n.getLang() === 'ar');
+    LOCATIONS.forEach(function (loc) {
+      var isHQ = (loc.type === 'hq');
+      var name = isAr ? loc.name_ar : loc.name_en;
+      var desc = isAr ? loc.desc_ar : loc.desc_en;
+      var badgeText = isHQ ? (isAr ? '★ المقر الرئيسي' : '★ Headquarters') : '';
 
-    var icon = L.divIcon({
-      className: 'custom-marker',
-      html:
-        '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
-          '<span class="custom-marker__ring"></span>' +
-          '<span class="custom-marker__dot"></span>' +
-        '</div>',
-      iconSize: [24, 24],
-      iconAnchor: [12, 12],
-      popupAnchor: [0, -12]
+      var icon = L.divIcon({
+        className: 'custom-marker',
+        html:
+          '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
+            '<span class="custom-marker__ring"></span>' +
+            '<span class="custom-marker__dot"></span>' +
+          '</div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -12]
+      });
+
+      var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+
+      marker.bindPopup(
+        '<div class="map-popup__title" style="font-family:inherit;font-weight:bold;">' + name + '</div>' +
+        '<div class="map-popup__desc" style="font-family:inherit;font-size:12px;margin-top:4px;">' + desc + '</div>' +
+        (isHQ ? '<div class="map-popup__badge" style="color:#0066ff;font-weight:bold;margin-top:4px;">' + badgeText + '</div>' : '')
+      );
+
+      if (isHQ) {
+        setTimeout(function () { marker.openPopup(); }, 800);
+      }
     });
+  }
 
-    var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+  renderMarkers();
 
-    marker.bindPopup(
-      '<div class="map-popup__title">' + loc.name + '</div>' +
-      '<div class="map-popup__desc">' + loc.desc + '</div>' +
-      (isHQ ? '<div class="map-popup__badge">★ المقر الرئيسي</div>' : '')
-    );
+  /* ─── Connection Lines from HQ Aden to Yemen & Global Hubs ─── */
+  var hq = LOCATIONS.find(function (l) { return l.id === 'aden'; });
 
-    if (isHQ) {
-      setTimeout(function () { marker.openPopup(); }, 800);
-    }
-  });
-
-  /* ─── Connection Lines from HQ to Hubs ─── */
-  var hq = LOCATIONS.find(function (l) { return l.id === 'yemen'; });
-
-  LOCATIONS.filter(function (l) { return l.id !== 'yemen'; }).forEach(function (loc) {
-    var midLat = (hq.lat + loc.lat) / 2 + 3;
-    var midLng = (hq.lng + loc.lng) / 2;
-
+  LOCATIONS.filter(function (l) { return l.id !== 'aden'; }).forEach(function (loc) {
     L.polyline(
-      [[hq.lat, hq.lng], [midLat, midLng], [loc.lat, loc.lng]],
-      { color: '#3A6EA5', weight: 1.5, dashArray: '6 8', opacity: 0.75 }
+      [[hq.lat, hq.lng], [loc.lat, loc.lng]],
+      { color: '#3A6EA5', weight: 1.8, dashArray: '6 8', opacity: 0.8 }
     ).addTo(map);
   });
 
-  /* ─── Coverage Circle around HQ ─── */
+  /* ─── Coverage Circle around Aden HQ ─── */
   L.circle([hq.lat, hq.lng], {
-    radius: 400000,
+    radius: 450000,
     color: '#D1D8E0',
     weight: 1.5,
     opacity: 0.7,

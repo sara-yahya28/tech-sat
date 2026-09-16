@@ -133,6 +133,157 @@
       .catalog-hero h1 { font-size: 32px; }
       .catalog-hero p { font-size: 15px; }
     }
+    /* =========================================================
+   PRODUCT SEARCH
+   ========================================================= */
+
+.product-search {
+  max-width: 650px;
+
+  margin: 0 auto 35px;
+}
+
+.product-search__box {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  height: 58px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--palette-light-blue);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 20px rgba(11, 29, 51, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+.product-search__box:focus-within {
+  border-color: var(--palette-mid-blue);
+
+  box-shadow:
+    0 8px 25px rgba(58, 110, 165, 0.15);
+}
+
+
+/* Search icon */
+
+.product-search__box > i {
+  position: absolute;
+
+  right: 20px;
+
+  color: var(--palette-mid-blue);
+
+  font-size: 20px;
+
+  pointer-events: none;
+}
+
+
+/* Input */
+
+.product-search__box input {
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--palette-dark-navy);
+
+  font-family: "Tajawal", sans-serif;
+
+  font-size: 15px;
+
+  padding:
+    0 52px
+    0 55px;
+
+  text-align: right;
+}
+
+.product-search__box input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* Clear button */
+
+#clearProductSearch {
+  position: absolute;
+
+  left: 15px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+}
+
+#clearProductSearch.show {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+#clearProductSearch:hover {
+  background: #eef3fa;
+
+  color: var(--palette-dark-navy);
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .product-search {
+    margin-bottom: 28px;
+  }
+
+  .product-search__box {
+    height: 54px;
+  }
+
+  .product-search__box input {
+    font-size: 14px;
+
+    padding-right: 48px;
+  }
+
+}
 
     /* ═══════════════════════════════════════════════════════
        FILTER TABS (Underline Style)
@@ -411,6 +562,39 @@
     <!-- ─── Products Grid ─── -->
     <section class="section">
       <div class="container">
+        <!-- =======================================================
+     PRODUCT SEARCH
+     ======================================================= -->
+
+<div
+  class="product-search"
+  data-aos="fade-up"
+>
+
+  <div class="product-search__box">
+
+    <i class="bi bi-search"></i>
+
+    <input
+      type="search"
+      id="productSearch"
+      placeholder="ابحث عن المنتج..."
+      autocomplete="off"
+      aria-label="البحث عن المنتجات"
+    >
+
+    <button
+      type="button"
+      id="clearProductSearch"
+      aria-label="مسح البحث"
+      title="مسح البحث"
+    >
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+  </div>
+
+</div>
 
         <!-- Filter Tabs (Underline Style) -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
@@ -733,43 +917,279 @@
 
   <!-- ─── Product Filter Script (Tabs) ─── -->
   <script>
-    (function () {
-      'use strict';
-      var tabs = document.querySelectorAll('.filter-tab');
-      var items = document.querySelectorAll('.product-item');
-      var noResults = document.getElementById('noResults');
 
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          // Active state
-          tabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
+(function () {
 
-          var filter = tab.dataset.filter;
-          var visibleCount = 0;
+  'use strict';
 
-          items.forEach(function (item) {
-            var match = (filter === 'all') || (item.dataset.category === filter);
-            if (match) {
-              item.style.display = '';
-              visibleCount++;
-            } else {
-              item.style.display = 'none';
-            }
-          });
 
-          // Show/hide no results
-          if (noResults) {
-            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-          }
+  /* =========================================================
+     ELEMENTS
+     ========================================================= */
 
-          // Refresh AOS
-          if (window.AOS) { window.AOS.refresh(); }
+  var tabs =
+    document.querySelectorAll('.filter-tab');
+
+  var items =
+    document.querySelectorAll('.product-item');
+
+  var noResults =
+    document.getElementById('noResults');
+
+  var searchInput =
+    document.getElementById('productSearch');
+
+  var clearButton =
+    document.getElementById('clearProductSearch');
+
+
+  /* =========================================================
+     CURRENT FILTER
+     ========================================================= */
+
+  var currentFilter = 'all';
+
+
+  /* =========================================================
+     NORMALIZE ARABIC TEXT
+     يساعد البحث العربي يكون أكثر مرونة
+     ========================================================= */
+
+  function normalizeText(text) {
+
+    return text
+      .toLowerCase()
+
+      .replace(/أ|إ|آ/g, 'ا')
+
+      .replace(/ة/g, 'ه')
+
+      .replace(/ى/g, 'ي')
+
+      .replace(/\s+/g, ' ')
+
+      .trim();
+
+  }
+
+
+  /* =========================================================
+     FILTER PRODUCTS
+     ========================================================= */
+
+  function filterProducts() {
+
+    var searchValue =
+      searchInput
+        ? normalizeText(searchInput.value)
+        : '';
+
+
+    var visibleCount = 0;
+
+
+    items.forEach(function (item) {
+
+
+      /* -----------------------------------------------
+         Category
+         ----------------------------------------------- */
+
+      var category =
+        item.dataset.category;
+
+
+      var categoryMatch =
+        currentFilter === 'all' ||
+        category === currentFilter;
+
+
+      /* -----------------------------------------------
+         Product text
+         ----------------------------------------------- */
+
+      var productText =
+        normalizeText(
+          item.textContent
+        );
+
+
+      var searchMatch =
+        searchValue === '' ||
+        productText.includes(searchValue);
+
+
+      /* -----------------------------------------------
+         Final result
+         ----------------------------------------------- */
+
+      var match =
+        categoryMatch &&
+        searchMatch;
+
+
+      if (match) {
+
+        item.style.display = '';
+
+        visibleCount++;
+
+      } else {
+
+        item.style.display = 'none';
+
+      }
+
+    });
+
+
+    /* =====================================================
+       NO RESULTS
+       ===================================================== */
+
+    if (noResults) {
+
+      if (visibleCount === 0) {
+
+        noResults.style.display = 'block';
+
+      } else {
+
+        noResults.style.display = 'none';
+
+      }
+
+    }
+
+
+    /* =====================================================
+       CLEAR BUTTON
+       ===================================================== */
+
+    if (clearButton && searchInput) {
+
+      if (searchInput.value.trim() !== '') {
+
+        clearButton.classList.add('show');
+
+      } else {
+
+        clearButton.classList.remove('show');
+
+      }
+
+    }
+
+
+    /* =====================================================
+       AOS
+       ===================================================== */
+
+    if (window.AOS) {
+
+      window.AOS.refresh();
+
+    }
+
+  }
+
+
+  /* =========================================================
+     CATEGORY FILTER
+     ========================================================= */
+
+  tabs.forEach(function (tab) {
+
+    tab.addEventListener(
+      'click',
+      function () {
+
+
+        /* Remove active */
+
+        tabs.forEach(function (t) {
+
+          t.classList.remove('active');
+
         });
-      });
-    })();
-  </script>
 
+
+        /* Add active */
+
+        tab.classList.add('active');
+
+
+        /* Get category */
+
+        currentFilter =
+          tab.dataset.filter;
+
+
+        /* Filter */
+
+        filterProducts();
+
+      }
+    );
+
+  });
+
+
+  /* =========================================================
+     SEARCH
+     ========================================================= */
+
+  if (searchInput) {
+
+    searchInput.addEventListener(
+      'input',
+      function () {
+
+        filterProducts();
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     CLEAR SEARCH
+     ========================================================= */
+
+  if (clearButton) {
+
+    clearButton.addEventListener(
+      'click',
+      function () {
+
+        if (searchInput) {
+
+          searchInput.value = '';
+
+          searchInput.focus();
+
+        }
+
+        filterProducts();
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     INITIAL FILTER
+     ========================================================= */
+
+  filterProducts();
+
+
+})();
+
+</script>
 </body>
 
 </html>
+ 
