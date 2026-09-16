@@ -306,3 +306,150 @@
   window.openQuoteModal = openModal;
   window.closeQuoteModal = closeModal;
 })();
+
+/* ═══════════════════════════════════════════════════════════
+   3) WORLD MAP (Leaflet) — Only runs if #map exists
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  var mapEl = document.getElementById('map');
+  if (!mapEl) return;                          // لا تفعّل إن لم توجد خريطة
+  if (typeof L === 'undefined') return;        // لا تفعّل إن لم تُحمّل Leaflet
+
+  /* ─── Locations ─── */
+  var LOCATIONS = [
+    {
+      id: 'yemen',
+      name: 'اليمن — المقر الرئيسي',
+      desc: 'مركز العمليات الفضائية 24/7 مع تغطية شاملة 100%',
+      lat: 15.3694,
+      lng: 44.191,
+      type: 'hq'
+    },
+    {
+      id: 'saudi',
+      name: 'المملكة العربية السعودية',
+      desc: 'محطات ترحيل إقليمية وربط تجاري متقدم',
+      lat: 24.7136,
+      lng: 46.6753,
+      type: 'hub'
+    },
+    {
+      id: 'djibouti',
+      name: 'جيبوتي',
+      desc: 'بوابة الاتصالات البحرية لمضيق باب المندب',
+      lat: 11.8251,
+      lng: 42.5903,
+      type: 'hub'
+    },
+    {
+      id: 'egypt',
+      name: 'مصر',
+      desc: 'محطات VSAT لممر قناة السويس البحري',
+      lat: 26.8206,
+      lng: 30.8025,
+      type: 'hub'
+    },
+    {
+      id: 'uae',
+      name: 'الإمارات',
+      desc: 'محور تبادل البيانات وشراكة IEC Telecom',
+      lat: 23.4241,
+      lng: 53.8478,
+      type: 'hub'
+    }
+  ];
+
+  /* ─── Init Map ─── */
+  var map = L.map('map', {
+    center: [22, 45],
+    zoom: 4,
+    zoomControl: true,
+    attributionControl: true,
+    worldCopyJump: true,
+    scrollWheelZoom: false
+  });
+
+  /* ─── Tile Layer: Esri Dark Canvas ─── */
+  L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 16,
+      attribution: 'Tiles &copy; Esri'
+    }
+  ).addTo(map);
+
+  /* ─── Place names layer ─── */
+  L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+    { maxZoom: 16, opacity: 0.7 }
+  ).addTo(map);
+
+  /* ─── Markers ─── */
+  LOCATIONS.forEach(function (loc) {
+    var isHQ = loc.type === 'hq';
+
+    var icon = L.divIcon({
+      className: 'custom-marker',
+      html:
+        '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
+          '<span class="custom-marker__ring"></span>' +
+          '<span class="custom-marker__dot"></span>' +
+        '</div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+      popupAnchor: [0, -12]
+    });
+
+    var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+
+    marker.bindPopup(
+      '<div class="map-popup__title">' + loc.name + '</div>' +
+      '<div class="map-popup__desc">' + loc.desc + '</div>' +
+      (isHQ ? '<div class="map-popup__badge">★ المقر الرئيسي</div>' : '')
+    );
+
+    if (isHQ) {
+      setTimeout(function () { marker.openPopup(); }, 800);
+    }
+  });
+
+  /* ─── Connection Lines from HQ to Hubs ─── */
+  var hq = LOCATIONS.find(function (l) { return l.id === 'yemen'; });
+
+  LOCATIONS.filter(function (l) { return l.id !== 'yemen'; }).forEach(function (loc) {
+    var midLat = (hq.lat + loc.lat) / 2 + 3;
+    var midLng = (hq.lng + loc.lng) / 2;
+
+    L.polyline(
+      [[hq.lat, hq.lng], [midLat, midLng], [loc.lat, loc.lng]],
+      { color: '#3A6EA5', weight: 1.5, dashArray: '6 8', opacity: 0.75 }
+    ).addTo(map);
+  });
+
+  /* ─── Coverage Circle around HQ ─── */
+  L.circle([hq.lat, hq.lng], {
+    radius: 400000,
+    color: '#D1D8E0',
+    weight: 1.5,
+    opacity: 0.7,
+    fillColor: '#D1D8E0',
+    fillOpacity: 0.08,
+    dashArray: '4 6'
+  }).addTo(map);
+
+  /* ─── Smart Zoom Control ─── */
+  map.on('focus', function () { map.scrollWheelZoom.enable(); });
+  map.on('blur', function () { map.scrollWheelZoom.disable(); });
+
+  /* ─── Fix Size on Load ─── */
+  window.addEventListener('load', function () {
+    setTimeout(function () { map.invalidateSize(); }, 200);
+  });
+
+  /* ─── Fix size when tab/window resizes ─── */
+  window.addEventListener('resize', function () {
+    setTimeout(function () { map.invalidateSize(); }, 150);
+  });
+})();

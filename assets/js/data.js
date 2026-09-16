@@ -49,14 +49,14 @@ const DATA = {
     ],
 
     products: [
-        { id: 'vsat-term', category: 'vsat', title: 'VSAT Terminal', image: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800', short: 'محطة أرضية عالية الأداء.', specs: ['Ku-Band', '20/5 Mbps', '1.2m'] },
-        { id: 'sat-phone', category: 'phones', title: 'Satellite Phone', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800', short: 'هاتف فضائي محمول.', specs: ['تغطية عالمية', 'بطارية 8h', 'GPS'] },
-        { id: 'broadband', category: 'vsat', title: 'Broadband Kit', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800', short: 'مجموعة الإنترنت الفضائي.', specs: ['سهل التركيب', 'سرعة عالية'] },
-        { id: 'marine', category: 'vsat', title: 'Marine VSAT', image: 'https://images.unsplash.com/photo-1505705694340-019e1e335916?w=800', short: 'اتصالات بحرية.', specs: ['مقاوم للماء', 'تتبع تلقائي'] },
-        { id: 'portable', category: 'vsat', title: 'Portable Terminal', image: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800', short: 'محطة محمولة.', specs: ['حقيبة ظهر', 'وزن 8kg'] },
-        { id: 'antenna', category: 'antennas', title: 'Fixed Antenna', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800', short: 'هوائي ثابت.', specs: ['قطر 1.8m', 'مقاوم للرياح'] },
-        { id: 'modem', category: 'modems', title: 'Satellite Modem', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800', short: 'مودم فضائي.', specs: ['Ku/Ka Band', '2W'] },
-        { id: 'router', category: 'modems', title: 'Network Router', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800', short: 'راوتر شبكات.', specs: ['4 منافذ', 'WiFi 6'] },
+        { id: 'vsat-term', category: 'vsat', title: 'VSAT Terminal', image: 'assets/img/products/vsat_terminal.png', short: 'محطة أرضية عالية الأداء.', specs: ['Ku-Band', '20/5 Mbps', '1.2m'] },
+        { id: 'sat-phone', category: 'phones', title: 'Satellite Phone', image: 'assets/img/products/sat_phone.png', short: 'هاتف فضائي محمول.', specs: ['تغطية عالمية', 'بطارية 8h', 'GPS'] },
+        { id: 'marine', category: 'vsat', title: 'Marine VSAT Dome', image: 'assets/img/products/marine_vsat.png', short: 'اتصالات بحرية للسفن والموانئ.', specs: ['مقاوم للماء', 'تتبع تلقائي', 'High Gain'] },
+        { id: 'broadband', category: 'vsat', title: 'Broadband Kit', image: 'assets/img/products/vsat_terminal.png', short: 'مجموعة الإنترنت الفضائي المتكاملة.', specs: ['سهل التركيب', 'سرعة عالية'] },
+        { id: 'portable', category: 'vsat', title: 'Portable Terminal', image: 'assets/img/products/sat_phone.png', short: 'محطة اتصالات محمولة.', specs: ['حقيبة ظهر', 'وزن 8kg'] },
+        { id: 'antenna', category: 'antennas', title: 'Fixed Antenna Dish', image: 'assets/img/products/vsat_terminal.png', short: 'هوائي فضائي ثابت.', specs: ['قطر 1.8m', 'مقاوم للرياح'] },
+        { id: 'modem', category: 'modems', title: 'Satellite Modem', image: 'assets/img/products/marine_vsat.png', short: 'مودم فضائي عالي السرعة.', specs: ['Ku/Ka Band', '2W'] },
+        { id: 'router', category: 'modems', title: 'Network Gateway Router', image: 'assets/img/products/sat_phone.png', short: 'راوتر شبكات وإدارة البيانات.', specs: ['4 منافذ', 'WiFi 6'] },
     ],
 
     industries: [
