@@ -22,8 +22,10 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Script & CSS Files -->
+  <script src="assets/js/navbar-footer.js"></script>
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/components.css" rel="stylesheet">
 
   <!--  
        COLOR PALETTE + PAGE STYLES
@@ -516,9 +518,9 @@
     <!-- ─── Services Hero ─── -->
     <section class="services-hero">
       <div class="container" data-aos="fade-up">
-        <h1>خدماتنا</h1>
-        <p>
-          نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية في أصعب الظروف.
+        <h1 data-i18n="services_hero_title">خدماتنا الفضائية المتكاملة</h1>
+        <p data-i18n="services_hero_desc">
+          نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية.
         </p>
       </div>
     </section>
@@ -527,13 +529,22 @@
     <section class="section">
       <div class="container">
 
-        <!-- Filter Tabs -->
+        <!-- Search Box & Filter Tabs -->
+        <div class="row justify-content-center mb-4" data-aos="fade-up">
+          <div class="col-md-6 col-lg-5">
+            <div class="input-group shadow-sm rounded-pill overflow-hidden border">
+              <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-search text-primary"></i></span>
+              <input type="text" id="serviceSearchInput" class="form-control border-0 py-2 ps-2" placeholder="ابحث عن خدمة..." data-i18n-ph="service_search_ph">
+            </div>
+          </div>
+        </div>
+
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
-          <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
-          <button class="filter-tab" data-filter="integration" role="tab">تكامل أنظمة</button>
-          <button class="filter-tab" data-filter="field" role="tab">خدمات ميدانية</button>
-          <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
+          <button class="filter-tab active" data-filter="all" role="tab" data-i18n="filter_all">كل الخدمات</button>
+          <button class="filter-tab" data-filter="connectivity" role="tab" data-i18n="filter_vsat">اتصالات</button>
+          <button class="filter-tab" data-filter="integration" role="tab" data-i18n="filter_voice">تكامل أنظمة</button>
+          <button class="filter-tab" data-filter="field" role="tab" data-i18n="filter_support">خدمات ميدانية</button>
+          <button class="filter-tab" data-filter="support" role="tab" data-i18n="filter_managed">دعم فني</button>
         </div>
 
         <!-- Services Grid -->
@@ -808,39 +819,44 @@
   <!-- Unified Navbar + Footer -->
   <script src="assets/js/Navbar-Footer.js"></script>
 
-  <!-- ─── Services Filter Script ─── -->
+  <!-- ─── Services Filter & Search Script ─── -->
   <script>
     (function () {
       'use strict';
       var tabs = document.querySelectorAll('.filter-tab');
       var items = document.querySelectorAll('.service-item');
-      var noResults = document.getElementById('noResults');
+      var searchInput = document.getElementById('serviceSearchInput');
+      var activeFilter = 'all';
+
+      function filterServices() {
+        var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        items.forEach(function (item) {
+          var category = item.dataset.category || 'all';
+          var text = item.textContent.toLowerCase();
+          var matchesCategory = (activeFilter === 'all') || (category === activeFilter);
+          var matchesSearch = query === '' || text.indexOf(query) !== -1;
+
+          if (matchesCategory && matchesSearch) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        if (window.AOS) { window.AOS.refresh(); }
+      }
 
       tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
           tabs.forEach(function (t) { t.classList.remove('active'); });
           tab.classList.add('active');
-
-          var filter = tab.dataset.filter;
-          var visibleCount = 0;
-
-          items.forEach(function (item) {
-            var match = (filter === 'all') || (item.dataset.category === filter);
-            if (match) {
-              item.style.display = '';
-              visibleCount++;
-            } else {
-              item.style.display = 'none';
-            }
-          });
-
-          if (noResults) {
-            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-          }
-
-          if (window.AOS) { window.AOS.refresh(); }
+          activeFilter = tab.dataset.filter;
+          filterServices();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterServices);
+      }
     })();
   </script>
 
