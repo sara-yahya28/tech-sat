@@ -84,50 +84,246 @@
     .footer .social-links a { color: var(--palette-light-blue) !important; }
     .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
 
-    /* ═══════════════════════════════════════════════════════
-       PAGE HERO
-       ═══════════════════════════════════════════════════════ */
-    .about-hero {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 160px 0 80px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    .about-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .about-hero .container { position: relative; z-index: 2; }
-    .about-hero .subtitle-tag {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--palette-light-blue);
-      margin-bottom: 12px;
-    }
-    .about-hero h1 {
-      color: #fff;
-      font-size: 52px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .about-hero p {
-      color: var(--palette-light-blue);
-      font-size: 17px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .about-hero h1 { font-size: 34px; }
-      .about-hero p { font-size: 15px; }
-    }
+    /* =========================================
+   ABOUT HERO
+========================================= */
+
+.about-hero {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* Background Image */
+.about-hero .page-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+}
+
+/* Dark Overlay */
+.about-hero .page-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.90) 0%,
+      rgba(0, 0, 0, 0.72) 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  z-index: 1;
+}
+
+/* Content */
+.about-hero .page-hero__content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 680px;
+  color: #fff;
+}
+
+/* Label */
+.about-hero .page-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+  padding: 7px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  backdrop-filter: blur(6px);
+}
+
+.about-hero .page-hero__label i {
+  color: #00b4d8;
+  font-size: 16px;
+}
+
+/* Heading */
+.about-hero h1 {
+  margin: 0 0 18px;
+
+  color: #fff;
+
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.about-hero h1 strong {
+  color: #00b4d8;
+  font-weight: 700;
+}
+
+/* Description */
+.about-hero p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Buttons */
+.about-hero .page-hero__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+/* General Button */
+.about-hero .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 46px;
+  padding: 0 21px;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+/* Primary Button */
+.about-hero .hero-btn.primary {
+  background: #00b4d8;
+  border: 1px solid #00b4d8;
+
+  color: #fff;
+}
+
+.about-hero .hero-btn.primary:hover {
+  background: #0096b4;
+  border-color: #0096b4;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.about-hero .hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  color: #fff;
+
+  backdrop-filter: blur(5px);
+}
+
+.about-hero .hero-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  border-color: rgba(255, 255, 255, 0.55);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .about-hero {
+    height: 430px;
+  }
+
+  .about-hero .page-hero__content {
+    padding: 0 20px;
+  }
+
+  .about-hero h1 {
+    font-size: 42px;
+  }
+
+  .about-hero p {
+    font-size: 15px;
+  }
+
+  .about-hero .page-hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.90),
+        rgba(0, 0, 0, 0.58)
+      );
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+  .about-hero {
+    height: 500px;
+  }
+
+  .about-hero .page-hero__content {
+    padding: 0 15px;
+  }
+
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .about-hero p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .about-hero .page-hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-hero .hero-btn {
+    width: 100%;
+  }
+}
 
     /* ═══════════════════════════════════════════════════════
        SECTION BASE
@@ -375,15 +571,53 @@
 
   <main class="main">
 
-    <!-- ─── About Hero (uses shared .page-hero) ─── -->
-    <section class="page-hero">
-      <div class="container" data-aos="fade-up">
-        <h1>شركاؤك في الاتصال الفضائي</h1>
-        <p>
-          شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.
-        </p>
+    <!-- About Hero -->
+<section class="page-hero about-hero">
+
+  <img
+    src="img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg"
+    alt="صورة الأقمار الصناعية"
+    class="page-hero__bg"
+  >
+
+  <div class="page-hero__overlay"></div>
+
+  <div class="container">
+    <div class="page-hero__content" data-aos="fade-up">
+
+      <div class="page-hero__label">
+        <i class="bi bi-satellite"></i>
+        من نحن
       </div>
-    </section>
+
+      <h1>
+        شركاؤك في
+        <strong>الاتصال الفضائي</strong>
+      </h1>
+
+      <p>
+        شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة،
+        والموزع الحصري لـ IEC Global Telecom في اليمن.
+      </p>
+
+      <div class="page-hero__buttons">
+
+        <a href="#about" class="hero-btn primary">
+          تعرف علينا
+          <i class="bi bi-arrow-down"></i>
+        </a>
+
+        <a href="contact.html" class="hero-btn secondary">
+          تواصل معنا
+          <i class="bi bi-arrow-left"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
     <!-- ─── Company Story ─── -->
     <section class="section">

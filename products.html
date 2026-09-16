@@ -120,7 +120,236 @@
       .page-hero h1 { font-size: 32px; }
       .page-hero p { font-size: 15px; }
     }
+   /* =========================================
+   PRODUCT PAGE HERO
+========================================= */
 
+.page-hero {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* Background */
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+}
+
+/* Overlay */
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.90) 0%,
+      rgba(0, 0, 0, 0.72) 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  z-index: 1;
+}
+
+/* Content */
+.page-hero__content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+  color: #fff;
+}
+
+/* Label */
+.page-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+  padding: 7px 14px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.08);
+
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  backdrop-filter: blur(6px);
+}
+
+.page-hero__label i {
+  color: #00b4d8;
+  font-size: 16px;
+}
+
+/* Title */
+.page-hero h1 {
+  margin: 0 0 16px;
+
+  color: #fff;
+
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.page-hero h1 strong {
+  color: #00b4d8;
+  font-weight: 700;
+}
+
+/* Description */
+.page-hero p {
+  max-width: 570px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,0.82);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Buttons */
+.page-hero__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 46px;
+  padding: 0 20px;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+/* Primary */
+.hero-btn.primary {
+  background: #00b4d8;
+  border: 1px solid #00b4d8;
+
+  color: #fff;
+}
+
+.hero-btn.primary:hover {
+  background: #0096b4;
+  border-color: #0096b4;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+/* Secondary */
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.06);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  color: #fff;
+
+  backdrop-filter: blur(5px);
+}
+
+.hero-btn.secondary:hover {
+  background: rgba(255,255,255,0.15);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .page-hero {
+    height: 430px;
+  }
+
+  .page-hero__content {
+    padding: 0 20px;
+  }
+
+  .page-hero h1 {
+    font-size: 42px;
+  }
+
+  .page-hero p {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+  .page-hero {
+    height: 500px;
+  }
+
+  .page-hero__content {
+    padding: 0 15px;
+  }
+
+  .page-hero h1 {
+    font-size: 36px;
+  }
+
+  .page-hero p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .page-hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+}
     /* ═══════════════════════════════════════════════════════
        FILTER TABS (Underline Style)
        ═══════════════════════════════════════════════════════ */
@@ -482,17 +711,52 @@
 
   <main class="main">
 
-    <!--Services Hero-->
-    <section class="page-hero">
-      <div class="container" data-aos="fade-up">
-        <h1>خدماتنا</h1>
-        <p>
-          نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية في أصعب الظروف.
-        </p>
-      </div>
-    </section>
+ <!-- Catalog Hero -->
+<section class="page-hero">
 
-    <!--Services Grid-->
+  <img
+    src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg"
+    alt="Satellite Communication Equipment"
+    class="page-hero__bg"
+  >
+
+  <div class="page-hero__overlay"></div>
+
+  <div class="container">
+    <div class="page-hero__content" data-aos="fade-up">
+
+      <div class="page-hero__label">
+        <i class="bi bi-satellite"></i>
+        منتجات Tech-Sat
+      </div>
+
+      <h1>
+        حلول الاتصالات
+        <strong>الفضائية</strong>
+      </h1>
+
+      <p>
+        معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل
+        بكفاءة وموثوقية في مختلف البيئات.
+      </p>
+
+      <div class="page-hero__buttons">
+
+        <a href="#products" class="hero-btn primary">
+          عرض المنتجات
+          <i class="bi bi-arrow-down"></i>
+        </a>
+
+        <a href="contact.html" class="hero-btn secondary">
+          تواصل معنا
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
     <section class="section">
       <div class="container">
 

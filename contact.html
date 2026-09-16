@@ -87,50 +87,246 @@
     .footer .social-links a { color: var(--palette-light-blue) !important; }
     .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
 
-    /* ═══════════════════════════════════════════════════════
-       PAGE HERO
-       ═══════════════════════════════════════════════════════ */
-    .contact-hero {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 160px 0 80px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    .contact-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .contact-hero .container { position: relative; z-index: 2; }
-    .contact-hero .subtitle-tag {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--palette-light-blue);
-      margin-bottom: 12px;
-    }
-    .contact-hero h1 {
-      color: #fff;
-      font-size: 52px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .contact-hero p {
-      color: var(--palette-light-blue);
-      font-size: 17px;
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .contact-hero h1 { font-size: 34px; }
-      .contact-hero p { font-size: 15px; }
-    }
+  /* =========================================
+   CONTACT HERO
+========================================= */
+
+.contact-hero {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* Background Image */
+.contact-hero .page-hero__bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+}
+
+/* Overlay */
+.contact-hero .page-hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.90) 0%,
+      rgba(0, 0, 0, 0.72) 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  z-index: 1;
+}
+
+/* Content */
+.contact-hero .page-hero__content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 680px;
+  color: #fff;
+}
+
+/* Label */
+.contact-hero .page-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+  padding: 7px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  backdrop-filter: blur(6px);
+}
+
+.contact-hero .page-hero__label i {
+  color: #00b4d8;
+  font-size: 16px;
+}
+
+/* Heading */
+.contact-hero h1 {
+  margin: 0 0 18px;
+
+  color: #fff;
+
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.contact-hero h1 strong {
+  color: #00b4d8;
+  font-weight: 700;
+}
+
+/* Description */
+.contact-hero p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Buttons */
+.contact-hero .page-hero__buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+.contact-hero .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 46px;
+  padding: 0 21px;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.contact-hero .hero-btn.primary {
+  background: #00b4d8;
+  border: 1px solid #00b4d8;
+
+  color: #fff;
+}
+
+.contact-hero .hero-btn.primary:hover {
+  background: #0096b4;
+  border-color: #0096b4;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+/* Secondary */
+.contact-hero .hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  color: #fff;
+
+  backdrop-filter: blur(5px);
+}
+
+.contact-hero .hero-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  border-color: rgba(255, 255, 255, 0.55);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .contact-hero {
+    height: 430px;
+  }
+
+  .contact-hero .page-hero__content {
+    padding: 0 20px;
+  }
+
+  .contact-hero h1 {
+    font-size: 42px;
+  }
+
+  .contact-hero p {
+    font-size: 15px;
+  }
+
+  .contact-hero .page-hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.90),
+        rgba(0, 0, 0, 0.58)
+      );
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+  .contact-hero {
+    height: 500px;
+  }
+
+  .contact-hero .page-hero__content {
+    padding: 0 15px;
+  }
+
+  .contact-hero h1 {
+    font-size: 36px;
+  }
+
+  .contact-hero p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .contact-hero .page-hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-hero .hero-btn {
+    width: 100%;
+  }
+
+}
 
     /* ═══════════════════════════════════════════════════════
        SECTION BASE
@@ -815,13 +1011,53 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
   <main class="main">
 
-    <!--CONTACT HERO-->
-    <section class="page-hero">
-      <div class="container" data-aos="fade-up">
-        <h1>نحن هنا لمساعدتك</h1>
-        <p>فريقنا متاح على مدار الساعة للإجابة على استفساراتك. تواصل معنا عبر النموذج أو أي من قنوات الاتصال المباشرة.</p>
+   <!-- Contact Hero -->
+<section class="page-hero contact-hero">
+
+  <img
+    src="img product/aaa.jpg"
+    alt="Tech-Sat Contact"
+    class="page-hero__bg"
+  >
+
+  <div class="page-hero__overlay"></div>
+
+  <div class="container">
+    <div class="page-hero__content" data-aos="fade-up">
+
+      <div class="page-hero__label">
+        <i class="bi bi-headset"></i>
+        تواصل مع Tech-Sat
       </div>
-    </section>
+
+      <h1>
+        نحن هنا
+        <strong>لمساعدتك</strong>
+      </h1>
+
+      <p>
+        فريقنا متاح للإجابة على استفساراتك ومساعدتك في
+        اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.
+      </p>
+
+      <div class="page-hero__buttons">
+
+        <a href="#contact" class="hero-btn primary">
+          تواصل معنا
+          <i class="bi bi-arrow-down"></i>
+        </a>
+
+        <a href="products.html" class="hero-btn secondary">
+          استكشف منتجاتنا
+          <i class="bi bi-arrow-left"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
     <!--CONTACT FORM + SIDEBAR-->
     <section class="section">
