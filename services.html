@@ -13,509 +13,31 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!--Vendor CSS-->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <!-- Script & CSS Files -->
-  <script src="assets/js/navbar-footer.js"></script>
+  <!--Shared CSS-->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/components.css" rel="stylesheet">
-
-  <!--  
-       COLOR PALETTE + PAGE STYLES
-         -->
-  <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
-    }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all .25s ease;
-    }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-    /*  
-       PAGE HERO
-         */
-    .services-hero {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 160px 0 80px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    .services-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .services-hero .container { position: relative; z-index: 2; }
-    .services-hero h1 {
-      color: #fff;
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .services-hero p {
-      color: var(--palette-light-blue);
-      font-size: 17px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .services-hero h1 { font-size: 32px; }
-      .services-hero p { font-size: 15px; }
-    }
-
-    /*  
-       FILTER TABS (Underline Style)
-         */
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 56px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--palette-light-blue);
-      position: relative;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .filter-tabs::-webkit-scrollbar { display: none; }
-
-    .filter-tab {
-      position: relative;
-      background: transparent;
-      border: none;
-      padding: 8px 0;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 500;
-      color: rgba(11, 29, 51, 0.55);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color .25s ease;
-    }
-    .filter-tab:hover { color: var(--palette-dark-navy); }
-    .filter-tab.active {
-      color: var(--palette-dark-navy);
-      font-weight: 700;
-    }
-    .filter-tab::after {
-      content: '';
-      position: absolute;
-      bottom: -17px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--palette-mid-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .3s ease;
-    }
-    .filter-tab.active::after { transform: scaleX(1); }
-
-    @media (max-width: 768px) {
-      .filter-tabs {
-        gap: 24px;
-        justify-content: flex-start;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
-      .filter-tab { font-size: 14px; }
-    }
-
-    /*  
-       SERVICE CARDS
-         */
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      overflow: hidden;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: all .3s ease;
-      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-    }
-
-    .service-card__icon {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 3.5rem;
-      color: var(--palette-mid-blue);
-      position: relative;
-    }
-    .service-card__icon i {
-      transition: transform .3s ease;
-    }
-    .service-card:hover .service-card__icon i {
-      transform: scale(1.15);
-    }
-    .service-card__tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--palette-dark-navy);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .service-card__body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .service-card__body h5 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .service-card__body p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    /* Feature bullets */
-    .service-card__features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .service-card__features li {
-      color: var(--palette-dark-navy);
-      font-size: 12.5px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-card__features li i {
-      color: var(--palette-mid-blue);
-      font-size: 11px;
-      flex-shrink: 0;
-    }
-
-    .service-card__cta {
-      color: var(--palette-mid-blue);
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap .2s ease;
-      text-decoration: none;
-    }
-    .service-card:hover .service-card__cta { gap: 10px; }
-
-    /*   PROCESS STEPS  */
-    .process-section {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .process-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .process-section .container { position: relative; z-index: 2; }
-
-    .process-section .section-title h2 { color: #fff; }
-    .process-section .section-title p { color: var(--palette-light-blue); }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      position: relative;
-    }
-    @media (max-width: 992px) {
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .process-grid { grid-template-columns: 1fr; }
-    }
-
-    .process-step {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(209, 216, 224, 0.12);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      position: relative;
-      height: 100%;
-    }
-    .process-step:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(58, 110, 165, 0.5);
-      transform: translateY(-6px);
-    }
-    .process-step__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--palette-mid-blue);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(58, 110, 165, 0.35);
-    }
-    .process-step h4 {
-      color: #fff;
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .process-step p {
-      color: var(--palette-light-blue);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-      opacity: 0.85;
-    }
-
-    /*  
-       WHY US
-         */
-    .why-us {
-      padding: 80px 0;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 992px) {
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .why-grid { grid-template-columns: 1fr; }
-    }
-
-    .why-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .why-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.08);
-    }
-    .why-card__icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--palette-mid-blue);
-      font-size: 26px;
-      transition: transform .3s ease;
-    }
-    .why-card:hover .why-card__icon {
-      transform: scale(1.08) rotate(-3deg);
-    }
-    .why-card h4 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .why-card p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.7;
-      margin: 0;
-      flex: 1;
-    }
-
-    /*  
-       ENGINEER CTA
-         */
-    .engineer-cta {
-      background: var(--palette-dark-navy);
-      border-radius: 24px;
-      padding: 60px 50px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .engineer-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .engineer-cta__content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
-    }
-    .engineer-cta h2 {
-      color: #fff;
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-    .engineer-cta p {
-      color: var(--palette-light-blue);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .btn-engineer {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--palette-dark-navy);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-    .btn-engineer:hover {
-      background: var(--palette-light-blue);
-      transform: translateY(-2px);
-      color: var(--palette-dark-navy);
-    }
-    @media (max-width: 768px) {
-      .engineer-cta { padding: 40px 28px; }
-      .engineer-cta h2 { font-size: 26px; }
-    }
-
-    /* ─── Section Base ─── */
-    .section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 56px; }
-    .section-title h2 {
-      color: var(--palette-dark-navy);
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .section-title p { color: #64748B; font-size: 16px; max-width: 680px; margin: 0 auto; }
-  </style>
+  <!--Page-specific CSS-->
+  <link href="assets/css/pages/services.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
-  <!--  
-       NAVBAR — يُحقن تلقائيًا من Navbar-Footer.js
-         -->
   <div id="navbar-root"></div>
 
-  <!--  
-       MAIN CONTENT
-         -->
   <main class="main">
 
     <!--Services Hero-->
     <section class="page-hero">
       <div class="container" data-aos="fade-up">
-        <h1 data-i18n="services_hero_title">خدماتنا الفضائية المتكاملة</h1>
-        <p data-i18n="services_hero_desc">
-          نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية.
+        <h1>خدماتنا</h1>
+        <p>
+          نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية في أصعب الظروف.
         </p>
       </div>
     </section>
@@ -524,24 +46,26 @@
     <section class="section">
       <div class="container">
 
-        <!-- Search Box & Filter Tabs -->
+        <!--Search-->
         <div class="row justify-content-center mb-4" data-aos="fade-up">
           <div class="col-md-6 col-lg-5">
             <div class="input-group shadow-sm rounded-pill overflow-hidden border">
               <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-search text-primary"></i></span>
-              <input type="text" id="serviceSearchInput" class="form-control border-0 py-2 ps-2" placeholder="ابحث عن خدمة..." data-i18n-ph="service_search_ph">
+              <input type="text" id="serviceSearchInput" class="form-control border-0 py-2 ps-2" placeholder="ابحث عن خدمة...">
             </div>
           </div>
         </div>
 
+        <!--Filter Tabs-->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab" data-i18n="filter_all">كل الخدمات</button>
-          <button class="filter-tab" data-filter="connectivity" role="tab" data-i18n="filter_vsat">اتصالات</button>
-          <button class="filter-tab" data-filter="integration" role="tab" data-i18n="filter_voice">تكامل أنظمة</button>
-          <button class="filter-tab" data-filter="field" role="tab" data-i18n="filter_support">خدمات ميدانية</button>
-          <button class="filter-tab" data-filter="support" role="tab" data-i18n="filter_managed">دعم فني</button>
+          <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
+          <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
+          <button class="filter-tab" data-filter="integration" role="tab">تكامل أنظمة</button>
+          <button class="filter-tab" data-filter="field" role="tab">خدمات ميدانية</button>
+          <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
         </div>
 
+        <!--Services Grid-->
         <div class="row g-4" id="servicesGrid">
 
           <!--1. VSAT-->
@@ -769,9 +293,6 @@
 
   </main>
 
-  <!--  
-       FOOTER — يُحقن تلقائيًا من Navbar-Footer.js
-         -->
   <div id="footer-root"></div>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
@@ -786,49 +307,17 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!--Navbar + Footer-->
+  <!--Navbar + Footer (يجب أن يكون قبل المحتوى أو بعده، الأهم: قبل main.js)-->
   <script src="assets/js/Navbar-Footer.js"></script>
 
-  <!-- ─── Services Filter & Search Script ─── -->
-  <script>
-    (function () {
-      'use strict';
-      var tabs = document.querySelectorAll('.filter-tab');
-      var items = document.querySelectorAll('.service-item');
-      var searchInput = document.getElementById('serviceSearchInput');
-      var activeFilter = 'all';
+  <!--Data (must come before main.js)-->
+  <script src="assets/js/data.js"></script>
 
-      function filterServices() {
-        var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-        items.forEach(function (item) {
-          var category = item.dataset.category || 'all';
-          var text = item.textContent.toLowerCase();
-          var matchesCategory = (activeFilter === 'all') || (category === activeFilter);
-          var matchesSearch = query === '' || text.indexOf(query) !== -1;
+  <!--Main JS-->
+  <script src="assets/js/main.js"></script>
 
-          if (matchesCategory && matchesSearch) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-        if (window.AOS) { window.AOS.refresh(); }
-      }
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          tabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          activeFilter = tab.dataset.filter;
-          filterServices();
-        });
-      });
-
-      if (searchInput) {
-        searchInput.addEventListener('input', filterServices);
-      }
-    })();
-  </script>
+  <!--Page-specific JS-->
+  <script src="assets/js/pages/services.js"></script>
 
 </body>
 
