@@ -47,8 +47,7 @@
             '</a>' +
             '<div class="d-flex align-items-center">' +
               '<div class="social-links">' +
-                '<a href="#" class="facebook"><i class="bi bi-facebook"></i></a>' +
-                '<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>' +
+                '<a href="https://www.facebook.com/people/Tech-Sat/100064730084237/#" class="facebook"><i class="bi bi-facebook"></i></a>' +
                 '<a href="#" class="instagram"><i class="bi bi-instagram"></i></a>' +
                 '<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>' +
               '</div>' +
@@ -113,7 +112,6 @@
                   '<li><a href="about.html"><i class="bi bi-chevron-left"></i> من نحن</a></li>' +
                   '<li><a href="services.html"><i class="bi bi-chevron-left"></i> الخدمات</a></li>' +
                   '<li><a href="products.html"><i class="bi bi-chevron-left"></i> المنتجات</a></li>' +
-                  '<li><a href="index.html#faq"><i class="bi bi-chevron-left"></i> الأسئلة الشائعة</a></li>' +
                   '<li><a href="contact.html"><i class="bi bi-chevron-left"></i> تواصل معنا</a></li>' +
                 '</ul>' +
               '</div>' +
@@ -156,7 +154,7 @@
                 '<div class="contact-item">' +
                   '<div class="contact-icon"><i class="bi bi-headset"></i></div>' +
                   '<div class="contact-info">' +
-                    '<p>Support: support@tech-sat.com<br>+967 711 188 100</p>' +
+                    '<p>Support: support@tech-sat.com<br>00967-711188100</p>' +
                   '</div>' +
                 '</div>' +
 
