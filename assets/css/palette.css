@@ -1,7 +1,7 @@
-/* ═══════════════════════════════════════════════════════
+/*  
    TECH-SAT — Palette & Global Overrides
    Shared across ALL pages. Load BEFORE page-specific CSS.
-   ═══════════════════════════════════════════════════════ */
+     */
 
 :root {
   --palette-white: #F8F9FA;

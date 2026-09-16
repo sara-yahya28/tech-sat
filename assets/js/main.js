@@ -1,9 +1,3 @@
-/**
- * Tech-Sat — Main JavaScript
- * Based on LeadPage Template (BootstrapMade)
- * Extended with: Quote Modal
- */
-
 /*PAGE CORE — Navbar, Scroll, AOS, Swiper, FAQ, ...*/
 (function () {
   "use strict";

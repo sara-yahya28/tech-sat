@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
-   SERVICES PAGE — Filter Tabs
-   ═══════════════════════════════════════════════════════════ */
+
 (function () {
   'use strict';
   var tabs = document.querySelectorAll('.filter-tab');
