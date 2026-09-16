@@ -95,7 +95,8 @@
         ? ' class="active"'
         : '';
 
-      return (
+
+     return (
         '<li>' +
           '<a href="' + link.href + '"' + activeClass + '>' +
             link.label +

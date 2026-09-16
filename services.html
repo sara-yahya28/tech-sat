@@ -7,20 +7,16 @@
   <title>الخدمات — Tech-Sat</title>
   <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Script & CSS Files -->
   <script src="assets/js/navbar-footer.js"></script>
@@ -515,8 +511,8 @@
          -->
   <main class="main">
 
-    <!-- ─── Services Hero ─── -->
-    <section class="services-hero">
+    <!--Services Hero-->
+    <section class="page-hero">
       <div class="container" data-aos="fade-up">
         <h1 data-i18n="services_hero_title">خدماتنا الفضائية المتكاملة</h1>
         <p data-i18n="services_hero_desc">
@@ -525,7 +521,7 @@
       </div>
     </section>
 
-    <!-- ─── Services Grid ─── -->
+    <!--Services Grid-->
     <section class="section">
       <div class="container">
 
@@ -547,12 +543,11 @@
           <button class="filter-tab" data-filter="support" role="tab" data-i18n="filter_managed">دعم فني</button>
         </div>
 
-        <!-- Services Grid -->
         <div class="row g-4" id="servicesGrid">
 
-          <!-- 1. VSAT -->
+          <!--1. VSAT-->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
-            <div class="service-card">
+            <a href="details.html?type=service&id=vsat" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">اتصالات</span>
                 <i class="bi bi-broadcast-pin"></i>
@@ -561,18 +556,18 @@
                 <h5>حلول VSAT</h5>
                 <p>اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> سرعات تصل إلى 100 Mbps</li>
-                  <li><i class="bi bi-check2"></i> تغطية Ku و C-Band</li>
-                  <li><i class="bi bi-check2"></i> تركيب خلال 24-48 ساعة</li>
+                  <li><i class="bi bi-check2"></i> <span>سرعات تصل إلى 100 Mbps</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 2. Voice & Data -->
+          <!--2. Voice & Data-->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card">
+            <a href="details.html?type=service&id=voice" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">اتصالات</span>
                 <i class="bi bi-telephone-outbound"></i>
@@ -581,18 +576,18 @@
                 <h5>صوت وبيانات</h5>
                 <p>خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> VoIP عالي الجودة</li>
-                  <li><i class="bi bi-check2"></i> بث فيديو مباشر</li>
-                  <li><i class="bi bi-check2"></i> نقل بيانات آمن</li>
+                  <li><i class="bi bi-check2"></i> <span>VoIP عالي الجودة</span></li>
+                  <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
+                  <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 3. System Integration -->
+          <!--3. System Integration-->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card">
+            <a href="details.html?type=service&id=integr" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">تكامل</span>
                 <i class="bi bi-diagram-3"></i>
@@ -601,18 +596,18 @@
                 <h5>تكامل الأنظمة</h5>
                 <p>تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> تصميم مخصص</li>
-                  <li><i class="bi bi-check2"></i> دمج مع الأنظمة الحالية</li>
-                  <li><i class="bi bi-check2"></i> اختبارات كاملة</li>
+                  <li><i class="bi bi-check2"></i> <span>تصميم مخصص</span></li>
+                  <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 4. Field Services -->
+          <!--4. Field Services-->
           <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
-            <div class="service-card">
+            <a href="details.html?type=service&id=field" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">ميدانية</span>
                 <i class="bi bi-tools"></i>
@@ -621,18 +616,18 @@
                 <h5>خدمات ميدانية</h5>
                 <p>تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> فرق فنية متخصصة</li>
-                  <li><i class="bi bi-check2"></i> تغطية كل المحافظات</li>
-                  <li><i class="bi bi-check2"></i> تدريب الموظفين</li>
+                  <li><i class="bi bi-check2"></i> <span>فرق فنية متخصصة</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 5. Managed Networks -->
+          <!--5. Managed Networks-->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card">
+            <a href="details.html?type=service&id=net" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">تكامل</span>
                 <i class="bi bi-hdd-network"></i>
@@ -641,18 +636,18 @@
                 <h5>شبكات مُدارة</h5>
                 <p>إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> مراقبة 24/7</li>
-                  <li><i class="bi bi-check2"></i> تقارير أداء دورية</li>
-                  <li><i class="bi bi-check2"></i> SLA مضمون</li>
+                  <li><i class="bi bi-check2"></i> <span>مراقبة 24/7</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 6. Support -->
+          <!--6. Support-->
           <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card">
+            <a href="details.html?type=service&id=support" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">دعم</span>
                 <i class="bi bi-headset"></i>
@@ -661,18 +656,17 @@
                 <h5>دعم فني 24/7</h5>
                 <p>فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> دعم هاتفي وبريد</li>
-                  <li><i class="bi bi-check2"></i> استجابة ميدانية</li>
-                  <li><i class="bi bi-check2"></i> صيانة دورية</li>
+                  <li><i class="bi bi-check2"></i> <span>دعم هاتفي وبريد</span></li>
+                  <li><i class="bi bi-check2"></i> <span>استجابة ميدانية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>صيانة دورية</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
         </div>
 
-        <!-- No results message -->
         <div id="noResults" class="text-center py-5" style="display:none;">
           <p style="color:#64748B; font-size:16px;">لا توجد خدمات في هذا التصنيف حاليًا.</p>
         </div>
@@ -680,7 +674,7 @@
       </div>
     </section>
 
-    <!-- ─── Process Steps ─── -->
+    <!--Process Steps-->
     <section class="process-section">
       <div class="container">
 
@@ -691,28 +685,24 @@
 
         <div class="process-grid">
 
-          <!-- Step 1 -->
           <div class="process-step" data-aos="fade-up">
             <div class="process-step__num">01</div>
             <h4>استشارة</h4>
             <p>نستمع لاحتياجاتك ونحلل متطلبات موقعك ومشروعك بعناية.</p>
           </div>
 
-          <!-- Step 2 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="100">
             <div class="process-step__num">02</div>
             <h4>تصميم</h4>
             <p>نصمم الحل الأنسب حسب المتطلبات الفنية والموقع الجغرافي.</p>
           </div>
 
-          <!-- Step 3 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="200">
             <div class="process-step__num">03</div>
             <h4>تركيب</h4>
             <p>تنفيذ احترافي بفريق متخصص خلال 24-48 ساعة من بدء العمل.</p>
           </div>
 
-          <!-- Step 4 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="300">
             <div class="process-step__num">04</div>
             <h4>دعم</h4>
@@ -723,7 +713,7 @@
       </div>
     </section>
 
-    <!-- ─── Why Us ─── -->
+    <!--Why Us-->
     <section class="why-us">
       <div class="container">
 
@@ -734,38 +724,26 @@
 
         <div class="why-grid">
 
-          <!-- 1 -->
           <div class="why-card" data-aos="fade-up">
-            <div class="why-card__icon">
-              <i class="bi bi-patch-check"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-patch-check"></i></div>
             <h4>الموزع الحصري</h4>
             <p>الوكيل الوحيد لـ IEC Global Telecom في اليمن، بأحدث التقنيات العالمية.</p>
           </div>
 
-          <!-- 2 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-card__icon">
-              <i class="bi bi-globe2"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-globe2"></i></div>
             <h4>تغطية عالمية</h4>
             <p>خدماتنا تغطي 15 دولة عبر تقنيات Ku و C-Band، في الشرق الأوسط وأفريقيا وأوروبا.</p>
           </div>
 
-          <!-- 3 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="why-card__icon">
-              <i class="bi bi-speedometer2"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-speedometer2"></i></div>
             <h4>استجابة سريعة</h4>
             <p>تركيب احترافي خلال 24-48 ساعة، ودعم فني فوري على مدار الساعة.</p>
           </div>
 
-          <!-- 4 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="why-card__icon">
-              <i class="bi bi-shield-check"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-shield-check"></i></div>
             <h4>موثوقية 99.9%</h4>
             <p>بنية تحتية مستقرة مع خطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
           </div>
@@ -774,18 +752,16 @@
       </div>
     </section>
 
-    <!-- ─── Engineer CTA ─── -->
+    <!--Engineer CTA-->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="engineer-cta" data-aos="zoom-in">
           <div class="engineer-cta__content">
             <h2>هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
-            <p>
-              مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.
-            </p>
+            <p>مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.</p>
             <a href="contact.html" class="btn-engineer">
               <i class="bi bi-headset"></i>
-              تحدث مع مهندس
+              <span>تحدث مع مهندس</span>
             </a>
           </div>
         </div>
@@ -799,24 +775,19 @@
          -->
   <div id="footer-root"></div>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <!--Vendor JS-->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!-- Main JS File (Core + Modal + Map) -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- Unified Navbar + Footer -->
+  <!--Navbar + Footer-->
   <script src="assets/js/Navbar-Footer.js"></script>
 
   <!-- ─── Services Filter & Search Script ─── -->

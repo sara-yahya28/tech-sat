@@ -190,3 +190,9 @@
 .why-card:hover .why-card__icon { transform: scale(1.08) rotate(-3deg); }
 .why-card h4 { color: var(--palette-dark-navy); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
 .why-card p { color: #64748B; font-size: 13.5px; line-height: 1.7; margin: 0; }
+a.service-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
