@@ -1,16 +1,14 @@
 /**
  * Tech-Sat — Main JavaScript
  * Based on LeadPage Template (BootstrapMade)
- * Extended with: Quote Modal, World Map (Leaflet)
+ * Extended with: Quote Modal
  */
 
-/* ═══════════════════════════════════════════════════════════
-   1) PAGE CORE — Navbar, Scroll, AOS, Swiper, FAQ, ...
-   ═══════════════════════════════════════════════════════════ */
+/*PAGE CORE — Navbar, Scroll, AOS, Swiper, FAQ, ...*/
 (function () {
   "use strict";
 
-  /* ─── SCROLLED BODY CLASS ─── */
+  /*SCROLLED BODY CLASS*/
   function toggleScrolled() {
     var selectBody = document.querySelector('body');
     var selectHeader = document.querySelector('#header');
@@ -30,7 +28,7 @@
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
 
-  /* ─── MOBILE NAV TOGGLE ─── */
+  /*MOBILE NAV TOGGLE*/
   var mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToggle() {
@@ -63,7 +61,7 @@
     });
   });
 
-  /* ─── PRELOADER ─── */
+  /*PRELOADER*/
   var preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', function () {
@@ -71,7 +69,7 @@
     });
   }
 
-  /* ─── SCROLL TOP BUTTON ─── */
+  /*SCROLL TOP BUTTON*/
   var scrollTop = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
@@ -92,7 +90,7 @@
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
 
-  /* ─── AOS ─── */
+  /*AOS*/
   function aosInit() {
     if (typeof AOS !== 'undefined') {
       AOS.init({
@@ -105,12 +103,12 @@
   }
   window.addEventListener('load', aosInit);
 
-  /* ─── PURE COUNTER ─── */
+  /*PURE COUNTER*/
   if (typeof PureCounter !== 'undefined') {
     new PureCounter();
   }
 
-  /* ─── SWIPER ─── */
+  /*SWIPER*/
   function initSwiper() {
     if (typeof Swiper === 'undefined') return;
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
@@ -127,7 +125,7 @@
   }
   window.addEventListener("load", initSwiper);
 
-  /* ─── FAQ TOGGLE (legacy) ─── */
+  /*FAQ TOGGLE (legacy)*/
   document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach(function (faqItem) {
     faqItem.addEventListener('click', function () {
       if (faqItem.parentNode) {
@@ -136,12 +134,12 @@
     });
   });
 
-  /* ─── GLIGHTBOX ─── */
+  /*GLIGHTBOX*/
   if (typeof GLightbox !== 'undefined') {
     GLightbox({ selector: '.glightbox' });
   }
 
-  /* ─── ISOTOPE ─── */
+  /*ISOTOPE*/
   document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
     if (typeof Isotope === 'undefined' || typeof imagesLoaded === 'undefined') return;
 
@@ -176,7 +174,7 @@
     });
   });
 
-  /* ─── HASH SCROLL ─── */
+  /*HASH SCROLL*/
   window.addEventListener('load', function () {
     if (window.location.hash) {
       var target = document.querySelector(window.location.hash);
@@ -192,7 +190,7 @@
     }
   });
 
-  /* ─── NAVMENU SCROLLSPY ─── */
+  /*NAVMENU SCROLLSPY*/
   var navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
@@ -217,9 +215,7 @@
 
 })();
 
-/* ═══════════════════════════════════════════════════════════
-   2) QUOTE MODAL — Standalone
-   ═══════════════════════════════════════════════════════════ */
+/*QUOTE MODAL — Standalone*/
 (function () {
   "use strict";
 
@@ -321,64 +317,54 @@
   if (!mapEl) return;                          // لا تفعّل إن لم توجد خريطة
   if (typeof L === 'undefined') return;        // لا تفعّل إن لم تُحمّل Leaflet
 
-  /* ─── Locations & Yemen Hubs ─── */
+  /* ─── Locations ─── */
   var LOCATIONS = [
     {
-      id: 'aden',
-      name_ar: 'عدن — المقر الرئيسي',
-      name_en: 'Aden — Headquarters',
-      desc_ar: 'المقر الرئيسي ومركز عمليات الشبكة الفضائية 24/7',
-      desc_en: 'Headquarters & 24/7 Network Operations Center',
-      lat: 12.7855,
-      lng: 45.0186,
+      id: 'yemen',
+      name: 'اليمن — المقر الرئيسي',
+      desc: 'مركز العمليات الفضائية 24/7 مع تغطية شاملة 100%',
+      lat: 15.3694,
+      lng: 44.191,
       type: 'hq'
     },
     {
-      id: 'sanaa',
-      name_ar: 'فرع صنعاء',
-      name_en: 'Sana\'a Branch',
-      desc_ar: 'فرع المبيعات والدعم التقني الميداني',
-      desc_en: 'Sales & Field Technical Support Branch',
-      lat: 15.3694,
-      lng: 44.1910,
-      type: 'branch'
-    },
-    {
-      id: 'hodeidah',
-      name_ar: 'فرع الحديدة',
-      name_en: 'Hodeidah Branch',
-      desc_ar: 'مركز حلول الاتصالات البحرية والميدانية',
-      desc_en: 'Maritime Communication Solutions Hub',
-      lat: 14.7978,
-      lng: 42.9545,
-      type: 'branch'
-    },
-    {
-      id: 'uae',
-      name_ar: 'الإمارات — IEC Telecom Hub',
-      name_en: 'UAE — IEC Telecom Hub',
-      desc_ar: 'محور الاتصال الإقليمي وتبادل البيانات الفضائية',
-      desc_en: 'Regional Satellite Teleport & Data Exchange',
-      lat: 25.2048,
-      lng: 55.2708,
+      id: 'saudi',
+      name: 'المملكة العربية السعودية',
+      desc: 'محطات ترحيل إقليمية وربط تجاري متقدم',
+      lat: 24.7136,
+      lng: 46.6753,
       type: 'hub'
     },
     {
-      id: 'saudi',
-      name_ar: 'المملكة العربية السعودية',
-      name_en: 'Saudi Arabia Teleport',
-      desc_ar: 'محطات ترحيل وربط تجاري متقدم',
-      desc_en: 'Regional Teleport & Commercial Satellite Link',
-      lat: 24.7136,
-      lng: 46.6753,
+      id: 'djibouti',
+      name: 'جيبوتي',
+      desc: 'بوابة الاتصالات البحرية لمضيق باب المندب',
+      lat: 11.8251,
+      lng: 42.5903,
+      type: 'hub'
+    },
+    {
+      id: 'egypt',
+      name: 'مصر',
+      desc: 'محطات VSAT لممر قناة السويس البحري',
+      lat: 26.8206,
+      lng: 30.8025,
+      type: 'hub'
+    },
+    {
+      id: 'uae',
+      name: 'الإمارات',
+      desc: 'محور تبادل البيانات وشراكة IEC Telecom',
+      lat: 23.4241,
+      lng: 53.8478,
       type: 'hub'
     }
   ];
 
   /* ─── Init Map ─── */
   var map = L.map('map', {
-    center: [16.5, 47],
-    zoom: 5,
+    center: [22, 45],
+    zoom: 4,
     zoomControl: true,
     attributionControl: true,
     worldCopyJump: true,
@@ -401,55 +387,50 @@
   ).addTo(map);
 
   /* ─── Markers ─── */
-  function renderMarkers() {
-    var isAr = (window.TechSatI18n && window.TechSatI18n.getLang() === 'ar');
-    LOCATIONS.forEach(function (loc) {
-      var isHQ = (loc.type === 'hq');
-      var name = isAr ? loc.name_ar : loc.name_en;
-      var desc = isAr ? loc.desc_ar : loc.desc_en;
-      var badgeText = isHQ ? (isAr ? '★ المقر الرئيسي' : '★ Headquarters') : '';
+  LOCATIONS.forEach(function (loc) {
+    var isHQ = loc.type === 'hq';
 
-      var icon = L.divIcon({
-        className: 'custom-marker',
-        html:
-          '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
-            '<span class="custom-marker__ring"></span>' +
-            '<span class="custom-marker__dot"></span>' +
-          '</div>',
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-        popupAnchor: [0, -12]
-      });
-
-      var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
-
-      marker.bindPopup(
-        '<div class="map-popup__title" style="font-family:inherit;font-weight:bold;">' + name + '</div>' +
-        '<div class="map-popup__desc" style="font-family:inherit;font-size:12px;margin-top:4px;">' + desc + '</div>' +
-        (isHQ ? '<div class="map-popup__badge" style="color:#0066ff;font-weight:bold;margin-top:4px;">' + badgeText + '</div>' : '')
-      );
-
-      if (isHQ) {
-        setTimeout(function () { marker.openPopup(); }, 800);
-      }
+    var icon = L.divIcon({
+      className: 'custom-marker',
+      html:
+        '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
+          '<span class="custom-marker__ring"></span>' +
+          '<span class="custom-marker__dot"></span>' +
+        '</div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+      popupAnchor: [0, -12]
     });
-  }
 
-  renderMarkers();
+    var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
 
-  /* ─── Connection Lines from HQ Aden to Yemen & Global Hubs ─── */
-  var hq = LOCATIONS.find(function (l) { return l.id === 'aden'; });
+    marker.bindPopup(
+      '<div class="map-popup__title">' + loc.name + '</div>' +
+      '<div class="map-popup__desc">' + loc.desc + '</div>' +
+      (isHQ ? '<div class="map-popup__badge">★ المقر الرئيسي</div>' : '')
+    );
 
-  LOCATIONS.filter(function (l) { return l.id !== 'aden'; }).forEach(function (loc) {
+    if (isHQ) {
+      setTimeout(function () { marker.openPopup(); }, 800);
+    }
+  });
+
+  /* ─── Connection Lines from HQ to Hubs ─── */
+  var hq = LOCATIONS.find(function (l) { return l.id === 'yemen'; });
+
+  LOCATIONS.filter(function (l) { return l.id !== 'yemen'; }).forEach(function (loc) {
+    var midLat = (hq.lat + loc.lat) / 2 + 3;
+    var midLng = (hq.lng + loc.lng) / 2;
+
     L.polyline(
-      [[hq.lat, hq.lng], [loc.lat, loc.lng]],
-      { color: '#3A6EA5', weight: 1.8, dashArray: '6 8', opacity: 0.8 }
+      [[hq.lat, hq.lng], [midLat, midLng], [loc.lat, loc.lng]],
+      { color: '#3A6EA5', weight: 1.5, dashArray: '6 8', opacity: 0.75 }
     ).addTo(map);
   });
 
-  /* ─── Coverage Circle around Aden HQ ─── */
+  /* ─── Coverage Circle around HQ ─── */
   L.circle([hq.lat, hq.lng], {
-    radius: 450000,
+    radius: 400000,
     color: '#D1D8E0',
     weight: 1.5,
     opacity: 0.7,

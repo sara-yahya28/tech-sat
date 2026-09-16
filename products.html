@@ -22,7 +22,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Shared CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <!-- ═══════════════════════════════════════════════════════
@@ -133,157 +133,6 @@
       .catalog-hero h1 { font-size: 32px; }
       .catalog-hero p { font-size: 15px; }
     }
-    /* =========================================================
-   PRODUCT SEARCH
-   ========================================================= */
-
-.product-search {
-  max-width: 650px;
-
-  margin: 0 auto 35px;
-}
-
-.product-search__box {
-  position: relative;
-
-  display: flex;
-
-  align-items: center;
-
-  width: 100%;
-
-  height: 58px;
-
-  background: #ffffff;
-
-  border: 1px solid var(--palette-light-blue);
-
-  border-radius: 14px;
-
-  box-shadow:
-    0 5px 20px rgba(11, 29, 51, 0.06);
-
-  transition: all 0.25s ease;
-}
-
-.product-search__box:focus-within {
-  border-color: var(--palette-mid-blue);
-
-  box-shadow:
-    0 8px 25px rgba(58, 110, 165, 0.15);
-}
-
-
-/* Search icon */
-
-.product-search__box > i {
-  position: absolute;
-
-  right: 20px;
-
-  color: var(--palette-mid-blue);
-
-  font-size: 20px;
-
-  pointer-events: none;
-}
-
-
-/* Input */
-
-.product-search__box input {
-  width: 100%;
-
-  height: 100%;
-
-  border: none;
-
-  outline: none;
-
-  background: transparent;
-
-  color: var(--palette-dark-navy);
-
-  font-family: "Tajawal", sans-serif;
-
-  font-size: 15px;
-
-  padding:
-    0 52px
-    0 55px;
-
-  text-align: right;
-}
-
-.product-search__box input::placeholder {
-  color: #94a3b8;
-}
-
-
-/* Clear button */
-
-#clearProductSearch {
-  position: absolute;
-
-  left: 15px;
-
-  width: 32px;
-  height: 32px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  background: transparent;
-
-  color: #94a3b8;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  transition: all 0.2s ease;
-}
-
-#clearProductSearch.show {
-  opacity: 1;
-
-  visibility: visible;
-}
-
-#clearProductSearch:hover {
-  background: #eef3fa;
-
-  color: var(--palette-dark-navy);
-}
-
-
-/* Mobile */
-
-@media (max-width: 576px) {
-
-  .product-search {
-    margin-bottom: 28px;
-  }
-
-  .product-search__box {
-    height: 54px;
-  }
-
-  .product-search__box input {
-    font-size: 14px;
-
-    padding-right: 48px;
-  }
-
-}
 
     /* ═══════════════════════════════════════════════════════
        FILTER TABS (Underline Style)
@@ -544,13 +393,10 @@
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════════════
-       MAIN CONTENT
-       ═══════════════════════════════════════════════════════ -->
   <main class="main">
 
-    <!-- ─── Catalog Hero ─── -->
-    <section class="catalog-hero">
+    <!-- Catalog Hero -->
+    <section class="page-hero">
       <div class="container" data-aos="fade-up">
         <h1>المنتجات</h1>
         <p>
@@ -559,7 +405,7 @@
       </div>
     </section>
 
-    <!-- ─── Products Grid ─── -->
+    <!-- Products Grid -->
     <section class="section">
       <div class="container">
         <!-- =======================================================
@@ -596,7 +442,7 @@
 
 </div>
 
-        <!-- Filter Tabs (Underline Style) -->
+        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
           <button class="filter-tab active" data-filter="all" role="tab">كل المنتجات</button>
           <button class="filter-tab" data-filter="terminals" role="tab">محطات</button>
@@ -608,7 +454,6 @@
         <!-- Products Grid -->
         <div class="row g-4" id="productsGrid">
 
-          <!-- 1 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up">
             <div class="product-card">
               <div class="product-card__icon">
@@ -623,7 +468,6 @@
             </div>
           </div>
 
-          <!-- 2 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="50">
             <div class="product-card">
               <div class="product-card__icon">
@@ -638,7 +482,6 @@
             </div>
           </div>
 
-          <!-- 3 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up" data-aos-delay="100">
             <div class="product-card">
               <div class="product-card__icon">
@@ -653,7 +496,6 @@
             </div>
           </div>
 
-          <!-- 4 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up">
             <div class="product-card">
               <div class="product-card__icon">
@@ -668,7 +510,6 @@
             </div>
           </div>
 
-          <!-- 5 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up" data-aos-delay="50">
             <div class="product-card">
               <div class="product-card__icon">
@@ -683,7 +524,6 @@
             </div>
           </div>
 
-          <!-- 6 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="100">
             <div class="product-card">
               <div class="product-card__icon">
@@ -698,7 +538,6 @@
             </div>
           </div>
 
-          <!-- 7 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up">
             <div class="product-card">
               <div class="product-card__icon">
@@ -713,7 +552,6 @@
             </div>
           </div>
 
-          <!-- 8 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="50">
             <div class="product-card">
               <div class="product-card__icon">
@@ -728,7 +566,6 @@
             </div>
           </div>
 
-          <!-- 9 -->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="100">
             <div class="product-card">
               <div class="product-card__icon">
@@ -745,7 +582,6 @@
 
         </div>
 
-        <!-- No results message -->
         <div id="noResults" class="text-center py-5" style="display:none;">
           <p style="color:#64748B; font-size:16px;">لا توجد منتجات في هذا التصنيف حاليًا.</p>
         </div>
@@ -753,7 +589,7 @@
       </div>
     </section>
 
-    <!-- ─── Engineer CTA ─── -->
+    <!-- Engineer CTA -->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="engineer-cta" data-aos="zoom-in">
@@ -773,137 +609,12 @@
 
   </main>
 
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════════════════ -->
-  <footer id="footer" class="footer dark-background">
+  <div id="footer-root"></div>
 
-    <div class="container">
-      <div class="row gy-5">
-
-        <div class="col-lg-4">
-          <div class="footer-content">
-            <a href="index.html" class="logo d-flex align-items-center mb-4">
-              <span class="sitename">Tech-Sat</span>
-            </a>
-            <p class="mb-4">
-              الموزع الحصري لـ IEC Global Telecom في اليمن. حلول اتصالات فضائية موثوقة للقطاعات الحيوية: الحكومة، الإنساني، البحري، الطاقة، الإعلام، والمؤسسات.
-            </p>
-
-            <div class="newsletter-form">
-              <h5>ابقَ على تواصل</h5>
-              <form action="#" method="post" class="php-email-form">
-                <div class="input-group">
-                  <input type="email" name="email" class="form-control" placeholder="أدخل بريدك الإلكتروني" required="">
-                  <button type="submit" class="btn-subscribe">
-                    <i class="bi bi-send"></i>
-                  </button>
-                </div>
-                <div class="loading">جاري التحميل</div>
-                <div class="error-message"></div>
-                <div class="sent-message">شكرًا لاشتراكك!</div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6">
-          <div class="footer-links">
-            <h4>الشركة</h4>
-            <ul>
-              <li><a href="about.html"><i class="bi bi-chevron-left"></i> من نحن</a></li>
-              <li><a href="services.html"><i class="bi bi-chevron-left"></i> الخدمات</a></li>
-              <li><a href="products.html"><i class="bi bi-chevron-left"></i> المنتجات</a></li>
-              <li><a href="index.html#faq"><i class="bi bi-chevron-left"></i> الأسئلة الشائعة</a></li>
-              <li><a href="contact.html"><i class="bi bi-chevron-left"></i> تواصل معنا</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6">
-          <div class="footer-links">
-            <h4>حلولنا</h4>
-            <ul>
-              <li><a href="index.html#features"><i class="bi bi-chevron-left"></i> حلول VSAT</a></li>
-              <li><a href="index.html#features"><i class="bi bi-chevron-left"></i> صوت وبيانات</a></li>
-              <li><a href="index.html#features"><i class="bi bi-chevron-left"></i> تكامل الأنظمة</a></li>
-              <li><a href="index.html#features"><i class="bi bi-chevron-left"></i> شبكات مُدارة</a></li>
-              <li><a href="index.html#features"><i class="bi bi-chevron-left"></i> دعم فني 24/7</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="footer-contact">
-            <h4>تواصل معنا</h4>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
-              <div class="contact-info">
-                <p>عدن، اليمن</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-telephone"></i></div>
-              <div class="contact-info">
-                <p>+967 2 396 056</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-envelope"></i></div>
-              <div class="contact-info">
-                <p>info@tech-sat.com</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon"><i class="bi bi-headset"></i></div>
-              <div class="contact-info">
-                <p>Support: support@tech-sat.com<br>+967 711 188 100</p>
-              </div>
-            </div>
-
-            <div class="social-links">
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-twitter-x"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-              <a href="#"><i class="bi bi-youtube"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="copyright">
-              <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">Tech-Sat</strong> <span>جميع الحقوق محفوظة 2025</span></p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="footer-bottom-links">
-              <a href="#">سياسة الخصوصية</a>
-              <a href="#">الشروط والأحكام</a>
-              <a href="#">سياسة الكوكيز</a>
-            </div>
-            <div class="credits">
-              صُمّم بواسطة <a href="#">YOU for Information Technology</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -912,281 +623,47 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!-- Main JS File -->
+  <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 
   <!-- ─── Product Filter Script (Tabs) ─── -->
   <script>
-
-(function () {
-
-  'use strict';
-
-
-  /* =========================================================
-     ELEMENTS
-     ========================================================= */
-
-  var tabs =
-    document.querySelectorAll('.filter-tab');
-
-  var items =
-    document.querySelectorAll('.product-item');
-
-  var noResults =
-    document.getElementById('noResults');
-
-  var searchInput =
-    document.getElementById('productSearch');
-
-  var clearButton =
-    document.getElementById('clearProductSearch');
-
-
-  /* =========================================================
-     CURRENT FILTER
-     ========================================================= */
-
-  var currentFilter = 'all';
-
-
-  /* =========================================================
-     NORMALIZE ARABIC TEXT
-     يساعد البحث العربي يكون أكثر مرونة
-     ========================================================= */
-
-  function normalizeText(text) {
-
-    return text
-      .toLowerCase()
-
-      .replace(/أ|إ|آ/g, 'ا')
-
-      .replace(/ة/g, 'ه')
-
-      .replace(/ى/g, 'ي')
-
-      .replace(/\s+/g, ' ')
-
-      .trim();
-
-  }
-
-
-  /* =========================================================
-     FILTER PRODUCTS
-     ========================================================= */
-
-  function filterProducts() {
-
-    var searchValue =
-      searchInput
-        ? normalizeText(searchInput.value)
-        : '';
-
-
-    var visibleCount = 0;
-
-
-    items.forEach(function (item) {
-
-
-      /* -----------------------------------------------
-         Category
-         ----------------------------------------------- */
-
-      var category =
-        item.dataset.category;
-
-
-      var categoryMatch =
-        currentFilter === 'all' ||
-        category === currentFilter;
-
-
-      /* -----------------------------------------------
-         Product text
-         ----------------------------------------------- */
-
-      var productText =
-        normalizeText(
-          item.textContent
-        );
-
-
-      var searchMatch =
-        searchValue === '' ||
-        productText.includes(searchValue);
-
-
-      /* -----------------------------------------------
-         Final result
-         ----------------------------------------------- */
-
-      var match =
-        categoryMatch &&
-        searchMatch;
-
-
-      if (match) {
-
-        item.style.display = '';
-
-        visibleCount++;
-
-      } else {
-
-        item.style.display = 'none';
-
-      }
-
-    });
-
-
-    /* =====================================================
-       NO RESULTS
-       ===================================================== */
-
-    if (noResults) {
-
-      if (visibleCount === 0) {
-
-        noResults.style.display = 'block';
-
-      } else {
-
-        noResults.style.display = 'none';
-
-      }
-
-    }
-
-
-    /* =====================================================
-       CLEAR BUTTON
-       ===================================================== */
-
-    if (clearButton && searchInput) {
-
-      if (searchInput.value.trim() !== '') {
-
-        clearButton.classList.add('show');
-
-      } else {
-
-        clearButton.classList.remove('show');
-
-      }
-
-    }
-
-
-    /* =====================================================
-       AOS
-       ===================================================== */
-
-    if (window.AOS) {
-
-      window.AOS.refresh();
-
-    }
-
-  }
-
-
-  /* =========================================================
-     CATEGORY FILTER
-     ========================================================= */
-
-  tabs.forEach(function (tab) {
-
-    tab.addEventListener(
-      'click',
-      function () {
-
-
-        /* Remove active */
-
-        tabs.forEach(function (t) {
-
-          t.classList.remove('active');
-
+    (function () {
+      'use strict';
+      var tabs = document.querySelectorAll('.filter-tab');
+      var items = document.querySelectorAll('.product-item');
+      var noResults = document.getElementById('noResults');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          // Active state
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+
+          var filter = tab.dataset.filter;
+          var visibleCount = 0;
+
+          items.forEach(function (item) {
+            var match = (filter === 'all') || (item.dataset.category === filter);
+            if (match) {
+              item.style.display = '';
+              visibleCount++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          // Show/hide no results
+          if (noResults) {
+            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+          }
+
+          // Refresh AOS
+          if (window.AOS) { window.AOS.refresh(); }
         });
-
-
-        /* Add active */
-
-        tab.classList.add('active');
-
-
-        /* Get category */
-
-        currentFilter =
-          tab.dataset.filter;
-
-
-        /* Filter */
-
-        filterProducts();
-
-      }
-    );
-
-  });
-
-
-  /* =========================================================
-     SEARCH
-     ========================================================= */
-
-  if (searchInput) {
-
-    searchInput.addEventListener(
-      'input',
-      function () {
-
-        filterProducts();
-
-      }
-    );
-
-  }
-
-
-  /* =========================================================
-     CLEAR SEARCH
-     ========================================================= */
-
-  if (clearButton) {
-
-    clearButton.addEventListener(
-      'click',
-      function () {
-
-        if (searchInput) {
-
-          searchInput.value = '';
-
-          searchInput.focus();
-
-        }
-
-        filterProducts();
-
-      }
-    );
-
-  }
-
-
-  /* =========================================================
-     INITIAL FILTER
-     ========================================================= */
-
-  filterProducts();
-
-
-})();
+      });
+    })();
+  </script>
 
 </script>
 </body>

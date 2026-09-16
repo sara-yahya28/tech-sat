@@ -1,0 +1,126 @@
+/* ═══════════════════════════════════════════════════════
+   TECH-SAT — Palette & Global Overrides
+   Shared across ALL pages. Load BEFORE page-specific CSS.
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --palette-white: #F8F9FA;
+  --palette-light-blue: #D1D8E0;
+  --palette-mid-blue: #3A6EA5;
+  --palette-dark-navy: #0B1D33;
+
+  --default-font: "Tajawal", system-ui, sans-serif;
+  --heading-font: "Tajawal", system-ui, sans-serif;
+  --nav-font: "Tajawal", system-ui, sans-serif;
+
+  --default-color: var(--palette-dark-navy);
+  --heading-color: var(--palette-dark-navy);
+  --accent-color: var(--palette-mid-blue);
+  --surface-color: var(--palette-white);
+  --contrast-color: var(--palette-white);
+  --background-color: var(--palette-white);
+}
+
+body { font-family: 'Tajawal', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
+
+/* ─── Header / Navbar ─── */
+.header {
+  background-color: var(--palette-white) !important;
+  box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
+}
+.header .logo h1 { color: var(--palette-dark-navy) !important; }
+.header .social-links a { color: var(--palette-mid-blue) !important; }
+
+.navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
+.navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
+
+/* ─── Buttons ─── */
+.btn-primary {
+  background-color: var(--palette-mid-blue) !important;
+  border-color: var(--palette-mid-blue) !important;
+  color: var(--palette-white) !important;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all .25s ease;
+}
+.btn-primary:hover {
+  background-color: var(--palette-dark-navy) !important;
+  border-color: var(--palette-dark-navy) !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Footer ─── */
+.footer {
+  background-color: var(--palette-dark-navy) !important;
+  color: var(--palette-light-blue) !important;
+}
+.footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
+.footer a { color: var(--palette-light-blue) !important; }
+.footer a:hover { color: var(--palette-white) !important; }
+.footer .social-links a { color: var(--palette-light-blue) !important; }
+.footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
+.footer .copyright, .footer .credits {
+  border-top-color: rgba(209, 216, 224, 0.1) !important;
+}
+
+/* ─── Section Base ─── */
+.section { padding: 80px 0; }
+.section--alt { background: #F4F7FB; }
+.section-title { text-align: center; margin-bottom: 56px; }
+.section-title h2 {
+  color: var(--palette-dark-navy);
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.section-title p {
+  color: #64748B;
+  font-size: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ─── Unified Page Hero (used by about / contact / products / services) ─── */
+.page-hero {
+  background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+  padding: 160px 0 80px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero .subtitle-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--palette-light-blue);
+  margin-bottom: 12px;
+}
+.page-hero h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.page-hero p {
+  color: var(--palette-light-blue);
+  font-size: 17px;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 34px; }
+  .page-hero p { font-size: 15px; }
+}
