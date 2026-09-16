@@ -1,6 +1,6 @@
-/* ═══════════════════════════════════════════════════════════
+/*  
    ORBITS HERO — Styles
-   ═══════════════════════════════════════════════════════════ */
+     */
 
 .orbits-hero {
   --oh-cream: #F8F4EF;
@@ -31,7 +31,7 @@
   }
 }
 
-/* ---------- background layers ---------- */
+/*    - background layers    - */
 .oh-dots {
   position: absolute;
   inset: 0;
@@ -62,7 +62,7 @@
   background: rgba(228, 211, 41, .15);
 }
 
-/* ---------- layout ---------- */
+/*    - layout    - */
 .oh-container {
   position: relative;
   width: 100%;
@@ -85,7 +85,7 @@
   }
 }
 
-/* ---------- text column ---------- */
+/*text column*/
 .oh-text {
   display: flex;
   flex-direction: column;
@@ -219,7 +219,7 @@
   }
 }
 
-/* ---------- buttons ---------- */
+/* buttons*/
 .oh-actions {
   display: flex;
   flex-direction: column;
@@ -303,7 +303,7 @@
   transform: translateX(4px);
 }
 
-/* ---------- telemetry ---------- */
+/*  telemetry */
 .oh-telemetry {
   min-height: 40px;
   display: flex;
@@ -367,7 +367,7 @@
   }
 }
 
-/* ---------- orbits column ---------- */
+/*    - orbits column    - */
 .oh-orbits {
   display: flex;
   align-items: center;
@@ -504,7 +504,7 @@
   pointer-events: none;
 }
 
-/* ---------- orbit nodes ---------- */
+/*    - orbit nodes    - */
 .oh-node {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -611,7 +611,7 @@
   border-color: var(--oh-space);
 }
 
-/* ---------- sectors strip ---------- */
+/*    - sectors strip    - */
 .oh-sectors {
   position: relative;
   max-width: 1024px;

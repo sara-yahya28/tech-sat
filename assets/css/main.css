@@ -1,15 +1,4 @@
-/**
-* Template Name: LeadPage
-* Template URL: https://bootstrapmade.com/leadpage-bootstrap-landing-page-template/
-* Updated: Aug 12 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -57,9 +46,9 @@
   scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
+/* 
 # General Styling & Shared Classes
---------------------------------------------------------------*/
+ */
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -88,7 +77,7 @@ h6 {
 }
 
 /* PHP Email Form Messages
-------------------------------*/
+ */
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -139,9 +128,9 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Header
---------------------------------------------------------------*/
+ */
 .header {
   --background-color: rgba(255, 255, 255, 0);
   --default-color: #ffffff;
@@ -206,14 +195,14 @@ h6 {
 }
 
 /* Global Header on Scroll
-------------------------------*/
+          */
 .scrolled .header {
   --background-color: #1a1715;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Navigation Menu
---------------------------------------------------------------*/
+ */
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
   .navmenu {
@@ -448,9 +437,9 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Footer
---------------------------------------------------------------*/
+ */
 .footer {
   color: var(--default-color);
   background: var(--background-color);
@@ -765,9 +754,9 @@ textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Preloader
---------------------------------------------------------------*/
+ */
 #preloader {
   position: fixed;
   inset: 0;
@@ -800,9 +789,9 @@ textarea::placeholder {
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Scroll Top Button
---------------------------------------------------------------*/
+ */
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -833,18 +822,18 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+ */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
+ */
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -895,9 +884,9 @@ textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Sections
---------------------------------------------------------------*/
+ */
 section,
 .section {
   color: var(--default-color);
@@ -915,9 +904,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Global Section Titles
---------------------------------------------------------------*/
+ */
 .section-title {
   text-align: center;
   padding-bottom: 60px;
@@ -970,9 +959,9 @@ section,
   text-wrap: balance;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Hero Section
---------------------------------------------------------------*/
+ */
 .hero {
   padding: 120px 0 60px 0;
   min-height: 100vh;
@@ -1107,9 +1096,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # About Section
---------------------------------------------------------------*/
+ */
 .about {
   padding-top: 60px;
   background-color: var(--background-color);
@@ -1275,9 +1264,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Clients Section
---------------------------------------------------------------*/
+ */
 .clients {
   padding-top: 30px;
   padding-bottom: 60px;
@@ -1325,9 +1314,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Features Section
---------------------------------------------------------------*/
+ */
 .features .tabs-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -1731,9 +1720,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Features Cards Section
---------------------------------------------------------------*/
+ */
 .features-cards .feature-card {
   height: 100%;
   background-color: var(--surface-color);
@@ -1914,9 +1903,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Call To Action Section
---------------------------------------------------------------*/
+ */
 .call-to-action {
   padding: 0;
 }
@@ -2008,9 +1997,9 @@ section,
   z-index: 3;
 }
 
-/*--------------------------------------------------------------
+/* 
 # Testimonials Section
---------------------------------------------------------------*/
+ */
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;
@@ -2095,9 +2084,9 @@ section,
   background-color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
+/* 
 # Services Section
---------------------------------------------------------------*/
+ */
 .services .services-showcase {
   margin-bottom: 6rem;
 }
@@ -2384,9 +2373,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Pricing Section
---------------------------------------------------------------*/
+ */
 .pricing .pricing-item {
   background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
   padding: 40px 40px;
@@ -2523,9 +2512,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Faq Section
---------------------------------------------------------------*/
+ */
 .faq .faq-item {
   margin-bottom: 0;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -2710,9 +2699,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Portfolio Section
---------------------------------------------------------------*/
+ */
 .portfolio .portfolio-filters-wrapper {
   text-align: center;
   margin-bottom: 80px;
@@ -2898,9 +2887,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Team Section
---------------------------------------------------------------*/
+ */
 .team {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -3095,9 +3084,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Contact Section
---------------------------------------------------------------*/
+ */
 .contact .contact-form-container {
   padding: 60px 0;
 }
@@ -3372,9 +3361,9 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Service Details Section
---------------------------------------------------------------*/
+ */
 .service-details .service-hero {
   margin-bottom: 4rem;
 }
@@ -3875,16 +3864,16 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
+/* 
 # Starter Section Section
---------------------------------------------------------------*/
+ */
 .starter-section {
   /* Add your styles here */
 }
 
-/*--------------------------------------------------------------
+/* 
 # Portfolio Details Section
---------------------------------------------------------------*/
+ */
 .portfolio-details {
   --section-spacing: 5rem;
   --content-spacing: 4rem;
@@ -4440,9 +4429,9 @@ section,
     border-radius: 0;
   }
 }
-/* ═══════════════════════════════════════════════════════
+/*  
    QUOTE MODAL
-   ═══════════════════════════════════════════════════════ */
+     */
 .quote-modal {
   position: fixed;
   inset: 0;
