@@ -7,99 +7,65 @@
   <title>المنتجات — Tech-Sat</title>
   <meta name="description" content="كتالوج منتجات Tech-Sat — محطات VSAT، هوائيات، مودمات، وملحقات فضائية.">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!--Vendor CSS-->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Shared CSS -->
+  <!--Shared CSS-->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/components.css" rel="stylesheet">
-  <!-- Page-specific CSS -->
+  <!--Page-specific CSS-->
   <link href="assets/css/pages/products.css" rel="stylesheet">
 
   <script src="assets/js/Navbar-Footer.js"></script>
+
 </head>
 
 <body class="index-page">
 
-  <!-- ═══════════════════════════════════════════════════════
-       HEADER / NAVBAR
-       ═══════════════════════════════════════════════════════ -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl position-relative">
-      <div class="top-row d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Tech Sat</h1>
-        </a>
-        <div class="d-flex align-items-center">
-          <div class="social-links">
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-wrap">
-      <div class="container d-flex justify-content-center position-relative">
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="index.html#features">الخدمات</a></li>
-            <li><a href="products.html" class="active">المنتجات</a></li>
-            <li><a href="about.html">من نحن</a></li>
-            <li><a href="contact.html">تواصل معنا</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <div id="navbar-root"></div>
 
   <main class="main">
 
-    <!-- Catalog Hero -->
+    <!--Catalog Hero-->
     <section class="page-hero">
       <div class="container" data-aos="fade-up">
         <h1>المنتجات</h1>
-        <p>
+        <p >
           استكشف مجموعتنا الكاملة من عتاد الاتصالات الفضائية — من محطات VSAT المحمولة والهوائيات المقاومة للظروف القاسية، إلى المودمات بمعايير المؤسسات والملحقات الميدانية الجاهزة.
         </p>
       </div>
     </section>
 
-    <!-- Products Grid -->
+    <!--Products Grid-->
     <section class="section">
       <div class="container">
 
-        <!-- Filter Tabs -->
+        <!--Filter Tabs-->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل المنتجات</button>
-          <button class="filter-tab" data-filter="terminals" role="tab">محطات</button>
-          <button class="filter-tab" data-filter="antennas" role="tab">هوائيات</button>
-          <button class="filter-tab" data-filter="modems" role="tab">مودمات</button>
-          <button class="filter-tab" data-filter="accessories" role="tab">ملحقات</button>
+          <button class="filter-tab active" data-filter="all" role="tab"  ="products.filter.all">كل المنتجات</button>
+          <button class="filter-tab" data-filter="terminals" role="tab"  ="products.filter.terminals">محطات</button>
+          <button class="filter-tab" data-filter="antennas" role="tab"  ="products.filter.antennas">هوائيات</button>
+          <button class="filter-tab" data-filter="modems" role="tab"  ="products.filter.modems">مودمات</button>
+          <button class="filter-tab" data-filter="accessories" role="tab"  ="products.filter.accessories">ملحقات</button>
         </div>
 
-        <!-- Products Grid -->
+        <!--Products Grid-->
         <div class="row g-4" id="productsGrid">
 
+          <!--1-->
           <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up">
-            <div class="product-card">
+            <a href="details.html?type=product&id=vsat-portable" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">محطة</span>
                 <i class="bi bi-broadcast-pin"></i>
@@ -107,13 +73,14 @@
               <div class="product-card__body">
                 <h5>محطة VSAT محمولة</h5>
                 <p>محطة أرضية مع اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية، مثالية للبعثات الميدانية.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--2-->
           <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card">
+            <a href="details.html?type=product&id=ku-antenna" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">هوائي</span>
                 <i class="bi bi-satellite"></i>
@@ -121,13 +88,14 @@
               <div class="product-card__body">
                 <h5>هوائي Ku-Band</h5>
                 <p>هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--3-->
           <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card">
+            <a href="details.html?type=product&id=managed-modem" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">مودم</span>
                 <i class="bi bi-router"></i>
@@ -135,13 +103,14 @@
               <div class="product-card__body">
                 <h5>مودم فضائي مُدار</h5>
                 <p>مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--4-->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up">
-            <div class="product-card">
+            <a href="details.html?type=product&id=rf-cables" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">ملحق</span>
                 <i class="bi bi-plug"></i>
@@ -149,13 +118,14 @@
               <div class="product-card__body">
                 <h5>طقم كابلات RF</h5>
                 <p>كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--5-->
           <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card">
+            <a href="details.html?type=product&id=manpack" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">محطة</span>
                 <i class="bi bi-backpack2"></i>
@@ -163,13 +133,14 @@
               <div class="product-card__body">
                 <h5>محطة Manpack</h5>
                 <p>محطة فضائية بحقيبة ظهر للعمليات الميدانية التكتيكية، مع تركيب فوري أثناء الحركة.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--6-->
           <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card">
+            <a href="details.html?type=product&id=vehicle-antenna" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">هوائي</span>
                 <i class="bi bi-truck"></i>
@@ -177,13 +148,14 @@
               <div class="product-card__body">
                 <h5>هوائي مثبت على المركبات</h5>
                 <p>هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية، مع ثبات عالي أثناء الحركة.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--7-->
           <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up">
-            <div class="product-card">
+            <a href="details.html?type=product&id=iot-modem" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">مودم</span>
                 <i class="bi bi-cpu"></i>
@@ -191,13 +163,14 @@
               <div class="product-card__body">
                 <h5>مودم إنترنت الأشياء IoT</h5>
                 <p>مودم فضائي منخفض الطاقة لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--8-->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card">
+            <a href="details.html?type=product&id=psu" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">ملحق</span>
                 <i class="bi bi-battery-charging"></i>
@@ -205,13 +178,14 @@
               <div class="product-card__body">
                 <h5>وحدة إمداد طاقة PSU</h5>
                 <p>وحدة إمداد طاقة احتياطية بمدى جهد واسع، مصممة للعمليات الميدانية الطويلة.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
+          <!--9-->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card">
+            <a href="details.html?type=product&id=deploy-case" class="product-card">
               <div class="product-card__icon">
                 <span class="product-card__tag">ملحق</span>
                 <i class="bi bi-box-seam"></i>
@@ -219,32 +193,32 @@
               <div class="product-card__body">
                 <h5>حقيبة نقل Deploy Case</h5>
                 <p>حقيبة نقل مقاومة للصدمات مع حشوات فوم مخصصة للمحطة والهوائي معًا.</p>
-                <a href="contact.html" class="product-card__cta">اطلب عرض سعر <i class="bi bi-arrow-left"></i></a>
+                <span class="product-card__cta">اعرض التفاصيل <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
         </div>
 
         <div id="noResults" class="text-center py-5" style="display:none;">
-          <p style="color:#64748B; font-size:16px;">لا توجد منتجات في هذا التصنيف حاليًا.</p>
+          <p style="color:#64748B; font-size:16px;"  ="products.empty">لا توجد منتجات في هذا التصنيف حاليًا.</p>
         </div>
 
       </div>
     </section>
 
-    <!-- Engineer CTA -->
+    <!--Engineer CTA-->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="engineer-cta" data-aos="zoom-in">
           <div class="engineer-cta__content">
-            <h2>هل تحتاج مساعدة في اختيار المنتج المناسب؟</h2>
+            <h2 >هل تحتاج مساعدة في اختيار المنتج المناسب؟</h2>
             <p>
               مهندسونا مستعدون لمساعدتك في اختيار المحطة أو الهوائي أو المودم الأنسب لمهمتك — من النشر في موقع واحد إلى ربط أسطول عالمي.
             </p>
             <a href="contact.html" class="btn-engineer">
               <i class="bi bi-headset"></i>
-              تحدث مع مهندس
+              <span>تحدث مع مهندس</span>
             </a>
           </div>
         </div>
@@ -261,16 +235,17 @@
 
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <!--Vendor JS-->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!-- Main JS -->
+  <!--Data + Main JS-->
+  <script src="assets/js/data.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- Page-Specific JS -->
+  <!--Page-specific JS-->
   <script src="assets/js/pages/products.js"></script>
 
 </body>

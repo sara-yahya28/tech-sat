@@ -947,3 +947,27 @@
   .cta-strip { padding: 40px 24px; }
   .cta-strip h2 { font-size: 24px; }
 }
+/*Language switcher*/
+.lang-switch {
+  background: transparent;
+  border: 1px solid var(--palette-light-blue);
+  color: var(--palette-dark-navy);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all .2s ease;
+}
+.lang-switch:hover {
+  background: var(--palette-mid-blue);
+  border-color: var(--palette-mid-blue);
+  color: #fff;
+}
+html[dir="ltr"] .lang-switch {
+  margin-right: 0;
+  margin-left: 12px;
+}

@@ -7,516 +7,31 @@
   <title>الخدمات — Tech-Sat</title>
   <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- ═══════════════════════════════════════════════════════
-       COLOR PALETTE + PAGE STYLES
-       ═══════════════════════════════════════════════════════ -->
-  <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
-    }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all .25s ease;
-    }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-    /* ═══════════════════════════════════════════════════════
-       PAGE HERO
-       ═══════════════════════════════════════════════════════ */
-    .services-hero {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 160px 0 80px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    .services-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .services-hero .container { position: relative; z-index: 2; }
-    .services-hero h1 {
-      color: #fff;
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-    .services-hero p {
-      color: var(--palette-light-blue);
-      font-size: 17px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .services-hero h1 { font-size: 32px; }
-      .services-hero p { font-size: 15px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       FILTER TABS (Underline Style)
-       ═══════════════════════════════════════════════════════ */
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 56px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--palette-light-blue);
-      position: relative;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .filter-tabs::-webkit-scrollbar { display: none; }
-
-    .filter-tab {
-      position: relative;
-      background: transparent;
-      border: none;
-      padding: 8px 0;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 500;
-      color: rgba(11, 29, 51, 0.55);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color .25s ease;
-    }
-    .filter-tab:hover { color: var(--palette-dark-navy); }
-    .filter-tab.active {
-      color: var(--palette-dark-navy);
-      font-weight: 700;
-    }
-    .filter-tab::after {
-      content: '';
-      position: absolute;
-      bottom: -17px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--palette-mid-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .3s ease;
-    }
-    .filter-tab.active::after { transform: scaleX(1); }
-
-    @media (max-width: 768px) {
-      .filter-tabs {
-        gap: 24px;
-        justify-content: flex-start;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
-      .filter-tab { font-size: 14px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       SERVICE CARDS
-       ═══════════════════════════════════════════════════════ */
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      overflow: hidden;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: all .3s ease;
-      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-    }
-
-    .service-card__icon {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 3.5rem;
-      color: var(--palette-mid-blue);
-      position: relative;
-    }
-    .service-card__icon i {
-      transition: transform .3s ease;
-    }
-    .service-card:hover .service-card__icon i {
-      transform: scale(1.15);
-    }
-    .service-card__tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--palette-dark-navy);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .service-card__body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .service-card__body h5 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .service-card__body p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    /* Feature bullets */
-    .service-card__features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .service-card__features li {
-      color: var(--palette-dark-navy);
-      font-size: 12.5px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-card__features li i {
-      color: var(--palette-mid-blue);
-      font-size: 11px;
-      flex-shrink: 0;
-    }
-
-    .service-card__cta {
-      color: var(--palette-mid-blue);
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap .2s ease;
-      text-decoration: none;
-    }
-    .service-card:hover .service-card__cta { gap: 10px; }
-
-    /* ═══════════════════════════════════════════════════════
-       PROCESS STEPS
-       ═══════════════════════════════════════════════════════ */
-    .process-section {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .process-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .process-section .container { position: relative; z-index: 2; }
-
-    .process-section .section-title h2 { color: #fff; }
-    .process-section .section-title p { color: var(--palette-light-blue); }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      position: relative;
-    }
-    @media (max-width: 992px) {
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .process-grid { grid-template-columns: 1fr; }
-    }
-
-    .process-step {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(209, 216, 224, 0.12);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      position: relative;
-      height: 100%;
-    }
-    .process-step:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(58, 110, 165, 0.5);
-      transform: translateY(-6px);
-    }
-    .process-step__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--palette-mid-blue);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(58, 110, 165, 0.35);
-    }
-    .process-step h4 {
-      color: #fff;
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .process-step p {
-      color: var(--palette-light-blue);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-      opacity: 0.85;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       WHY US
-       ═══════════════════════════════════════════════════════ */
-    .why-us {
-      padding: 80px 0;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 992px) {
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .why-grid { grid-template-columns: 1fr; }
-    }
-
-    .why-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .why-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.08);
-    }
-    .why-card__icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--palette-mid-blue);
-      font-size: 26px;
-      transition: transform .3s ease;
-    }
-    .why-card:hover .why-card__icon {
-      transform: scale(1.08) rotate(-3deg);
-    }
-    .why-card h4 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .why-card p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.7;
-      margin: 0;
-      flex: 1;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       ENGINEER CTA
-       ═══════════════════════════════════════════════════════ */
-    .engineer-cta {
-      background: var(--palette-dark-navy);
-      border-radius: 24px;
-      padding: 60px 50px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .engineer-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .engineer-cta__content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
-    }
-    .engineer-cta h2 {
-      color: #fff;
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-    .engineer-cta p {
-      color: var(--palette-light-blue);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .btn-engineer {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--palette-dark-navy);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-    .btn-engineer:hover {
-      background: var(--palette-light-blue);
-      transform: translateY(-2px);
-      color: var(--palette-dark-navy);
-    }
-    @media (max-width: 768px) {
-      .engineer-cta { padding: 40px 28px; }
-      .engineer-cta h2 { font-size: 26px; }
-    }
-
-    /* ─── Section Base ─── */
-    .section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 56px; }
-    .section-title h2 {
-      color: var(--palette-dark-navy);
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .section-title p { color: #64748B; font-size: 16px; max-width: 680px; margin: 0 auto; }
-  </style>
+  <link href="assets/css/palette.css" rel="stylesheet">
+  <link href="assets/css/components.css" rel="stylesheet">
+  <link href="assets/css/pages/services.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
-  <!-- ═══════════════════════════════════════════════════════
-       NAVBAR — يُحقن تلقائيًا من Navbar-Footer.js
-       ═══════════════════════════════════════════════════════ -->
   <div id="navbar-root"></div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       MAIN CONTENT
-       ═══════════════════════════════════════════════════════ -->
   <main class="main">
 
-    <!-- ─── Services Hero ─── -->
-    <section class="services-hero">
+    <!--Services Hero-->
+    <section class="page-hero">
       <div class="container" data-aos="fade-up">
         <h1>خدماتنا</h1>
         <p>
@@ -525,11 +40,10 @@
       </div>
     </section>
 
-    <!-- ─── Services Grid ─── -->
+    <!--Services Grid-->
     <section class="section">
       <div class="container">
 
-        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
           <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
           <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
@@ -538,12 +52,11 @@
           <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
         </div>
 
-        <!-- Services Grid -->
         <div class="row g-4" id="servicesGrid">
 
-          <!-- 1. VSAT -->
+          <!--1. VSAT-->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
-            <div class="service-card">
+            <a href="details.html?type=service&id=vsat" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">اتصالات</span>
                 <i class="bi bi-broadcast-pin"></i>
@@ -552,18 +65,18 @@
                 <h5>حلول VSAT</h5>
                 <p>اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> سرعات تصل إلى 100 Mbps</li>
-                  <li><i class="bi bi-check2"></i> تغطية Ku و C-Band</li>
-                  <li><i class="bi bi-check2"></i> تركيب خلال 24-48 ساعة</li>
+                  <li><i class="bi bi-check2"></i> <span>سرعات تصل إلى 100 Mbps</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 2. Voice & Data -->
+          <!--2. Voice & Data-->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card">
+            <a href="details.html?type=service&id=voice" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">اتصالات</span>
                 <i class="bi bi-telephone-outbound"></i>
@@ -572,18 +85,18 @@
                 <h5>صوت وبيانات</h5>
                 <p>خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> VoIP عالي الجودة</li>
-                  <li><i class="bi bi-check2"></i> بث فيديو مباشر</li>
-                  <li><i class="bi bi-check2"></i> نقل بيانات آمن</li>
+                  <li><i class="bi bi-check2"></i> <span>VoIP عالي الجودة</span></li>
+                  <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
+                  <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 3. System Integration -->
+          <!--3. System Integration-->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card">
+            <a href="details.html?type=service&id=integr" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">تكامل</span>
                 <i class="bi bi-diagram-3"></i>
@@ -592,18 +105,18 @@
                 <h5>تكامل الأنظمة</h5>
                 <p>تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> تصميم مخصص</li>
-                  <li><i class="bi bi-check2"></i> دمج مع الأنظمة الحالية</li>
-                  <li><i class="bi bi-check2"></i> اختبارات كاملة</li>
+                  <li><i class="bi bi-check2"></i> <span>تصميم مخصص</span></li>
+                  <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 4. Field Services -->
+          <!--4. Field Services-->
           <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
-            <div class="service-card">
+            <a href="details.html?type=service&id=field" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">ميدانية</span>
                 <i class="bi bi-tools"></i>
@@ -612,18 +125,18 @@
                 <h5>خدمات ميدانية</h5>
                 <p>تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> فرق فنية متخصصة</li>
-                  <li><i class="bi bi-check2"></i> تغطية كل المحافظات</li>
-                  <li><i class="bi bi-check2"></i> تدريب الموظفين</li>
+                  <li><i class="bi bi-check2"></i> <span>فرق فنية متخصصة</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 5. Managed Networks -->
+          <!--5. Managed Networks-->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <div class="service-card">
+            <a href="details.html?type=service&id=net" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">تكامل</span>
                 <i class="bi bi-hdd-network"></i>
@@ -632,18 +145,18 @@
                 <h5>شبكات مُدارة</h5>
                 <p>إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> مراقبة 24/7</li>
-                  <li><i class="bi bi-check2"></i> تقارير أداء دورية</li>
-                  <li><i class="bi bi-check2"></i> SLA مضمون</li>
+                  <li><i class="bi bi-check2"></i> <span>مراقبة 24/7</span></li>
+                  <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- 6. Support -->
+          <!--6. Support-->
           <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card">
+            <a href="details.html?type=service&id=support" class="service-card">
               <div class="service-card__icon">
                 <span class="service-card__tag">دعم</span>
                 <i class="bi bi-headset"></i>
@@ -652,18 +165,17 @@
                 <h5>دعم فني 24/7</h5>
                 <p>فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> دعم هاتفي وبريد</li>
-                  <li><i class="bi bi-check2"></i> استجابة ميدانية</li>
-                  <li><i class="bi bi-check2"></i> صيانة دورية</li>
+                  <li><i class="bi bi-check2"></i> <span>دعم هاتفي وبريد</span></li>
+                  <li><i class="bi bi-check2"></i> <span>استجابة ميدانية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>صيانة دورية</span></li>
                 </ul>
-                <a href="contact.html" class="service-card__cta">اطلب خدمة <i class="bi bi-arrow-left"></i></a>
+                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </div>
+            </a>
           </div>
 
         </div>
 
-        <!-- No results message -->
         <div id="noResults" class="text-center py-5" style="display:none;">
           <p style="color:#64748B; font-size:16px;">لا توجد خدمات في هذا التصنيف حاليًا.</p>
         </div>
@@ -671,7 +183,7 @@
       </div>
     </section>
 
-    <!-- ─── Process Steps ─── -->
+    <!--Process Steps-->
     <section class="process-section">
       <div class="container">
 
@@ -682,28 +194,24 @@
 
         <div class="process-grid">
 
-          <!-- Step 1 -->
           <div class="process-step" data-aos="fade-up">
             <div class="process-step__num">01</div>
             <h4>استشارة</h4>
             <p>نستمع لاحتياجاتك ونحلل متطلبات موقعك ومشروعك بعناية.</p>
           </div>
 
-          <!-- Step 2 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="100">
             <div class="process-step__num">02</div>
             <h4>تصميم</h4>
             <p>نصمم الحل الأنسب حسب المتطلبات الفنية والموقع الجغرافي.</p>
           </div>
 
-          <!-- Step 3 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="200">
             <div class="process-step__num">03</div>
             <h4>تركيب</h4>
             <p>تنفيذ احترافي بفريق متخصص خلال 24-48 ساعة من بدء العمل.</p>
           </div>
 
-          <!-- Step 4 -->
           <div class="process-step" data-aos="fade-up" data-aos-delay="300">
             <div class="process-step__num">04</div>
             <h4>دعم</h4>
@@ -714,7 +222,7 @@
       </div>
     </section>
 
-    <!-- ─── Why Us ─── -->
+    <!--Why Us-->
     <section class="why-us">
       <div class="container">
 
@@ -725,38 +233,26 @@
 
         <div class="why-grid">
 
-          <!-- 1 -->
           <div class="why-card" data-aos="fade-up">
-            <div class="why-card__icon">
-              <i class="bi bi-patch-check"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-patch-check"></i></div>
             <h4>الموزع الحصري</h4>
             <p>الوكيل الوحيد لـ IEC Global Telecom في اليمن، بأحدث التقنيات العالمية.</p>
           </div>
 
-          <!-- 2 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-card__icon">
-              <i class="bi bi-globe2"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-globe2"></i></div>
             <h4>تغطية عالمية</h4>
             <p>خدماتنا تغطي 15 دولة عبر تقنيات Ku و C-Band، في الشرق الأوسط وأفريقيا وأوروبا.</p>
           </div>
 
-          <!-- 3 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="why-card__icon">
-              <i class="bi bi-speedometer2"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-speedometer2"></i></div>
             <h4>استجابة سريعة</h4>
             <p>تركيب احترافي خلال 24-48 ساعة، ودعم فني فوري على مدار الساعة.</p>
           </div>
 
-          <!-- 4 -->
           <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="why-card__icon">
-              <i class="bi bi-shield-check"></i>
-            </div>
+            <div class="why-card__icon"><i class="bi bi-shield-check"></i></div>
             <h4>موثوقية 99.9%</h4>
             <p>بنية تحتية مستقرة مع خطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
           </div>
@@ -765,18 +261,16 @@
       </div>
     </section>
 
-    <!-- ─── Engineer CTA ─── -->
+    <!--Engineer CTA-->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="engineer-cta" data-aos="zoom-in">
           <div class="engineer-cta__content">
             <h2>هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
-            <p>
-              مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.
-            </p>
+            <p>مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.</p>
             <a href="contact.html" class="btn-engineer">
               <i class="bi bi-headset"></i>
-              تحدث مع مهندس
+              <span>تحدث مع مهندس</span>
             </a>
           </div>
         </div>
@@ -785,66 +279,27 @@
 
   </main>
 
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER — يُحقن تلقائيًا من Navbar-Footer.js
-       ═══════════════════════════════════════════════════════ -->
   <div id="footer-root"></div>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <!--Vendor JS-->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <!-- Main JS File (Core + Modal + Map) -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- Unified Navbar + Footer -->
+  <!--Navbar + Footer-->
   <script src="assets/js/Navbar-Footer.js"></script>
 
-  <!-- ─── Services Filter Script ─── -->
-  <script>
-    (function () {
-      'use strict';
-      var tabs = document.querySelectorAll('.filter-tab');
-      var items = document.querySelectorAll('.service-item');
-      var noResults = document.getElementById('noResults');
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          tabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-
-          var filter = tab.dataset.filter;
-          var visibleCount = 0;
-
-          items.forEach(function (item) {
-            var match = (filter === 'all') || (item.dataset.category === filter);
-            if (match) {
-              item.style.display = '';
-              visibleCount++;
-            } else {
-              item.style.display = 'none';
-            }
-          });
-
-          if (noResults) {
-            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-          }
-
-          if (window.AOS) { window.AOS.refresh(); }
-        });
-      });
-    })();
-  </script>
+  <!--Data + Main JS-->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pages/services.js"></script>
 
 </body>
 
