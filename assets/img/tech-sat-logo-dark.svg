@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" width="280" height="64">
+  <style>
+    .title-text { font-family: 'Montserrat', 'Tajawal', system-ui, sans-serif; font-weight: 700; font-size: 35px; fill: #0B1D33; }
+    .domain-text { font-family: 'Montserrat', 'Tajawal', system-ui, sans-serif; font-weight: 600; font-size: 13px; fill: #64748B; }
+    .sub-text { font-family: 'Montserrat', 'Tajawal', system-ui, sans-serif; font-weight: 400; font-size: 12.5px; fill: #64748B; letter-spacing: 0.5px; }
+  </style>
+  <!-- "Te" -->
+  <text x="0" y="35" class="title-text">Te</text>
+  
+  <!-- "c" with red satellite arrow circle -->
+  <g transform="translate(41, 7)">
+    <circle cx="14" cy="16" r="12" fill="none" stroke="#0B1D33" stroke-width="3.2" stroke-dasharray="68 12"/>
+    <polygon points="14,10 8,16 14,22" fill="#D32F2F"/>
+  </g>
+  
+  <!-- "h-Sat" -->
+  <text x="70" y="35" class="title-text">h-Sat</text>
+  
+  <!-- ".com" -->
+  <text x="176" y="18" class="domain-text">.com</text>
+  
+  <!-- Subtitle: "Internet Without Borders" -->
+  <text x="2" y="56" class="sub-text">Internet Without Borders</text>
+</svg>

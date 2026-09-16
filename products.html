@@ -4,1055 +4,779 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>الخدمات — Tech-Sat</title>
-  <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
+  <title>المنتجات — Tech-Sat</title>
+  <meta name="description" content="كتالوج منتجات Tech-Sat — محطات فضائية، هوائيات، مودمات، وملحقات اتصالات عالية الجودة.">
 
+  <!-- Favicons -->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!--Vendor CSS-->
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!--Shared CSS-->
+  <!-- Shared CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/palette.css" rel="stylesheet">
+  <link href="assets/css/pages/products.css" rel="stylesheet">
 
-  <!-- ═══════════════════════════════════════════════════════
-       COLOR PALETTE + PAGE STYLES
-       ═══════════════════════════════════════════════════════ -->
   <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
+    /* Search Bar Styling */
+    .search-box-container {
+      max-width: 680px;
+      margin: 0 auto 36px;
     }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all .25s ease;
-    }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-    /* ═══════════════════════════════════════════════════════
-       PAGE HERO
-       ═══════════════════════════════════════════════════════ */
-    .page-hero {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 160px 0 80px;
-      text-align: center;
-      color: #fff;
+    .search-input-wrapper {
       position: relative;
+      display: flex;
+      align-items: center;
     }
-    .page-hero::before {
-      content: '';
+    .search-input-wrapper .search-icon {
       position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
+      right: 18px;
+      color: var(--ts-blue);
+      font-size: 1.25rem;
+      pointer-events: none;
+      z-index: 5;
     }
-    .page-hero .container { position: relative; z-index: 2; }
-    .page-hero h1 {
+    .search-input-wrapper .search-input {
+      padding: 14px 50px 14px 44px;
+      border-radius: 999px;
+      border: 2px solid var(--ts-blue-light);
+      background: var(--ts-white);
+      font-size: 15px;
+      box-shadow: 0 4px 16px rgba(26, 43, 71, 0.06);
+      transition: all 0.3s ease;
+    }
+    .search-input-wrapper .search-input:focus {
+      border-color: var(--ts-blue);
+      box-shadow: 0 8px 24px rgba(46, 109, 180, 0.15);
+      outline: none;
+    }
+    .btn-clear-search {
+      position: absolute;
+      left: 16px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 5;
+      padding: 0;
+    }
+    .btn-clear-search:hover { color: var(--ts-pink); }
+
+    /* Product Card Image Box */
+    .product-card__image-box {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1A2B47 0%, #0d1a2d 100%);
+      border-radius: 14px 14px 0 0;
+    }
+    .product-card__image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-card__image-box img {
+      transform: scale(1.08);
+    }
+    .product-card__tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--ts-pink);
       color: #fff;
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 20px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
     }
-    .page-hero p {
-      color: var(--palette-light-blue);
-      font-size: 17px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .page-hero h1 { font-size: 32px; }
-      .page-hero p { font-size: 15px; }
-    }
-   /* =========================================
-   PRODUCT PAGE HERO
-========================================= */
+    /* =====================================================
+   PRODUCT FILTER TABS
+   ===================================================== */
 
-.page-hero {
-  position: relative;
-  height: 440px;
+.filter-tabs {
   display: flex;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  background: #050505;
-}
+  flex-wrap: wrap;
+  gap: 10px;
 
-/* Background */
-.page-hero__bg {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 0;
-}
-
-/* Overlay */
-.page-hero__overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.90) 0%,
-      rgba(0, 0, 0, 0.72) 45%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-
-  z-index: 1;
-}
-
-/* Content */
-.page-hero__content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 650px;
-  color: #fff;
-}
-
-/* Label */
-.page-hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-bottom: 18px;
-  padding: 7px 14px;
-
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 30px;
-
-  background: rgba(255,255,255,0.08);
-
-  color: #fff;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-}
-
-.page-hero__label i {
-  color: #00b4d8;
-  font-size: 16px;
-}
-
-/* Title */
-.page-hero h1 {
-  margin: 0 0 16px;
-
-  color: #fff;
-
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.page-hero h1 strong {
-  color: #00b4d8;
-  font-weight: 700;
-}
-
-/* Description */
-.page-hero p {
-  max-width: 570px;
-
-  margin: 0;
-
-  color: rgba(255,255,255,0.82);
-
-  font-size: 16px;
-  line-height: 1.8;
+  margin: 0 auto 45px;
+  padding: 0;
+  border: none;
 }
 
 /* Buttons */
-.page-hero__buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.filter-tabs .filter-tab {
+  appearance: none;
+  -webkit-appearance: none;
 
-  margin-top: 25px;
-}
+  border: 1px solid #d9e2ec;
+  border-radius: 30px;
 
-.hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  background: #ffffff;
+  color: #52647d;
 
-  min-height: 46px;
-  padding: 0 20px;
+  padding: 10px 24px;
 
-  border-radius: 7px;
-
-  font-size: 14px;
+  font-family: "Tajawal", sans-serif;
+  font-size: 15px;
   font-weight: 600;
 
-  text-decoration: none;
+  cursor: pointer;
 
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-/* Primary */
-.hero-btn.primary {
-  background: #00b4d8;
-  border: 1px solid #00b4d8;
-
-  color: #fff;
-}
-
-.hero-btn.primary:hover {
-  background: #0096b4;
-  border-color: #0096b4;
-
-  color: #fff;
+/* Hover - الزر غير المختار */
+.filter-tabs .filter-tab:not(.active):hover {
+  background: #f1f6fc;
+  color: var(--ts-blue);
+  border-color: var(--ts-blue);
 
   transform: translateY(-2px);
 }
 
-/* Secondary */
-.hero-btn.secondary {
-  background: rgba(255,255,255,0.06);
+/* Selected / Active - الزر المختار */
+.filter-tabs .filter-tab.active,
+.filter-tabs .filter-tab.active:hover,
+.filter-tabs .filter-tab.active:focus {
+  background: var(--ts-blue) !important;
+  color: #ffffff !important;
 
-  border: 1px solid rgba(255,255,255,0.35);
+  border-color: var(--ts-blue) !important;
 
-  color: #fff;
+  box-shadow: 0 6px 18px rgba(46, 109, 180, 0.20);
 
-  backdrop-filter: blur(5px);
+  transform: translateY(-1px);
 }
 
-.hero-btn.secondary:hover {
-  background: rgba(255,255,255,0.15);
-
-  color: #fff;
-
-  transform: translateY(-2px);
+/* Focus */
+.filter-tabs .filter-tab:focus {
+  outline: none;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 768px) {
-
-  .page-hero {
-    height: 430px;
-  }
-
-  .page-hero__content {
-    padding: 0 20px;
-  }
-
-  .page-hero h1 {
-    font-size: 42px;
-  }
-
-  .page-hero p {
-    font-size: 15px;
-  }
-
+.filter-tabs .filter-tab:focus-visible {
+  outline: 3px solid rgba(46, 109, 180, 0.20);
+  outline-offset: 3px;
 }
 
 
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+   ===================================================== */
 
 @media (max-width: 576px) {
 
-  .page-hero {
-    height: 500px;
+  .filter-tabs {
+    gap: 8px;
+    margin-bottom: 30px;
   }
 
-  .page-hero__content {
-    padding: 0 15px;
+  .filter-tabs .filter-tab {
+    padding: 8px 16px;
+    font-size: 13px;
   }
-
-  .page-hero h1 {
-    font-size: 36px;
-  }
-
-  .page-hero p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .page-hero__buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-btn {
-    width: 100%;
-  }
-
 }
-    /* ═══════════════════════════════════════════════════════
-       FILTER TABS (Underline Style)
-       ═══════════════════════════════════════════════════════ */
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 56px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--palette-light-blue);
-      position: relative;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .filter-tabs::-webkit-scrollbar { display: none; }
 
-    .filter-tab {
-      position: relative;
-      background: transparent;
-      border: none;
-      padding: 8px 0;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 500;
-      color: rgba(11, 29, 51, 0.55);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color .25s ease;
+    /* Product Modal Styling */
+    .product-modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
     }
-    .filter-tab:hover { color: var(--palette-dark-navy); }
-    .filter-tab.active { color: var(--palette-dark-navy); font-weight: 700; }
-    .filter-tab::after {
-      content: '';
-      position: absolute;
-      bottom: -17px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--palette-mid-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .3s ease;
+    .product-modal-backdrop.is-open {
+      opacity: 1; visibility: visible;
     }
-    .filter-tab.active::after { transform: scaleX(1); }
-
-    @media (max-width: 768px) {
-      .filter-tabs {
-        gap: 24px;
-        justify-content: flex-start;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
-      .filter-tab { font-size: 14px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       SERVICE CARDS
-       ═══════════════════════════════════════════════════════ */
-    .service-card {
+    .product-modal {
       background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      overflow: hidden;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: all .3s ease;
-      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
-      text-decoration: none;
-      color: inherit;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-    }
-    .service-card__icon {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 3.5rem;
-      color: var(--palette-mid-blue);
-      position: relative;
-    }
-    .service-card__icon i { transition: transform .3s ease; }
-    .service-card:hover .service-card__icon i { transform: scale(1.15); }
-    .service-card__tag {
-      position: absolute;
-      top: 12px; right: 12px;
-      background: var(--palette-dark-navy);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .service-card__body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .service-card__body h5 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .service-card__body p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .service-card__features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 1;
-    }
-    .service-card__features li {
-      color: var(--palette-dark-navy);
-      font-size: 12.5px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-card__features li i {
-      color: var(--palette-mid-blue);
-      font-size: 11px;
-      flex-shrink: 0;
-    }
-    .service-card__cta {
-      color: var(--palette-mid-blue);
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap .2s ease;
-    }
-    .service-card:hover .service-card__cta { gap: 10px; }
-
-    /* ═══════════════════════════════════════════════════════
-       PROCESS STEPS
-       ═══════════════════════════════════════════════════════ */
-    .process-section {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .process-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .process-section .container { position: relative; z-index: 2; }
-    .process-section .section-title h2 { color: #fff; }
-    .process-section .section-title p { color: var(--palette-light-blue); }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 992px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 576px) { .process-grid { grid-template-columns: 1fr; } }
-
-    .process-step {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(209, 216, 224, 0.12);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
-    }
-    .process-step:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(58, 110, 165, 0.5);
-      transform: translateY(-6px);
-    }
-    .process-step__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--palette-mid-blue);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(58, 110, 165, 0.35);
-    }
-    .process-step h4 { color: #fff; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
-    .process-step p {
-      color: var(--palette-light-blue);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-      opacity: 0.85;
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       WHY US
-       ═══════════════════════════════════════════════════════ */
-    .why-us { padding: 80px 0; }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 992px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 576px) { .why-grid { grid-template-columns: 1fr; } }
-
-    .why-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .why-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.08);
-    }
-    .why-card__icon {
-      width: 64px; height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--palette-mid-blue);
-      font-size: 26px;
-      transition: transform .3s ease;
-    }
-    .why-card:hover .why-card__icon { transform: scale(1.08) rotate(-3deg); }
-    .why-card h4 { color: var(--palette-dark-navy); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-    .why-card p { color: #64748B; font-size: 13.5px; line-height: 1.7; margin: 0; flex: 1; }
-
-    /* ═══════════════════════════════════════════════════════
-       ENGINEER CTA
-       ═══════════════════════════════════════════════════════ */
-    .engineer-cta {
-      background: var(--palette-dark-navy);
       border-radius: 24px;
-      padding: 60px 50px;
-      color: #fff;
+      width: 100%; max-width: 720px; max-height: 90vh;
+      overflow-y: auto;
       position: relative;
-      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .engineer-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -10%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
-      border-radius: 50%;
+    .product-modal-backdrop.is-open .product-modal {
+      transform: scale(1) translateY(0);
     }
-    .engineer-cta__content { position: relative; z-index: 2; max-width: 620px; }
-    .engineer-cta h2 { color: #fff; font-size: 36px; font-weight: 800; margin-bottom: 16px; }
-    .engineer-cta p {
-      color: var(--palette-light-blue);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
+    .product-modal__close {
+      position: absolute; top: 16px; left: 16px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--ts-blue-dark); font-size: 20px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: all 0.25s ease;
     }
-    .btn-engineer {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--palette-dark-navy);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all .25s ease;
+    .product-modal__close:hover {
+      background: var(--ts-pink); color: #fff; transform: rotate(90deg);
     }
-    .btn-engineer:hover {
-      background: var(--palette-light-blue);
-      transform: translateY(-2px);
-      color: var(--palette-dark-navy);
+    .modal-hero {
+      position: relative; height: 260px;
+      background: linear-gradient(135deg, var(--ts-blue-dark) 0%, #0d1a2d 100%);
+      border-radius: 24px 24px 0 0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
-    @media (max-width: 768px) {
-      .engineer-cta { padding: 40px 28px; }
-      .engineer-cta h2 { font-size: 26px; }
+    .modal-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-body-content { padding: 32px 36px 36px; }
+    .modal-body-content h3 {
+      font-size: 26px; font-weight: 800; color: var(--ts-blue-dark); margin-bottom: 12px;
     }
-
-    /* ─── Section Base ─── */
-    .section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 48px; }
-    .section-title h2 {
-      color: var(--palette-dark-navy);
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 12px;
+    .modal-body-content .modal-desc {
+      color: #5A6B85; font-size: 15px; line-height: 1.8; margin-bottom: 24px;
     }
-    .section-title p { color: #64748B; font-size: 16px; max-width: 680px; margin: 0 auto; }
+    .modal-specs-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;
+    }
+    @media (max-width: 576px) { .modal-specs-grid { grid-template-columns: 1fr; } }
+    .spec-item {
+      background: #F4F7FC; border: 1px solid var(--ts-blue-light); border-radius: 12px;
+      padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .spec-item i { font-size: 20px; color: var(--ts-blue); }
+    .spec-item .spec-label { font-size: 11px; font-weight: 700; color: #94a3b8; display: block; }
+    .spec-item .spec-value { font-size: 13.5px; font-weight: 700; color: var(--ts-blue-dark); }
+    .modal-features-list { list-style: none; padding: 0; margin: 0 0 28px; }
+    .modal-features-list li {
+      font-size: 14px; color: var(--ts-blue-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+    }
+    .modal-features-list li i { color: #22c55e; }
+    .modal-actions { display: flex; gap: 12px; }
+    .btn-modal-primary {
+      flex: 1; background: var(--ts-blue); color: #fff; border: none; border-radius: 12px;
+      padding: 14px; font-weight: 700; font-size: 15px; text-align: center; text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-modal-primary:hover { background: var(--ts-blue-dark); color: #fff; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <!-- ═══════════════════════════════════════════════════════
-       HEADER / NAVBAR
-       ═══════════════════════════════════════════════════════ -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl position-relative">
-      <div class="top-row d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Tech Sat</h1>
-        </a>
-        <div class="d-flex align-items-center">
-          <div class="social-links">
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-wrap">
-      <div class="container d-flex justify-content-center position-relative">
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="services.html" class="active">الخدمات</a></li>
-            <li><a href="products.html">المنتجات</a></li>
-            <li><a href="about.html">من نحن</a></li>
-            <li><a href="contact.html">تواصل معنا</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER / NAVBAR -->
+  <div id="navbar-root"></div>
 
   <main class="main">
 
- <!-- Catalog Hero -->
-<section class="page-hero">
-
-  <img
-    src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg"
-    alt="Satellite Communication Equipment"
-    class="page-hero__bg"
-  >
-
-  <div class="page-hero__overlay"></div>
-
-  <div class="container">
-    <div class="page-hero__content" data-aos="fade-up">
-
-      <div class="page-hero__label">
-        <i class="bi bi-satellite"></i>
-        منتجات Tech-Sat
+    <!-- Catalog Hero Section -->
+    <section class="page-hero">
+      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="Satellite Communication Equipment" class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+      <div class="container position-relative z-2 text-center">
+        <div class="page-hero__content" data-aos="fade-up">
+          <div class="subtitle-tag mb-2">
+            <i class="bi bi-satellite me-1"></i> منتجات Tech-Sat
+          </div>
+          <h1 class="text-white fw-bold display-4 mb-3">
+            حلول الاتصالات <strong style="color: var(--ts-pink);">الفضائية</strong>
+          </h1>
+          <p class="lead text-white-50 mx-auto max-width-700">
+            معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل بكفاءة وموثوقية في مختلف البيئات والتضاريس.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <h1>
-        حلول الاتصالات
-        <strong>الفضائية</strong>
-      </h1>
-
-      <p>
-        معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل
-        بكفاءة وموثوقية في مختلف البيئات.
-      </p>
-
-      <div class="page-hero__buttons">
-
-        <a href="#products" class="hero-btn primary">
-          عرض المنتجات
-          <i class="bi bi-arrow-down"></i>
-        </a>
-
-        <a href="contact.html" class="hero-btn secondary">
-          تواصل معنا
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-
-</section>
-    <section class="section">
+    <!-- Main Products Catalog Section -->
+    <section class="section" id="productsSection">
       <div class="container">
 
-        <!--Filter Tabs-->
+        <!-- Live Search Bar -->
+        <div class="search-box-container" data-aos="fade-up">
+          <div class="search-input-wrapper">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="productSearchInput" class="form-control search-input" placeholder="ابحث عن منتج بالاسم، الفئة، أو الوصف..." aria-label="بحث عن منتج">
+            <button type="button" id="clearProductSearch" class="btn-clear-search" style="display:none;" aria-label="مسح البحث">
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
-          <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
-          <button class="filter-tab" data-filter="integration" role="tab">تكامل أنظمة</button>
-          <button class="filter-tab" data-filter="field" role="tab">خدمات ميدانية</button>
-          <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
+          <button class="filter-tab active" data-filter="all" role="tab">كل المنتجات</button>
+          <button class="filter-tab" data-filter="terminals" role="tab">محطات</button>
+          <button class="filter-tab" data-filter="antennas" role="tab">هوائيات</button>
+          <button class="filter-tab" data-filter="modems" role="tab">مودمات</button>
+          <button class="filter-tab" data-filter="accessories" role="tab">ملحقات</button>
         </div>
 
-        <!--Services Grid-->
-        <div class="row g-4" id="servicesGrid">
+        <!-- Products Grid -->
+        <div class="row g-4" id="productsGrid">
 
-          <!--1. VSAT-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
-            <a href="details.html?type=service&id=vsat" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-broadcast-pin"></i>
+          <!-- 1. VSAT Portable -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up">
+            <div class="product-card" data-product-id="vsat-portable">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">محطة</span>
+                <img src="assets/img/products/vsat-portable.png" alt="محطة VSAT محمولة" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>حلول VSAT</h5>
-                <p>اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>سرعات تصل إلى 100 Mbps</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>محطة VSAT محمولة</h5>
+                <p>محطة أرضية مع اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية، مثالية للبعثات الميدانية.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
-          <!--2. Voice & Data-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
-            <a href="details.html?type=service&id=voice" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-telephone-outbound"></i>
+          <!-- 2. Ku-Band Antenna -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card" data-product-id="ku-antenna">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">هوائي</span>
+                <img src="assets/img/products/ku-antenna.png" alt="هوائي Ku-Band" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>صوت وبيانات</h5>
-                <p>خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>VoIP عالي الجودة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
-                  <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>هوائي Ku-Band</h5>
+                <p>هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
-          <!--3. System Integration-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <a href="details.html?type=service&id=integr" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-diagram-3"></i>
+          <!-- 3. Managed Modem -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card" data-product-id="managed-modem">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">مودم</span>
+                <img src="assets/img/products/managed-modem.png" alt="مودم فضائي مُدار" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>تكامل الأنظمة</h5>
-                <p>تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>تصميم مخصص</span></li>
-                  <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>مودم فضائي مُدار</h5>
+                <p>مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
-          <!--4. Field Services-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
-            <a href="details.html?type=service&id=field" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">ميدانية</span>
-                <i class="bi bi-tools"></i>
+          <!-- 4. RF Cables -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up">
+            <div class="product-card" data-product-id="rf-cables">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">ملحق</span>
+                <img src="assets/img/products/rf-cables.png" alt="طقم كابلات RF" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>خدمات ميدانية</h5>
-                <p>تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>فرق فنية متخصصة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>طقم كابلات RF</h5>
+                <p>كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية للاستخدام الخارجي الدائم.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
-          <!--5. Managed Networks-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <a href="details.html?type=service&id=net" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-hdd-network"></i>
+          <!-- 5. Manpack -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card" data-product-id="manpack">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">محطة</span>
+                <img src="assets/img/products/manpack.png" alt="محطة Manpack" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>شبكات مُدارة</h5>
-                <p>إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>مراقبة 24/7</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>محطة Manpack</h5>
+                <p>محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية والتركيب السريع أثناء الحركة.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
-          <!--6. Support-->
-          <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
-            <a href="details.html?type=service&id=support" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">دعم</span>
-                <i class="bi bi-headset"></i>
+          <!-- 6. Vehicle Antenna -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card" data-product-id="vehicle-antenna">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">هوائي</span>
+                <img src="assets/img/products/vehicle-antenna.png" alt="هوائي مثبت على المركبات" loading="lazy">
               </div>
-              <div class="service-card__body">
-                <h5>دعم فني 24/7</h5>
-                <p>فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>دعم هاتفي وبريد</span></li>
-                  <li><i class="bi bi-check2"></i> <span>استجابة ميدانية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>صيانة دورية</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              <div class="product-card__body">
+                <h5>هوائي مثبت على المركبات</h5>
+                <p>هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية، يضمن اتصالات مستمرة أثناء الحركة.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
               </div>
-            </a>
+            </div>
           </div>
 
+          <!-- 7. IoT Modem -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up">
+            <div class="product-card" data-product-id="iot-modem">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">مودم</span>
+                <img src="img product/MDM2510_white-Photoroom.png" alt="مودم إنترنت الأشياء IoT" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5>مودم إنترنت الأشياء IoT</h5>
+                <p>مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. PSU -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="50">
+            <div class="product-card" data-product-id="psu">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">ملحق</span>
+                <img src="img product/images-Photoroom.png" alt="وحدة إمداد طاقة PSU" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5>وحدة إمداد طاقة PSU</h5>
+                <p>وحدة إمداد طاقة احتياطية بمدى جهد واسع تضمن استمرارية التشغيل للعمليات الميدانية.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Deploy Case -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card" data-product-id="deploy-case">
+              <div class="product-card__image-box">
+                <span class="product-card__tag">ملحق</span>
+                <img src="img product/images (1)-Photoroom.png" alt="حقيبة نقل Deploy Case" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5>حقيبة نقل Deploy Case</h5>
+                <p>حقيبة سفر واستخدام عسكري مقاومة للصدمات والماء لنقل المحطات الفضائية بأمان تام.</p>
+                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /productsGrid -->
+
+        <!-- No Results Message -->
+        <div id="noProductsFound" class="text-center py-5" style="display:none;">
+          <i class="bi bi-search text-muted display-3 mb-3"></i>
+          <h4 class="fw-bold text-dark mb-2">لم نتمكن من العثور على نتائج</h4>
+          <p class="text-muted">حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.</p>
         </div>
 
-        <div id="noResults" class="text-center py-5" style="display:none;">
-          <p style="color:#64748B; font-size:16px;">لا توجد خدمات في هذا التصنيف حاليًا.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!--Process Steps-->
-    <section class="process-section">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>كيف نعمل</h2>
-          <p>من الاستشارة الأولى إلى الدعم المستمر — رحلة متكاملة</p>
-        </div>
-
-        <div class="process-grid">
-
-          <div class="process-step" data-aos="fade-up">
-            <div class="process-step__num">01</div>
-            <h4>استشارة</h4>
-            <p>نستمع لاحتياجاتك ونحلل متطلبات موقعك ومشروعك بعناية.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-            <div class="process-step__num">02</div>
-            <h4>تصميم</h4>
-            <p>نصمم الحل الأنسب حسب المتطلبات الفنية والموقع الجغرافي.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-            <div class="process-step__num">03</div>
-            <h4>تركيب</h4>
-            <p>تنفيذ احترافي بفريق متخصص خلال 24-48 ساعة من بدء العمل.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-            <div class="process-step__num">04</div>
-            <h4>دعم</h4>
-            <p>دعم فني على مدار الساعة + صيانة دورية + استجابة سريعة.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!--Why Us-->
-    <section class="why-us">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>لماذا Tech-Sat؟</h2>
-          <p>ما يميزنا عن غيرنا في قطاع الاتصالات الفضائية</p>
-        </div>
-
-        <div class="why-grid">
-
-          <div class="why-card" data-aos="fade-up">
-            <div class="why-card__icon"><i class="bi bi-patch-check"></i></div>
-            <h4>الموزع الحصري</h4>
-            <p>الوكيل الوحيد لـ IEC Global Telecom في اليمن، بأحدث التقنيات العالمية.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-card__icon"><i class="bi bi-globe2"></i></div>
-            <h4>تغطية عالمية</h4>
-            <p>خدماتنا تغطي 15 دولة عبر تقنيات Ku و C-Band، في الشرق الأوسط وأفريقيا وأوروبا.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="why-card__icon"><i class="bi bi-speedometer2"></i></div>
-            <h4>استجابة سريعة</h4>
-            <p>تركيب احترافي خلال 24-48 ساعة، ودعم فني فوري على مدار الساعة.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="why-card__icon"><i class="bi bi-shield-check"></i></div>
-            <h4>موثوقية 99.9%</h4>
-            <p>بنية تحتية مستقرة مع خطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!--Engineer CTA-->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="engineer-cta" data-aos="zoom-in">
-          <div class="engineer-cta__content">
-            <h2>هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
-            <p>
-              مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.
-            </p>
-            <a href="contact.html" class="btn-engineer">
-              <i class="bi bi-headset"></i>
-              <span>تحدث مع مهندس</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <div id="footer-root"></div>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+  <!-- Product Detail Modal Backdrop -->
+  <div class="product-modal-backdrop" id="productModalBackdrop">
+    <div class="product-modal" id="productModal">
+      <button type="button" class="product-modal__close" id="closeProductModal" aria-label="إغلاق">
+        <i class="bi bi-x-lg"></i>
+      </button>
 
-  <div id="preloader"></div>
+      <div class="modal-hero">
+        <span class="modal-hero__tag" id="modalProductTag">محطة</span>
+        <img src="" alt="" id="modalProductImg">
+      </div>
 
-  <!--Vendor JS-->
+      <div class="modal-body-content">
+        <h3 id="modalProductTitle">عنوان المنتج</h3>
+        <p class="modal-desc" id="modalProductDesc">وصف المنتج التفصيلي...</p>
+
+        <h6 class="fw-bold text-dark mb-3"><i class="bi bi-sliders me-1 text-primary"></i> المواصفات التقنية</h6>
+        <div class="modal-specs-grid" id="modalProductSpecs"></div>
+
+        <h6 class="fw-bold text-dark mb-3"><i class="bi bi-check-circle me-1 text-success"></i> أهم المميزات</h6>
+        <ul class="modal-features-list" id="modalProductFeatures"></ul>
+
+        <div class="modal-actions">
+          <a href="contact.html" class="btn-modal-primary">اطلب عرض سعر <i class="bi bi-send-fill ms-1"></i></a>
+          <button type="button" class="btn btn-outline-secondary px-4 rounded-3 fw-bold" id="closeProductModalBtn">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-
-  <!--Data + Main JS-->
-  <script src="assets/js/data.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/js/navbar-footer.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- ─── Service Filter Script (Tabs) ─── -->
+  <!-- Product Search & Filter Script -->
   <script>
     (function () {
       'use strict';
-      var tabs = document.querySelectorAll('.filter-tab');
-      var items = document.querySelectorAll('.service-item');
-      var noResults = document.getElementById('noResults');
+      var searchInput = document.getElementById('productSearchInput');
+      var clearBtn = document.getElementById('clearProductSearch');
+      var filterTabs = document.querySelectorAll('.filter-tab');
+      var productItems = document.querySelectorAll('.product-item');
+      var noResults = document.getElementById('noProductsFound');
 
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          tabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
+      var currentFilter = 'all';
 
-          var filter = tab.dataset.filter;
-          var visibleCount = 0;
+      function filterProducts() {
+        var query = searchInput.value.trim().toLowerCase();
+        var visibleCount = 0;
 
-          items.forEach(function (item) {
-            var match = (filter === 'all') || (item.dataset.category === filter);
-            if (match) {
-              item.style.display = '';
-              visibleCount++;
-            } else {
-              item.style.display = 'none';
-            }
-          });
+        productItems.forEach(function (item) {
+          var category = item.getAttribute('data-category');
+          var text = item.textContent.toLowerCase();
 
-          if (noResults) {
-            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+          var matchesFilter = (currentFilter === 'all' || category === currentFilter);
+          var matchesSearch = (!query || text.indexOf(query) !== -1);
+
+          if (matchesFilter && matchesSearch) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
           }
+        });
 
-          if (window.AOS) { window.AOS.refresh(); }
+        if (clearBtn) {
+          clearBtn.style.display = query ? 'block' : 'none';
+        }
+
+        if (noResults) {
+          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+      }
+
+      filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          filterTabs.forEach(function (t) { t.classList.remove('active'); });
+          this.classList.add('active');
+          currentFilter = this.getAttribute('data-filter');
+          filterProducts();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterProducts);
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          searchInput.value = '';
+          filterProducts();
+          searchInput.focus();
+        });
+      }
     })();
   </script>
 
+  <!-- Product Detail Popup Modal Script -->
+  <script>
+    (function () {
+      'use strict';
+      var PRODUCTS = {
+        'vsat-portable': {
+          title: 'محطة VSAT محمولة',
+          tag: 'محطة',
+          img: 'assets/img/products/vsat-portable.png',
+          description: 'محطة أرضية احترافية مزودة بنظام اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية والمطر والغبار. مثالية للبعثات الميدانية والاستخدام التكتيكي في المناطق النائية.',
+          specs: [
+            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band / Ka-Band' },
+            { icon: 'bi-lightning-charge', label: 'استهلاك الطاقة', value: '< 45W' },
+            { icon: 'bi-thermometer-half', label: 'درجات التشغيل', value: '-30°C إلى +60°C' },
+            { icon: 'bi-shield-check', label: 'معيار الحماية', value: 'IP67 مقاوم للماء' }
+          ],
+          features: [
+            'اكتساب تلقائي للقمر الصناعي خلال 3 دقائق',
+            'هيكل ألومنيوم خفيف الوزن ومتين',
+            'يعمل بالبطاريات أو الطاقة الشمسية',
+            'دعم التشفير العسكري AES-256'
+          ]
+        },
+        'ku-antenna': {
+          title: 'هوائي Ku-Band',
+          tag: 'هوائي',
+          img: 'assets/img/products/ku-antenna.png',
+          description: 'هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية. يوفر أداءً عالياً مع حد أدنى من التعقيد في التركيب والإعداد.',
+          specs: [
+            { icon: 'bi-broadcast', label: 'قطر الطبق', value: '1.2 متر / 1.8 متر' },
+            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band (12–18 GHz)' },
+            { icon: 'bi-wind', label: 'مقاومة الرياح', value: 'حتى 130 كم/ساعة' }
+          ],
+          features: [
+            'هيكل مقاوم للتآكل والصدأ',
+            'تصميم قابل للطي للنقل السهل',
+            'إمالة يدوية وآزيموث قابل للضبط'
+          ]
+        },
+        'managed-modem': {
+          title: 'مودم فضائي مُدار',
+          tag: 'مودم',
+          img: 'assets/img/products/managed-modem.png',
+          description: 'مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل على مدار الساعة. مثالي للحلول المؤسسية والحكومية.',
+          specs: [
+            { icon: 'bi-speedometer2', label: 'سرعة الإرسال', value: 'حتى 200 Mbps' },
+            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band / Ka-Band' }
+          ],
+          features: [
+            'إدارة مركزية عبر منصة سحابية',
+            'دعم QoS لأولوية حركة المرور',
+            'دعم فني 24/7 بالعربية والإنجليزية'
+          ]
+        },
+        'rf-cables': {
+          title: 'طقم كابلات RF',
+          tag: 'ملحق',
+          img: 'assets/img/products/rf-cables.png',
+          description: 'كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية. مصممة للاستخدام الخارجي الدائم في البيئات القاسية.',
+          specs: [
+            { icon: 'bi-lightning', label: 'فقدان الإشارة', value: '< 0.15 dB/m' },
+            { icon: 'bi-shield-check', label: 'مقاومة الماء', value: 'IP68' }
+          ],
+          features: [
+            'موصلات N-Type ذهبية مقاومة للأكسدة',
+            'غلاف خارجي مقاوم للأشعة فوق البنفسجية'
+          ]
+        },
+        'manpack': {
+          title: 'محطة Manpack',
+          tag: 'محطة',
+          img: 'assets/img/products/manpack.png',
+          description: 'محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية. تركيب فوري أثناء الحركة مع إمكانية الاتصال في غضون دقائق من الوصول إلى الموقع.',
+          specs: [
+            { icon: 'bi-bag', label: 'الوزن الكلي', value: '8.5 كغ مع الهوائي' },
+            { icon: 'bi-clock', label: 'وقت الإعداد', value: 'أقل من 5 دقائق' }
+          ],
+          features: [
+            'تصميم مدمج بوزن أقل من 9 كغ',
+            'بطارية ليثيوم قابلة للاستبدال بسرعة'
+          ]
+        },
+        'vehicle-antenna': {
+          title: 'هوائي مثبت على المركبات',
+          tag: 'هوائي',
+          img: 'assets/img/products/vehicle-antenna.png',
+          description: 'هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية. يحافظ على الاتصال الفضائي المستمر حتى أثناء الحركة بسرعات عالية.',
+          specs: [
+            { icon: 'bi-speedometer', label: 'سرعة التتبع', value: '60°/ثانية' },
+            { icon: 'bi-truck', label: 'التركيب', value: 'سقف المركبة / المنصة' }
+          ],
+          features: [
+            'تتبع ديناميكي مستمر أثناء الحركة',
+            'مقاوم للصدمات والاهتزازات الشديدة'
+          ]
+        },
+        'iot-modem': {
+          title: 'مودم إنترنت الأشياء IoT',
+          tag: 'مودم',
+          img: 'img product/MDM2510_white-Photoroom.png',
+          description: 'مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.',
+          specs: [
+            { icon: 'bi-lightning', label: 'استهلاك الطاقة', value: '< 2W' }
+          ],
+          features: [
+            'استهلاك طاقة فائق الانخفاض',
+            'إدارة أسطول الأجهزة عبر السحابة'
+          ]
+        },
+        'psu': {
+          title: 'وحدة إمداد طاقة PSU',
+          tag: 'ملحق',
+          img: 'img product/images-Photoroom.png',
+          description: 'وحدة إمداد طاقة احتياطية بمدى جهد واسع مصممة للعمليات الميدانية الطويلة.',
+          specs: [
+            { icon: 'bi-plug', label: 'مدى الجهد', value: '90–264V AC' }
+          ],
+          features: [
+            'كفاءة تحويل تصل إلى 92%',
+            'حماية مدمجة ضد الحمل الزائد'
+          ]
+        },
+        'deploy-case': {
+          title: 'حقيبة نقل Deploy Case',
+          tag: 'ملحق',
+          img: 'img product/images (1)-Photoroom.png',
+          description: 'حقيبة نقل مقاومة للصدمات والماء لحماية المحطات الفضائية أثناء التنقل.',
+          specs: [
+            { icon: 'bi-box-seam', label: 'معيار الحماية', value: 'IP67' }
+          ],
+          features: [
+            'رغوة داخلية مقطوعة خصيصاً',
+            'صمامات تنفيس الضغط التلقائي'
+          ]
+        }
+      };
+
+      var backdrop = document.getElementById('productModalBackdrop');
+      var closeBtn = document.getElementById('closeProductModal');
+      var closeBtn2 = document.getElementById('closeProductModalBtn');
+
+      function openModal(id) {
+        var p = PRODUCTS[id];
+        if (!p) return;
+
+        document.getElementById('modalProductTitle').textContent = p.title;
+        document.getElementById('modalProductTag').textContent = p.tag;
+        document.getElementById('modalProductImg').src = p.img;
+        document.getElementById('modalProductDesc').textContent = p.description;
+
+        var specsContainer = document.getElementById('modalProductSpecs');
+        specsContainer.innerHTML = '';
+        (p.specs || []).forEach(function (s) {
+          specsContainer.innerHTML += `
+            <div class="spec-item">
+              <i class="bi ${s.icon}"></i>
+              <div>
+                <span class="spec-label">${s.label}</span>
+                <span class="spec-value">${s.value}</span>
+              </div>
+            </div>`;
+        });
+
+        var featuresContainer = document.getElementById('modalProductFeatures');
+        featuresContainer.innerHTML = '';
+        (p.features || []).forEach(function (f) {
+          featuresContainer.innerHTML += `<li><i class="bi bi-check-circle-fill"></i> ${f}</li>`;
+        });
+
+        backdrop.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        backdrop.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.product-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          var id = this.getAttribute('data-product-id');
+          openModal(id);
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (closeBtn2) closeBtn2.addEventListener('click', closeModal);
+      if (backdrop) {
+        backdrop.addEventListener('click', function (e) {
+          if (e.target === backdrop) closeModal();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
 </body>
 
 </html>

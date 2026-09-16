@@ -7,802 +7,150 @@
   <title>الخدمات — Tech-Sat</title>
   <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
 
+  <!-- Favicons -->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!--Vendor CSS-->
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!--Shared CSS-->
+  <!-- Shared CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/palette.css" rel="stylesheet">
-  <link href="assets/css/components.css" rel="stylesheet">
-  <!--Page-specific CSS-->
   <link href="assets/css/pages/services.css" rel="stylesheet">
 
-  <!--  
-       COLOR PALETTE + PAGE STYLES
-         -->
   <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
+    /* Search Bar Styling */
+    .search-box-container {
+      max-width: 680px;
+      margin: 0 auto 36px;
     }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all .25s ease;
-    }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-   /* =========================================
-   SERVICES HERO
-========================================= */
-
-.services-hero {
-  position: relative;
-  height: 440px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #050505;
-}
-
-/* Background Image */
-.services-hero .page-hero__bg {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 0;
-}
-
-/* Dark Overlay */
-.services-hero .page-hero__overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.90) 0%,
-      rgba(0, 0, 0, 0.72) 45%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-
-  z-index: 1;
-}
-
-/* Content */
-.services-hero .page-hero__content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 680px;
-  color: #fff;
-}
-
-/* Label */
-.services-hero .page-hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-bottom: 18px;
-  padding: 7px 15px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  color: #fff;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-}
-
-.services-hero .page-hero__label i {
-  color: #00b4d8;
-  font-size: 16px;
-}
-
-/* Heading */
-.services-hero h1 {
-  margin: 0 0 18px;
-
-  color: #fff;
-
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-/* Highlight */
-.services-hero h1 strong {
-  color: #00b4d8;
-}
-
-/* Description */
-.services-hero p {
-  max-width: 620px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.84);
-
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-/* Buttons */
-.services-hero .page-hero__buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-top: 26px;
-}
-
-.services-hero .hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  min-height: 46px;
-  padding: 0 21px;
-
-  border-radius: 7px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition: all 0.25s ease;
-}
-
-/* Primary */
-.services-hero .hero-btn.primary {
-  background: #00b4d8;
-  border: 1px solid #00b4d8;
-
-  color: #fff;
-}
-
-.services-hero .hero-btn.primary:hover {
-  background: #0096b4;
-  border-color: #0096b4;
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-/* Secondary */
-.services-hero .hero-btn.secondary {
-  background: rgba(255, 255, 255, 0.06);
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  color: #fff;
-
-  backdrop-filter: blur(5px);
-}
-
-.services-hero .hero-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 768px) {
-
-  .services-hero {
-    height: 430px;
-  }
-
-  .services-hero .page-hero__content {
-    padding: 0 20px;
-  }
-
-  .services-hero h1 {
-    font-size: 42px;
-  }
-
-  .services-hero p {
-    font-size: 15px;
-  }
-
-  .services-hero .page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.90),
-        rgba(0, 0, 0, 0.58)
-      );
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 576px) {
-
-  .services-hero {
-    height: 500px;
-  }
-
-  .services-hero .page-hero__content {
-    padding: 0 15px;
-  }
-
-  .services-hero h1 {
-    font-size: 36px;
-  }
-
-  .services-hero p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .services-hero .page-hero__buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .services-hero .hero-btn {
-    width: 100%;
-  }
-
-}
-    /*  
-       FILTER TABS (Underline Style)
-         */
-    .filter-tabs {
+    .search-input-wrapper {
+      position: relative;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 40px;
-      margin-bottom: 56px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--palette-light-blue);
-      position: relative;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
     }
-
-    .filter-tabs::-webkit-scrollbar { display: none; }
-
-    .filter-tab {
-      position: relative;
-      background: transparent;
-      border: none;
-      padding: 8px 0;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 500;
-      color: rgba(11, 29, 51, 0.55);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color .25s ease;
-    }
-    .filter-tab:hover { color: var(--palette-dark-navy); }
-    .filter-tab.active {
-      color: var(--palette-dark-navy);
-      font-weight: 700;
-    }
-    .filter-tab::after {
-      content: '';
+    .search-input-wrapper .search-icon {
       position: absolute;
-      bottom: -17px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--palette-mid-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .3s ease;
+      right: 18px;
+      color: var(--ts-blue);
+      font-size: 1.25rem;
+      pointer-events: none;
+      z-index: 5;
     }
-    .filter-tab.active::after { transform: scaleX(1); }
-
-    @media (max-width: 768px) {
-      .filter-tabs {
-        gap: 24px;
-        justify-content: flex-start;
-        padding-left: 4px;
-        padding-right: 4px;
-      }
-      .filter-tab { font-size: 14px; }
+    .search-input-wrapper .search-input {
+      padding: 14px 50px 14px 44px;
+      border-radius: 999px;
+      border: 2px solid var(--ts-blue-light);
+      background: var(--ts-white);
+      font-size: 15px;
+      box-shadow: 0 4px 16px rgba(26, 43, 71, 0.06);
+      transition: all 0.3s ease;
     }
+    .search-input-wrapper .search-input:focus {
+      border-color: var(--ts-blue);
+      box-shadow: 0 8px 24px rgba(46, 109, 180, 0.15);
+      outline: none;
+    }
+    .btn-clear-search {
+      position: absolute;
+      left: 16px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 5;
+      padding: 0;
+    }
+    .btn-clear-search:hover { color: var(--ts-pink); }
 
-    /*  
-       SERVICE CARDS
-         */
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
+    /* Service Card Image Box */
+    .service-card__image-box {
+      width: 100%;
+      height: 220px;
+      position: relative;
       overflow: hidden;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: all .3s ease;
-      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-    }
-
-    .service-card__icon {
-      height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 3.5rem;
-      color: var(--palette-mid-blue);
-      position: relative;
+      background: linear-gradient(135deg, #1A2B47 0%, #0d1a2d 100%);
+      border-radius: 14px 14px 0 0;
     }
-    .service-card__icon i {
-      transition: transform .3s ease;
+    .service-card__image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
     }
-    .service-card:hover .service-card__icon i {
-      transform: scale(1.15);
+    .service-card:hover .service-card__image-box img {
+      transform: scale(1.08);
     }
     .service-card__tag {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--palette-dark-navy);
+      top: 14px;
+      right: 14px;
+      background: var(--ts-pink);
       color: #fff;
-      padding: 3px 10px;
+      padding: 4px 14px;
       border-radius: 999px;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .service-card__body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .service-card__body h5 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .service-card__body p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    /* Feature bullets */
-    .service-card__features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .service-card__features li {
-      color: var(--palette-dark-navy);
-      font-size: 12.5px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-card__features li i {
-      color: var(--palette-mid-blue);
-      font-size: 11px;
-      flex-shrink: 0;
-    }
-
-    .service-card__cta {
-      color: var(--palette-mid-blue);
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap .2s ease;
-      text-decoration: none;
-    }
-    .service-card:hover .service-card__cta { gap: 10px; }
-
-    /*   PROCESS STEPS  */
-    .process-section {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .process-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209, 216, 224, 0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .process-section .container { position: relative; z-index: 2; }
-
-    .process-section .section-title h2 { color: #fff; }
-    .process-section .section-title p { color: var(--palette-light-blue); }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      position: relative;
-    }
-    @media (max-width: 992px) {
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .process-grid { grid-template-columns: 1fr; }
-    }
-
-    .process-step {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(209, 216, 224, 0.12);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      position: relative;
-      height: 100%;
-    }
-    .process-step:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(58, 110, 165, 0.5);
-      transform: translateY(-6px);
-    }
-    .process-step__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--palette-mid-blue);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(58, 110, 165, 0.35);
-    }
-    .process-step h4 {
-      color: #fff;
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .process-step p {
-      color: var(--palette-light-blue);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-      opacity: 0.85;
-    }
-
-    /*  
-       WHY US
-         */
-    .why-us {
-      padding: 80px 0;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 992px) {
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .why-grid { grid-template-columns: 1fr; }
-    }
-
-    .why-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .why-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.08);
-    }
-    .why-card__icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--palette-mid-blue);
-      font-size: 26px;
-      transition: transform .3s ease;
-    }
-    .why-card:hover .why-card__icon {
-      transform: scale(1.08) rotate(-3deg);
-    }
-    .why-card h4 {
-      color: var(--palette-dark-navy);
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .why-card p {
-      color: #64748B;
-      font-size: 13.5px;
-      line-height: 1.7;
-      margin: 0;
-      flex: 1;
-    }
-
-    /*  
-       ENGINEER CTA
-         */
-    .engineer-cta {
-      background: var(--palette-dark-navy);
-      border-radius: 24px;
-      padding: 60px 50px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .engineer-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .engineer-cta__content {
-      position: relative;
       z-index: 2;
-      max-width: 620px;
     }
-    .engineer-cta h2 {
-      color: #fff;
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-    .engineer-cta p {
-      color: var(--palette-light-blue);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .btn-engineer {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--palette-dark-navy);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-    .btn-engineer:hover {
-      background: var(--palette-light-blue);
-      transform: translateY(-2px);
-      color: var(--palette-dark-navy);
-    }
-    @media (max-width: 768px) {
-      .engineer-cta { padding: 40px 28px; }
-      .engineer-cta h2 { font-size: 26px; }
-    }
-
-    /* ─── Section Base ─── */
-    .section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 56px; }
-    .section-title h2 {
-      color: var(--palette-dark-navy);
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .section-title p { color: #64748B; font-size: 16px; max-width: 680px; margin: 0 auto; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl position-relative">
-      <div class="top-row d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Tech Sat</h1>
-        </a>
-        <div class="d-flex align-items-center">
-          <div class="social-links">
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-wrap">
-      <div class="container d-flex justify-content-center position-relative">
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="services.html" class="active">الخدمات</a></li>
-            <li><a href="products.html">المنتجات</a></li>
-            <li><a href="about.html">من نحن</a></li>
-            <li><a href="contact.html">تواصل معنا</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER / NAVBAR -->
+  <div id="navbar-root"></div>
 
   <main class="main">
 
-   <!-- Services Hero -->
-<section class="page-hero services-hero">
-
-  <img
-    src="img product/spacex-VBNb52J8Trk-unsplash.jpg"
-    alt="خدمات Tech-Sat"
-    class="page-hero__bg"
-  >
-
-  <div class="page-hero__overlay"></div>
-
-  <div class="container">
-    <div class="page-hero__content" data-aos="fade-up">
-
-      <div class="page-hero__label">
-        <i class="bi bi-broadcast"></i>
-        Tech-Sat Services
+    <!-- Services Hero Section -->
+    <section class="page-hero services-hero">
+      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="خدمات Tech-Sat" class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+      <div class="container position-relative z-2 text-center">
+        <div class="page-hero__content" data-aos="fade-up">
+          <div class="subtitle-tag mb-2">
+            <i class="bi bi-gear-wide-connected me-1"></i> خدمات Tech-Sat
+          </div>
+          <h1 class="text-white fw-bold display-4 mb-3">
+            حلول وتكامُل <strong style="color: var(--ts-pink);">الاتصالات</strong>
+          </h1>
+          <p class="lead text-white-50 mx-auto max-width-700">
+            نقدم مجموعة متكاملة من خدمات الاتصالات الفضائية والتصميم الميداني للقطاعات الحكومية والإنسانية والمؤسسية.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <h1 data-i18n="services_hero_title">
-        خدماتنا الفضائية المتكاملة
-      </h1>
-
-      <p data-i18n="services_hero_desc">
-        نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة —
-        من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة
-        والخدمات الميدانية.
-      </p>
-
-      <div class="page-hero__buttons">
-
-        <a href="#services" class="hero-btn primary">
-          استكشف خدماتنا
-          <i class="bi bi-arrow-down"></i>
-        </a>
-
-        <a href="contact.html" class="hero-btn secondary">
-          تواصل معنا
-          <i class="bi bi-arrow-left"></i>
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-    <!--Services Grid-->
-    <section class="section">
+    <!-- Services Catalog Section -->
+    <section class="section" id="servicesSection">
       <div class="container">
 
-        <!--Search-->
-        <div class="row justify-content-center mb-4" data-aos="fade-up">
-          <div class="col-md-6 col-lg-5">
-            <div class="input-group shadow-sm rounded-pill overflow-hidden border">
-              <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-search text-primary"></i></span>
-              <input type="text" id="serviceSearchInput" class="form-control border-0 py-2 ps-2" placeholder="ابحث عن خدمة...">
-            </div>
+        <!-- Live Search Bar -->
+        <div class="search-box-container" data-aos="fade-up">
+          <div class="search-input-wrapper">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="serviceSearchInput" class="form-control search-input" placeholder="ابحث عن خدمة بالاسم، الفئة، أو المميزات..." aria-label="بحث عن خدمة">
+            <button type="button" id="clearServiceSearch" class="btn-clear-search" style="display:none;" aria-label="مسح البحث">
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
           </div>
         </div>
 
-        <!--Filter Tabs-->
+        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
           <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
           <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
@@ -811,15 +159,15 @@
           <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
         </div>
 
-        <!--Services Grid-->
+        <!-- Services Grid -->
         <div class="row g-4" id="servicesGrid">
 
-          <!--1. VSAT-->
+          <!-- 1. VSAT Solutions -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
-            <a href="details.html?type=service&id=vsat" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-broadcast-pin"></i>
+                <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="حلول VSAT" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>حلول VSAT</h5>
@@ -829,17 +177,17 @@
                   <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
                   <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
-          <!--2. Voice & Data-->
+          <!-- 2. Voice & Data -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
-            <a href="details.html?type=service&id=voice" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-telephone-outbound"></i>
+                <img src="img product/spacex-VBNb52J8Trk-unsplash.jpg" alt="صوت وبيانات" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>صوت وبيانات</h5>
@@ -849,17 +197,17 @@
                   <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
                   <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
-          <!--3. System Integration-->
+          <!-- 3. System Integration -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <a href="details.html?type=service&id=integr" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-diagram-3"></i>
+                <img src="img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg" alt="تكامل الأنظمة" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>تكامل الأنظمة</h5>
@@ -869,17 +217,17 @@
                   <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
                   <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
-          <!--4. Field Services-->
+          <!-- 4. Field Services -->
           <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
-            <a href="details.html?type=service&id=field" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">ميدانية</span>
-                <i class="bi bi-tools"></i>
+                <img src="img product/aaa.jpg" alt="خدمات ميدانية" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>خدمات ميدانية</h5>
@@ -889,17 +237,17 @@
                   <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
                   <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
-          <!--5. Managed Networks-->
+          <!-- 5. Managed Networks -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <a href="details.html?type=service&id=net" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-hdd-network"></i>
+                <img src="assets/img/products/managed-modem.png" alt="شبكات مُدارة" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>شبكات مُدارة</h5>
@@ -909,179 +257,117 @@
                   <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
                   <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
-          <!--6. Support-->
+          <!-- 6. Technical Support -->
           <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
-            <a href="details.html?type=service&id=support" class="service-card">
-              <div class="service-card__icon">
+            <a href="contact.html" class="service-card">
+              <div class="service-card__image-box">
                 <span class="service-card__tag">دعم</span>
-                <i class="bi bi-headset"></i>
+                <img src="assets/img/products/rf-cables.png" alt="دعم فني 24/7" loading="lazy">
               </div>
               <div class="service-card__body">
                 <h5>دعم فني 24/7</h5>
-                <p>فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.</p>
+                <p>فريق دعم فني متخصص يعمل على مدار الساعة لتقديم المساندة وحل المشكلات فوراً.</p>
                 <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>دعم هاتفي وبريد</span></li>
-                  <li><i class="bi bi-check2"></i> <span>استجابة ميدانية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>صيانة دورية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>دعم باللغة العربية</span></li>
+                  <li><i class="bi bi-check2"></i> <span>استجابة في أقل من 15 دقيقة</span></li>
+                  <li><i class="bi bi-check2"></i> <span>قنوات تواصل متعددة</span></li>
                 </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
               </div>
             </a>
           </div>
 
+        </div><!-- /servicesGrid -->
+
+        <!-- No Results Message -->
+        <div id="noServicesFound" class="text-center py-5" style="display:none;">
+          <i class="bi bi-search text-muted display-3 mb-3"></i>
+          <h4 class="fw-bold text-dark mb-2">لم نتمكن من العثور على نتائج</h4>
+          <p class="text-muted">حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.</p>
         </div>
 
-        <div id="noResults" class="text-center py-5" style="display:none;">
-          <p style="color:#64748B; font-size:16px;">لا توجد خدمات في هذا التصنيف حاليًا.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!--Process Steps-->
-    <section class="process-section">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>كيف نعمل</h2>
-          <p>من الاستشارة الأولى إلى الدعم المستمر — رحلة متكاملة</p>
-        </div>
-
-        <div class="process-grid">
-
-          <div class="process-step" data-aos="fade-up">
-            <div class="process-step__num">01</div>
-            <h4>استشارة</h4>
-            <p>نستمع لاحتياجاتك ونحلل متطلبات موقعك ومشروعك بعناية.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-            <div class="process-step__num">02</div>
-            <h4>تصميم</h4>
-            <p>نصمم الحل الأنسب حسب المتطلبات الفنية والموقع الجغرافي.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-            <div class="process-step__num">03</div>
-            <h4>تركيب</h4>
-            <p>تنفيذ احترافي بفريق متخصص خلال 24-48 ساعة من بدء العمل.</p>
-          </div>
-
-          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-            <div class="process-step__num">04</div>
-            <h4>دعم</h4>
-            <p>دعم فني على مدار الساعة + صيانة دورية + استجابة سريعة.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!--Why Us-->
-    <section class="why-us">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>لماذا Tech-Sat؟</h2>
-          <p>ما يميزنا عن غيرنا في قطاع الاتصالات الفضائية</p>
-        </div>
-
-        <div class="why-grid">
-
-          <div class="why-card" data-aos="fade-up">
-            <div class="why-card__icon"><i class="bi bi-patch-check"></i></div>
-            <h4>الموزع الحصري</h4>
-            <p>الوكيل الوحيد لـ IEC Global Telecom في اليمن، بأحدث التقنيات العالمية.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-card__icon"><i class="bi bi-globe2"></i></div>
-            <h4>تغطية عالمية</h4>
-            <p>خدماتنا تغطي 15 دولة عبر تقنيات Ku و C-Band، في الشرق الأوسط وأفريقيا وأوروبا.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="why-card__icon"><i class="bi bi-speedometer2"></i></div>
-            <h4>استجابة سريعة</h4>
-            <p>تركيب احترافي خلال 24-48 ساعة، ودعم فني فوري على مدار الساعة.</p>
-          </div>
-
-          <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="why-card__icon"><i class="bi bi-shield-check"></i></div>
-            <h4>موثوقية 99.9%</h4>
-            <p>بنية تحتية مستقرة مع خطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!--Engineer CTA-->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="engineer-cta" data-aos="zoom-in">
-          <div class="engineer-cta__content">
-            <h2>هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
-            <p>مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.</p>
-            <a href="contact.html" class="btn-engineer">
-              <i class="bi bi-headset"></i>
-              <span>تحدث مع مهندس</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <div id="footer-root"></div>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <div id="preloader"></div>
-
-  <!--Vendor JS-->
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/js/navbar-footer.js"></script>
   <script src="assets/js/main.js"></script>
 
+  <!-- Service Search & Filter Script -->
   <script>
     (function () {
       'use strict';
-      var tabs = document.querySelectorAll('.filter-tab');
-      var items = document.querySelectorAll('.service-item');
-      var noResults = document.getElementById('noResults');
+      var searchInput = document.getElementById('serviceSearchInput');
+      var clearBtn = document.getElementById('clearServiceSearch');
+      var filterTabs = document.querySelectorAll('.filter-tab');
+      var serviceItems = document.querySelectorAll('.service-item');
+      var noResults = document.getElementById('noServicesFound');
 
-      tabs.forEach(function (tab) {
+      var currentFilter = 'all';
+
+      function filterServices() {
+        var query = searchInput.value.trim().toLowerCase();
+        var visibleCount = 0;
+
+        serviceItems.forEach(function (item) {
+          var category = item.getAttribute('data-category');
+          var text = item.textContent.toLowerCase();
+
+          var matchesFilter = (currentFilter === 'all' || category === currentFilter);
+          var matchesSearch = (!query || text.indexOf(query) !== -1);
+
+          if (matchesFilter && matchesSearch) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        if (clearBtn) {
+          clearBtn.style.display = query ? 'block' : 'none';
+        }
+
+        if (noResults) {
+          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+      }
+
+      filterTabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-          tabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-
-          var filter = tab.dataset.filter;
-          var visibleCount = 0;
-
-          items.forEach(function (item) {
-            var match = (filter === 'all') || (item.dataset.category === filter);
-            if (match) { item.style.display = ''; visibleCount++; }
-            else { item.style.display = 'none'; }
-          });
-
-          if (noResults) noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-          if (window.AOS) window.AOS.refresh();
+          filterTabs.forEach(function (t) { t.classList.remove('active'); });
+          this.classList.add('active');
+          currentFilter = this.getAttribute('data-filter');
+          filterServices();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterServices);
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          searchInput.value = '';
+          filterServices();
+          searchInput.focus();
+        });
+      }
     })();
   </script>
-
 </body>
 
 </html>

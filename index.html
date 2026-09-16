@@ -161,6 +161,10 @@
 
     .orbits-hero {
       background-color: var(--palette-white) !important;
+      min-height: 85vh !important;
+      padding: 160px 16px 80px !important;
+      display: flex;
+      align-items: center;
     }
 
     .oh-orbit {
@@ -195,15 +199,34 @@
       box-shadow: 0 20px 40px rgba(58, 110, 165, 0.3) !important;
     }
 
-    /* Card images with icons instead of image files */
-    .feature-icon-box {
-      height: 180px;
+    /* Product & Service Feature Cards with Real Images */
+    .feature-image-box {
+      height: 220px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
+      border-radius: 12px 12px 0 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 4rem;
-      color: var(--palette-mid-blue);
+    }
+
+    .feature-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-image-box img.contain-fit {
+      object-fit: contain;
+      padding: 16px;
+    }
+
+    .card:hover .feature-image-box img {
+      transform: scale(1.08);
     }
 
     /* ═══ SHADCN-STYLE ACCORDION ═══ */
@@ -594,34 +617,38 @@
             <div class="tab-pane fade active show" id="features-tab-1">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-broadcast-pin"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="assets/img/products/vsat-portable.png" alt="محطة VSAT محمولة" class="contain-fit">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">محطة VSAT محمولة</h5>
-                      <p class="card-text">محطة أرضية مصممة للعمل في أصعب الظروف مع تركيب سريع خلال 30 دقيقة. مثالية
-                        للفرق الميدانية والبعثات.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">محطة VSAT محمولة</h5>
+                      <p class="card-text text-muted">محطة أرضية مصممة للعمل في أصعب الظروف مع تركيب سريع خلال 30 دقيقة. مثالية للفرق الميدانية والبعثات.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-router"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="assets/img/products/managed-modem.png" alt="مودم فضائي مُدار" class="contain-fit">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">مودم فضائي مُدار</h5>
-                      <p class="card-text">مودم بمعايير مؤسسية يدعم Ku و Ka-Band، مع مراقبة عن بعد 24/7 ودعم فني متكامل.
-                      </p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">مودم فضائي مُدار</h5>
+                      <p class="card-text text-muted">مودم بمعايير مؤسسية يدعم Ku و Ka-Band، مع مراقبة عن بعد 24/7 ودعم فني متكامل.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-satellite"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="assets/img/products/ku-antenna.png" alt="هوائي ميداني Ku-Band" class="contain-fit">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">هوائي ميداني Ku-Band</h5>
-                      <p class="card-text">هوائي خفيف الوزن مصمم للتركيب السريع في المناطق النائية والظروف القاسية.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">هوائي ميداني Ku-Band</h5>
+                      <p class="card-text text-muted">هوائي خفيف الوزن مصمم للتركيب السريع في المناطق النائية والظروف القاسية.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
@@ -632,34 +659,38 @@
             <div class="tab-pane fade" id="features-tab-2">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-globe2"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="اتصالات مُدارة">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">اتصالات مُدارة</h5>
-                      <p class="card-text">ربط فضائي متكامل مع مراقبة NOC على مدار الساعة واتفاقيات مستوى الخدمة (SLA)
-                        لضمان استمرارية أعمالك.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">اتصالات مُدارة</h5>
+                      <p class="card-text text-muted">ربط فضائي متكامل مع مراقبة NOC على مدار الساعة واتفاقيات مستوى الخدمة (SLA) لضمان استمرارية أعمالك.</p>
+                      <a href="services.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-tools"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="img product/aaa.jpg" alt="التركيب الميداني">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">التركيب الميداني</h5>
-                      <p class="card-text">فريق فني متخصص لتركيب وتشغيل وتدريب العملاء على محطات VSAT في أي موقع داخل
-                        اليمن والمنطقة.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">التركيب الميداني</h5>
+                      <p class="card-text text-muted">فريق فني متخصص لتركيب وتشغيل وتدريب العملاء على محطات VSAT في أي موقع داخل اليمن والمنطقة.</p>
+                      <a href="services.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-diagram-3"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg" alt="تكامل الأنظمة">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">تكامل الأنظمة</h5>
-                      <p class="card-text">تصميم وتركيب بنية شبكة فضائية مخصصة، مع دمج كامل مع أنظمة العميل الحالية.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">تكامل الأنظمة</h5>
+                      <p class="card-text text-muted">تصميم وتركيب بنية شبكة فضائية مخصصة، مع دمج كامل مع أنظمة العميل الحالية.</p>
+                      <a href="services.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
@@ -670,35 +701,38 @@
             <div class="tab-pane fade" id="features-tab-3">
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-box"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="assets/img/products/manpack.png" alt="باكيج البداية" class="contain-fit">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">باكيج البداية</h5>
-                      <p class="card-text">مثالي للمواقع الفردية: مودم + هوائي + تركيب + اشتراك 12 شهرًا + دعم فني
-                        أساسي.</p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">باكيج البداية</h5>
+                      <p class="card-text text-muted">مثالي للمواقع الفردية: مودم + هوائي + تركيب + اشتراك 12 شهرًا + دعم فني أساسي.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-briefcase"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="assets/img/products/vehicle-antenna.png" alt="باكيج الأعمال" class="contain-fit">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">باكيج الأعمال</h5>
-                      <p class="card-text">ربط متعدد المواقع مع خطوط احتياطية، نطاق أولوية، ودعم ميداني سريع الاستجابة.
-                      </p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">باكيج الأعمال</h5>
+                      <p class="card-text text-muted">ربط متعدد المواقع مع خطوط احتياطية، نطاق أولوية، ودعم ميداني سريع الاستجابة.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="feature-icon-box"><i class="bi bi-buildings"></i></div>
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="feature-image-box">
+                      <img src="img product/spacex-VBNb52J8Trk-unsplash.jpg" alt="باكيج المؤسسات">
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title">باكيج المؤسسات</h5>
-                      <p class="card-text">شبكة عالمية مُدارة بالكامل مع سعة مخصصة، SLA من الفئة الأولى، ودعم 24/7/365.
-                      </p>
-                      <a href="#contact" class="btn btn-primary">اعرف المزيد</a>
+                      <h5 class="card-title fw-bold">باكيج المؤسسات</h5>
+                      <p class="card-text text-muted">شبكة عالمية مُدارة بالكامل مع سعة مخصصة، SLA من الفئة الأولى، ودعم 24/7/365.</p>
+                      <a href="products.html" class="btn btn-primary w-100">اعرف المزيد</a>
                     </div>
                   </div>
                 </div>
