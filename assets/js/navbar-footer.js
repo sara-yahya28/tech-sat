@@ -7,10 +7,9 @@
   /* ─── الروابط الموحدة ─── */
   var NAV_LINKS = [
     { label: 'الرئيسية', href: 'index.html' },
-    { label: 'الخدمات', href: 'index.html#features' },
+    { label: 'الخدمات', href: 'services.html' },
     { label: 'المنتجات', href: 'products.html' },
     { label: 'من نحن', href: 'about.html' },
-    { label: 'الأسئلة الشائعة', href: 'index.html#faq' },
     { label: 'تواصل معنا', href: 'contact.html' },
   ];
 
@@ -179,7 +178,7 @@
             '<div class="row align-items-center">' +
               '<div class="col-lg-6">' +
                 '<div class="copyright">' +
-                  '<p>© <span>حقوق النشر</span> <strong class="px-1 sitename">Tech-Sat</strong> <span>جميع الحقوق محفوظة 2025</span></p>' +
+                  '<p>© <span>حقوق النشر</span> <strong class="px-1 sitename">Tech-Sat</strong> <span>جميع الحقوق محفوظة 2026</span></p>' +
                 '</div>' +
               '</div>' +
               '<div class="col-lg-6">' +

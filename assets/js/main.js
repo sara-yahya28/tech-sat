@@ -318,57 +318,113 @@
   "use strict";
 
   var mapEl = document.getElementById('map');
-  if (!mapEl) return;                          // لا تفعّل إن لم توجد خريطة
-  if (typeof L === 'undefined') return;        // لا تفعّل إن لم تُحمّل Leaflet
+  if (!mapEl) return;
+  if (typeof L === 'undefined') return;
 
-  /* ─── Locations ─── */
+  /* ─── Locations (All IEC Telecom Offices + Yemen) ─── */
   var LOCATIONS = [
     {
-      id: 'yemen',
-      name: 'اليمن — المقر الرئيسي',
-      desc: 'مركز العمليات الفضائية 24/7 مع تغطية شاملة 100%',
-      lat: 15.3694,
-      lng: 44.191,
+      id: 'france',
+      name: 'فرنسا — سيرجي بونتوز (المقر الرئيسي)',
+      desc: 'IEC Telecom Europe (HQ)<br>Immeuble Le Cerame, 47 Avenue des Genottes<br>Cergy Pontoise, France<br>+33 1 40 17 08 03<br>info-ea@iec-telecom.com',
+      lat: 49.0389,
+      lng: 2.0781,
       type: 'hq'
     },
     {
-      id: 'saudi',
-      name: 'المملكة العربية السعودية',
-      desc: 'محطات ترحيل إقليمية وربط تجاري متقدم',
-      lat: 24.7136,
-      lng: 46.6753,
+      id: 'turkey',
+      name: 'تركيا — إسطنبول (فرعنا الرئيسي)',
+      desc: 'IEC Telecom Turkey<br>Yenişehir mah. Osmanlı Bulvarı No:5B<br>ARWEN Office K3/D29, 34912 Pendik – Istanbul<br>+90 216 970 16 08<br>info-tk@iec-telecom.com',
+      lat: 40.8765,
+      lng: 29.2315,
+      type: 'branch'
+    },
+    {
+      id: 'yemen',
+      name: 'اليمن — عدن',
+      desc: 'Tech-Sat (Regional Operations)<br>Aden, Yemen<br>+967 2 396 056<br>info@tech-sat.com',
+      lat: 12.7855,
+      lng: 45.0187,
       type: 'hub'
     },
     {
-      id: 'djibouti',
-      name: 'جيبوتي',
-      desc: 'بوابة الاتصالات البحرية لمضيق باب المندب',
-      lat: 11.8251,
-      lng: 42.5903,
+      id: 'uae-dubai',
+      name: 'الإمارات — دبي',
+      desc: 'IEC Telecom UAE - DUBAI<br>Office #3203-3204, Indigo Icon Tower, JLT<br>PO BOX 5569, Dubai, UAE<br>+971 4 447 5180<br>info-mea@iec-telecom.com',
+      lat: 25.0657,
+      lng: 55.1713,
       type: 'hub'
     },
     {
-      id: 'egypt',
-      name: 'مصر',
-      desc: 'محطات VSAT لممر قناة السويس البحري',
-      lat: 26.8206,
-      lng: 30.8025,
+      id: 'uae-abudhabi',
+      name: 'الإمارات — أبوظبي',
+      desc: 'IEC Telecom UAE - ABU DHABI<br>Office F10 - F11, AFHAD building, Musaffah<br>Industrial Area, ICAD1, PO BOX 9724<br>Abu Dhabi, UAE<br>+971 2 550 0446<br>info-mea@iec-telecom.com',
+      lat: 24.4512,
+      lng: 54.3970,
       type: 'hub'
     },
     {
-      id: 'uae',
-      name: 'الإمارات',
-      desc: 'محور تبادل البيانات وشراكة IEC Telecom',
-      lat: 23.4241,
-      lng: 53.8478,
+      id: 'kazakhstan',
+      name: 'كازاخستان — ألماتي',
+      desc: 'IEC TELECOM KAZAKHSTAN<br>Almaty, 43/56 Karibzhanov Str<br>Kazakhstan<br>+7 727 347 08 56<br>info-kz@iec-telecom.com',
+      lat: 43.2389,
+      lng: 76.8897,
+      type: 'hub'
+    },
+    {
+      id: 'norway',
+      name: 'النرويج — أوسلو',
+      desc: 'IEC TELECOM NORWAY<br>Østensjøveien 32, 0667 Oslo<br>Norway<br>+47 23 10 06 40<br>info-no@iec-telecom.com',
+      lat: 59.9133,
+      lng: 10.7389,
+      type: 'hub'
+    },
+    {
+      id: 'singapore',
+      name: 'سنغافورة',
+      desc: 'IEC TELECOM SINGAPORE<br>61 Ubi Avenue 1, #06-14 UB Point, 408941<br>Singapore<br>+65 6744 7925<br>info-sg@iec-telecom.com',
+      lat: 1.2897,
+      lng: 103.8501,
+      type: 'hub'
+    },
+    {
+      id: 'sweden',
+      name: 'السويد — غوتنبرغ',
+      desc: 'IEC TELECOM SWEDEN<br>Fikskebäks Hamn, Göteborg<br>Sweden<br>+46 10 33 00 533<br>info-se@iec-telecom.com',
+      lat: 57.7089,
+      lng: 11.9746,
+      type: 'hub'
+    },
+    {
+      id: 'indonesia',
+      name: 'إندونيسيا — جاكرتا',
+      desc: 'IEC TELECOM INDONESIA<br>Jakarta, Indonesia<br>+62-815-9599-350<br>info-id@iec-telecom.com',
+      lat: -6.2088,
+      lng: 106.8456,
+      type: 'hub'
+    },
+    {
+      id: 'malaysia',
+      name: 'ماليزيا — سيبرجايا',
+      desc: 'IEC Telecom Malaysia<br>C-5-9, ITech Tower Jalan Impact, 63000<br>Cyberjaya, Malaysia<br>+60 38 699 1599<br>info-my@iec-telecom.com',
+      lat: 2.9225,
+      lng: 101.6532,
+      type: 'hub'
+    },
+    {
+      id: 'tunisia',
+      name: 'تونس — سوسة',
+      desc: 'IEC Telecom Tunisia (Surustech)<br>203, Bat6000 Novation City<br>Hammam Maarouf, Sousse, Tunisia<br>+216 54 767 881<br>info-sousse@iec-telecom.com',
+      lat: 35.8256,
+      lng: 10.6084,
       type: 'hub'
     }
   ];
 
   /* ─── Init Map ─── */
   var map = L.map('map', {
-    center: [22, 45],
-    zoom: 4,
+    center: [25, 40], // Center to show Europe, Africa, Middle East, and Asia
+    zoom: 2,
     zoomControl: true,
     attributionControl: true,
     worldCopyJump: true,
@@ -392,12 +448,14 @@
 
   /* ─── Markers ─── */
   LOCATIONS.forEach(function (loc) {
-    var isHQ = loc.type === 'hq';
+    var markerClass = 'custom-marker--hub';
+    if (loc.type === 'hq') markerClass = 'custom-marker--hq';
+    if (loc.type === 'branch') markerClass = 'custom-marker--branch';
 
     var icon = L.divIcon({
       className: 'custom-marker',
       html:
-        '<div class="custom-marker ' + (isHQ ? 'custom-marker--hq' : 'custom-marker--hub') + '">' +
+        '<div class="custom-marker ' + markerClass + '">' +
           '<span class="custom-marker__ring"></span>' +
           '<span class="custom-marker__dot"></span>' +
         '</div>',
@@ -408,40 +466,53 @@
 
     var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
 
+    var badge = '';
+    if (loc.type === 'hq') {
+      badge = '<div class="map-popup__badge">★ المقر الرئيسي العالمي</div>';
+    }
+    if (loc.type === 'branch') {
+      badge = '<div class="map-popup__badge" style="background:#FFA500; color:#0B1D33;">فرعنا الرئيسي — يخدم اليمن</div>';
+    }
+
     marker.bindPopup(
       '<div class="map-popup__title">' + loc.name + '</div>' +
       '<div class="map-popup__desc">' + loc.desc + '</div>' +
-      (isHQ ? '<div class="map-popup__badge">★ المقر الرئيسي</div>' : '')
+      badge
     );
-
-    if (isHQ) {
-      setTimeout(function () { marker.openPopup(); }, 800);
-    }
   });
 
-  /* ─── Connection Lines from HQ to Hubs ─── */
-  var hq = LOCATIONS.find(function (l) { return l.id === 'yemen'; });
+  /* ─── Dotted line: Turkey ↔ Yemen (supply route) ─── */
+  var turkey = LOCATIONS.find(function (l) { return l.id === 'turkey'; });
+  var yemen = LOCATIONS.find(function (l) { return l.id === 'yemen'; });
 
-  LOCATIONS.filter(function (l) { return l.id !== 'yemen'; }).forEach(function (loc) {
-    var midLat = (hq.lat + loc.lat) / 2 + 3;
-    var midLng = (hq.lng + loc.lng) / 2;
-
+  if (turkey && yemen) {
     L.polyline(
-      [[hq.lat, hq.lng], [midLat, midLng], [loc.lat, loc.lng]],
-      { color: '#3A6EA5', weight: 1.5, dashArray: '6 8', opacity: 0.75 }
+      [[turkey.lat, turkey.lng], [yemen.lat, yemen.lng]],
+      { color: '#FFA500', weight: 2.5, dashArray: '6 8', opacity: 0.9 }
     ).addTo(map);
-  });
+  }
 
-  /* ─── Coverage Circle around HQ ─── */
-  L.circle([hq.lat, hq.lng], {
-    radius: 400000,
-    color: '#D1D8E0',
-    weight: 1.5,
-    opacity: 0.7,
-    fillColor: '#D1D8E0',
-    fillOpacity: 0.08,
-    dashArray: '4 6'
-  }).addTo(map);
+  /* ─── Dotted line: France HQ → Turkey (supply chain) ─── */
+  var france = LOCATIONS.find(function (l) { return l.id === 'france'; });
+  if (france && turkey) {
+    L.polyline(
+      [[france.lat, france.lng], [turkey.lat, turkey.lng]],
+      { color: '#3A6EA5', weight: 1.5, dashArray: '4 6', opacity: 0.5 }
+    ).addTo(map);
+  }
+
+  /* ─── Coverage Circle around Yemen (optional) ─── */
+  if (yemen) {
+    L.circle([yemen.lat, yemen.lng], {
+      radius: 400000,
+      color: '#D1D8E0',
+      weight: 1.5,
+      opacity: 0.7,
+      fillColor: '#D1D8E0',
+      fillOpacity: 0.08,
+      dashArray: '4 6'
+    }).addTo(map);
+  }
 
   /* ─── Smart Zoom Control ─── */
   map.on('focus', function () { map.scrollWheelZoom.enable(); });
@@ -452,7 +523,6 @@
     setTimeout(function () { map.invalidateSize(); }, 200);
   });
 
-  /* ─── Fix size when tab/window resizes ─── */
   window.addEventListener('resize', function () {
     setTimeout(function () { map.invalidateSize(); }, 150);
   });
