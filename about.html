@@ -1,352 +1,330 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>من نحن — Tech-Sat</title>
   <meta name="description" content="تعرّف على Tech-Sat — شركة يمنية رائدة في حلول الاتصالات الفضائية، الموزع الحصري لـ IEC Global Telecom.">
 
+  <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<script src="assets/js/Navbar-Footer.js"></script>
-  <!-- Main CSS File -->
+
+  <!-- ⚠️ palette FIRST, then main -->
+  <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- ═══════════════════════════════════════════════════════
-       COLOR PALETTE + PAGE STYLES
-       ═══════════════════════════════════════════════════════ -->
   <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
+    /* ═══════════════════════════════════════════════════════
+       EYEBROW TAG (from Financial Reports)
+    ═══════════════════════════════════════════════════════ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--ts-light-blue);
+      color: var(--ts-navy);
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .3px;
     }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
-    }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all .25s ease;
-    }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
-    }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-    /* =========================================
-   ABOUT HERO
-========================================= */
-
-.about-hero {
-  position: relative;
-  min-height: 480px;
-  padding: 160px 0 90px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--palette-dark-navy);
-}
-
-/* Background Image */
-.about-hero .page-hero__bg {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 0;
-}
-
-/* Dark Overlay */
-.about-hero .page-hero__overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.90) 0%,
-      rgba(0, 0, 0, 0.72) 45%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-
-  z-index: 1;
-}
-
-/* Content */
-.about-hero .page-hero__content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 680px;
-  color: #fff;
-}
-
-/* Label */
-.about-hero .page-hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-bottom: 18px;
-  padding: 7px 15px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  color: #fff;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-}
-
-.about-hero .page-hero__label i {
-  color: #00b4d8;
-  font-size: 16px;
-}
-
-/* Heading */
-.about-hero h1 {
-  margin: 0 0 18px;
-
-  color: #fff;
-
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.about-hero h1 strong {
-  color: #00b4d8;
-  font-weight: 700;
-}
-
-/* Description */
-.about-hero p {
-  max-width: 600px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.84);
-
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-/* Buttons */
-.about-hero .page-hero__buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-top: 26px;
-}
-
-/* General Button */
-.about-hero .hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  min-height: 46px;
-  padding: 0 21px;
-
-  border-radius: 7px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition: all 0.25s ease;
-}
-
-/* Primary Button */
-.about-hero .hero-btn.primary {
-  background: #00b4d8;
-  border: 1px solid #00b4d8;
-
-  color: #fff;
-}
-
-.about-hero .hero-btn.primary:hover {
-  background: #0096b4;
-  border-color: #0096b4;
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-/* Secondary Button */
-.about-hero .hero-btn.secondary {
-  background: rgba(255, 255, 255, 0.06);
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  color: #fff;
-
-  backdrop-filter: blur(5px);
-}
-
-.about-hero .hero-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-
-  border-color: rgba(255, 255, 255, 0.55);
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 768px) {
-
-  .about-hero {
-    height: 430px;
-  }
-
-  .about-hero .page-hero__content {
-    padding: 0 20px;
-  }
-
-  .about-hero h1 {
-    font-size: 42px;
-  }
-
-  .about-hero p {
-    font-size: 15px;
-  }
-
-  .about-hero .page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.90),
-        rgba(0, 0, 0, 0.58)
-      );
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 576px) {
-
-  .about-hero {
-    height: 500px;
-  }
-
-  .about-hero .page-hero__content {
-    padding: 0 15px;
-  }
-
-  .about-hero h1 {
-    font-size: 36px;
-  }
-
-  .about-hero p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .about-hero .page-hero__buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .about-hero .hero-btn {
-    width: 100%;
-  }
-}
+    .eyebrow i { color: var(--ts-crimson); }
+    [data-theme="dark"] .eyebrow { background: #1E293B; color: #E6ECF5; }
 
     /* ═══════════════════════════════════════════════════════
-       SECTION BASE
-       ═══════════════════════════════════════════════════════ */
-    .section { padding: 80px 0; }
+       ABOUT HERO (from About page)
+    ═══════════════════════════════════════════════════════ */
+    .about-hero {
+      position: relative;
+      min-height: 560px;
+      padding: 160px 0 100px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--ts-navy);
+    }
+    .about-hero .page-hero__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .about-hero .page-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(11,29,51,0.92) 0%, rgba(11,29,51,0.75) 45%, rgba(11,29,51,0.35) 100%);
+      z-index: 1;
+    }
+    .about-hero .page-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      color: #fff;
+    }
+    .about-hero .eyebrow {
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(6px);
+      margin-bottom: 18px;
+    }
+    .about-hero .eyebrow i { color: var(--ts-crimson); }
+    .about-hero h1 {
+      margin: 0 0 20px;
+      color: #fff;
+      font-size: clamp(2rem, 4.6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .about-hero h1 strong { color: var(--ts-crimson); font-weight: 800; }
+    .about-hero p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255,255,255,.85);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .about-hero .page-hero__buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .about-hero .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+    .about-hero .hero-btn.primary {
+      background: var(--ts-crimson);
+      border: 1px solid var(--ts-crimson);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(168,10,63,.3);
+    }
+    .about-hero .hero-btn.primary:hover {
+      background: var(--ts-crimson-dark);
+      border-color: var(--ts-crimson-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .about-hero .hero-btn.secondary {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+    .about-hero .hero-btn.secondary:hover {
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.5);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .about-hero { min-height: 500px; padding: 120px 0 80px; }
+      .about-hero .page-hero__overlay {
+        background: linear-gradient(90deg, rgba(11,29,51,0.95), rgba(11,29,51,0.7));
+      }
+      .about-hero .page-hero__buttons { flex-direction: column; align-items: stretch; }
+      .about-hero .hero-btn { width: 100%; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTIONS BASE
+    ═══════════════════════════════════════════════════════ */
+    .section { padding: 50px 0; }
+    .section--alt { background: var(--surface-2); }
+
     .section-title { text-align: center; margin-bottom: 56px; }
     .section-title h2 {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 38px;
       font-weight: 800;
       margin-bottom: 12px;
     }
+    [data-theme="dark"] .section-title h2 { color: #fff; }
     .section-title p {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 16px;
       max-width: 680px;
       margin: 0 auto;
     }
 
     /* ═══════════════════════════════════════════════════════
-       ABOUT COMPANY BLOCK
-       ═══════════════════════════════════════════════════════ */
+       STATS CARDS (from Financial Reports)
+    ═══════════════════════════════════════════════════════ */
+    .fin-stat-card {
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      height: 100%;
+      transition: all .3s ease;
+    }
+    .fin-stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--ts-shadow-hover);
+      border-color: var(--ts-blue);
+    }
+    .fin-stat-ic {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      border-radius: 14px;
+      background: var(--ts-light-blue);
+      color: var(--ts-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    [data-theme="dark"] .fin-stat-ic { background: #1E293B; color: #fff; }
+    .fin-stat-val {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: var(--ts-navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    [data-theme="dark"] .fin-stat-val { color: #fff; }
+    .fin-stat-label {
+      font-size: .88rem;
+      color: var(--ts-text-muted);
+      margin-bottom: 10px;
+    }
+    .fin-stat-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .fin-stat-trend.up {
+      background: rgba(34, 197, 94, .12);
+      color: #16a34a;
+    }
+    .fin-stat-trend.neutral {
+      background: rgba(58, 110, 165, .12);
+      color: var(--ts-blue);
+    }
+    [data-theme="dark"] .fin-stat-trend.up { background: rgba(34,197,94,.18); color: #4ade80; }
+
+    /* ═══════════════════════════════════════════════════════
+       FOCUS DISTRIBUTION RING (from Financial allocation)
+    ═══════════════════════════════════════════════════════ */
+    .allocation-panel {
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 22px;
+      padding: 44px 40px;
+    }
+    @media (max-width: 768px) { .allocation-panel { padding: 28px 22px; } }
+
+    .allocation-ring {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--ts-blue) 0% 40%,
+        var(--ts-crimson) 40% 65%,
+        #16a34a 65% 82%,
+        #f59e0b 82% 92%,
+        #8b5cf6 92% 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(11,29,51,.1);
+    }
+    .allocation-ring::before {
+      content: '';
+      position: absolute;
+      inset: 34px;
+      border-radius: 50%;
+      background: var(--surface-1);
+    }
+    .allocation-ring-label {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .allocation-ring-label .big {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: var(--ts-navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    [data-theme="dark"] .allocation-ring-label .big { color: #fff; }
+    .allocation-ring-label .small {
+      display: block;
+      font-size: .78rem;
+      color: var(--ts-text-muted);
+      line-height: 1.4;
+    }
+
+    .allocation-legend {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .allocation-legend li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--ts-border);
+      font-size: .95rem;
+      color: var(--ts-navy);
+    }
+    [data-theme="dark"] .allocation-legend li { color: #E6ECF5; }
+    .allocation-legend li:last-child { border-bottom: none; }
+    .allocation-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .allocation-legend .pct {
+      margin-inline-start: auto;
+      font-weight: 800;
+      color: var(--ts-blue);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       COMPANY STORY (from About)
+    ═══════════════════════════════════════════════════════ */
     .company-story {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -356,43 +334,29 @@
     @media (max-width: 992px) {
       .company-story { grid-template-columns: 1fr; gap: 40px; }
     }
-
     .company-story__text h2 {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 34px;
       font-weight: 800;
       margin-bottom: 24px;
       line-height: 1.3;
     }
+    [data-theme="dark"] .company-story__text h2 { color: #fff; }
     .company-story__text .lead {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 17px;
       line-height: 1.8;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 20px;
     }
+    [data-theme="dark"] .company-story__text .lead { color: #E6ECF5; }
     .company-story__text p {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 15.5px;
-      line-height: 1.8;
+      line-height: 1.85;
       margin-bottom: 16px;
     }
 
-    /* Tag for exclusivity */
-    .exclusive-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(58, 110, 165, 0.1);
-      color: var(--palette-mid-blue);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    /* Image side */
     .company-story__images {
       position: relative;
       display: grid;
@@ -405,20 +369,13 @@
       height: 100%;
       object-fit: cover;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.08);
+      box-shadow: var(--ts-shadow-card);
       transition: transform .4s ease;
     }
-    .company-story__images img:hover {
-      transform: scale(1.03);
-    }
-    .company-story__images .img-large {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-      height: 100%;
-    }
+    .company-story__images img:hover { transform: scale(1.03); }
+    .company-story__images .img-large { grid-column: 1 / 2; grid-row: 1 / 3; height: 100%; }
     .company-story__images .img-small-1 { grid-column: 2 / 3; grid-row: 1 / 2; }
     .company-story__images .img-small-2 { grid-column: 2 / 3; grid-row: 2 / 3; }
-
     @media (max-width: 576px) {
       .company-story__images {
         grid-template-columns: 1fr;
@@ -427,31 +384,24 @@
       .company-story__images .img-large,
       .company-story__images .img-small-1,
       .company-story__images .img-small-2 {
-        grid-column: 1 / 2;
-        grid-row: auto;
-        height: 100%;
+        grid-column: 1 / 2; grid-row: auto; height: 100%;
       }
     }
 
     /* ═══════════════════════════════════════════════════════
-       MILESTONES / VALUES CARDS
-       ═══════════════════════════════════════════════════════ */
+       MILESTONE CARDS (from About)
+    ═══════════════════════════════════════════════════════ */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
-    @media (max-width: 992px) {
-      .card-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 576px) {
-      .card-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 992px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 576px) { .card-grid { grid-template-columns: 1fr; } }
 
-    /* Milestone Card */
     .milestone-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
       border-radius: 16px;
       padding: 32px 26px;
       text-align: center;
@@ -465,19 +415,17 @@
     .milestone-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--palette-mid-blue);
+      background: var(--ts-blue);
       transform: scaleX(0);
       transition: transform .4s ease;
       transform-origin: right;
     }
     .milestone-card:hover {
       transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11,29,51,.1);
     }
     .milestone-card:hover::before {
       transform: scaleX(1);
@@ -485,37 +433,88 @@
     }
     .milestone-card__year {
       display: inline-block;
+      font-family: 'Poppins', sans-serif;
       font-size: 32px;
       font-weight: 900;
-      color: var(--palette-mid-blue);
+      color: var(--ts-blue);
       margin-bottom: 12px;
       letter-spacing: -1px;
     }
     .milestone-card__divider {
       width: 40px;
       height: 2px;
-      background: var(--palette-light-blue);
+      background: var(--ts-border);
       margin: 0 auto 16px;
       border-radius: 2px;
     }
     .milestone-card__title {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 10px;
     }
+    [data-theme="dark"] .milestone-card__title { color: #fff; }
     .milestone-card__desc {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 14px;
       line-height: 1.7;
       margin: 0;
       flex: 1;
     }
 
-    /* Value Card */
+    /* ═══════════════════════════════════════════════════════
+       TRUST STRIP (from Financial Reports)
+    ═══════════════════════════════════════════════════════ */
+    .trust-strip {
+      background: linear-gradient(135deg, var(--ts-navy) 0%, #16294a 100%);
+      border-radius: 22px;
+      padding: 44px 48px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .trust-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    .trust-strip .content { position: relative; z-index: 2; }
+    .trust-strip h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .trust-strip p {
+      color: rgba(255,255,255,.85);
+      margin: 0;
+      line-height: 1.7;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 14px;
+    }
+    .trust-badge i { color: #4ade80; }
+    @media (max-width: 768px) { .trust-strip { padding: 32px 24px; } }
+
+    /* ═══════════════════════════════════════════════════════
+       VALUE CARDS (from About)
+    ═══════════════════════════════════════════════════════ */
     .value-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
       border-radius: 16px;
       padding: 36px 26px;
       text-align: center;
@@ -526,102 +525,192 @@
     }
     .value-card:hover {
       transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11,29,51,.1);
     }
     .value-card__icon {
       width: 72px;
       height: 72px;
       margin: 0 auto 20px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
+      background: var(--ts-light-blue);
       border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--palette-mid-blue);
+      color: var(--ts-blue);
       font-size: 30px;
       transition: transform .3s ease;
     }
-    .value-card:hover .value-card__icon {
-      transform: scale(1.08) rotate(-3deg);
-    }
+    [data-theme="dark"] .value-card__icon { background: #1E293B; color: #fff; }
+    .value-card:hover .value-card__icon { transform: scale(1.08) rotate(-3deg); }
     .value-card__title {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 19px;
       font-weight: 700;
       margin-bottom: 10px;
     }
+    [data-theme="dark"] .value-card__title { color: #fff; }
     .value-card__desc {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 14px;
       line-height: 1.7;
       margin: 0;
       flex: 1;
     }
 
-    /* Section with subtle bg */
-    .section--alt {
-      background: #F4F7FB;
+    /* ═══════════════════════════════════════════════════════
+       CTA BANNER
+    ═══════════════════════════════════════════════════════ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--ts-crimson) 0%, var(--ts-crimson-dark) 100%);
+      border-radius: 22px;
+      color: #fff;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(168,10,63,.25);
+    }
+    .cta-banner h2 { color: #fff; font-weight: 800; font-size: clamp(1.5rem, 3vw, 2rem); }
+    .btn-cta {
+      background: #fff;
+      color: var(--ts-crimson);
+      border: none;
+      border-radius: 999px;
+      padding: .9rem 2rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      cursor: pointer;
+      transition: .25s ease;
+      text-decoration: none;
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.15); color: var(--ts-crimson-dark); }
+
+    /* ═══════════════════════════════════════════════════════
+       SCROLL TOP with PROGRESS RING (from Financial)
+    ═══════════════════════════════════════════════════════ */
+    #scrollTop {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      background: var(--ts-navy);
+      color: #fff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+      z-index: 999;
+      border: none;
+      padding: 0;
+    }
+    [dir="rtl"] #scrollTop { right: auto; left: 24px; }
+    #scrollTop.show { opacity: 1; pointer-events: auto; }
+    #scrollTop:hover { background: var(--ts-crimson); }
+    #scrollTop svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+      pointer-events: none;
+    }
+    #scrollTop svg circle {
+      fill: none;
+      stroke: rgba(255,255,255,.15);
+      stroke-width: 2;
+    }
+    #scrollTop svg circle.progress {
+      stroke: var(--ts-crimson);
+      stroke-width: 2;
+      stroke-dasharray: 144.5;
+      stroke-dashoffset: 144.5;
+      transition: stroke-dashoffset .15s linear;
+    }
+    #scrollTop i {
+      position: relative;
+      z-index: 2;
+      font-size: 1.3rem;
     }
   </style>
 </head>
 
-<body class="index-page">
+<body>
 
   <div id="navbar-root"></div>
 
-  <main class="main">
+  <main>
 
-    <!-- About Hero -->
-<section class="page-hero about-hero">
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="about-hero">
+      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="صورة الأقمار الصناعية" class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
 
-  <img
-    src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg"
-    alt="صورة الأقمار الصناعية"
-    class="page-hero__bg"
-  >
+      <div class="container">
+        <div class="page-hero__content" data-aos="fade-up">
+          <span class="eyebrow"><i class="bi bi-satellite"></i> من نحن</span>
+          <h1>شركاؤك في <strong>الاتصال الفضائي</strong></h1>
+          <p>شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.</p>
 
-  <div class="page-hero__overlay"></div>
-
-  <div class="container">
-    <div class="page-hero__content" data-aos="fade-up">
-
-      <div class="page-hero__label">
-        <i class="bi bi-satellite"></i>
-        من نحن
+          <div class="page-hero__buttons">
+            <a href="#about" class="hero-btn primary">
+              تعرف علينا <i class="bi bi-arrow-down"></i>
+            </a>
+            <a href="contact.html" class="hero-btn secondary">
+              تواصل معنا <i class="bi bi-arrow-left"></i>
+            </a>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h1>
-        شركاؤك في
-        <strong>الاتصال الفضائي</strong>
-      </h1>
-
-      <p>
-        شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة،
-        والموزع الحصري لـ IEC Global Telecom في اليمن.
-      </p>
-
-      <div class="page-hero__buttons">
-
-        <a href="#about" class="hero-btn primary">
-          تعرف علينا
-          <i class="bi bi-arrow-down"></i>
-        </a>
-
-        <a href="contact.html" class="hero-btn secondary">
-          تواصل معنا
-          <i class="bi bi-arrow-left"></i>
-        </a>
-
+    <!-- ═══════════════ STATS ═══════════════ -->
+    <section class="section" style="padding-top:0; margin-top:-40px; position:relative; z-index:3;">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-6 col-lg-3" data-aos="fade-up">
+            <div class="fin-stat-card">
+              <div class="fin-stat-ic"><i class="bi bi-calendar-check-fill"></i></div>
+              <div class="fin-stat-val">10+</div>
+              <div class="fin-stat-label">سنوات من الخبرة</div>
+              <div class="fin-stat-trend neutral"><i class="bi bi-award-fill"></i> منذ 2015</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="fin-stat-card">
+              <div class="fin-stat-ic"><i class="bi bi-globe-americas"></i></div>
+              <div class="fin-stat-val">40+</div>
+              <div class="fin-stat-label">دولة مغطاة</div>
+              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> عبر IEC</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="fin-stat-card">
+              <div class="fin-stat-ic"><i class="bi bi-broadcast-pin"></i></div>
+              <div class="fin-stat-val">200+</div>
+              <div class="fin-stat-label">مشروع منجز</div>
+              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> +22% سنوياً</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="fin-stat-card">
+              <div class="fin-stat-ic"><i class="bi bi-shield-check"></i></div>
+              <div class="fin-stat-val">99.9%</div>
+              <div class="fin-stat-label">جاهزية الشبكة</div>
+              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> SLA مضمون</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-
-</section>
-
-    <!-- ─── Company Story ─── -->
-    <section class="section">
+    <!-- ═══════════════ COMPANY STORY ═══════════════ -->
+    <section class="section" id="about">
       <div class="container">
         <div class="company-story">
           <div class="company-story__text" data-aos="fade-left">
@@ -649,8 +738,62 @@
       </div>
     </section>
 
-    <!-- ─── Milestones ─── -->
+    <!-- ═══════════════ FOCUS DISTRIBUTION ═══════════════ -->
     <section class="section section--alt">
+      <div class="container">
+        <div class="allocation-panel" data-aos="fade-up">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5 text-center">
+              <div class="allocation-ring">
+                <div class="allocation-ring-label">
+                  <span class="big">40%</span>
+                  <span class="small">تركيزنا الأساسي على القطاع الحكومي</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <span class="eyebrow"><i class="bi bi-pie-chart-fill"></i> توزيع التركيز</span>
+              <h2 class="section-title mt-3 mb-4" style="text-align:start; font-size:clamp(1.6rem,2.8vw,2.1rem);">
+                كيف نوزّع خبراتنا على القطاعات
+              </h2>
+              <ul class="allocation-legend">
+                <li>
+                  <span class="allocation-dot" style="background: var(--ts-blue);"></span>
+                  الحلول الحكومية والدفاعية
+                  <span class="pct">40%</span>
+                </li>
+                <li>
+                  <span class="allocation-dot" style="background: var(--ts-crimson);"></span>
+                  الحلول الإنسانية والإغاثية
+                  <span class="pct">25%</span>
+                </li>
+                <li>
+                  <span class="allocation-dot" style="background: #16a34a;"></span>
+                  الطاقة والنفط
+                  <span class="pct">17%</span>
+                </li>
+                <li>
+                  <span class="allocation-dot" style="background: #f59e0b;"></span>
+                  الإعلام والبث
+                  <span class="pct">10%</span>
+                </li>
+                <li>
+                  <span class="allocation-dot" style="background: #8b5cf6;"></span>
+                  المؤسسات والبحرية
+                  <span class="pct">8%</span>
+                </li>
+              </ul>
+              <p class="text-muted mt-3 mb-0" style="font-size:.88rem;">
+                بناءً على توزيع المشاريع المنجزة خلال آخر 5 سنوات.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ MILESTONES ═══════════════ -->
+    <section class="section">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>محطات مهمة في رحلتنا</h2>
@@ -686,60 +829,31 @@
       </div>
     </section>
 
-    <!-- ─── Timeline Section ─── -->
-    <section class="section bg-light">
+    <!-- ═══════════════ TRUST STRIP (IEC) ═══════════════ -->
+    <section class="section pt-0">
       <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2 data-i18n="timeline_title">مسيرة النمو والإنجازات</h2>
-          <p data-i18n="about_title">محطات بارزة في طريق الريادة للاتصالات الفضائية في اليمن</p>
-        </div>
-
-        <div class="ts-timeline">
-          <!-- Item 1 -->
-          <div class="ts-timeline-item" data-aos="fade-up">
-            <div class="ts-timeline-badge"><i class="bi bi-flag-fill"></i></div>
-            <div class="ts-timeline-content">
-              <span class="badge bg-primary mb-2">2015</span>
-              <h4 data-i18n="timeline_2015">التأسيس وافتتاح المقر الرئيسي</h4>
-              <p data-i18n="timeline_2015_desc">انطلاق أعمال Tech-Sat في اليمن كشريك متخصص في تقنيات الاتصالات وتغطية المناطق النائية.</p>
+        <div class="trust-strip" data-aos="zoom-in">
+          <div class="content row align-items-center g-4">
+            <div class="col-lg-8">
+              <h3><i class="bi bi-patch-check-fill me-2" style="color: #4ade80;"></i> الموزع الحصري لـ IEC Global Telecom في اليمن</h3>
+              <p>شراكة استراتيجية تمنحنا وصولاً مباشراً إلى أحدث تقنيات الأقمار الصناعية وشبكات الاتصال العالمية، مع دعم فني متكامل من فريق IEC في الشرق الأوسط وأفريقيا وأوروبا.</p>
+              <div class="trust-badge">
+                <i class="bi bi-shield-fill-check"></i>
+                <span>Only IEC Reseller in Yemen · Since 2018</span>
+              </div>
             </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="ts-timeline-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="ts-timeline-badge"><i class="bi bi-award-fill"></i></div>
-            <div class="ts-timeline-content">
-              <span class="badge bg-primary mb-2">2018</span>
-              <h4 data-i18n="timeline_2018">الشراكة الحصرية مع IEC Telecom</h4>
-              <p data-i18n="timeline_2018_desc">توسيع نطاق خدماتنا وتوفير أحدث حلول الاتصال الفضائي للشركات والمنظمات الإنسانية.</p>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="ts-timeline-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="ts-timeline-badge"><i class="bi bi-anchor"></i></div>
-            <div class="ts-timeline-content">
-              <span class="badge bg-primary mb-2">2021</span>
-              <h4 data-i18n="timeline_2021">توسيع التغطية البحرية والميدانية</h4>
-              <p data-i18n="timeline_2021_desc">توفير أنظمة Marine VSAT وأجهزة البث الميداني المباشر للسفن والموانئ والمنصات.</p>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="ts-timeline-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="ts-timeline-badge"><i class="bi bi-cpu-fill"></i></div>
-            <div class="ts-timeline-content">
-              <span class="badge bg-primary mb-2">2026</span>
-              <h4 data-i18n="timeline_2026">التوسع والشبكات المُدارة الذكية</h4>
-              <p data-i18n="timeline_2026_desc">تقديم حلول الأقمار الصناعية الهجينة والدعم الفني 24/7 لكافة القطاعات الحيوية.</p>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html" class="btn-cta" style="background: #fff; color: var(--ts-crimson); display:inline-flex; align-items:center; gap:8px;">
+                <i class="bi bi-envelope-fill"></i> تواصل معنا
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ─── Values ─── -->
-    <section class="section">
+    <!-- ═══════════════ VALUES ═══════════════ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>قيم الشركة</h2>
@@ -771,22 +885,95 @@
       </div>
     </section>
 
+    <!-- ═══════════════ CTA BANNER ═══════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner" data-aos="zoom-in">
+          <i class="bi bi-broadcast" style="font-size:2.4rem;"></i>
+          <h2 class="mt-3">جاهز تبدأ؟ لنصمم الحل المناسب لمهمتك.</h2>
+          <p class="mb-4" style="opacity:.92;">
+            من الشبكات الحكومية الآمنة إلى مواقع الطاقة النائية والبث الإعلامي المباشر — Tech-Sat تصلك بالعالم أينما كنت.
+          </p>
+          <a href="contact.html" class="btn-cta">
+            <i class="bi bi-headset me-2"></i>
+            <span>تحدث مع مهندس</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer-root"></div>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-  <div id="preloader"></div>
+  <!-- ═══════════════ SCROLL TOP (progress ring) ═══════════════ -->
+  <button id="scrollTop" aria-label="Scroll to top" type="button">
+    <svg viewBox="0 0 52 52">
+      <circle cx="26" cy="26" r="23"></circle>
+      <circle class="progress" cx="26" cy="26" r="23"></circle>
+    </svg>
+    <i class="bi bi-arrow-up"></i>
+  </button>
 
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/Navbar-Footer.js"></script>
+  <!-- ⚠️ navbar-footer في النهاية، ليس في head -->
+  <script src="assets/js/navbar-footer.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ─── Preloader (لو عندك) ─── */
+      window.addEventListener('load', function () {
+        var pre = document.getElementById('preloader');
+        if (pre) setTimeout(function () { pre.classList.add('hide'); }, 400);
+      });
+
+      /* ─── Navbar shadow + Scroll-top with progress ring ─── */
+      var topBtn = document.getElementById('scrollTop');
+      var progressCircle = topBtn ? topBtn.querySelector('circle.progress') : null;
+      var circumference = 2 * Math.PI * 23; // = 144.5
+
+      function updateScrollTop() {
+        if (!topBtn) return;
+        var scrollY = window.scrollY;
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docH > 0 ? Math.min(scrollY / docH, 1) : 0;
+
+        topBtn.classList.toggle('show', scrollY > 400);
+
+        if (progressCircle) {
+          var offset = circumference * (1 - progress);
+          progressCircle.style.strokeDashoffset = offset;
+        }
+
+        var nav = document.getElementById('mainNav');
+        if (nav) nav.classList.toggle('scrolled', scrollY > 20);
+      }
+
+      window.addEventListener('scroll', updateScrollTop, { passive: true });
+      window.addEventListener('resize', updateScrollTop);
+      updateScrollTop();
+
+      if (topBtn) {
+        topBtn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* ─── AOS ─── */
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
+
+    })();
+  </script>
 
 </body>
+
 </html>

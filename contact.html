@@ -1,376 +1,181 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>تواصل معنا — Tech-Sat</title>
   <meta name="description" content="تواصل مع Tech-Sat — فريقنا جاهز للإجابة على استفساراتك على مدار الساعة.">
 
+   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!--Vendor CSS-->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <script src="assets/js/Navbar-Footer.js"></script>
-  <!-- Leaflet Map -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <!-- Main CSS File -->
+  <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- ═══════════════════════════════════════════════════════
-       COLOR PALETTE + PAGE STYLES
-       ═══════════════════════════════════════════════════════ -->
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
-    :root {
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-
-      --default-font: "Tajawal", system-ui, sans-serif;
-      --heading-font: "Tajawal", system-ui, sans-serif;
-      --nav-font: "Tajawal", system-ui, sans-serif;
-
-      --default-color: var(--palette-dark-navy);
-      --heading-color: var(--palette-dark-navy);
-      --accent-color: var(--palette-mid-blue);
-      --surface-color: var(--palette-white);
-      --contrast-color: var(--palette-white);
-      --background-color: var(--palette-white);
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 140px 0 100px;
+      background: var(--ts-navy, #0B1D33);
     }
-
-    body { font-family: 'Tajawal', sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Tajawal', sans-serif; }
-
-    /* ─── Header / Navbar ─── */
-    .header {
-      background-color: var(--palette-white) !important;
-      box-shadow: 0px 2px 15px rgba(11, 29, 51, 0.05);
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 29, 51, 0.78), rgba(11, 29, 51, 0.78)),
+        url('img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
     }
-    .header .logo h1 { color: var(--palette-dark-navy) !important; }
-    .header .social-links a { color: var(--palette-mid-blue) !important; }
-
-    .navmenu a, .navmenu a:focus { color: var(--palette-dark-navy) !important; }
-    .navmenu a:hover, .navmenu .active, .navmenu li:hover > a { color: var(--palette-mid-blue) !important; }
-
-    /* ─── Buttons ─── */
-    .btn-primary {
-      background-color: var(--palette-mid-blue) !important;
-      border-color: var(--palette-mid-blue) !important;
-      color: var(--palette-white) !important;
-      padding: 10px 24px;
-      border-radius: 10px;
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+    .page-hero .subtitle-tag {
+      display: inline-block;
+      font-size: 13px;
       font-weight: 600;
-      transition: all .25s ease;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ts-light-blue, #D1D8E0);
+      margin-bottom: 12px;
     }
-    .btn-primary:hover {
-      background-color: var(--palette-dark-navy) !important;
-      border-color: var(--palette-dark-navy) !important;
+    .page-hero h1 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .page-hero h1 strong {
+      color: var(--ts-crimson, #A80A3F);
+      font-weight: 800;
+    }
+    .page-hero p {
+      color: var(--ts-light-blue, #D1D8E0);
+      font-size: 17px;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .page-hero .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 26px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .page-hero .hero-btn.primary {
+      background: var(--ts-crimson, #A80A3F);
+      border: 1px solid var(--ts-crimson, #A80A3F);
+      color: #fff;
+    }
+    .page-hero .hero-btn.primary:hover {
+      background: var(--ts-crimson-dark, #83062F);
+      border-color: var(--ts-crimson-dark, #83062F);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(168, 10, 63, 0.35);
+    }
+    .page-hero .hero-btn.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+    .page-hero .hero-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.55);
       transform: translateY(-2px);
     }
-
-    /* ─── Footer ─── */
-    .footer {
-      background-color: var(--palette-dark-navy) !important;
-      color: var(--palette-light-blue) !important;
+    .page-hero .page-hero__buttons {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .footer h4, .footer h5, .footer .sitename { color: var(--palette-white) !important; }
-    .footer a { color: var(--palette-light-blue) !important; }
-    .footer a:hover { color: var(--palette-white) !important; }
-    .footer .social-links a { color: var(--palette-light-blue) !important; }
-    .footer .social-links a:hover { color: var(--palette-mid-blue) !important; }
-
-  /* =========================================
-   CONTACT HERO
-========================================= */
-
-.contact-hero {
-  position: relative;
-  min-height: 480px;
-  padding: 160px 0 90px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--palette-dark-navy);
-}
-
-/* Background Image */
-.contact-hero .page-hero__bg {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 0;
-}
-
-/* Overlay */
-.contact-hero .page-hero__overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.90) 0%,
-      rgba(0, 0, 0, 0.72) 45%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-
-  z-index: 1;
-}
-
-/* Content */
-.contact-hero .page-hero__content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 680px;
-  color: #fff;
-}
-
-/* Label */
-.contact-hero .page-hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-bottom: 18px;
-  padding: 7px 15px;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  color: #fff;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  backdrop-filter: blur(6px);
-}
-
-.contact-hero .page-hero__label i {
-  color: #00b4d8;
-  font-size: 16px;
-}
-
-/* Heading */
-.contact-hero h1 {
-  margin: 0 0 18px;
-
-  color: #fff;
-
-  font-size: clamp(38px, 5vw, 58px);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.contact-hero h1 strong {
-  color: #00b4d8;
-  font-weight: 700;
-}
-
-/* Description */
-.contact-hero p {
-  max-width: 600px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.84);
-
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-/* Buttons */
-.contact-hero .page-hero__buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-top: 26px;
-}
-
-.contact-hero .hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  min-height: 46px;
-  padding: 0 21px;
-
-  border-radius: 7px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition: all 0.25s ease;
-}
-
-/* Primary */
-.contact-hero .hero-btn.primary {
-  background: #00b4d8;
-  border: 1px solid #00b4d8;
-
-  color: #fff;
-}
-
-.contact-hero .hero-btn.primary:hover {
-  background: #0096b4;
-  border-color: #0096b4;
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-/* Secondary */
-.contact-hero .hero-btn.secondary {
-  background: rgba(255, 255, 255, 0.06);
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  color: #fff;
-
-  backdrop-filter: blur(5px);
-}
-
-.contact-hero .hero-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-
-  border-color: rgba(255, 255, 255, 0.55);
-
-  color: #fff;
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 768px) {
-
-  .contact-hero {
-    height: 430px;
-  }
-
-  .contact-hero .page-hero__content {
-    padding: 0 20px;
-  }
-
-  .contact-hero h1 {
-    font-size: 42px;
-  }
-
-  .contact-hero p {
-    font-size: 15px;
-  }
-
-  .contact-hero .page-hero__overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.90),
-        rgba(0, 0, 0, 0.58)
-      );
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 576px) {
-
-  .contact-hero {
-    height: 500px;
-  }
-
-  .contact-hero .page-hero__content {
-    padding: 0 15px;
-  }
-
-  .contact-hero h1 {
-    font-size: 36px;
-  }
-
-  .contact-hero p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .contact-hero .page-hero__buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .contact-hero .hero-btn {
-    width: 100%;
-  }
-
-}
-
-    /* ═══════════════════════════════════════════════════════
-       SECTION BASE
-       ═══════════════════════════════════════════════════════ */
-    .section { padding: 80px 0; }
-    .section--alt { background: #F4F7FB; }
-    .section-title { text-align: center; margin-bottom: 56px; }
+    @media (max-width: 768px) {
+      .page-hero { min-height: 50vh; padding: 120px 0 80px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p  { font-size: 15px; }
+    }
+    @media (max-width: 576px) {
+      .page-hero .page-hero__buttons { flex-direction: column; width: 100%; }
+      .page-hero .hero-btn { width: 100%; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 50px 0; }
+    .section--alt { background: var(--surface-2); }
+    .section-title { text-align: center; margin-bottom: 15px; }
     .section-title h2 {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 38px;
       font-weight: 800;
       margin-bottom: 12px;
     }
     .section-title p {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 16px;
       max-width: 680px;
       margin: 0 auto;
     }
 
-    /* ═══════════════════════════════════════════════════════
-       CONTACT FORM
-       ═══════════════════════════════════════════════════════ */
+    /* ===== CONTACT FORM ===== */
     .contact-form-wrap {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
-      border-radius: 20px;
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
       padding: 44px 40px;
       height: 100%;
-      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.04);
+      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
+      transition: all 0.3s ease;
     }
-    @media (max-width: 576px) {
-      .contact-form-wrap { padding: 32px 24px; }
-    }
+    @media (max-width: 576px) { .contact-form-wrap { padding: 32px 24px; } }
 
     .contact-form-wrap h3 {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 26px;
       font-weight: 800;
       margin-bottom: 8px;
     }
     .contact-form-wrap > p {
-      color: #64748B;
+      color: var(--ts-text-muted);
       font-size: 14.5px;
       margin-bottom: 28px;
     }
@@ -381,22 +186,22 @@
       flex-direction: column;
     }
     .form-field label {
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       font-size: 13px;
       font-weight: 700;
       margin-bottom: 6px;
     }
-    .form-field label span { color: #DC2626; margin-right: 2px; }
+    .form-field label span { color: var(--ts-crimson); margin-right: 2px; }
 
     .form-field input,
     .form-field textarea,
     .form-field select {
       width: 100%;
       padding: 12px 16px;
-      border: 1px solid var(--palette-light-blue);
+      border: 1px solid var(--ts-border);
       border-radius: 10px;
-      background: #F8F9FA;
-      color: var(--palette-dark-navy);
+      background: var(--surface-2);
+      color: var(--ts-navy);
       font-family: inherit;
       font-size: 14px;
       transition: all .2s ease;
@@ -405,13 +210,14 @@
     .form-field textarea:focus,
     .form-field select:focus {
       outline: none;
-      border-color: var(--palette-mid-blue);
-      background: #fff;
+      border-color: var(--ts-blue);
+      background: var(--surface-1);
       box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.12);
     }
     .form-field input::placeholder,
     .form-field textarea::placeholder {
-      color: rgba(11, 29, 51, 0.35);
+      color: var(--ts-text-muted);
+      opacity: 0.6;
     }
     .form-field textarea {
       resize: vertical;
@@ -424,7 +230,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: var(--palette-mid-blue);
+      background: var(--ts-crimson);
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -437,9 +243,9 @@
       width: 100%;
     }
     .send-button:hover {
-      background: var(--palette-dark-navy);
+      background: var(--ts-crimson-dark);
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(58, 110, 165, 0.3);
+      box-shadow: 0 10px 24px rgba(168, 10, 63, 0.3);
     }
     .send-button:disabled {
       opacity: 0.6;
@@ -469,15 +275,11 @@
       border: 1px solid rgba(220, 38, 38, 0.2);
     }
 
-    /* ═══════════════════════════════════════════════════════
-       CONTACT SIDEBAR
-       ═══════════════════════════════════════════════════════ */
-   /* ═══════════════════════════════════════════════════════
-   CONTACT SIDEBAR (with mini cards)
-   ═══════════════════════════════════════════════════════ */
+    /* ===== CONTACT SIDEBAR ===== */
+    /* ===== CONTACT SIDEBAR ===== */
 .contact-sidebar-cards {
-  background: var(--palette-dark-navy);
-  border-radius: 20px;
+  background: linear-gradient(160deg, var(--ts-navy) 0%, #16294a 100%);
+  border-radius: 16px;
   padding: 36px 28px;
   height: 100%;
   display: flex;
@@ -485,6 +287,7 @@
   gap: 12px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10);
 }
 
 .contact-sidebar-cards::before {
@@ -494,16 +297,25 @@
   right: -30%;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(58, 110, 165, 0.35) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 .contact-sidebar-cards > * { position: relative; z-index: 2; }
 
-/* ─── Sidebar Header ─── */
-.sidebar-header {
-  margin-bottom: 12px;
+/* ── كل النصوص بيضاء ── */
+.contact-sidebar-cards,
+.contact-sidebar-cards h3,
+.contact-sidebar-cards p,
+.contact-sidebar-cards span,
+.contact-sidebar-cards strong,
+.contact-sidebar-cards a,
+.contact-sidebar-cards li,
+.contact-sidebar-cards i {
+  color: #fff;
 }
+
+.sidebar-header { margin-bottom: 12px; }
 .sidebar-header h3 {
   color: #fff;
   font-size: 22px;
@@ -511,62 +323,56 @@
   margin-bottom: 6px;
 }
 .sidebar-header p {
-  color: var(--palette-light-blue);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 13.5px;
   margin: 0;
-  opacity: 0.75;
   line-height: 1.6;
 }
 
-/* ─── Mini Card ─── */
+/* ── Mini Card ── */
 .mini-card {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(209, 216, 224, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
   padding: 14px 16px;
   text-decoration: none;
   transition: all .25s ease;
   position: relative;
+  color: #fff;
 }
-
 .mini-card:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(58, 110, 165, 0.5);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(58, 110, 165, 0.7);
   transform: translateX(-4px);
+  color: #fff;
 }
 html[dir="ltr"] .mini-card:hover { transform: translateX(4px); }
 
-/* Primary (Hotline) */
+/* Primary (Hotline) — أزرق فقط */
 .mini-card--primary {
-  background: linear-gradient(135deg, var(--palette-mid-blue) 0%, #2a5280 100%);
+  background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-navy) 100%);
   border-color: transparent;
 }
 .mini-card--primary:hover {
-  background: linear-gradient(135deg, #2a5280 0%, #1e3d61 100%);
+  background: linear-gradient(135deg, var(--ts-navy) 0%, #16294a 100%);
   border-color: transparent;
   box-shadow: 0 10px 24px rgba(58, 110, 165, 0.35);
 }
 
-/* Static (no arrow, no hover shift) */
-.mini-card--static {
-  cursor: default;
-}
-.mini-card--static:hover {
-  transform: none;
-}
-html[dir="rtl"] .mini-card--static:hover { transform: none; }
+.mini-card--static { cursor: default; }
+.mini-card--static:hover { transform: none; }
 
-/* ─── Icon ─── */
+/* ── Icon ── */
 .mini-card__icon {
   width: 42px;
   height: 42px;
   flex-shrink: 0;
   border-radius: 11px;
-  background: rgba(209, 216, 224, 0.1);
-  color: var(--palette-light-blue);
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -575,17 +381,15 @@ html[dir="rtl"] .mini-card--static:hover { transform: none; }
 }
 .mini-card:hover .mini-card__icon {
   transform: scale(1.08);
-  background: rgba(58, 110, 165, 0.35);
+  background: rgba(58, 110, 165, 0.5);
+  color: #fff;
 }
 .mini-card--primary .mini-card__icon {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
-.mini-card--primary:hover .mini-card__icon {
-  background: rgba(255, 255, 255, 0.25);
-}
 
-/* ─── Body ─── */
+/* ── Body ── */
 .mini-card__body {
   flex: 1;
   min-width: 0;
@@ -595,17 +399,13 @@ html[dir="rtl"] .mini-card--static:hover { transform: none; }
 }
 
 .mini-card__label {
-  color: var(--palette-light-blue);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0.65;
 }
-.mini-card--primary .mini-card__label {
-  color: #fff;
-  opacity: 0.9;
-}
+.mini-card--primary .mini-card__label { color: rgba(255, 255, 255, 0.9); }
 
 .mini-card__value {
   color: #fff;
@@ -618,35 +418,26 @@ html[dir="rtl"] .mini-card--static:hover { transform: none; }
 }
 
 .mini-card__sub {
-  color: var(--palette-light-blue);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 12.5px;
   font-weight: 500;
-  opacity: 0.7;
   margin-top: 2px;
 }
 
-/* ─── Arrow ─── */
+/* ── Arrow ── */
 .mini-card__arrow {
-  color: var(--palette-light-blue);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
-  opacity: 0.4;
   transition: all .25s ease;
   flex-shrink: 0;
 }
 .mini-card:hover .mini-card__arrow {
-  opacity: 1;
+  color: #fff;
   transform: translateX(-4px);
 }
 html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px); }
-.mini-card--primary .mini-card__arrow {
-  color: #fff;
-  opacity: 0.7;
-}
-.mini-card--primary:hover .mini-card__arrow {
-  opacity: 1;
-}
 
-/* ─── Working Hours ─── */
+/* ── Working Hours ── */
 .hours-mini {
   list-style: none;
   padding: 0;
@@ -659,46 +450,30 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
   align-items: center;
   gap: 12px;
   padding: 5px 0;
-  border-bottom: 1px dashed rgba(209, 216, 224, 0.15);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
   font-size: 13px;
 }
-.hours-mini li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.hours-mini li span {
-  color: var(--palette-light-blue);
-  opacity: 0.85;
-}
-.hours-mini li strong {
-  color: #fff;
-  font-weight: 700;
-  font-size: 12.5px;
-}
-.hours-mini li strong.is-off {
-  color: #F87171;
-}
+.hours-mini li:last-child { border-bottom: none; padding-bottom: 0; }
+.hours-mini li span { color: rgba(255, 255, 255, 0.8); }
+.hours-mini li strong { color: #fff; font-weight: 700; font-size: 12.5px; }
+.hours-mini li strong.is-off { color: #F87171; }
 
-/* ─── Sidebar Footer (Social) ─── */
+/* ── Sidebar Footer (Social) ── */
 .sidebar-footer {
   margin-top: auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(209, 216, 224, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 .sidebar-footer__label {
   display: block;
-  color: var(--palette-light-blue);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 12px;
-  opacity: 0.65;
 }
-.sidebar-footer__social {
-  display: flex;
-  gap: 8px;
-}
+.sidebar-footer__social { display: flex; gap: 8px; }
 .sidebar-footer__social a {
   width: 40px;
   height: 40px;
@@ -707,128 +482,254 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--palette-light-blue);
+  color: #fff;
   font-size: 16px;
   transition: all .25s ease;
   text-decoration: none;
 }
 .sidebar-footer__social a:hover {
-  background: var(--palette-mid-blue);
+  background: var(--ts-blue);
   color: #fff;
   transform: translateY(-3px);
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 992px) {
-  .contact-sidebar-cards {
-    padding: 28px 22px;
-  }
+/* ===== DARK MODE — Contact Sidebar ===== */
+[data-theme="dark"] .contact-sidebar-cards {
+  background: linear-gradient(160deg, #111C33 0%, #0A1424 100%);
+  border: 1px solid rgba(58, 110, 165, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
-@media (max-width: 576px) {
-  .contact-sidebar-cards {
-    padding: 24px 18px;
-    gap: 10px;
-  }
-  .mini-card {
-    padding: 12px 14px;
-    gap: 12px;
-  }
-  .mini-card__icon {
-    width: 38px;
-    height: 38px;
-    font-size: 15px;
-  }
-  .mini-card__value {
-    font-size: 13.5px;
-  }
-  .mini-card__arrow {
-    display: none;
-  }
-}    /* ═══════════════════════════════════════════════════════
-       BRANCHES
-       ═══════════════════════════════════════════════════════ */
-    .branch-card {
-      background: #fff;
-      border: 1px solid var(--palette-light-blue);
+[data-theme="dark"] .mini-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+[data-theme="dark"] .mini-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(58, 110, 165, 0.7);
+}
+[data-theme="dark"] .mini-card--primary {
+  background: linear-gradient(135deg, #2a5280 0%, #1e3d61 100%);
+}
+[data-theme="dark"] .mini-card--primary:hover {
+  background: linear-gradient(135deg, #1e3d61 0%, #16294a 100%);
+}
+[data-theme="dark"] .hours-mini li {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="dark"] .sidebar-footer {
+  border-top-color: rgba(255, 255, 255, 0.10);
+}    /* ===== WORLD MAP ===== */
+    .map-wrapper {
+      background: var(--ts-navy);
       border-radius: 16px;
-      padding: 32px 26px;
-      text-align: center;
-      transition: all .3s ease;
-      height: 100%;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10);
+      transition: background .3s ease;
     }
-    .branch-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--palette-mid-blue);
-      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.1);
-    }
-    .branch-card__icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px;
+    [data-theme="dark"] .map-wrapper { background: #0F172A; }
+
+    .map-wrapper__head {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      color: var(--palette-mid-blue);
-      font-size: 26px;
+      margin-bottom: 18px;
+      color: #fff;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    .branch-card h4 {
-      color: var(--palette-dark-navy);
-      font-size: 19px;
+    .map-wrapper__title {
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .branch-card__role {
-      color: var(--palette-mid-blue);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .branch-card p {
-      color: #64748B;
-      font-size: 14px;
+      color: #fff;
       margin: 0;
-      line-height: 1.7;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .map-wrapper__title i { color: var(--ts-crimson); }
+    .map-wrapper__hint {
+      font-size: 12px;
+      color: var(--ts-light-blue);
+      opacity: 0.75;
     }
 
-    /* ═══════════════════════════════════════════════════════
-       SHADCN-STYLE ACCORDION FAQ
-       ═══════════════════════════════════════════════════════ */
+    #map {
+      width: 100%;
+      height: 520px;
+      border-radius: 12px;
+      border: 2px solid rgba(58, 110, 165, 0.3);
+      background: #0a1225;
+      z-index: 1;
+    }
+    @media (max-width: 768px) { #map { height: 400px; } }
+
+    /* ─── Custom Markers ─── */
+    .custom-marker { position: relative; width: 24px; height: 24px; }
+    .custom-marker__ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(58, 110, 165, 0.6);
+      animation: mapPulse 1.8s ease-out infinite;
+    }
+    .custom-marker__dot {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--ts-blue);
+      border: 2px solid #fff;
+      box-shadow: 0 0 12px rgba(58, 110, 165, 0.9);
+    }
+    .custom-marker--hq .custom-marker__ring { background: rgba(209, 216, 224, 0.5); }
+    .custom-marker--hq .custom-marker__dot {
+      width: 20px; height: 20px;
+      background: var(--ts-light-blue);
+      box-shadow: 0 0 25px rgba(209, 216, 224, 1);
+    }
+    .custom-marker--branch .custom-marker__ring { background: rgba(255, 165, 0, 0.55); }
+    .custom-marker--branch .custom-marker__dot {
+      width: 18px; height: 18px;
+      background: #FFA500;
+      box-shadow: 0 0 18px rgba(255, 165, 0, 1);
+    }
+    .custom-marker--ourhq .custom-marker__ring { background: rgba(168, 10, 63, 0.6); }
+    .custom-marker--ourhq .custom-marker__dot {
+      width: 20px; height: 20px;
+      background: var(--ts-crimson);
+      box-shadow: 0 0 22px rgba(168, 10, 63, 1);
+    }
+    .custom-marker--hub .custom-marker__ring { background: rgba(58, 110, 165, 0.5); }
+
+    @keyframes mapPulse {
+      0%   { transform: scale(0.6); opacity: 0.9; }
+      100% { transform: scale(2.6); opacity: 0; }
+    }
+
+    /* ─── Popup ─── */
+    .leaflet-popup-content-wrapper {
+      background: var(--ts-navy);
+      color: #fff;
+      border-radius: 12px;
+      border: 1px solid rgba(58, 110, 165, 0.5);
+      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.4);
+    }
+    [data-theme="dark"] .leaflet-popup-content-wrapper {
+      background: #111C33;
+      border-color: rgba(58, 110, 165, 0.35);
+    }
+    .leaflet-popup-tip {
+      background: var(--ts-navy);
+      border: 1px solid rgba(58, 110, 165, 0.5);
+    }
+    [data-theme="dark"] .leaflet-popup-tip {
+      background: #111C33;
+      border-color: rgba(58, 110, 165, 0.35);
+    }
+    .leaflet-popup-close-button { color: var(--ts-light-blue) !important; }
+    .leaflet-popup-content {
+      margin: 14px 18px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    [dir="rtl"] .leaflet-popup-content { direction: rtl; text-align: right; }
+    [dir="ltr"] .leaflet-popup-content { direction: ltr; text-align: left; }
+
+    .map-popup__title {
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .map-popup__country {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ts-crimson);
+      margin-bottom: 6px;
+    }
+    .map-popup__desc {
+      font-size: 12.5px;
+      color: var(--ts-light-blue);
+      line-height: 1.65;
+      opacity: 0.9;
+      white-space: normal;
+    }
+    .map-popup__desc a { color: var(--ts-crimson); text-decoration: none; }
+    .map-popup__desc a:hover { text-decoration: underline; }
+    .map-popup__badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 800;
+      border-radius: 999px;
+      letter-spacing: .4px;
+    }
+    .map-popup__badge--hq      { background: var(--ts-light-blue); color: var(--ts-navy); }
+    .map-popup__badge--branch  { background: #FFA500; color: #0B1D33; }
+    .map-popup__badge--ourhq   { background: var(--ts-crimson); color: #fff; }
+
+    /* ─── Zoom + Attribution ─── */
+    .leaflet-control-zoom a {
+      background: var(--ts-navy) !important;
+      color: #fff !important;
+      border: 1px solid rgba(58, 110, 165, 0.5) !important;
+    }
+    .leaflet-control-zoom a:hover { background: var(--ts-blue) !important; }
+    [data-theme="dark"] .leaflet-control-zoom a {
+      background: #111C33 !important;
+      border-color: rgba(58, 110, 165, 0.35) !important;
+    }
+    .leaflet-control-attribution {
+      background: rgba(11, 29, 51, 0.85) !important;
+      color: var(--ts-light-blue) !important;
+      font-size: 10px !important;
+    }
+    .leaflet-control-attribution a { color: var(--ts-blue) !important; }
+
+    .supply-line-tooltip {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      color: #FFA500 !important;
+      font-weight: 800;
+      font-size: 11px;
+      text-shadow: 0 0 10px rgba(0,0,0,.6);
+    }
+    .supply-line-tooltip::before { display: none !important; }
+
+    /* ===== FAQ ACCORDION ===== */
     .shadcn-accordion {
       width: 100%;
       background: transparent;
       border: 0;
       border-radius: 0;
     }
-
     .shadcn-accordion .accordion-item {
       background: transparent;
       border: 0;
-      border-bottom: 1px solid var(--palette-light-blue);
+      border-bottom: 1px solid var(--ts-border);
     }
-
-    .shadcn-accordion .accordion-item:first-child {
-      border-top: 0;
-    }
-
-    .shadcn-accordion .accordion-item:last-child {
-      border-bottom: 0;
-    }
-
+    .shadcn-accordion .accordion-item:first-child { border-top: 0; }
+    .shadcn-accordion .accordion-item:last-child { border-bottom: 0; }
     .shadcn-accordion .accordion-header {
       margin: 0;
       font-size: inherit;
       font-weight: inherit;
     }
-
     .shadcn-accordion .accordion-button {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       width: 100%;
-      padding: 0.625rem 0;
+      padding: 0.875rem 0;
       background: transparent;
       background-image: none;
       border: 1px solid transparent;
@@ -836,43 +737,32 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       box-shadow: none;
       text-align: right;
       font-family: inherit;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       font-weight: 500;
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       transition: border-color .15s, box-shadow .15s, background-color .15s;
     }
-
-    .shadcn-accordion .accordion-button::after {
-      display: none;
-    }
-
+    .shadcn-accordion .accordion-button::after { display: none; }
     .shadcn-accordion .accordion-button:not(.collapsed) {
       background: transparent;
-      color: var(--palette-dark-navy);
+      color: var(--ts-navy);
       box-shadow: none;
     }
-
-    .shadcn-accordion .accordion-button:hover {
-      background: transparent;
-    }
-
+    .shadcn-accordion .accordion-button:hover { background: transparent; }
     .shadcn-accordion .accordion-button:focus {
       box-shadow: none;
-      border-color: var(--palette-mid-blue);
+      border-color: var(--ts-blue);
       outline: 0;
     }
-
     .shadcn-accordion .accordion-button:focus-visible {
       box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.25);
     }
-
     .shadcn-accordion-left {
       display: flex;
       align-items: center;
       gap: 1rem;
       min-width: 0;
     }
-
     .shadcn-accordion-icon {
       display: inline-flex;
       align-items: center;
@@ -881,16 +771,12 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 50%;
-      border: 1px solid var(--palette-light-blue);
-      color: var(--palette-mid-blue);
+      border: 1px solid var(--ts-border);
+      color: var(--ts-crimson);
       font-size: 1rem;
       line-height: 1;
     }
-
-    .shadcn-accordion-icon i {
-      font-size: 1rem;
-    }
-
+    .shadcn-accordion-icon i { font-size: 1rem; }
     .shadcn-accordion-text {
       display: flex;
       flex-direction: column;
@@ -898,110 +784,146 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       min-width: 0;
       text-align: right;
     }
-
     .shadcn-accordion-title {
-      font-weight: 600;
-      color: var(--palette-dark-navy);
+      font-weight: 700;
+      color: var(--ts-navy);
       line-height: 1.3;
     }
-
     .shadcn-accordion-subtitle {
-      color: rgba(11, 29, 51, .55);
-      font-weight: 400;
+      color: var(--ts-text-muted);
+      font-weight: 500;
       font-size: 0.8125rem;
       line-height: 1.3;
     }
-
     .shadcn-accordion-plus {
       flex-shrink: 0;
       font-size: 1rem;
-      color: rgba(11, 29, 51, .5);
+      color: var(--ts-text-muted);
       transition: transform .2s ease;
     }
-
     .shadcn-accordion .accordion-button:not(.collapsed) .shadcn-accordion-plus {
       transform: rotate(45deg);
+      color: var(--ts-crimson);
     }
-
     .shadcn-accordion .accordion-body.shadcn-accordion-content {
       padding: 0 0 1rem 0;
       margin-right: 3.5rem;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       line-height: 1.7;
-      color: rgba(11, 29, 51, .7);
+      color: var(--ts-text-muted);
       background: transparent;
       text-align: right;
     }
-
-    .shadcn-accordion .accordion-collapse {
-      transition: height .25s ease;
-    }
-
+    .shadcn-accordion .accordion-collapse { transition: height .25s ease; }
     @media (max-width: 575px) {
-      .shadcn-accordion .accordion-body.shadcn-accordion-content {
-        margin-right: 0;
-      }
+      .shadcn-accordion .accordion-body.shadcn-accordion-content { margin-right: 0; }
+    }
+        /* ═══════════════════════════════════════════════════════
+       UNIFY CONTACT FORM WITH INDEX FORM (light style)
+       ═══════════════════════════════════════════════════════ */
+
+    /* ── Card ── */
+    .contact-form-wrap {
+      background: #ffffff;
+      border: 1px solid var(--ts-border);
+      border-radius: 14px;
+      padding: 32px;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(26, 43, 71, .06);
+    }
+    [data-theme="dark"] .contact-form-wrap {
+      background: var(--surface-1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
     }
 
-    /* ═══════════════════════════════════════════════════════
-       CTA STRIP
-       ═══════════════════════════════════════════════════════ */
-    .cta-strip {
-      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #16294a 100%);
-      border-radius: 24px;
-      padding: 56px 44px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-strip::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(58, 110, 165, 0.4) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .cta-strip > * { position: relative; z-index: 2; }
-    .cta-strip h2 {
-      color: #fff;
-      font-size: 32px;
+    .contact-form-wrap h3 {
+      color: var(--ts-navy);
+      font-size: 22px;
       font-weight: 800;
-      margin-bottom: 14px;
+      margin-bottom: 6px;
     }
-    .cta-strip p {
-      color: var(--palette-light-blue);
-      font-size: 16px;
-      margin-bottom: 28px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
+    .contact-form-wrap > p {
+      color: var(--ts-text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
     }
-    .btn-light {
+
+    /* ── Fields ── */
+    .form-field {
+      margin-bottom: 18px;
+    }
+    .form-field label {
+      color: var(--ts-navy);
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-field label span { color: #dc2626; }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--ts-border);
+      border-radius: 12px;
+      background: #ffffff;
+      color: var(--ts-navy);
+      font-family: inherit;
+      font-size: 14px;
+      transition: all .2s ease;
+    }
+    [data-theme="dark"] .form-field input,
+    [data-theme="dark"] .form-field textarea,
+    [data-theme="dark"] .form-field select {
+      background: var(--surface-1);
+      color: #E6ECF5;
+      border-color: var(--ts-border);
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      outline: none;
+      border-color: var(--ts-blue);
+      box-shadow: 0 0 0 4px rgba(46, 109, 180, .12);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #94a3b8;
+    }
+    .form-field textarea {
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    /* ── Submit button — pill + bright crimson (matches index) ── */
+    .send-button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      background: #fff;
-      color: var(--palette-dark-navy);
+      background: #c21818;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
       padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
+      font-family: inherit;
       font-size: 15px;
-      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
       transition: all .25s ease;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(194, 24, 91, .25);
     }
-    .btn-light:hover {
-      background: var(--palette-light-blue);
+    .send-button:hover {
+      background: #a01414;
       transform: translateY(-2px);
-      color: var(--palette-dark-navy);
+      box-shadow: 0 12px 26px rgba(194, 24, 91, .35);
     }
-    @media (max-width: 768px) {
-      .cta-strip { padding: 40px 24px; }
-      .cta-strip h2 { font-size: 24px; }
+    .send-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
   </style>
 </head>
@@ -1012,75 +934,59 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
   <main class="main">
 
-   <!-- Contact Hero -->
-<section class="page-hero contact-hero">
+    <!-- ───── PAGE HERO ───── -->
+    <section class="page-hero">
+      <div class="container" data-aos="fade-up">
 
-  <img
-    src="/tech-sat/img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg"
-    alt="Tech-Sat Contact"
-    class="page-hero__bg"
-  >
+        <span class="subtitle-tag" data-en="Contact Tech-Sat" data-ar="تواصل مع Tech-Sat">
+          تواصل مع Tech-Sat
+        </span>
 
-  <div class="page-hero__overlay"></div>
+        <h1 data-en="We're here to help" data-ar="نحن هنا لمساعدتك">
+          نحن هنا <strong data-en="to help" data-ar="لمساعدتك">لمساعدتك</strong>
+        </h1>
 
-  <div class="container">
-    <div class="page-hero__content" data-aos="fade-up">
+        <p data-en="Our team is available to answer your inquiries and help you choose the right satellite communication solutions for your needs."
+           data-ar="فريقنا متاح للإجابة على استفساراتك ومساعدتك في اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.">
+          فريقنا متاح للإجابة على استفساراتك ومساعدتك في
+          اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.
+        </p>
 
-      <div class="page-hero__label">
-        <i class="bi bi-headset"></i>
-        تواصل مع Tech-Sat
-      </div>
-
-      <h1>
-        نحن هنا
-        <strong>لمساعدتك</strong>
-      </h1>
-
-      <p>
-        فريقنا متاح للإجابة على استفساراتك ومساعدتك في
-        اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.
-      </p>
-
-      <div class="page-hero__buttons">
-
-        <a href="#contact" class="hero-btn primary">
-          تواصل معنا
-          <i class="bi bi-arrow-down"></i>
-        </a>
-
-        <a href="products.html" class="hero-btn secondary">
-          استكشف منتجاتنا
-          <i class="bi bi-arrow-left"></i>
-        </a>
+        <div class="page-hero__buttons">
+          <a href="#contact" class="hero-btn primary" data-en="Contact Us" data-ar="تواصل معنا">
+            تواصل معنا
+            <i class="bi bi-arrow-down"></i>
+          </a>
+          <a href="products.html" class="hero-btn secondary" data-en="Explore Products" data-ar="استكشف منتجاتنا">
+            استكشف منتجاتنا
+            <i class="bi bi-arrow-left"></i>
+          </a>
+        </div>
 
       </div>
+    </section>
 
-    </div>
-  </div>
-
-</section>
-
-    <!--CONTACT FORM + SIDEBAR-->
-    <section class="section">
+    <!-- ───── CONTACT FORM + SIDEBAR ───── -->
+    <section class="section" id="contact">
       <div class="container">
         <div class="row g-4 align-items-stretch">
 
-          <div class="col-lg-7" data-aos="fade-left">
+          <div class="col-lg-7" data-aos="fade-up">
             <div class="contact-form-wrap">
-              <h3>أرسل لنا رسالة</h3>
-              <p>سنرد عليك خلال 24 ساعة كحد أقصى.</p>
+              <h3 data-en="Send us a message" data-ar="أرسل لنا رسالة">أرسل لنا رسالة</h3>
+              <p data-en="We'll reply within 24 hours." data-ar="سنرد عليك خلال 24 ساعة كحد أقصى.">سنرد عليك خلال 24 ساعة كحد أقصى.</p>
 
               <form id="contactForm" novalidate>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userName">الاسم الكامل <span>*</span></label>
-                      <input type="text" name="name" id="userName" placeholder="مثال: أحمد الشامي" required>
+                      <label for="userName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل <span>*</span></label>
+                      <input type="text" name="name" id="userName" placeholder="مثال: أحمد الشامي" data-en-placeholder="e.g. Ahmed Al-Shami" required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userEmail">البريد الإلكتروني <span>*</span></label>
+                      <label for="userEmail" data-en="Email Address" data-ar="البريد الإلكتروني">البريد الإلكتروني <span>*</span></label>
                       <input type="email" name="email" id="userEmail" placeholder="you@company.com" required>
                     </div>
                   </div>
@@ -1089,26 +995,26 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userPhone">رقم الهاتف</label>
+                      <label for="userPhone" data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
                       <input type="tel" name="phone" id="userPhone" placeholder="+967 7XX XXX XXX">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userSubject">الموضوع <span>*</span></label>
+                      <label for="userSubject" data-en="Subject" data-ar="الموضوع">الموضوع <span>*</span></label>
                       <input type="text" name="subject" id="userSubject" placeholder="طلب عرض سعر / استفسار" required>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-field">
-                  <label for="userMessage">الرسالة <span>*</span></label>
+                  <label for="userMessage" data-en="Message" data-ar="الرسالة">الرسالة <span>*</span></label>
                   <textarea name="message" id="userMessage" rows="5" placeholder="أخبرنا عن احتياجاتك..." required></textarea>
                 </div>
 
                 <button type="submit" class="send-button" id="sendBtn">
                   <i class="bi bi-send"></i>
-                  إرسال الرسالة
+                  <span data-en="Send Message" data-ar="إرسال الرسالة">إرسال الرسالة</span>
                 </button>
 
                 <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
@@ -1116,13 +1022,13 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
             </div>
           </div>
 
-          <!--Contact Sidebar (Cards)-->
-          <div class="col-lg-5" data-aos="fade-right">
+          <!-- ───── CONTACT SIDEBAR ───── -->
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
             <div class="contact-sidebar-cards">
 
               <div class="sidebar-header">
-                <h3>معلومات الاتصال</h3>
-                <p>تواصل معنا عبر أي من القنوات التالية</p>
+                <h3 data-en="Contact Information" data-ar="معلومات الاتصال">معلومات الاتصال</h3>
+                <p data-en="Reach us through any of the following channels" data-ar="تواصل معنا عبر أي من القنوات التالية">تواصل معنا عبر أي من القنوات التالية</p>
               </div>
 
               <a href="tel:+9672396056" class="mini-card mini-card--primary">
@@ -1130,7 +1036,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-telephone-fill"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">الخط الساخن</span>
+                  <span class="mini-card__label" data-en="Hotline" data-ar="الخط الساخن">الخط الساخن</span>
                   <span class="mini-card__value" dir="ltr">+967 2 396 056</span>
                 </div>
                 <i class="bi bi-arrow-left mini-card__arrow"></i>
@@ -1141,7 +1047,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-envelope-fill"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">البريد الإلكتروني</span>
+                  <span class="mini-card__label" data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</span>
                   <span class="mini-card__value">info@tech-sat.com</span>
                 </div>
                 <i class="bi bi-arrow-left mini-card__arrow"></i>
@@ -1152,7 +1058,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-headset"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">قسم المبيعات</span>
+                  <span class="mini-card__label" data-en="Sales Department" data-ar="قسم المبيعات">قسم المبيعات</span>
                   <span class="mini-card__value">Sales@tech-sat.com</span>
                   <span class="mini-card__sub" dir="ltr">+967 730 001 222</span>
                 </div>
@@ -1164,7 +1070,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-tools"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">قسم الدعم الفني</span>
+                  <span class="mini-card__label" data-en="Technical Support" data-ar="قسم الدعم الفني">قسم الدعم الفني</span>
                   <span class="mini-card__value">Support@tech-sat.com</span>
                   <span class="mini-card__sub" dir="ltr">+967 711 188 100</span>
                 </div>
@@ -1176,9 +1082,9 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-geo-alt-fill"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">الموقع</span>
-                  <span class="mini-card__value">عدن، اليمن</span>
-                  <span class="mini-card__sub">المقر الرئيسي</span>
+                  <span class="mini-card__label" data-en="Location" data-ar="الموقع">الموقع</span>
+                  <span class="mini-card__value" data-en="Aden, Yemen" data-ar="عدن، اليمن">عدن، اليمن</span>
+                  <span class="mini-card__sub" data-en="Headquarters" data-ar="المقر الرئيسي">المقر الرئيسي</span>
                 </div>
               </div>
 
@@ -1187,22 +1093,22 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <i class="bi bi-clock-fill"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label">ساعات العمل</span>
+                  <span class="mini-card__label" data-en="Working Hours" data-ar="ساعات العمل">ساعات العمل</span>
                   <ul class="hours-mini">
                     <li>
-                      <span>السبت - الخميس</span>
+                      <span data-en="Sat - Thu" data-ar="السبت - الخميس">السبت - الخميس</span>
                       <strong dir="ltr">8:00 — 17:00</strong>
                     </li>
                     <li>
-                      <span>الجمعة</span>
-                      <strong class="is-off">مغلق</strong>
+                      <span data-en="Friday" data-ar="الجمعة">الجمعة</span>
+                      <strong class="is-off" data-en="Closed" data-ar="مغلق">مغلق</strong>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div class="sidebar-footer">
-                <span class="sidebar-footer__label">تابعنا على</span>
+                <span class="sidebar-footer__label" data-en="Follow us" data-ar="تابعنا على">تابعنا على</span>
                 <div class="sidebar-footer__social">
                   <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                   <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
@@ -1218,22 +1124,28 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       </div>
     </section>
 
-    <!--WORLD MAP-->
+    <!-- ───── WORLD MAP ───── -->
     <section class="section section--alt" id="coverage">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>تغطيتنا العالمية</h2>
-          <p>نربط اليمن بالعالم عبر شبكة من المحطات والفروع الاستراتيجية</p>
+          <h2 data-en="Global Coverage" data-ar="تغطيتنا العالمية">تغطيتنا العالمية</h2>
+          <p data-en="Connecting Yemen to the world through a strategic network of IEC Global Telecom offices."
+             data-ar="نربط اليمن بالعالم عبر شبكة استراتيجية من مكاتب IEC Global Telecom.">
+            نربط اليمن بالعالم عبر شبكة استراتيجية من مكاتب IEC Global Telecom.
+          </p>
         </div>
 
-        <div class="map-wrapper" data-aos="zoom-in">
+        <div class="map-wrapper" data-aos="fade-up" data-aos-delay="100">
           <div class="map-wrapper__head">
             <h3 class="map-wrapper__title">
               <i class="bi bi-globe2"></i>
-              شبكة Tech-Sat الإقليمية
+              <span data-en="Tech-Sat · Regional Network" data-ar="شبكة Tech-Sat الإقليمية">شبكة Tech-Sat الإقليمية</span>
             </h3>
-            <span class="map-wrapper__hint">اضغط على العلامات لاستكشاف المواقع</span>
+            <span class="map-wrapper__hint" data-en="Click markers to explore locations"
+                  data-ar="اضغط على العلامات لاستكشاف المواقع">
+              اضغط على العلامات لاستكشاف المواقع
+            </span>
           </div>
           <div id="map"></div>
         </div>
@@ -1241,12 +1153,13 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       </div>
     </section>
 
-    <!--FAQ (shadcn-style accordion)-->
-    <section id="faq" class="faq section">
+    <!-- ───── FAQ ───── -->
+    <section id="faq" class="section">
 
       <div class="container section-title" data-aos="fade-up">
-        <h2>الأسئلة الشائعة</h2>
-        <p>كل ما تحتاج معرفته عن خدماتنا وحلولنا</p>
+        <h2 data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
+        <p data-en="Everything you need to know about our services and solutions"
+           data-ar="كل ما تحتاج معرفته عن خدماتنا وحلولنا">كل ما تحتاج معرفته عن خدماتنا وحلولنا</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -1264,8 +1177,8 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-satellite"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
-                        <span class="shadcn-accordion-subtitle">خدماتنا</span>
+                        <span class="shadcn-accordion-title" data-en="What are the core services Tech-Sat provides?" data-ar="ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -1287,8 +1200,8 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-geo-alt"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
-                        <span class="shadcn-accordion-subtitle">التغطية</span>
+                        <span class="shadcn-accordion-title" data-en="Do your services cover all regions of Yemen?" data-ar="هل تغطي خدماتكم جميع مناطق اليمن؟">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Coverage" data-ar="التغطية">التغطية</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -1310,8 +1223,8 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-tools"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title">كم يستغرق تركيب نظام VSAT؟</span>
-                        <span class="shadcn-accordion-subtitle">التركيب</span>
+                        <span class="shadcn-accordion-title" data-en="How long does VSAT installation take?" data-ar="كم يستغرق تركيب نظام VSAT؟">كم يستغرق تركيب نظام VSAT؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Installation" data-ar="التركيب">التركيب</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -1333,8 +1246,8 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-headset"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
-                        <span class="shadcn-accordion-subtitle">الدعم الفني</span>
+                        <span class="shadcn-accordion-title" data-en="Do you offer 24/7 technical support?" data-ar="هل توفرون دعمًا فنيًا على مدار الساعة؟">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Support" data-ar="الدعم الفني">الدعم الفني</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -1356,8 +1269,8 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-file-earmark-text"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title">كيف أحصل على عرض سعر مخصص؟</span>
-                        <span class="shadcn-accordion-subtitle">الأسعار</span>
+                        <span class="shadcn-accordion-title" data-en="How can I get a custom quote?" data-ar="كيف أحصل على عرض سعر مخصص؟">كيف أحصل على عرض سعر مخصص؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Pricing" data-ar="الأسعار">الأسعار</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -1377,19 +1290,6 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       </div>
     </section>
 
-    <!--CTA STRIP-->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="cta-strip" data-aos="zoom-in">
-          <h2>جاهز لبدء مشروعك؟</h2>
-          <p>مهندسونا مستعدون لمساعدتك في اختيار الحل الأنسب. احصل على استشارة مجانية اليوم.</p>
-          <a href="#contact" class="btn-light" onclick="document.getElementById('userName').focus(); window.scrollTo({top: 800, behavior: 'smooth'}); return false;">
-            <i class="bi bi-chat-dots"></i>
-            ابدأ المحادثة
-          </a>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -1399,26 +1299,33 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <div id="preloader"></div>
-
-  <!--Vendor JS-->
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!--Leaflet JS (for World Map)-->
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!--Main JS (core + quote modal)-->
-  <script src="assets/js/main.js"></script>
+  <!-- Shared navbar + footer -->
+  <script src="assets/js/navbar-footer.js"></script>
 
-  <!--Page-specific: World Map + Contact Form-->
+  <!-- Page scripts -->
   <script src="assets/js/map.js"></script>
   <script src="assets/js/pages/contact.js"></script>
 
-</body>
-</html>
+  <!-- AOS init -->
+  <script>
+    (function () {
+      'use strict';
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
+    })();
+  </script>
+
 </body>
 
 </html>

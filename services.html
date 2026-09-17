@@ -7,7 +7,7 @@
   <title>الخدمات — Tech-Sat</title>
   <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
 
-  <link href="assets/img/favicon.png" rel="icon">
+   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -19,372 +19,73 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
+  <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* ═══════════════════════════════════════════════════════
-       DESIGN TOKENS — same as index / navbar-footer.js
-    ═══════════════════════════════════════════════════════ */
-    :root {
-      --ts-white: #FFFFFF;
-      --ts-blue-light: #DCE3F0;
-      --ts-blue: #2E6DB4;
-      --ts-blue-dark: #1A2B47;
-      --ts-gray-light: #E8E8E8;
-      --ts-pink: #c21818;
-      --ts-black: #0A0A0A;
-
-      --clr-primary: var(--ts-blue);
-      --clr-primary-dark: var(--ts-blue-dark);
-      --clr-accent: var(--ts-pink);
-      --clr-accent-dark: #8e0e0e;
-      --clr-bg: #F4F7FC;
-      --clr-bg-alt: var(--ts-white);
-      --clr-text: var(--ts-blue-dark);
-      --clr-text-muted: #5A6B85;
-      --clr-border: var(--ts-blue-light);
-
-      --shadow-sm: 0 2px 8px rgba(26,43,71,.06);
-      --shadow-md: 0 8px 24px rgba(26,43,71,.10);
-      --shadow-lg: 0 20px 48px rgba(26,43,71,.14);
-      --radius: 14px;
-      --radius-lg: 22px;
-
-      /* legacy palette kept for page content */
-      --palette-white: #F8F9FA;
-      --palette-light-blue: #D1D8E0;
-      --palette-mid-blue: #3A6EA5;
-      --palette-dark-navy: #0B1D33;
-    }
-
-    [data-theme="dark"] {
-      --clr-bg: #0F172A;
-      --clr-bg-alt: #111C33;
-      --clr-text: #E6ECF5;
-      --clr-text-muted: #94A3B8;
-      --clr-border: #1E293B;
-      --ts-blue-light: #1E293B;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      font-family: 'Tajawal', 'Poppins', system-ui, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    h1,h2,h3,h4,h5,h6,.font-display {
-      font-family: 'Tajawal', 'Poppins', sans-serif;
-      color: var(--clr-text);
-      font-weight: 700;
-    }
-
-    .text-muted { color: var(--clr-text-muted) !important; }
-
-    /* ═══════════════════════════════════════════════════════
-       NAVBAR (injected by navbar-footer.js)
-    ═══════════════════════════════════════════════════════ */
-    .navbar-hw {
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--clr-border);
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      padding: .75rem 0;
-      transition: box-shadow .3s ease;
-    }
-    .navbar-hw.scrolled { box-shadow: var(--shadow-sm); }
-    [data-theme="dark"] .navbar-hw { background: rgba(15,23,42,.95); }
-
-    .navbar-hw .nav-link {
-      color: var(--clr-text);
-      font-weight: 500;
-      padding: .5rem .85rem;
-      font-size: .9rem;
-      transition: color .2s ease;
-    }
-    .navbar-hw .nav-link:hover,
-    .navbar-hw .nav-link.active,
-    .navbar-hw .nav-link.show { color: var(--clr-accent); }
-
-    .hw-logo {
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: var(--ts-blue-dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-family: 'Poppins', sans-serif;
-    }
-    .hw-logo .dot { color: var(--ts-pink); }
-    .hw-logo-mark {
-      width: 38px; height: 38px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-blue-dark) 100%);
-      color: #fff;
-      font-size: 1.05rem;
-    }
-    [data-theme="dark"] .hw-logo { color: #fff; }
-
-    /* Dropdown (Bootstrap override for RTL + dark) */
-    .dropdown-menu {
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-md);
-      padding: .5rem;
-      margin-top: .5rem;
-    }
-    .dropdown-item {
-      border-radius: 8px;
-      padding: .5rem .85rem;
-      font-size: .88rem;
-      color: var(--clr-text);
-    }
-    .dropdown-item:hover {
-      background: var(--ts-blue-light);
-      color: var(--ts-blue-dark);
-    }
-    [data-theme="dark"] .dropdown-menu {
-      background: #111C33;
-      border-color: #1E293B;
-    }
-    [data-theme="dark"] .dropdown-item { color: #E6ECF5; }
-    [data-theme="dark"] .dropdown-item:hover { background: #1E293B; color: #fff; }
-
-    /* ═══════════════════════════════════════════════════════
-       TOGGLES + BUTTONS
-    ═══════════════════════════════════════════════════════ */
-    .ts-toggle {
-      border: 1px solid var(--clr-border);
-      background: transparent;
-      color: var(--clr-text);
-      border-radius: 999px;
-      padding: .35rem .75rem;
-      font-size: .8rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-    .ts-toggle:hover {
-      background: var(--clr-primary);
-      color: #fff;
-      border-color: var(--clr-primary);
-    }
-    [data-theme="dark"] .ts-toggle { border-color: #334155; }
-
-    .btn-hw-primary {
-      background: var(--ts-pink);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: .75rem 1.5rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      text-decoration: none;
-      transition: .25s ease;
-      box-shadow: 0 8px 20px rgba(194,24,91,.25);
-      font-size: .93rem;
-    }
-    .btn-hw-primary:hover {
-      background: var(--clr-accent-dark);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(194,24,91,.35);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       FOOTER (injected by navbar-footer.js)
-    ═══════════════════════════════════════════════════════ */
-    .footer-hw {
-      background: var(--ts-blue-dark);
-      color: rgba(255,255,255,.8);
-      padding-top: 60px;
-      position: relative;
-    }
-    .footer-hw h6 {
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: .95rem;
-    }
-    .footer-hw p { color: rgba(255,255,255,.72); }
-    .footer-wave { display: block; width: 100%; margin-top: -1px; }
-
-    .footer-link {
-      color: rgba(255,255,255,.72);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      padding: .25rem 0;
-      font-size: .85rem;
-      transition: .2s ease;
-    }
-    .footer-link:hover { color: var(--ts-pink); }
-    .footer-link i { font-size: .65rem; color: var(--ts-pink); }
-    [dir="rtl"] .footer-link i { transform: scaleX(-1); }
-    .footer-hw ul { list-style: none; padding: 0; margin: 0; }
-
-    .footer-social { display: flex; gap: .6rem; flex-wrap: wrap; }
-    .footer-social a {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: .25s ease;
-    }
-    .footer-social a:hover { background: var(--ts-pink); transform: translateY(-2px); }
-
-    .footer-badges { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
-    .footer-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      background: rgba(255,255,255,.08);
-      color: rgba(255,255,255,.85);
-      border-radius: 999px;
-      padding: .35rem .8rem;
-      font-size: .72rem;
-    }
-    .footer-badge i { color: var(--ts-pink); }
-
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .4rem 0;
-      color: rgba(255,255,255,.8);
-      font-size: .88rem;
-    }
-    .footer-contact-item .ic {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      background: var(--ts-blue-light);
-      color: var(--ts-blue);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    [data-theme="dark"] .footer-contact-item .ic { background: #1E293B; color: #fff; }
-
-    .newsletter-input {
-      display: flex;
-      background: rgba(255,255,255,.08);
-      border-radius: 999px;
-      padding: .25rem .25rem .25rem 1rem;
-      align-items: center;
-      margin-top: .5rem;
-    }
-    [dir="rtl"] .newsletter-input { padding: .25rem 1rem .25rem .25rem; }
-    .newsletter-input input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: #fff;
-      outline: none;
-      font-size: .85rem;
-    }
-    .newsletter-input input::placeholder { color: rgba(255,255,255,.5); }
-    .newsletter-input button {
-      background: var(--ts-pink);
-      color: #fff;
-      border: none;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: .25s ease;
-    }
-    .newsletter-input button:hover { background: var(--clr-accent-dark); }
-    .newsletter-note {
-      font-size: .72rem;
-      color: rgba(255,255,255,.55);
-      margin-top: .5rem;
-    }
-
-    .footer-divider {
-      height: 1px;
-      background: rgba(255,255,255,.1);
-      margin: 40px 0 20px;
-    }
-    .footer-bottom {
-      font-size: .85rem;
-      color: rgba(255,255,255,.65);
-      padding-bottom: 24px;
-    }
-    .footer-bottom a { color: rgba(255,255,255,.8); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--ts-pink); }
-    .footer-bottom-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .footer-payments {
-      display: flex;
-      gap: .9rem;
-      font-size: 1.3rem;
-      color: rgba(255,255,255,.7);
-    }
-
-    /* ═══════════════════════════════════════════════════════
-       PAGE CONTENT STYLES (unchanged)
-    ═══════════════════════════════════════════════════════ */
+    /* ═══ PAGE HERO ═══ */
     .page-hero {
-      background: linear-gradient(135deg, var(--ts-blue-dark) 0%, var(--ts-blue) 100%);
-      padding: 120px 0 80px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
+      min-height: 65vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff;
+      padding: 140px 0 100px;
+      background: var(--ts-navy);
     }
     .page-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(209,216,224,0.08) 1px, transparent 1px);
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 29, 51, 0.72), rgba(11, 29, 51, 0.72)),
+        url('assets/img/hero-subPages.jpg');
+      background-size: cover; background-position: center;
+      background-repeat: no-repeat; z-index: 0;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
       background-size: 30px 30px;
+      pointer-events: none; z-index: 1;
     }
     .page-hero .container { position: relative; z-index: 2; }
-    .page-hero h1 { color: #fff; font-size: 48px; font-weight: 800; margin-bottom: 20px; }
-    .page-hero p { color: var(--ts-blue-light); font-size: 17px; max-width: 720px; margin: 0 auto; line-height: 1.7; }
-    @media (max-width: 768px) { .page-hero h1 { font-size: 32px; } .page-hero p { font-size: 15px; } }
+    .page-hero h1 {
+      color: #fff; font-size: 52px; font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+    .page-hero p {
+      color: var(--ts-light-blue); font-size: 17px;
+      max-width: 720px; margin: 0 auto; line-height: 1.7;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 768px) {
+      .page-hero { min-height: 55vh; padding: 120px 0 80px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p  { font-size: 15px; }
+    }
 
+    /* ═══ FILTER TABS ═══ */
     .filter-tabs {
       display: flex; justify-content: center; align-items: center;
       gap: 40px; margin-bottom: 56px; padding-bottom: 16px;
-      border-bottom: 1px solid var(--clr-border);
+      border-bottom: 1px solid var(--ts-border);
       position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch;
     }
     .filter-tabs::-webkit-scrollbar { display: none; }
     .filter-tab {
       position: relative; background: transparent; border: none;
       padding: 8px 0; font-family: inherit; font-size: 15px; font-weight: 500;
-      color: var(--clr-text-muted); cursor: pointer; white-space: nowrap;
+      color: var(--ts-text-muted); cursor: pointer; white-space: nowrap;
       transition: color .25s ease;
     }
-    .filter-tab:hover { color: var(--clr-text); }
-    .filter-tab.active { color: var(--clr-text); font-weight: 700; }
+    .filter-tab:hover { color: var(--ts-navy); }
+    [data-theme="dark"] .filter-tab:hover { color: #fff; }
+    .filter-tab.active { color: var(--ts-navy); font-weight: 700; }
+    [data-theme="dark"] .filter-tab.active { color: #fff; }
     .filter-tab::after {
       content: ''; position: absolute; bottom: -17px; left: 0; right: 0;
       height: 2px; background: var(--ts-blue);
-      transform: scaleX(0); transform-origin: center; transition: transform .3s ease;
+      transform: scaleX(0); transform-origin: center;
+      transition: transform .3s ease;
     }
     .filter-tab.active::after { transform: scaleX(1); }
     @media (max-width: 768px) {
@@ -392,312 +93,364 @@
       .filter-tab { font-size: 14px; }
     }
 
+    /* ═══ SERVICE CARD ═══ */
     .service-card {
-      background: var(--clr-bg-alt); border: 1px solid var(--clr-border);
-      border-radius: 16px; overflow: hidden; height: 100%;
-      display: flex; flex-direction: column; transition: all .3s ease;
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all .3s ease;
       box-shadow: 0 4px 20px rgba(11,29,51,0.04);
-      text-decoration: none; color: inherit;
+      text-decoration: none;
+      color: inherit;
     }
     .service-card:hover {
-      transform: translateY(-6px); border-color: var(--ts-blue);
-      box-shadow: 0 20px 40px rgba(11,29,51,0.1);
-    }
-    .service-card__icon {
-      height: 160px; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      font-size: 3.5rem; color: var(--ts-blue); position: relative;
-    }
-    [data-theme="dark"] .service-card__icon {
-      background: linear-gradient(135deg, #1E293B 0%, #111C33 100%);
-      color: var(--ts-blue-light);
-    }
-    .service-card__icon i { transition: transform .3s ease; }
-    .service-card:hover .service-card__icon i { transform: scale(1.15); }
-    .service-card__tag {
-      position: absolute; top: 12px; right: 12px;
-      background: var(--ts-blue-dark); color: #fff;
-      padding: 3px 10px; border-radius: 999px;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    }
-    [dir="rtl"] .service-card__tag { right: auto; left: 12px; }
-    .service-card__body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
-    .service-card__body h5 { color: var(--clr-text); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-    .service-card__body p { color: var(--clr-text-muted); font-size: 13.5px; line-height: 1.6; margin-bottom: 16px; }
-    .service-card__features {
-      list-style: none; padding: 0; margin: 0 0 16px 0;
-      display: flex; flex-direction: column; gap: 6px; flex: 1;
-    }
-    .service-card__features li {
-      color: var(--clr-text); font-size: 12.5px; font-weight: 500;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .service-card__features li i { color: var(--ts-blue); font-size: 11px; flex-shrink: 0; }
-    .service-card__cta {
-      color: var(--ts-blue); font-weight: 700; font-size: 13px;
-      display: inline-flex; align-items: center; gap: 6px; transition: gap .2s ease;
-    }
-    .service-card:hover .service-card__cta { gap: 10px; }
-
-    .process-section {
-      background: linear-gradient(135deg, var(--ts-blue-dark) 0%, #16294a 100%);
-      padding: 80px 0; position: relative; overflow: hidden;
-    }
-    .process-section::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(209,216,224,0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    .process-section .container { position: relative; z-index: 2; }
-    .process-section .section-title h2 { color: #fff; }
-    .process-section .section-title p { color: var(--ts-blue-light); }
-    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-    @media (max-width: 992px) { .process-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 576px) { .process-grid { grid-template-columns: 1fr; } }
-    .process-step {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(209,216,224,0.12);
-      border-radius: 16px; padding: 32px 24px; text-align: center;
-      transition: all .3s ease; height: 100%;
-    }
-    .process-step:hover {
-      background: rgba(255,255,255,0.09); border-color: rgba(58,110,165,0.5);
       transform: translateY(-6px);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11,29,51,0.1);
+      color: inherit;
     }
-    .process-step__num {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--ts-blue); color: #fff;
-      font-size: 20px; font-weight: 800; margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(58,110,165,0.35);
-    }
-    .process-step h4 { color: #fff; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
-    .process-step p { color: var(--ts-blue-light); font-size: 14px; line-height: 1.7; margin: 0; opacity: 0.85; }
 
-    .why-us { padding: 80px 0; }
-    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-    @media (max-width: 992px) { .why-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 576px) { .why-grid { grid-template-columns: 1fr; } }
-    .why-card {
-      background: var(--clr-bg-alt); border: 1px solid var(--clr-border);
-      border-radius: 16px; padding: 32px 24px; text-align: center;
-      transition: all .3s ease; height: 100%; display: flex; flex-direction: column;
+    .service-card__image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #0d1a2d 100%);
     }
-    .why-card:hover {
-      transform: translateY(-6px); border-color: var(--ts-blue);
-      box-shadow: 0 20px 40px rgba(11,29,51,0.08);
+    .service-card__image img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform .5s ease;
     }
-    .why-card__icon {
-      width: 64px; height: 64px; margin: 0 auto 18px;
-      background: linear-gradient(135deg, #eef3fa 0%, #d9e2f0 100%);
-      border-radius: 16px; display: flex; align-items: center; justify-content: center;
-      color: var(--ts-blue); font-size: 26px; transition: transform .3s ease;
+    .service-card:hover .service-card__image img {
+      transform: scale(1.08);
     }
-    [data-theme="dark"] .why-card__icon {
-      background: linear-gradient(135deg, #1E293B 0%, #111C33 100%);
-      color: var(--ts-blue-light);
+    .service-card__image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,29,51,0) 40%, rgba(11,29,51,0.55) 100%);
+      pointer-events: none;
     }
-    .why-card:hover .why-card__icon { transform: scale(1.08) rotate(-3deg); }
-    .why-card h4 { color: var(--clr-text); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-    .why-card p { color: var(--clr-text-muted); font-size: 13.5px; line-height: 1.7; margin: 0; flex: 1; }
-
-    .engineer-cta {
-      background: var(--ts-blue-dark); border-radius: 24px;
-      padding: 60px 50px; color: #fff; position: relative; overflow: hidden;
-    }
-    .engineer-cta::before {
-      content: ''; position: absolute; top: -50%; left: -10%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(194,24,91,0.3) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .engineer-cta__content { position: relative; z-index: 2; max-width: 620px; }
-    .engineer-cta h2 { color: #fff; font-size: 36px; font-weight: 800; margin-bottom: 16px; }
-    .engineer-cta p { color: var(--ts-blue-light); font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
-    .btn-engineer {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--ts-pink); color: #fff;
-      padding: 14px 32px; border-radius: 12px;
-      font-weight: 700; font-size: 15px; text-decoration: none; transition: all .25s ease;
-    }
-    .btn-engineer:hover {
-      background: var(--clr-accent-dark);
-      transform: translateY(-2px);
-      color: #fff;
-      box-shadow: 0 12px 26px rgba(194,24,91,.35);
-    }
-    @media (max-width: 768px) { .engineer-cta { padding: 40px 28px; } .engineer-cta h2 { font-size: 26px; } }
-
-    .section { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 48px; }
-    .section-title h2 { color: var(--clr-text); font-size: 38px; font-weight: 800; margin-bottom: 12px; }
-    .section-title p { color: var(--clr-text-muted); font-size: 16px; max-width: 680px; margin: 0 auto; }
-
-    /* Scroll-top (shared pattern) */
-    #scroll-top {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
+    .service-card__icon-overlay {
+      position: absolute;
+      bottom: 16px;
+      inset-inline-start: 16px;
       width: 52px; height: 52px;
-      background: var(--ts-blue-dark);
+      border-radius: 14px;
+      background: var(--ts-crimson);
       color: #fff;
-      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      text-decoration: none;
-      opacity: 0;
-      pointer-events: none;
-      transition: .3s ease;
-      z-index: 999;
-      border: none;
       font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
+      z-index: 2;
     }
-    #scroll-top.show { opacity: 1; pointer-events: auto; }
-    #scroll-top:hover { background: var(--ts-pink); color: #fff; }
-    [dir="rtl"] #scroll-top { right: auto; left: 24px; }
+    .service-card__tag {
+      position: absolute;
+      top: 14px;
+      inset-inline-end: 14px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      color: var(--ts-navy);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+    [data-theme="dark"] .service-card__tag {
+      background: rgba(17, 28, 51, .92);
+      color: #fff;
+    }
+
+    .service-card__body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-card__body h5 {
+      color: var(--ts-navy);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .service-card__body h5 { color: #fff; }
+    .service-card__body p {
+      color: var(--ts-text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .service-card__cta {
+      color: var(--ts-blue);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s ease;
+      align-self: flex-start;
+    }
+    .service-card:hover .service-card__cta { gap: 10px; }
+
+    .section { padding: 50px 0; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <!-- ═══════════════ SHARED NAVBAR — injected by navbar-footer.js ═══════════════ -->
   <div id="navbar-root"></div>
 
   <main class="main">
 
-    <!-- ───── PAGE HERO ───── -->
+    <!-- ═══ PAGE HERO ═══ -->
     <section class="page-hero">
       <div class="container" data-aos="fade-up">
-        <h1>خدماتنا</h1>
-        <p>نقدم مجموعة واسعة من خدمات الاتصالات الفضائية المتخصصة — من حلول VSAT والاتصالات المُدارة، إلى التكامل الكامل للأنظمة والخدمات الميدانية في أصعب الظروف.</p>
+        <h1 data-en="Our Services" data-ar="خدماتنا">خدماتنا</h1>
+        <p data-en="A complete suite of satellite communication services built around your mission — from connectivity and voice & data to managed networks, cybersecurity and 24/7 support."
+           data-ar="مجموعة كاملة من خدمات الاتصالات الفضائية مبنية حول مهمتك — من الاتصالات والصوت والبيانات إلى الشبكات المُدارة والأمن السيبراني والدعم 24/7.">
+          مجموعة كاملة من خدمات الاتصالات الفضائية مبنية حول مهمتك — من الاتصالات والصوت والبيانات إلى الشبكات المُدارة والأمن السيبراني والدعم 24/7.
+        </p>
       </div>
     </section>
 
-    <!-- ───── SERVICES GRID ───── -->
+    <!-- ═══ SERVICES GRID ═══ -->
     <section class="section">
       <div class="container">
 
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
-          <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
-          <button class="filter-tab" data-filter="integration" role="tab">تكامل أنظمة</button>
-          <button class="filter-tab" data-filter="field" role="tab">خدمات ميدانية</button>
-          <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
+          <button class="filter-tab active" data-filter="all"          role="tab" data-en="All Services"    data-ar="كل الخدمات">كل الخدمات</button>
+          <button class="filter-tab"        data-filter="connectivity" role="tab" data-en="Connectivity"    data-ar="اتصالات">اتصالات</button>
+          <button class="filter-tab"        data-filter="integration"  role="tab" data-en="Integration"     data-ar="تكامل">تكامل</button>
+          <button class="filter-tab"        data-filter="field"        role="tab" data-en="Field"           data-ar="ميدانية">ميدانية</button>
+          <button class="filter-tab"        data-filter="support"      role="tab" data-en="Support"         data-ar="دعم">دعم</button>
         </div>
 
         <div class="row g-4" id="servicesGrid">
 
+          <!-- ─── 1. VSAT Solutions ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
             <a href="details.html?type=service&id=vsat" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-broadcast-pin"></i>
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=420&fit=crop&auto=format" alt="VSAT Solutions" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-broadcast-pin"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>حلول VSAT</h5>
-                <p>اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>سرعات تصل إلى 100 Mbps</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="VSAT Solutions" data-ar="حلول VSAT">حلول VSAT</h5>
+                <p data-en="High-speed satellite connectivity for fixed and mobile sites, with comprehensive coverage in the toughest locations."
+                   data-ar="اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.">
+                  اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
+          <!-- ─── 2. Voice & Data ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
             <a href="details.html?type=service&id=voice" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">اتصالات</span>
-                <i class="bi bi-telephone-outbound"></i>
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&h=420&fit=crop&auto=format" alt="Voice & Data" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-telephone-outbound"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>صوت وبيانات</h5>
-                <p>خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>VoIP عالي الجودة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
-                  <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Voice & Data" data-ar="صوت وبيانات">صوت وبيانات</h5>
+                <p data-en="Voice and data services with VoIP and live broadcast over satellite, for all sectors."
+                   data-ar="خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.">
+                  خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
+          <!-- ─── 3. Managed Networks ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <a href="details.html?type=service&id=integr" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-diagram-3"></i>
+            <a href="details.html?type=service&id=net" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=420&fit=crop&auto=format" alt="Managed Networks" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-hdd-network"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>تكامل الأنظمة</h5>
-                <p>تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>تصميم مخصص</span></li>
-                  <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Managed Networks" data-ar="شبكات مُدارة">شبكات مُدارة</h5>
+                <p data-en="Full network management with 24/7 NOC monitoring and Service Level Agreements (SLA)."
+                   data-ar="إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).">
+                  إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
+          <!-- ─── 4. Field Services ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
             <a href="details.html?type=service&id=field" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">ميدانية</span>
-                <i class="bi bi-tools"></i>
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Field" data-ar="ميدانية">ميدانية</span>
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=420&fit=crop&auto=format" alt="Field Services" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-tools"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>خدمات ميدانية</h5>
-                <p>تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>فرق فنية متخصصة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Field Services" data-ar="خدمات ميدانية">خدمات ميدانية</h5>
+                <p data-en="Installation, maintenance, and operation of VSAT stations at any site in Yemen, by specialized technical teams."
+                   data-ar="تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.">
+                  تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
+          <!-- ─── 5. Systems Integration ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <a href="details.html?type=service&id=net" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">تكامل</span>
-                <i class="bi bi-hdd-network"></i>
+            <a href="details.html?type=service&id=integr" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=420&fit=crop&auto=format" alt="Systems Integration" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-diagram-3"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>شبكات مُدارة</h5>
-                <p>إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>مراقبة 24/7</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Systems Integration" data-ar="تكامل الأنظمة">تكامل الأنظمة</h5>
+                <p data-en="Design and integration of complete communication solutions with existing systems, end-to-end."
+                   data-ar="تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.">
+                  تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
+          <!-- ─── 6. 24/7 Support ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
             <a href="details.html?type=service&id=support" class="service-card">
-              <div class="service-card__icon">
-                <span class="service-card__tag">دعم</span>
-                <i class="bi bi-headset"></i>
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Support" data-ar="دعم">دعم</span>
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=420&fit=crop&auto=format" alt="24/7 Support" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-headset"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>دعم فني 24/7</h5>
-                <p>فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>دعم هاتفي وبريد</span></li>
-                  <li><i class="bi bi-check2"></i> <span>استجابة ميدانية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>صيانة دورية</span></li>
-                </ul>
-                <span class="service-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="24/7 Technical Support" data-ar="دعم فني 24/7">دعم فني 24/7</h5>
+                <p data-en="Dedicated support team available around the clock, with field response within 24 hours maximum."
+                   data-ar="فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.">
+                  فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 7. OptiShield Cybersecurity ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up">
+            <a href="details.html?type=service&id=optishield" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Support" data-ar="دعم">دعم</span>
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=420&fit=crop&auto=format" alt="OptiShield Cybersecurity" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-shield-lock-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OptiShield Cybersecurity" data-ar="أمن سيبراني (OptiShield)">أمن سيبراني (OptiShield)</h5>
+                <p data-en="Protect connected operations with managed cybersecurity and network security services."
+                   data-ar="حماية العمليات المتصلة بخدمات الأمن السيبراني وأمن الشبكات المُدارة.">
+                  حماية العمليات المتصلة بخدمات الأمن السيبراني وأمن الشبكات المُدارة.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 8. OptiView Platform ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=service&id=optiview" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=420&fit=crop&auto=format" alt="OptiView Platform" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-bar-chart-line-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OptiView Platform" data-ar="منصة إدارة الشبكة (OptiView)">منصة إدارة الشبكة (OptiView)</h5>
+                <p data-en="One platform for complete visibility over your connected environment — monitor performance, usage, and remote sites."
+                   data-ar="منصة واحدة للحصول على رؤية كاملة لبيئتك المتصلة — راقب الأداء والاستخدام والمواقع النائية.">
+                  منصة واحدة للحصول على رؤية كاملة لبيئتك المتصلة — راقب الأداء والاستخدام والمواقع النائية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 9. Traksat PTT & Tracking ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=service&id=traksat" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=420&fit=crop&auto=format" alt="Traksat PTT & Tracking" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-broadcast"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Traksat PTT & Tracking" data-ar="Traksat PTT والتتبع">Traksat PTT والتتبع</h5>
+                <p data-en="Keep remote teams connected with push-to-talk, tracking, and location visibility over satellite."
+                   data-ar="أبقِ الفرق النائية متصلة عبر الضغط-للتحدث والتتبع ورؤية الموقع عبر الأقمار الصناعية.">
+                  أبقِ الفرق النائية متصلة عبر الضغط-للتحدث والتتبع ورؤية الموقع عبر الأقمار الصناعية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 10. OneGate Value-Added Services ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up">
+            <a href="details.html?type=service&id=onegate" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=420&fit=crop&auto=format" alt="OneGate Services" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-sliders"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OneGate Services" data-ar="خدمات OneGate">خدمات OneGate</h5>
+                <p data-en="A suite of value-added services optimizing SATCOM — data compression, email, VPN, and bandwidth optimization."
+                   data-ar="مجموعة خدمات مضافة لتحسين SATCOM — ضغط البيانات والبريد الإلكتروني وVPN وتحسين النطاق.">
+                  مجموعة خدمات مضافة لتحسين SATCOM — ضغط البيانات والبريد الإلكتروني وVPN وتحسين النطاق.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
@@ -705,113 +458,30 @@
         </div>
 
         <div id="noResults" class="text-center py-5" style="display:none;">
-          <p style="color:var(--clr-text-muted); font-size:16px;">لا توجد خدمات في هذا التصنيف حاليًا.</p>
+          <p style="color:var(--ts-text-muted); font-size:16px;"
+             data-en="No services in this category currently."
+             data-ar="لا توجد خدمات في هذا التصنيف حاليًا.">
+            لا توجد خدمات في هذا التصنيف حاليًا.
+          </p>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ───── PROCESS ───── -->
-    <section class="process-section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>كيف نعمل</h2>
-          <p>من الاستشارة الأولى إلى الدعم المستمر — رحلة متكاملة</p>
-        </div>
-
-        <div class="process-grid">
-          <div class="process-step" data-aos="fade-up">
-            <div class="process-step__num">01</div>
-            <h4>استشارة</h4>
-            <p>نستمع لاحتياجاتك ونحلل متطلبات موقعك ومشروعك بعناية.</p>
-          </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-            <div class="process-step__num">02</div>
-            <h4>تصميم</h4>
-            <p>نصمم الحل الأنسب حسب المتطلبات الفنية والموقع الجغرافي.</p>
-          </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-            <div class="process-step__num">03</div>
-            <h4>تركيب</h4>
-            <p>تنفيذ احترافي بفريق متخصص خلال 24-48 ساعة من بدء العمل.</p>
-          </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-            <div class="process-step__num">04</div>
-            <h4>دعم</h4>
-            <p>دعم فني على مدار الساعة + صيانة دورية + استجابة سريعة.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───── WHY US ───── -->
-    <section class="why-us">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>لماذا Tech-Sat؟</h2>
-          <p>ما يميزنا عن غيرنا في قطاع الاتصالات الفضائية</p>
-        </div>
-
-        <div class="why-grid">
-          <div class="why-card" data-aos="fade-up">
-            <div class="why-card__icon"><i class="bi bi-patch-check"></i></div>
-            <h4>الموزع الحصري</h4>
-            <p>الوكيل الوحيد لـ IEC Global Telecom في اليمن، بأحدث التقنيات العالمية.</p>
-          </div>
-          <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-card__icon"><i class="bi bi-globe2"></i></div>
-            <h4>تغطية عالمية</h4>
-            <p>خدماتنا تغطي 15 دولة عبر تقنيات Ku و C-Band، في الشرق الأوسط وأفريقيا وأوروبا.</p>
-          </div>
-          <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="why-card__icon"><i class="bi bi-speedometer2"></i></div>
-            <h4>استجابة سريعة</h4>
-            <p>تركيب احترافي خلال 24-48 ساعة، ودعم فني فوري على مدار الساعة.</p>
-          </div>
-          <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="why-card__icon"><i class="bi bi-shield-check"></i></div>
-            <h4>موثوقية 99.9%</h4>
-            <p>بنية تحتية مستقرة مع خطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───── ENGINEER CTA ───── -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="engineer-cta" data-aos="zoom-in">
-          <div class="engineer-cta__content">
-            <h2>هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
-            <p>مهندسونا مستعدون لمساعدتك في اختيار الخدمة الأنسب لاحتياجك — من موقع واحد إلى ربط أسطول كامل عبر الأقمار الصناعية.</p>
-            <a href="contact.html" class="btn-engineer">
-              <i class="bi bi-headset"></i>
-              <span>تحدث مع مهندس</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════ SHARED FOOTER — injected by navbar-footer.js ═══════════════ -->
   <div id="footer-root"></div>
 
-  <!-- ═══════════════ SCROLL TOP ═══════════════ -->
+  <!-- SCROLL TOP -->
   <a href="#" id="scroll-top" class="scroll-top" aria-label="Scroll to top">
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <!-- SCRIPTS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/js/main.js"></script>
 
-  <!-- Shared navbar + footer loader -->
-  <script src="navbar-footer.js"></script>
+  <script src="assets/js/navbar-footer.js"></script>
 
   <script>
     (function () {
@@ -843,13 +513,11 @@
 
       /* ─── Navbar shadow + scroll-top ─── */
       var topBtn = document.getElementById('scroll-top');
-
       window.addEventListener('scroll', function () {
         if (topBtn) topBtn.classList.toggle('show', window.scrollY > 400);
         var nav = document.getElementById('mainNav');
         if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
       });
-
       if (topBtn) {
         topBtn.addEventListener('click', function (e) {
           e.preventDefault();
@@ -857,10 +525,12 @@
         });
       }
 
-      /* ─── Refresh AOS once layout is ready ─── */
-      document.addEventListener('layoutReady', function () {
-        if (window.AOS) AOS.refresh();
-      });
+      /* ─── AOS ─── */
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
     })();
   </script>
 

@@ -7,15 +7,14 @@
   'use strict';
 
   /* ─────────────────────────────────────────────────────────
-     NAVBAR TEMPLATE
+     NAVBAR TEMPLATE — flat links, no dropdowns
   ───────────────────────────────────────────────────────── */
   var NAVBAR_TPL = '' +
     '<nav class="navbar navbar-expand-lg navbar-hw" id="mainNav">' +
       '<div class="container">' +
 
-        '<a class="hw-logo" href="index.html">' +
-          '<span class="hw-logo-mark"><i class="bi bi-broadcast"></i></span>' +
-          'Tech<span class="dot">-Sat</span>' +
+        '<a class="hw-logo" href="index.html" aria-label="Tech-Sat">' +
+          '<img src="assets/img/techSatLogo.webp" alt="Tech-Sat" class="hw-logo-img">' +
         '</a>' +
 
         '<div class="d-flex align-items-center gap-2 order-lg-3">' +
@@ -38,50 +37,25 @@
               '<a class="nav-link" href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>' +
             '</li>' +
 
-            '<li class="nav-item dropdown">' +
-              '<a class="nav-link dropdown-toggle" href="services.html" role="button" ' +
-                'data-bs-toggle="dropdown" aria-expanded="false" ' +
-                'data-en="Services" data-ar="الخدمات">Services</a>' +
-              '<ul class="dropdown-menu">' +
-                '<li><a class="dropdown-item" href="services.html" data-en="Satellite Connectivity" data-ar="الاتصالات الفضائية">Satellite Connectivity</a></li>' +
-                '<li><a class="dropdown-item" href="services.html" data-en="Network Service" data-ar="خدمات الشبكة">Network Service</a></li>' +
-                '<li><a class="dropdown-item" href="services.html" data-en="Systems Integration" data-ar="تكامل الأنظمة">Systems Integration</a></li>' +
-                '<li><a class="dropdown-item" href="services.html" data-en="Product Finder" data-ar="محدد المنتجات">Product Finder</a></li>' +
-                '<li><a class="dropdown-item" href="services.html" data-en="Resources" data-ar="الموارد">Resources</a></li>' +
-              '</ul>' +
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="services.html" data-en="Services" data-ar="الخدمات">Services</a>' +
             '</li>' +
 
-            '<li class="nav-item dropdown">' +
-              '<a class="nav-link dropdown-toggle" href="products.html" role="button" ' +
-                'data-bs-toggle="dropdown" aria-expanded="false" ' +
-                'data-en="Products" data-ar="المنتجات">Products</a>' +
-              '<ul class="dropdown-menu">' +
-                '<li><a class="dropdown-item" href="products.html" data-en="Voice & Low Data" data-ar="الصوت والبيانات">Voice &amp; Low Data</a></li>' +
-                '<li><a class="dropdown-item" href="products.html" data-en="Broadband Data" data-ar="بيانات عريضة">Broadband Data</a></li>' +
-                '<li><a class="dropdown-item" href="products.html" data-en="VSAT Solutions" data-ar="حلول VSAT">VSAT Solutions</a></li>' +
-                '<li><a class="dropdown-item" href="products.html" data-en="Mobile & Vehicular" data-ar="المتنقلة والمركبات">Mobile &amp; Vehicular</a></li>' +
-                '<li><a class="dropdown-item" href="products.html" data-en="Terminals & Hardware" data-ar="الأجهزة">Terminals &amp; Hardware</a></li>' +
-              '</ul>' +
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="products.html" data-en="Products" data-ar="المنتجات">Products</a>' +
             '</li>' +
 
-            '<li class="nav-item dropdown">' +
-              '<a class="nav-link dropdown-toggle" href="industries.html" role="button" ' +
-                'data-bs-toggle="dropdown" aria-expanded="false" ' +
-                'data-en="Industries" data-ar="القطاعات">Industries</a>' +
-              '<ul class="dropdown-menu">' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Government" data-ar="الحكومة">Government</a></li>' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Humanitarian" data-ar="إنساني">Humanitarian</a></li>' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Media" data-ar="إعلام">Media</a></li>' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Energy" data-ar="الطاقة">Energy</a></li>' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Enterprise" data-ar="مؤسسات">Enterprise</a></li>' +
-                '<li><a class="dropdown-item" href="industries.html" data-en="Maritime" data-ar="بحري">Maritime</a></li>' +
-              '</ul>' +
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="industries.html" data-en="Industries" data-ar="القطاعات">Industries</a>' +
             '</li>' +
 
-            '<li class="nav-item"><a class="nav-link" href="index.html#why"     data-en="Why Us"    data-ar="لماذا نحن">Why Us</a></li>' +
-            '<li class="nav-item"><a class="nav-link" href="index.html#clients" data-en="Clients"   data-ar="العملاء">Clients</a></li>' +
-            '<li class="nav-item"><a class="nav-link" href="index.html#about"   data-en="Corporate" data-ar="الشركة">Corporate</a></li>' +
-            '<li class="nav-item"><a class="nav-link" href="contact.html"       data-en="Contact"   data-ar="اتصل بنا">Contact</a></li>' +
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="about.html" data-en="Why Us" data-ar="لماذا نحن">Why Us</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>' +
+            '</li>' +
 
           '</ul>' +
 
@@ -98,49 +72,43 @@
   ───────────────────────────────────────────────────────── */
   var FOOTER_TPL = '' +
     '<footer class="footer-hw">' +
-      '<svg class="footer-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">' +
-        '<path fill="#1A2B47" d="M0,32 C240,70 480,0 720,18 C960,36 1200,70 1440,26 L1440,70 L0,70 Z"></path>' +
-      '</svg>' +
 
       '<div class="container footer-top">' +
-        '<div class="row g-4">' +
+        '<div class="row g-3">' +
 
+          /* ─── Brand column ─── */
           '<div class="col-lg-4 col-md-6">' +
-            '<a class="hw-logo" href="index.html" style="color:#fff;">' +
-              '<span class="hw-logo-mark"><i class="bi bi-broadcast"></i></span>' +
-              'Tech<span class="dot" style="color:var(--ts-pink);">-Sat</span>' +
+            '<a class="hw-logo hw-logo--light" href="index.html" aria-label="Tech-Sat">' +
+              '<img src="assets/img/techSatLogo.webp" alt="Tech-Sat" class="hw-logo-img">' +
             '</a>' +
-            '<p class="mt-3" ' +
+            '<p class="mt-2" ' +
               'data-en="Tech-Sat is a leading IT company providing managed network communication solutions, and the only reseller in Yemen of IEC Global Telecom." ' +
               'data-ar="تك-سات شركة تقنية معلومات رائدة تقدم حلول اتصالات شبكية مُدارة، والموزع الوحيد في اليمن لشركة IEC Global Telecom.">' +
-              'Tech-Sat is a leading IT company providing managed network communication solutions, and the only reseller in Yemen of IEC Global Telecom.' +
+              'Tech-Sat is a leading IT company providing managed network communication solutions, ' +
+              'and the only reseller in Yemen of IEC Global Telecom.' +
             '</p>' +
-            '<div class="footer-social mt-3">' +
-              '<a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>' +
-              '<a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
-              '<a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>' +
-              '<a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>' +
-              '<a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>' +
-            '</div>' +
-            '<div class="footer-badges">' +
-              '<span class="footer-badge"><i class="bi bi-patch-check-fill"></i> ' +
-                '<span data-en="IEC Global Telecom Reseller" data-ar="موزع IEC Global Telecom">IEC Global Telecom Reseller</span>' +
-              '</span>' +
-              '<span class="footer-badge"><i class="bi bi-shield-lock-fill"></i> SSL Secured</span>' +
+            '<div class="footer-social mt-2">' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>' +
             '</div>' +
           '</div>' +
 
+          /* ─── Services column ─── */
           '<div class="col-6 col-md-3 col-lg-2">' +
             '<h6 data-en="Services" data-ar="الخدمات">Services</h6>' +
             '<ul>' +
               '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Satellite Connectivity" data-ar="الاتصالات الفضائية">Satellite Connectivity</span></a></li>' +
               '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Network Service" data-ar="خدمات الشبكة">Network Service</span></a></li>' +
               '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Systems Integration" data-ar="تكامل الأنظمة">Systems Integration</span></a></li>' +
-              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Product Finder" data-ar="محدد المنتجات">Product Finder</span></a></li>' +
-              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Resources" data-ar="الموارد">Resources</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Field Services" data-ar="خدمات ميدانية">Field Services</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="24/7 Support" data-ar="دعم فني 24/7">24/7 Support</span></a></li>' +
             '</ul>' +
           '</div>' +
 
+          /* ─── Products column ─── */
           '<div class="col-6 col-md-3 col-lg-2">' +
             '<h6 data-en="Products" data-ar="المنتجات">Products</h6>' +
             '<ul>' +
@@ -148,10 +116,11 @@
               '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Broadband Data" data-ar="بيانات عريضة">Broadband Data</span></a></li>' +
               '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="VSAT Solutions" data-ar="حلول VSAT">VSAT Solutions</span></a></li>' +
               '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Mobile & Vehicular" data-ar="المتنقلة والمركبات">Mobile &amp; Vehicular</span></a></li>' +
-              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Terminals & Hardware" data-ar="الأجهزة">Terminals &amp; Hardware</span></a></li>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Terminals & Hardware" data-ar="الأجهزة والمعدات">Terminals &amp; Hardware</span></a></li>' +
             '</ul>' +
           '</div>' +
 
+          /* ─── Industries column ─── */
           '<div class="col-6 col-md-3 col-lg-2">' +
             '<h6 data-en="Industries" data-ar="القطاعات">Industries</h6>' +
             '<ul>' +
@@ -164,6 +133,7 @@
             '</ul>' +
           '</div>' +
 
+          /* ─── Contact column ─── */
           '<div class="col-md-6 col-lg-2">' +
             '<h6 data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</h6>' +
             '<div class="footer-contact-item">' +
@@ -184,47 +154,37 @@
             '</div>' +
             '<div class="footer-contact-item">' +
               '<span class="ic"><i class="bi bi-telephone-fill"></i></span>' +
-              '<span>00967-2-396056</span>' +
+              '<span>00967-711188100</span>' +
             '</div>' +
           '</div>' +
 
         '</div>' +
 
-        '<div class="row mt-4">' +
+        /* ─── Newsletter ─── */
+        '<div class="row mt-3">' +
           '<div class="col-md-6">' +
             '<h6 data-en="Newsletter" data-ar="النشرة البريدية">Newsletter</h6>' +
             '<div class="newsletter-input">' +
-              '<input type="email" placeholder="Your email address" aria-label="Email for newsletter">' +
+              '<input type="email" placeholder="Your email address" aria-label="Email for newsletter" ' +
+                'data-en="Your email address" data-ar="بريدك الإلكتروني">' +
               '<button type="button" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>' +
             '</div>' +
             '<div class="newsletter-note">' +
-              '<i class="bi bi-shield-check"></i> ' +
-              '<span data-en="No spam. Unsubscribe anytime." data-ar="لا رسائل مزعجة. يمكنك إلغاء الاشتراك في أي وقت.">No spam. Unsubscribe anytime.</span>' +
             '</div>' +
           '</div>' +
         '</div>' +
 
-        '<div class="footer-divider"></div>' +
-        '<div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">' +
-          '<div>' +
-            '<div>&copy; 2026 Tech-Sat. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></div>' +
-            '<div class="footer-bottom-links mt-2">' +
-              '<a href="privacy-policy.html"  data-en="Privacy Policy"   data-ar="سياسة الخصوصية">Privacy Policy</a>' +
-              '<a href="terms-of-service.html" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a>' +
-              '<a href="faq.html"             data-en="FAQs"             data-ar="الأسئلة الشائعة">FAQs</a>' +
-            '</div>' +
+        /* ─── Designed By ─── */
+        '<div class="footer-designed-by">' +
+          '<div class="footer-designed-by__text" data-en="DESIGNED BY" data-ar="تصميم وتطوير">' +
+            'DESIGNED BY' +
           '</div>' +
-          '<div class="text-md-end">' +
-            '<div class="footer-payments justify-content-md-end mb-2">' +
-              '<i class="bi bi-globe2"></i>' +
-              '<i class="bi bi-broadcast"></i>' +
-              '<i class="bi bi-shield-lock"></i>' +
-            '</div>' +
-            '<div data-en="Reliable communications, wherever it matters most." ' +
-              'data-ar="اتصالات موثوقة، حيث تكون الأهمية الأكبر.">' +
-              'Reliable communications, wherever it matters most.</div>' +
+          '<div class="footer-designed-by__name" data-en="YOU FOR INFORMATION TECHNOLOGY" data-ar="YOU FOR INFORMATION TECHNOLOGY">' +
+            'YOU FOR INFORMATION TECHNOLOGY' +
           '</div>' +
+          '<img src="assets/img/you-logo.png" alt="YOU For Information Technology" class="footer-designed-by__logo">' +
         '</div>' +
+
       '</div>' +
     '</footer>';
 
@@ -244,11 +204,6 @@
       var href = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
       if (href && href === current) {
         a.classList.add('active');
-        var parentDrop = a.closest('.dropdown');
-        if (parentDrop) {
-          var toggle = parentDrop.querySelector('.dropdown-toggle');
-          if (toggle) toggle.classList.add('active');
-        }
       }
     });
   }

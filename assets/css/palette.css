@@ -26,11 +26,16 @@
   --ts-crimson:      var(--palette-crimson);
   --ts-crimson-dark: var(--palette-crimson-dark);
   --ts-crimson-soft: var(--palette-crimson-soft);
+  --ts-pink:       var(--palette-crimson);
+--ts-pink-dark:  var(--palette-crimson-dark);
+--ts-blue-dark:  var(--palette-navy-soft);
+--ts-blue-light: var(--palette-light-blue)
   --ts-light-blue:   var(--palette-light-blue);
   --ts-white:        var(--palette-white);
   --ts-black:        var(--palette-black);
   --ts-text-muted:   #64748B;
   --ts-border:       var(--palette-light-blue);
+
 
   /* ── Surface layers ─────────────────────────────────── */
   --surface-1:        var(--palette-white);
