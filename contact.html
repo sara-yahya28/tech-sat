@@ -7,7 +7,20 @@
   <title>تواصل معنا — Tech-Sat</title>
   <meta name="description" content="تواصل مع Tech-Sat — فريقنا جاهز للإجابة على استفساراتك على مدار الساعة.">
 
-   <link href="assets/img/favicon.ico" rel="icon">
+  <!-- ── Instant language restore (prevents flash) ── -->
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem('techsat-lang');
+        if (l === 'en') {
+          document.documentElement.setAttribute('lang', 'en');
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+
+  <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -26,6 +39,60 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
+    /* ===== FONT PER DIRECTION ===== */
+    html[dir="rtl"] body { font-family: 'Tajawal', 'Poppins', sans-serif; }
+    html[dir="ltr"] body,
+    html[dir="ltr"] .leaflet-popup-content,
+    html[dir="ltr"] .form-field input,
+    html[dir="ltr"] .form-field textarea,
+    html[dir="ltr"] .form-field select,
+    html[dir="ltr"] .send-button,
+    html[dir="ltr"] .lang-toggle {
+      font-family: 'Poppins', 'Tajawal', sans-serif;
+    }
+
+    /* ===== LANGUAGE TOGGLE ===== */
+    .lang-toggle {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1100;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 12px 9px;
+      background: var(--ts-navy, #0B1D33);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 0;
+      border-radius: 0 14px 14px 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      line-height: 1;
+      box-shadow: 0 10px 26px rgba(11, 29, 51, .28);
+      transition: background .25s ease, padding .25s ease, box-shadow .25s ease;
+    }
+    .lang-toggle i { font-size: 15px; }
+    .lang-toggle:hover {
+      background: var(--ts-crimson, #A80A3F);
+      padding-left: 14px;
+      padding-right: 14px;
+      box-shadow: 0 12px 30px rgba(168, 10, 63, .35);
+    }
+    .lang-toggle:focus-visible {
+      outline: 2px solid var(--ts-light-blue, #D1D8E0);
+      outline-offset: 2px;
+    }
+    @media (max-width: 576px) {
+      .lang-toggle { padding: 10px 7px; font-size: 11px; border-radius: 0 12px 12px 0; }
+      .lang-toggle i { font-size: 13px; }
+    }
+
     /* ===== PAGE HERO ===== */
     .page-hero {
       position: relative;
@@ -55,7 +122,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(209, 216, 224, 0.10) 1px, transparent 1px);
       background-size: 30px 30px;
       pointer-events: none;
       z-index: 1;
@@ -111,6 +178,7 @@
       border-color: var(--ts-crimson-dark, #83062F);
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(168, 10, 63, 0.35);
+      color: #fff;
     }
     .page-hero .hero-btn.secondary {
       background: rgba(255, 255, 255, 0.08);
@@ -122,6 +190,7 @@
       background: rgba(255, 255, 255, 0.15);
       border-color: rgba(255, 255, 255, 0.55);
       transform: translateY(-2px);
+      color: #fff;
     }
     .page-hero .page-hero__buttons {
       display: inline-flex;
@@ -156,68 +225,80 @@
       margin: 0 auto;
     }
 
-    /* ===== CONTACT FORM ===== */
+    /* ═══════════════════════════════════════════════════════
+       CONTACT FORM (light style — unified with index)
+       ═══════════════════════════════════════════════════════ */
     .contact-form-wrap {
-      background: var(--surface-1);
+      background: #ffffff;
       border: 1px solid var(--ts-border);
-      border-radius: 16px;
-      padding: 44px 40px;
+      border-radius: 14px;
+      padding: 32px;
       height: 100%;
-      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(26, 43, 71, .06);
     }
-    @media (max-width: 576px) { .contact-form-wrap { padding: 32px 24px; } }
+    [data-theme="dark"] .contact-form-wrap {
+      background: var(--surface-1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+    @media (max-width: 576px) { .contact-form-wrap { padding: 24px 20px; } }
 
     .contact-form-wrap h3 {
       color: var(--ts-navy);
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .contact-form-wrap > p {
       color: var(--ts-text-muted);
-      font-size: 14.5px;
-      margin-bottom: 28px;
+      font-size: 14px;
+      margin-bottom: 24px;
     }
 
+    /* ── Fields ── */
     .form-field {
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       display: flex;
       flex-direction: column;
     }
     .form-field label {
       color: var(--ts-navy);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       margin-bottom: 6px;
     }
-    .form-field label span { color: var(--ts-crimson); margin-right: 2px; }
+    .form-field label span { color: #dc2626; margin-inline-start: 2px; }
 
     .form-field input,
     .form-field textarea,
     .form-field select {
       width: 100%;
       padding: 12px 16px;
-      border: 1px solid var(--ts-border);
-      border-radius: 10px;
-      background: var(--surface-2);
+      border: 1.5px solid var(--ts-border);
+      border-radius: 12px;
+      background: #ffffff;
       color: var(--ts-navy);
       font-family: inherit;
       font-size: 14px;
       transition: all .2s ease;
+    }
+    [data-theme="dark"] .form-field input,
+    [data-theme="dark"] .form-field textarea,
+    [data-theme="dark"] .form-field select {
+      background: var(--surface-1);
+      color: #E6ECF5;
+      border-color: var(--ts-border);
     }
     .form-field input:focus,
     .form-field textarea:focus,
     .form-field select:focus {
       outline: none;
       border-color: var(--ts-blue);
-      background: var(--surface-1);
-      box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.12);
+      box-shadow: 0 0 0 4px rgba(46, 109, 180, .12);
     }
     .form-field input::placeholder,
     .form-field textarea::placeholder {
-      color: var(--ts-text-muted);
-      opacity: 0.6;
+      color: #94a3b8;
+      opacity: 1;
     }
     .form-field textarea {
       resize: vertical;
@@ -225,15 +306,16 @@
       line-height: 1.6;
     }
 
+    /* ── Submit button ── */
     .send-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: var(--ts-crimson);
+      background: #c21818;
       color: #fff;
       border: none;
-      border-radius: 10px;
+      border-radius: 999px;
       padding: 14px 32px;
       font-family: inherit;
       font-size: 15px;
@@ -241,11 +323,12 @@
       cursor: pointer;
       transition: all .25s ease;
       width: 100%;
+      box-shadow: 0 8px 20px rgba(194, 24, 24, .25);
     }
     .send-button:hover {
-      background: var(--ts-crimson-dark);
+      background: #a01414;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(168, 10, 63, 0.3);
+      box-shadow: 0 12px 26px rgba(194, 24, 24, .35);
     }
     .send-button:disabled {
       opacity: 0.6;
@@ -253,6 +336,7 @@
       transform: none;
     }
 
+    /* ── Form status ── */
     .form-status {
       display: none;
       padding: 12px 16px;
@@ -276,249 +360,244 @@
     }
 
     /* ===== CONTACT SIDEBAR ===== */
-    /* ===== CONTACT SIDEBAR ===== */
-.contact-sidebar-cards {
-  background: linear-gradient(160deg, var(--ts-navy) 0%, #16294a 100%);
-  border-radius: 16px;
-  padding: 36px 28px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10);
-}
+    .contact-sidebar-cards {
+      background: linear-gradient(160deg, var(--ts-navy) 0%, #16294a 100%);
+      border-radius: 16px;
+      padding: 36px 28px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10);
+    }
+    .contact-sidebar-cards::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -30%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(58, 110, 165, 0.35) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .contact-sidebar-cards > * { position: relative; z-index: 2; }
 
-.contact-sidebar-cards::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -30%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(58, 110, 165, 0.35) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.contact-sidebar-cards > * { position: relative; z-index: 2; }
+    .contact-sidebar-cards,
+    .contact-sidebar-cards h3,
+    .contact-sidebar-cards p,
+    .contact-sidebar-cards span,
+    .contact-sidebar-cards strong,
+    .contact-sidebar-cards a,
+    .contact-sidebar-cards li,
+    .contact-sidebar-cards i {
+      color: #fff;
+    }
 
-/* ── كل النصوص بيضاء ── */
-.contact-sidebar-cards,
-.contact-sidebar-cards h3,
-.contact-sidebar-cards p,
-.contact-sidebar-cards span,
-.contact-sidebar-cards strong,
-.contact-sidebar-cards a,
-.contact-sidebar-cards li,
-.contact-sidebar-cards i {
-  color: #fff;
-}
+    .sidebar-header { margin-bottom: 12px; }
+    .sidebar-header h3 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .sidebar-header p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13.5px;
+      margin: 0;
+      line-height: 1.6;
+    }
 
-.sidebar-header { margin-bottom: 12px; }
-.sidebar-header h3 {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-.sidebar-header p {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 13.5px;
-  margin: 0;
-  line-height: 1.6;
-}
+    /* ── Mini Card ── */
+    .mini-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: all .25s ease;
+      position: relative;
+      color: #fff;
+    }
+    .mini-card:hover {
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(58, 110, 165, 0.7);
+      transform: translateX(-4px);
+      color: #fff;
+    }
+    html[dir="ltr"] .mini-card:hover { transform: translateX(4px); }
 
-/* ── Mini Card ── */
-.mini-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 14px;
-  padding: 14px 16px;
-  text-decoration: none;
-  transition: all .25s ease;
-  position: relative;
-  color: #fff;
-}
-.mini-card:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(58, 110, 165, 0.7);
-  transform: translateX(-4px);
-  color: #fff;
-}
-html[dir="ltr"] .mini-card:hover { transform: translateX(4px); }
+    .mini-card--primary {
+      background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-navy) 100%);
+      border-color: transparent;
+    }
+    .mini-card--primary:hover {
+      background: linear-gradient(135deg, var(--ts-navy) 0%, #16294a 100%);
+      border-color: transparent;
+      box-shadow: 0 10px 24px rgba(58, 110, 165, 0.35);
+    }
 
-/* Primary (Hotline) — أزرق فقط */
-.mini-card--primary {
-  background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-navy) 100%);
-  border-color: transparent;
-}
-.mini-card--primary:hover {
-  background: linear-gradient(135deg, var(--ts-navy) 0%, #16294a 100%);
-  border-color: transparent;
-  box-shadow: 0 10px 24px rgba(58, 110, 165, 0.35);
-}
+    .mini-card--static { cursor: default; }
+    .mini-card--static:hover { transform: none; }
 
-.mini-card--static { cursor: default; }
-.mini-card--static:hover { transform: none; }
+    .mini-card__icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.10);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      transition: transform .25s ease;
+    }
+    .mini-card:hover .mini-card__icon {
+      transform: scale(1.08);
+      background: rgba(58, 110, 165, 0.5);
+      color: #fff;
+    }
+    .mini-card--primary .mini-card__icon {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
 
-/* ── Icon ── */
-.mini-card__icon {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.10);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  transition: transform .25s ease;
-}
-.mini-card:hover .mini-card__icon {
-  transform: scale(1.08);
-  background: rgba(58, 110, 165, 0.5);
-  color: #fff;
-}
-.mini-card--primary .mini-card__icon {
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
-}
+    .mini-card__body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-/* ── Body ── */
-.mini-card__body {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+    .mini-card__label {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .mini-card--primary .mini-card__label { color: rgba(255, 255, 255, 0.9); }
 
-.mini-card__label {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.mini-card--primary .mini-card__label { color: rgba(255, 255, 255, 0.9); }
+    .mini-card__value {
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-.mini-card__value {
-  color: #fff;
-  font-size: 14.5px;
-  font-weight: 700;
-  line-height: 1.3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    .mini-card__sub {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12.5px;
+      font-weight: 500;
+      margin-top: 2px;
+    }
 
-.mini-card__sub {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12.5px;
-  font-weight: 500;
-  margin-top: 2px;
-}
+    .mini-card__arrow {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+      transition: all .25s ease;
+      flex-shrink: 0;
+    }
+    .mini-card:hover .mini-card__arrow {
+      color: #fff;
+      transform: translateX(-4px);
+    }
+    html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px); }
 
-/* ── Arrow ── */
-.mini-card__arrow {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 14px;
-  transition: all .25s ease;
-  flex-shrink: 0;
-}
-.mini-card:hover .mini-card__arrow {
-  color: #fff;
-  transform: translateX(-4px);
-}
-html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px); }
+    /* ── Working Hours ── */
+    .hours-mini {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0 0;
+      width: 100%;
+    }
+    .hours-mini li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 5px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+    }
+    .hours-mini li:last-child { border-bottom: none; padding-bottom: 0; }
+    .hours-mini li span { color: rgba(255, 255, 255, 0.8); }
+    .hours-mini li strong { color: #fff; font-weight: 700; font-size: 12.5px; }
+    .hours-mini li strong.is-off { color: #F87171; }
 
-/* ── Working Hours ── */
-.hours-mini {
-  list-style: none;
-  padding: 0;
-  margin: 6px 0 0 0;
-  width: 100%;
-}
-.hours-mini li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 5px 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
-  font-size: 13px;
-}
-.hours-mini li:last-child { border-bottom: none; padding-bottom: 0; }
-.hours-mini li span { color: rgba(255, 255, 255, 0.8); }
-.hours-mini li strong { color: #fff; font-weight: 700; font-size: 12.5px; }
-.hours-mini li strong.is-off { color: #F87171; }
+    /* ── Sidebar Footer (Social) ── */
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .sidebar-footer__label {
+      display: block;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sidebar-footer__social { display: flex; gap: 8px; }
+    .sidebar-footer__social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      transition: all .25s ease;
+      text-decoration: none;
+    }
+    .sidebar-footer__social a:hover {
+      background: var(--ts-blue);
+      color: #fff;
+      transform: translateY(-3px);
+    }
 
-/* ── Sidebar Footer (Social) ── */
-.sidebar-footer {
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-.sidebar-footer__label {
-  display: block;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.sidebar-footer__social { display: flex; gap: 8px; }
-.sidebar-footer__social a {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  transition: all .25s ease;
-  text-decoration: none;
-}
-.sidebar-footer__social a:hover {
-  background: var(--ts-blue);
-  color: #fff;
-  transform: translateY(-3px);
-}
+    /* ===== DARK MODE — Contact Sidebar ===== */
+    [data-theme="dark"] .contact-sidebar-cards {
+      background: linear-gradient(160deg, #111C33 0%, #0A1424 100%);
+      border: 1px solid rgba(58, 110, 165, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    }
+    [data-theme="dark"] .mini-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.10);
+    }
+    [data-theme="dark"] .mini-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(58, 110, 165, 0.7);
+    }
+    [data-theme="dark"] .mini-card--primary {
+      background: linear-gradient(135deg, #2a5280 0%, #1e3d61 100%);
+    }
+    [data-theme="dark"] .mini-card--primary:hover {
+      background: linear-gradient(135deg, #1e3d61 0%, #16294a 100%);
+    }
+    [data-theme="dark"] .hours-mini li {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+    [data-theme="dark"] .sidebar-footer {
+      border-top-color: rgba(255, 255, 255, 0.10);
+    }
 
-/* ===== DARK MODE — Contact Sidebar ===== */
-[data-theme="dark"] .contact-sidebar-cards {
-  background: linear-gradient(160deg, #111C33 0%, #0A1424 100%);
-  border: 1px solid rgba(58, 110, 165, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-}
-[data-theme="dark"] .mini-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.10);
-}
-[data-theme="dark"] .mini-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(58, 110, 165, 0.7);
-}
-[data-theme="dark"] .mini-card--primary {
-  background: linear-gradient(135deg, #2a5280 0%, #1e3d61 100%);
-}
-[data-theme="dark"] .mini-card--primary:hover {
-  background: linear-gradient(135deg, #1e3d61 0%, #16294a 100%);
-}
-[data-theme="dark"] .hours-mini li {
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-[data-theme="dark"] .sidebar-footer {
-  border-top-color: rgba(255, 255, 255, 0.10);
-}    /* ===== WORLD MAP ===== */
+    /* ===== WORLD MAP ===== */
     .map-wrapper {
       background: var(--ts-navy);
       border-radius: 16px;
@@ -735,7 +814,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       border: 1px solid transparent;
       border-radius: 0.5rem;
       box-shadow: none;
-      text-align: right;
+      text-align: start;
       font-family: inherit;
       font-size: 0.9375rem;
       font-weight: 500;
@@ -782,7 +861,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       flex-direction: column;
       gap: 0.125rem;
       min-width: 0;
-      text-align: right;
+      text-align: start;
     }
     .shadcn-accordion-title {
       font-weight: 700;
@@ -807,123 +886,16 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
     }
     .shadcn-accordion .accordion-body.shadcn-accordion-content {
       padding: 0 0 1rem 0;
-      margin-right: 3.5rem;
+      margin-inline-start: 3.5rem;
       font-size: 0.9rem;
       line-height: 1.7;
       color: var(--ts-text-muted);
       background: transparent;
-      text-align: right;
+      text-align: start;
     }
     .shadcn-accordion .accordion-collapse { transition: height .25s ease; }
     @media (max-width: 575px) {
-      .shadcn-accordion .accordion-body.shadcn-accordion-content { margin-right: 0; }
-    }
-        /* ═══════════════════════════════════════════════════════
-       UNIFY CONTACT FORM WITH INDEX FORM (light style)
-       ═══════════════════════════════════════════════════════ */
-
-    /* ── Card ── */
-    .contact-form-wrap {
-      background: #ffffff;
-      border: 1px solid var(--ts-border);
-      border-radius: 14px;
-      padding: 32px;
-      height: 100%;
-      box-shadow: 0 2px 8px rgba(26, 43, 71, .06);
-    }
-    [data-theme="dark"] .contact-form-wrap {
-      background: var(--surface-1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
-    }
-
-    .contact-form-wrap h3 {
-      color: var(--ts-navy);
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .contact-form-wrap > p {
-      color: var(--ts-text-muted);
-      font-size: 14px;
-      margin-bottom: 24px;
-    }
-
-    /* ── Fields ── */
-    .form-field {
-      margin-bottom: 18px;
-    }
-    .form-field label {
-      color: var(--ts-navy);
-      font-size: 12.5px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .form-field label span { color: #dc2626; }
-
-    .form-field input,
-    .form-field textarea,
-    .form-field select {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--ts-border);
-      border-radius: 12px;
-      background: #ffffff;
-      color: var(--ts-navy);
-      font-family: inherit;
-      font-size: 14px;
-      transition: all .2s ease;
-    }
-    [data-theme="dark"] .form-field input,
-    [data-theme="dark"] .form-field textarea,
-    [data-theme="dark"] .form-field select {
-      background: var(--surface-1);
-      color: #E6ECF5;
-      border-color: var(--ts-border);
-    }
-    .form-field input:focus,
-    .form-field textarea:focus,
-    .form-field select:focus {
-      outline: none;
-      border-color: var(--ts-blue);
-      box-shadow: 0 0 0 4px rgba(46, 109, 180, .12);
-    }
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: #94a3b8;
-    }
-    .form-field textarea {
-      min-height: 130px;
-      line-height: 1.6;
-    }
-
-    /* ── Submit button — pill + bright crimson (matches index) ── */
-    .send-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #c21818;
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 14px 32px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all .25s ease;
-      width: 100%;
-      box-shadow: 0 8px 20px rgba(194, 24, 91, .25);
-    }
-    .send-button:hover {
-      background: #a01414;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(194, 24, 91, .35);
-    }
-    .send-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
+      .shadcn-accordion .accordion-body.shadcn-accordion-content { margin-inline-start: 0; }
     }
   </style>
 </head>
@@ -932,18 +904,28 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
   <div id="navbar-root"></div>
 
+  <!-- ───── LANGUAGE TOGGLE ───── -->
+  <button id="langToggle" class="lang-toggle" type="button"
+          aria-label="Switch to English" title="Switch language">
+    <i class="bi bi-translate" aria-hidden="true"></i>
+    <span class="lang-toggle__label" id="langToggleLabel">EN</span>
+  </button>
+
   <main class="main">
 
     <!-- ───── PAGE HERO ───── -->
     <section class="page-hero">
       <div class="container" data-aos="fade-up">
 
-        <span class="subtitle-tag" data-en="Contact Tech-Sat" data-ar="تواصل مع Tech-Sat">
+        <span class="subtitle-tag"
+              data-en="Contact Tech-Sat"
+              data-ar="تواصل مع Tech-Sat">
           تواصل مع Tech-Sat
         </span>
 
-        <h1 data-en="We're here to help" data-ar="نحن هنا لمساعدتك">
-          نحن هنا <strong data-en="to help" data-ar="لمساعدتك">لمساعدتك</strong>
+        <h1 data-en="We're here to help"
+            data-ar="نحن هنا لمساعدتك">
+          نحن هنا <strong>لمساعدتك</strong>
         </h1>
 
         <p data-en="Our team is available to answer your inquiries and help you choose the right satellite communication solutions for your needs."
@@ -953,13 +935,15 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
         </p>
 
         <div class="page-hero__buttons">
-          <a href="#contact" class="hero-btn primary" data-en="Contact Us" data-ar="تواصل معنا">
+          <a href="#contact" class="hero-btn primary"
+             data-en="Contact Us" data-ar="تواصل معنا">
             تواصل معنا
-            <i class="bi bi-arrow-down"></i>
+            <i class="bi bi-arrow-down" aria-hidden="true"></i>
           </a>
-          <a href="products.html" class="hero-btn secondary" data-en="Explore Products" data-ar="استكشف منتجاتنا">
+          <a href="products.html" class="hero-btn secondary"
+             data-en="Explore Products" data-ar="استكشف منتجاتنا">
             استكشف منتجاتنا
-            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-left" data-dir-icon aria-hidden="true"></i>
           </a>
         </div>
 
@@ -981,13 +965,19 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل <span>*</span></label>
-                      <input type="text" name="name" id="userName" placeholder="مثال: أحمد الشامي" data-en-placeholder="e.g. Ahmed Al-Shami" required>
+                      <input type="text" name="name" id="userName" required
+                             placeholder="مثال: أحمد الشامي"
+                             data-ar-placeholder="مثال: أحمد الشامي"
+                             data-en-placeholder="e.g. Ahmed Al-Shami">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userEmail" data-en="Email Address" data-ar="البريد الإلكتروني">البريد الإلكتروني <span>*</span></label>
-                      <input type="email" name="email" id="userEmail" placeholder="you@company.com" required>
+                      <input type="email" name="email" id="userEmail" required
+                             placeholder="you@company.com"
+                             data-ar-placeholder="you@company.com"
+                             data-en-placeholder="you@company.com">
                     </div>
                   </div>
                 </div>
@@ -996,24 +986,33 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userPhone" data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
-                      <input type="tel" name="phone" id="userPhone" placeholder="+967 7XX XXX XXX">
+                      <input type="tel" name="phone" id="userPhone"
+                             placeholder="+967 7XX XXX XXX"
+                             data-ar-placeholder="+967 7XX XXX XXX"
+                             data-en-placeholder="+967 7XX XXX XXX">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userSubject" data-en="Subject" data-ar="الموضوع">الموضوع <span>*</span></label>
-                      <input type="text" name="subject" id="userSubject" placeholder="طلب عرض سعر / استفسار" required>
+                      <input type="text" name="subject" id="userSubject" required
+                             placeholder="طلب عرض سعر / استفسار"
+                             data-ar-placeholder="طلب عرض سعر / استفسار"
+                             data-en-placeholder="Quote request / Inquiry">
                     </div>
                   </div>
                 </div>
 
                 <div class="form-field">
                   <label for="userMessage" data-en="Message" data-ar="الرسالة">الرسالة <span>*</span></label>
-                  <textarea name="message" id="userMessage" rows="5" placeholder="أخبرنا عن احتياجاتك..." required></textarea>
+                  <textarea name="message" id="userMessage" rows="5" required
+                            placeholder="أخبرنا عن احتياجاتك..."
+                            data-ar-placeholder="أخبرنا عن احتياجاتك..."
+                            data-en-placeholder="Tell us about your needs..."></textarea>
                 </div>
 
                 <button type="submit" class="send-button" id="sendBtn">
-                  <i class="bi bi-send"></i>
+                  <i class="bi bi-send" aria-hidden="true"></i>
                   <span data-en="Send Message" data-ar="إرسال الرسالة">إرسال الرسالة</span>
                 </button>
 
@@ -1028,58 +1027,59 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
               <div class="sidebar-header">
                 <h3 data-en="Contact Information" data-ar="معلومات الاتصال">معلومات الاتصال</h3>
-                <p data-en="Reach us through any of the following channels" data-ar="تواصل معنا عبر أي من القنوات التالية">تواصل معنا عبر أي من القنوات التالية</p>
+                <p data-en="Reach us through any of the following channels"
+                   data-ar="تواصل معنا عبر أي من القنوات التالية">تواصل معنا عبر أي من القنوات التالية</p>
               </div>
 
               <a href="tel:+9672396056" class="mini-card mini-card--primary">
                 <div class="mini-card__icon">
-                  <i class="bi bi-telephone-fill"></i>
+                  <i class="bi bi-telephone-fill" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Hotline" data-ar="الخط الساخن">الخط الساخن</span>
                   <span class="mini-card__value" dir="ltr">+967 2 396 056</span>
                 </div>
-                <i class="bi bi-arrow-left mini-card__arrow"></i>
+                <i class="bi bi-arrow-left mini-card__arrow" data-dir-icon aria-hidden="true"></i>
               </a>
 
               <a href="mailto:info@tech-sat.com" class="mini-card">
                 <div class="mini-card__icon">
-                  <i class="bi bi-envelope-fill"></i>
+                  <i class="bi bi-envelope-fill" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</span>
                   <span class="mini-card__value">info@tech-sat.com</span>
                 </div>
-                <i class="bi bi-arrow-left mini-card__arrow"></i>
+                <i class="bi bi-arrow-left mini-card__arrow" data-dir-icon aria-hidden="true"></i>
               </a>
 
               <a href="mailto:Sales@tech-sat.com" class="mini-card">
                 <div class="mini-card__icon">
-                  <i class="bi bi-headset"></i>
+                  <i class="bi bi-headset" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Sales Department" data-ar="قسم المبيعات">قسم المبيعات</span>
                   <span class="mini-card__value">Sales@tech-sat.com</span>
                   <span class="mini-card__sub" dir="ltr">+967 730 001 222</span>
                 </div>
-                <i class="bi bi-arrow-left mini-card__arrow"></i>
+                <i class="bi bi-arrow-left mini-card__arrow" data-dir-icon aria-hidden="true"></i>
               </a>
 
               <a href="mailto:Support@tech-sat.com" class="mini-card">
                 <div class="mini-card__icon">
-                  <i class="bi bi-tools"></i>
+                  <i class="bi bi-tools" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Technical Support" data-ar="قسم الدعم الفني">قسم الدعم الفني</span>
                   <span class="mini-card__value">Support@tech-sat.com</span>
                   <span class="mini-card__sub" dir="ltr">+967 711 188 100</span>
                 </div>
-                <i class="bi bi-arrow-left mini-card__arrow"></i>
+                <i class="bi bi-arrow-left mini-card__arrow" data-dir-icon aria-hidden="true"></i>
               </a>
 
               <div class="mini-card mini-card--static">
                 <div class="mini-card__icon">
-                  <i class="bi bi-geo-alt-fill"></i>
+                  <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Location" data-ar="الموقع">الموقع</span>
@@ -1090,7 +1090,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
               <div class="mini-card mini-card--static mini-card--hours">
                 <div class="mini-card__icon">
-                  <i class="bi bi-clock-fill"></i>
+                  <i class="bi bi-clock-fill" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
                   <span class="mini-card__label" data-en="Working Hours" data-ar="ساعات العمل">ساعات العمل</span>
@@ -1110,10 +1110,10 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
               <div class="sidebar-footer">
                 <span class="sidebar-footer__label" data-en="Follow us" data-ar="تابعنا على">تابعنا على</span>
                 <div class="sidebar-footer__social">
-                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+                  <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
                 </div>
               </div>
 
@@ -1139,10 +1139,11 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
         <div class="map-wrapper" data-aos="fade-up" data-aos-delay="100">
           <div class="map-wrapper__head">
             <h3 class="map-wrapper__title">
-              <i class="bi bi-globe2"></i>
+              <i class="bi bi-globe2" aria-hidden="true"></i>
               <span data-en="Tech-Sat · Regional Network" data-ar="شبكة Tech-Sat الإقليمية">شبكة Tech-Sat الإقليمية</span>
             </h3>
-            <span class="map-wrapper__hint" data-en="Click markers to explore locations"
+            <span class="map-wrapper__hint"
+                  data-en="Click markers to explore locations"
                   data-ar="اضغط على العلامات لاستكشاف المواقع">
               اضغط على العلامات لاستكشاف المواقع
             </span>
@@ -1168,6 +1169,7 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
 
             <div class="accordion shadcn-accordion" id="faqAccordion">
 
+              <!-- FAQ 1 -->
               <div class="accordion-item shadcn-accordion-item">
                 <h2 class="accordion-header shadcn-accordion-header">
                   <button class="accordion-button shadcn-accordion-trigger" type="button" data-bs-toggle="collapse"
@@ -1177,20 +1179,26 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-satellite"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title" data-en="What are the core services Tech-Sat provides?" data-ar="ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
-                        <span class="shadcn-accordion-subtitle" data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
+                        <span class="shadcn-accordion-title"
+                              data-en="What are the core services Tech-Sat provides?"
+                              data-ar="ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
+                        <span class="shadcn-accordion-subtitle"
+                              data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
                   </button>
                 </h2>
                 <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body shadcn-accordion-content">
+                  <div class="accordion-body shadcn-accordion-content"
+                       data-en="We provide fixed and mobile VSAT solutions, voice and data services, system integration, field services, managed networks, and 24/7 technical support. We also deliver tailored solutions for every sector according to its needs."
+                       data-ar="نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.">
                     نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.
                   </div>
                 </div>
               </div>
 
+              <!-- FAQ 2 -->
               <div class="accordion-item shadcn-accordion-item">
                 <h2 class="accordion-header shadcn-accordion-header">
                   <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
@@ -1200,20 +1208,26 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-geo-alt"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title" data-en="Do your services cover all regions of Yemen?" data-ar="هل تغطي خدماتكم جميع مناطق اليمن؟">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
-                        <span class="shadcn-accordion-subtitle" data-en="Coverage" data-ar="التغطية">التغطية</span>
+                        <span class="shadcn-accordion-title"
+                              data-en="Do your services cover all regions of Yemen?"
+                              data-ar="هل تغطي خدماتكم جميع مناطق اليمن؟">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
+                        <span class="shadcn-accordion-subtitle"
+                              data-en="Coverage" data-ar="التغطية">التغطية</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
                   </button>
                 </h2>
                 <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body shadcn-accordion-content">
+                  <div class="accordion-body shadcn-accordion-content"
+                       data-en="Yes. Our coverage includes all Yemeni governorates in addition to neighboring countries such as Saudi Arabia, Djibouti, and Oman. We use Ku-Band and C-Band technologies to ensure comprehensive coverage even in the most remote areas."
+                       data-ar="نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.">
                     نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.
                   </div>
                 </div>
               </div>
 
+              <!-- FAQ 3 -->
               <div class="accordion-item shadcn-accordion-item">
                 <h2 class="accordion-header shadcn-accordion-header">
                   <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
@@ -1223,20 +1237,26 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-tools"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title" data-en="How long does VSAT installation take?" data-ar="كم يستغرق تركيب نظام VSAT؟">كم يستغرق تركيب نظام VSAT؟</span>
-                        <span class="shadcn-accordion-subtitle" data-en="Installation" data-ar="التركيب">التركيب</span>
+                        <span class="shadcn-accordion-title"
+                              data-en="How long does VSAT installation take?"
+                              data-ar="كم يستغرق تركيب نظام VSAT؟">كم يستغرق تركيب نظام VSAT؟</span>
+                        <span class="shadcn-accordion-subtitle"
+                              data-en="Installation" data-ar="التركيب">التركيب</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
                   </button>
                 </h2>
                 <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body shadcn-accordion-content">
+                  <div class="accordion-body shadcn-accordion-content"
+                       data-en="Installation usually takes 24 to 48 hours depending on the client's location and the type of system. In urban areas it may be completed within a single working day, while mountainous or remote areas may require additional time."
+                       data-ar="يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.">
                     يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.
                   </div>
                 </div>
               </div>
 
+              <!-- FAQ 4 -->
               <div class="accordion-item shadcn-accordion-item">
                 <h2 class="accordion-header shadcn-accordion-header">
                   <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
@@ -1246,20 +1266,26 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-headset"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title" data-en="Do you offer 24/7 technical support?" data-ar="هل توفرون دعمًا فنيًا على مدار الساعة؟">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
-                        <span class="shadcn-accordion-subtitle" data-en="Support" data-ar="الدعم الفني">الدعم الفني</span>
+                        <span class="shadcn-accordion-title"
+                              data-en="Do you offer 24/7 technical support?"
+                              data-ar="هل توفرون دعمًا فنيًا على مدار الساعة؟">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
+                        <span class="shadcn-accordion-subtitle"
+                              data-en="Support" data-ar="الدعم الفني">الدعم الفني</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
                   </button>
                 </h2>
                 <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body shadcn-accordion-content">
+                  <div class="accordion-body shadcn-accordion-content"
+                       data-en="Yes. Our technical support team is available 24/7/365 via phone, email, and live chat. We also provide on-site support when needed, and we guarantee a response within 24 hours at most."
+                       data-ar="نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.">
                     نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.
                   </div>
                 </div>
               </div>
 
+              <!-- FAQ 5 -->
               <div class="accordion-item shadcn-accordion-item">
                 <h2 class="accordion-header shadcn-accordion-header">
                   <button class="accordion-button collapsed shadcn-accordion-trigger" type="button"
@@ -1269,15 +1295,20 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
                         <i class="bi bi-file-earmark-text"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title" data-en="How can I get a custom quote?" data-ar="كيف أحصل على عرض سعر مخصص؟">كيف أحصل على عرض سعر مخصص؟</span>
-                        <span class="shadcn-accordion-subtitle" data-en="Pricing" data-ar="الأسعار">الأسعار</span>
+                        <span class="shadcn-accordion-title"
+                              data-en="How can I get a custom quote?"
+                              data-ar="كيف أحصل على عرض سعر مخصص؟">كيف أحصل على عرض سعر مخصص؟</span>
+                        <span class="shadcn-accordion-subtitle"
+                              data-en="Pricing" data-ar="الأسعار">الأسعار</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
                   </button>
                 </h2>
                 <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body shadcn-accordion-content">
+                  <div class="accordion-body shadcn-accordion-content"
+                       data-en="Contact us through the contact form or by phone, and our sales team will analyze your requirements and send a customized quote within 24 hours. The first consultation is completely free."
+                       data-ar="تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.">
                     تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.
                   </div>
                 </div>
@@ -1290,14 +1321,148 @@ html[dir="ltr"] .mini-card:hover .mini-card__arrow { transform: translateX(4px);
       </div>
     </section>
 
-
   </main>
 
   <div id="footer-root"></div>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
   </a>
+
+  <!-- ═══════════════════════════════════════════════════
+       i18n ENGINE — English / Arabic
+       ═══════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'techsat-lang';
+      var DEFAULT_LANG = 'ar';
+      var root = document.documentElement;
+
+      var META = {
+        ar: {
+          title: 'تواصل معنا — Tech-Sat',
+          desc: 'تواصل مع Tech-Sat — فريقنا جاهز للإجابة على استفساراتك على مدار الساعة.',
+          toggleLabel: 'EN',
+          toggleAria: 'Switch to English'
+        },
+        en: {
+          title: 'Contact Us — Tech-Sat',
+          desc: 'Contact Tech-Sat — our team is ready to answer your inquiries around the clock.',
+          toggleLabel: 'ع',
+          toggleAria: 'التبديل إلى العربية'
+        }
+      };
+
+      function getLang() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'ar' || saved === 'en') return saved;
+        } catch (e) { /* ignore */ }
+        return DEFAULT_LANG;
+      }
+
+      function setLang(lang) {
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+      }
+
+      /* Flip directional arrow icons (RTL ⟷ LTR) */
+      function swapArrowIcons(dir) {
+        var icons = document.querySelectorAll('[data-dir-icon]');
+        for (var i = 0; i < icons.length; i++) {
+          var el = icons[i];
+          el.classList.remove('bi-arrow-left', 'bi-arrow-right');
+          el.classList.add(dir === 'rtl' ? 'bi-arrow-left' : 'bi-arrow-right');
+        }
+      }
+
+      /* Apply a language to the whole document */
+      function applyLang(lang) {
+        var isAr = lang === 'ar';
+        var dir = isAr ? 'rtl' : 'ltr';
+
+        root.setAttribute('lang', lang);
+        root.setAttribute('dir', dir);
+
+        /* 1. Text content */
+        var textEls = document.querySelectorAll('[data-en]');
+        for (var i = 0; i < textEls.length; i++) {
+          var el = textEls[i];
+          var val = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null && val !== undefined) el.innerHTML = val;
+        }
+
+        /* 2. Placeholders */
+        var phEls = document.querySelectorAll('[data-en-placeholder]');
+        for (var j = 0; j < phEls.length; j++) {
+          var pEl = phEls[j];
+          var ph = isAr ? pEl.getAttribute('data-ar-placeholder')
+                        : pEl.getAttribute('data-en-placeholder');
+          if (ph !== null && ph !== undefined) pEl.setAttribute('placeholder', ph);
+        }
+
+        /* 3. Directional icons */
+        swapArrowIcons(dir);
+
+        /* 4. Document metadata */
+        var m = META[lang] || META.ar;
+        document.title = m.title;
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', m.desc);
+
+        /* 5. Toggle button */
+        var btn = document.getElementById('langToggle');
+        var lbl = document.getElementById('langToggleLabel');
+        if (btn) btn.setAttribute('aria-label', m.toggleAria);
+        if (lbl) lbl.textContent = m.toggleLabel;
+
+        /* 6. Notify other scripts (map.js, contact.js, …) */
+        try {
+          document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { lang: lang, dir: dir }
+          }));
+        } catch (e) {
+          /* CustomEvent not supported — fall back to a plain event */
+          var evt = document.createEvent('Event');
+          evt.initEvent('languageChanged', true, true);
+          evt.detail = { lang: lang, dir: dir };
+          document.dispatchEvent(evt);
+        }
+      }
+
+      /* Toggle handler */
+      function initToggle() {
+        var btn = document.getElementById('langToggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var next = getLang() === 'ar' ? 'en' : 'ar';
+          setLang(next);
+          applyLang(next);
+        });
+      }
+
+      /* Boot */
+      function boot() {
+        applyLang(getLang());
+        initToggle();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+
+      /* Public API for other page scripts */
+      window.TechSatI18n = {
+        get lang() { return getLang(); },
+        get dir() { return root.getAttribute('dir'); },
+        set: function (l) { setLang(l); applyLang(l); },
+        t: function (ar, en) { return getLang() === 'ar' ? ar : en; }
+      };
+    })();
+  </script>
 
   <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
