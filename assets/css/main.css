@@ -909,7 +909,7 @@ section,
  */
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
   position: relative;
 }
 
@@ -3868,7 +3868,7 @@ section,
 # Starter Section Section
  */
 .starter-section {
-  /* Add your styles here */
+  min-height: 1px;
 }
 
 /* 
@@ -5631,3 +5631,495 @@ body.quote-modal-open {
 
 /* إخفاء القديم لو موجود بالـ id القديم */
 #scrollTop { display: none !important; }
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE FIX — Page Hero + Footer + Panels
+   ─────────────────────────────────────────────────────────
+   المشكلة: في [data-theme="dark"]، تصبح --ts-navy و--palette-dark-navy
+   لونَين فاتحَين (من palette.css). لكن العناصر التالية تستخدمها كخلفيات
+   داكنة، فينتج نص أبيض على خلفية فاتحة = غير مرئي.
+   الحل: تثبيت خلفية داكنة ثابتة لهذه العناصر في الوضع الليلي فقط.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Page Hero (كل الصفحات الفرعية) ─── */
+[data-theme="dark"] .page-hero {
+  background: #0F1729 !important;
+}
+
+
+/* ─── Home Hero (index) ─── */
+[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, #0F1729 0%, #1A2540 100%) !important;
+}
+
+/* ─── Footer ─── */
+[data-theme="dark"] .footer-hw {
+  background: #0F1729 !important;
+  color: rgba(255, 255, 255, .8) !important;
+}
+[data-theme="dark"] .footer-hw h6,
+[data-theme="dark"] .footer-hw .hw-logo,
+[data-theme="dark"] .footer-hw strong {
+  color: #fff !important;
+}
+[data-theme="dark"] .footer-hw p,
+[data-theme="dark"] .footer-hw li,
+[data-theme="dark"] .footer-hw span,
+[data-theme="dark"] .footer-hw a,
+[data-theme="dark"] .footer-hw .footer-link,
+[data-theme="dark"] .footer-hw .footer-contact-item {
+  color: rgba(255, 255, 255, .72) !important;
+}
+[data-theme="dark"] .footer-hw a:hover,
+[data-theme="dark"] .footer-hw .footer-link:hover {
+  color: var(--ts-crimson) !important;
+}
+[data-theme="dark"] .footer-hw .footer-link i {
+  color: var(--ts-crimson) !important;
+}
+[data-theme="dark"] .footer-hw .footer-contact-item .ic {
+  background: #1E293B !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .newsletter-input {
+  background: rgba(255, 255, 255, .08) !important;
+}
+[data-theme="dark"] .newsletter-input input {
+  color: #fff !important;
+}
+[data-theme="dark"] .newsletter-input input::placeholder {
+  color: rgba(255, 255, 255, .5) !important;
+}
+[data-theme="dark"] .newsletter-note {
+  color: rgba(255, 255, 255, .55) !important;
+}
+[data-theme="dark"] .footer-designed-by {
+  border-top-color: rgba(255, 255, 255, .1) !important;
+}
+[data-theme="dark"] .footer-designed-by__text {
+  color: rgba(255, 255, 255, .85) !important;
+}
+[data-theme="dark"] .footer-designed-by__name {
+  color: rgba(255, 255, 255, .55) !important;
+}
+
+/* ─── Contact Sidebar (صفحة التواصل) ─── */
+[data-theme="dark"] .contact-sidebar-cards {
+  background: linear-gradient(160deg, #111C33 0%, #0A1424 100%) !important;
+}
+
+/* ─── Stats Band ─── */
+[data-theme="dark"] .stats-band {
+  background: linear-gradient(135deg, #1A2540 0%, #0F1729 100%) !important;
+}
+
+/* ─── Testimonials Section ─── */
+[data-theme="dark"] .testi-section {
+  background: linear-gradient(135deg, #0F1729 0%, #1A2540 100%) !important;
+}
+
+/* ─── World Map Wrapper (صفحة التواصل) ─── */
+[data-theme="dark"] .map-wrapper {
+  background: #0F1729 !important;
+}
+
+/* ─── CTA Banner (يبقى crimson في الليلي — لا حاجة لتعديله) ─── */
+/* ═══════════════════════════════════════════════════════════
+   FIXES — Section Titles / Cards / Outline Button / Sub text
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── .section-sub (غير معرّفة في main.css — كان يستخدم لون افتراضي) ─── */
+.section-sub {
+  color: var(--ts-text-muted);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+[data-theme="dark"] .section-sub {
+  color: #94A3B8 !important;
+}
+
+/* ─── .section-title (h2/h3 + p) — الوضع الليلي ─── */
+[data-theme="dark"] .section-title h1,
+[data-theme="dark"] .section-title h2,
+[data-theme="dark"] .section-title h3,
+[data-theme="dark"] h1.section-title,
+[data-theme="dark"] h2.section-title,
+[data-theme="dark"] h3.section-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .section-title p {
+  color: #94A3B8 !important;
+}
+
+/* ─── البطاقات (contact-card, about-card, why-card, cause-card...) ─── */
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .cause-card,
+[data-theme="dark"] .vol-card {
+  background: #111C33 !important;
+  border-color: #2A3A5C !important;
+}
+
+/* نصوص داخل البطاقات */
+[data-theme="dark"] .contact-card h1,
+[data-theme="dark"] .contact-card h2,
+[data-theme="dark"] .contact-card h3,
+[data-theme="dark"] .contact-card h4,
+[data-theme="dark"] .contact-card h5,
+[data-theme="dark"] .contact-card h6,
+[data-theme="dark"] .about-card h1,
+[data-theme="dark"] .about-card h2,
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .about-card h4,
+[data-theme="dark"] .about-card h5,
+[data-theme="dark"] .about-card h6,
+[data-theme="dark"] .why-card h1,
+[data-theme="dark"] .why-card h2,
+[data-theme="dark"] .why-card h3,
+[data-theme="dark"] .why-card h4,
+[data-theme="dark"] .why-card h5,
+[data-theme="dark"] .why-card h6 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-card p,
+[data-theme="dark"] .contact-card span,
+[data-theme="dark"] .contact-card li,
+[data-theme="dark"] .contact-card strong,
+[data-theme="dark"] .about-card p,
+[data-theme="dark"] .about-card span,
+[data-theme="dark"] .about-card li,
+[data-theme="dark"] .about-card strong,
+[data-theme="dark"] .why-card p,
+[data-theme="dark"] .why-card span,
+[data-theme="dark"] .why-card li,
+[data-theme="dark"] .why-card strong {
+  color: #E6ECF5 !important;
+}
+
+/* النصوص الرمادية تبقى باهتة */
+[data-theme="dark"] .contact-card .text-muted,
+[data-theme="dark"] .about-card .text-muted,
+[data-theme="dark"] .why-card .text-muted,
+[data-theme="dark"] .contact-card .small,
+[data-theme="dark"] .about-card .small,
+[data-theme="dark"] .why-card .small {
+  color: #94A3B8 !important;
+}
+
+/* ─── About list (index) ─── */
+[data-theme="dark"] .about-list li {
+  border-bottom-color: #2A3A5C !important;
+}
+
+[data-theme="dark"] .about-list strong {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .about-list .ic {
+  background: #1E293B !important;
+  color: #E6ECF5 !important;
+}
+
+/* ─── .hero-lead (index) ─── */
+[data-theme="dark"] .hero-lead {
+  color: #94A3B8 !important;
+}
+
+/* ─── .btn-hw-outline — غير معرّفة في main.css! أضفها كاملة ─── */
+.btn-hw-outline {
+  background: transparent;
+  color: var(--ts-navy);
+  border: 1.5px solid var(--ts-border);
+  border-radius: 999px;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  text-decoration: none;
+  transition: all .25s ease;
+  font-size: .93rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-hw-outline:hover {
+  color: var(--ts-blue);
+  border-color: var(--ts-blue);
+  background: transparent;
+  transform: translateY(-2px);
+}
+
+.btn-hw-outline i {
+  font-size: 1em;
+  color: inherit;
+}
+
+/* Dark mode */
+[data-theme="dark"] .btn-hw-outline,
+[data-theme="dark"] a.btn-hw-outline {
+  background: transparent !important;
+  color: #E6ECF5 !important;
+  border-color: #3A4A68 !important;
+}
+
+[data-theme="dark"] .btn-hw-outline:hover,
+[data-theme="dark"] a.btn-hw-outline:hover {
+  color: var(--ts-crimson) !important;
+  border-color: var(--ts-crimson) !important;
+  background: transparent !important;
+}
+
+/* ─── Forms (contact.html) — Dark mode ─── */
+[data-theme="dark"] .contact-form-wrap {
+  background: #111C33 !important;
+  border-color: #2A3A5C !important;
+}
+
+[data-theme="dark"] .contact-form-wrap h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-form-wrap > p {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .form-field label {
+  color: #E6ECF5 !important;
+}
+
+[data-theme="dark"] .form-field input,
+[data-theme="dark"] .form-field textarea,
+[data-theme="dark"] .form-field select {
+  color: #E6ECF5 !important;
+  background: #0F1729 !important;
+  border-color: #2A3A5C !important;
+}
+
+[data-theme="dark"] .form-field input::placeholder,
+[data-theme="dark"] .form-field textarea::placeholder {
+  color: #6B7B98 !important;
+}
+
+[data-theme="dark"] .form-field input:focus,
+[data-theme="dark"] .form-field textarea:focus,
+[data-theme="dark"] .form-field select:focus {
+  background: #0F1729 !important;
+  border-color: var(--ts-blue) !important;
+}
+
+/* ─── Section--alt (خلفية بديلة) ─── */
+[data-theme="dark"] .section--alt {
+  background: #0A1424 !important;
+}
+
+/* ─── FAQ Accordion — Dark mode ─── */
+[data-theme="dark"] .shadcn-accordion-title,
+[data-theme="dark"] .shadcn-accordion .accordion-button {
+  color: #E6ECF5 !important;
+}
+
+[data-theme="dark"] .shadcn-accordion-subtitle,
+[data-theme="dark"] .shadcn-accordion-content {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .shadcn-accordion .accordion-item {
+  border-bottom-color: #2A3A5C !important;
+}
+
+[data-theme="dark"] .shadcn-accordion-icon {
+  border-color: #2A3A5C !important;
+}
+
+/* ─── .bg-white (index sections) — Dark mode ─── */
+[data-theme="dark"] .bg-white {
+  background: #0F1729 !important;
+}
+
+/* ─── Testimonials cards ─── */
+[data-theme="dark"] .testi-name {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .testi-role {
+  color: rgba(255, 255, 255, .7) !important;
+}
+/* ═══════════════════════════════════════════════════════════
+   HERO TEXT — Dark mode visibility fix
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── .page-hero (contact + sub-pages) ─── */
+[data-theme="dark"] .page-hero p,
+[data-theme="dark"] .page-hero .page-hero__content p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .page-hero h1 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .page-hero h1 strong {
+  color: var(--ts-crimson) !important;
+}
+
+[data-theme="dark"] .page-hero .subtitle-tag {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ─── .about-hero ─── */
+[data-theme="dark"] .about-hero p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .about-hero h1 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .about-hero h1 strong {
+  color: var(--ts-crimson) !important;
+}
+
+[data-theme="dark"] .about-hero .eyebrow {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ─── .hero (index) ─── */
+[data-theme="dark"] .hero p,
+[data-theme="dark"] .hero-lead {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-theme="dark"] .hero-title {
+  color: #ffffff !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE — shared fallback for every page
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --background-color: #0f1729;
+  --default-color: #e6ecf5;
+  --heading-color: #ffffff;
+  --surface-color: #111c33;
+  --contrast-color: #ffffff;
+  --nav-dropdown-background-color: #111c33;
+  --nav-dropdown-color: #e6ecf5;
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] section,
+[data-theme="dark"] .section,
+[data-theme="dark"] main,
+[data-theme="dark"] .page-title {
+  background-color: #0f1729;
+  color: #e6ecf5;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .card,
+[data-theme="dark"] label,
+[data-theme="dark"] .form-label {
+  color: #ffffff;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] .text-muted {
+  color: #c5d0e2;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .accordion-item,
+[data-theme="dark"] .list-group-item,
+[data-theme="dark"] .table,
+[data-theme="dark"] .bg-light,
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: #111c33;
+  color: #e6ecf5;
+  border-color: #2a3a5c;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .table > :not(caption) > * > *,
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom {
+  border-color: #2a3a5c !important;
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .header {
+  background-color: #0f1729 !important;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .navmenu a,
+[data-theme="dark"] .navbar a,
+[data-theme="dark"] .dropdown-item {
+  color: #e6ecf5;
+}
+
+[data-theme="dark"] .navmenu ul,
+[data-theme="dark"] .dropdown-menu {
+  background-color: #111c33;
+  border-color: #2a3a5c;
+}
+
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(1) brightness(2);
+}
+
+[data-theme="dark"] a:hover,
+[data-theme="dark"] .navmenu a:hover,
+[data-theme="dark"] .dropdown-item:hover {
+  color: var(--ts-crimson, #a80a3f);
+}
+/* ═══════════════════════════════════════════════════════════
+   NAVBAR — Force FIXED positioning (stays on scroll)
+   ═══════════════════════════════════════════════════════════ */
+
+.navbar-hw,
+.navbar-hw.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1030 !important;
+}
+
+/* ─── Shadow عند التمرير ─── */
+.navbar-hw.scrolled,
+.navbar-hw.is-scrolled {
+  box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10) !important;
+}
+
+/* ─── Dark mode shadow ─── */
+[data-theme="dark"] .navbar-hw.scrolled,
+[data-theme="dark"] .navbar-hw.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}

@@ -64,32 +64,43 @@
 
     /* ═══ FILTER TABS ═══ */
     .filter-tabs {
-      display: flex; justify-content: center; align-items: center;
-      gap: 40px; margin-bottom: 56px; padding-bottom: 16px;
-      border-bottom: 1px solid var(--ts-border);
-      position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 30px;
     }
-    .filter-tabs::-webkit-scrollbar { display: none; }
     .filter-tab {
-      position: relative; background: transparent; border: none;
-      padding: 8px 0; font-family: inherit; font-size: 15px; font-weight: 500;
-      color: var(--ts-text-muted); cursor: pointer; white-space: nowrap;
-      transition: color .25s ease;
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--ts-border);
+      border-radius: 30px;
+      color: var(--ts-text-muted);
+      padding: 10px 24px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s ease;
     }
-    .filter-tab:hover { color: var(--ts-navy); }
-    [data-theme="dark"] .filter-tab:hover { color: #fff; }
-    .filter-tab.active { color: var(--ts-navy); font-weight: 700; }
-    [data-theme="dark"] .filter-tab.active { color: #fff; }
-    .filter-tab::after {
-      content: ''; position: absolute; bottom: -17px; left: 0; right: 0;
-      height: 2px; background: var(--ts-blue);
-      transform: scaleX(0); transform-origin: center;
-      transition: transform .3s ease;
+    .filter-tab:not(.active):hover {
+      background: var(--surface-2);
+      color: var(--ts-blue);
+      border-color: var(--ts-blue);
+      transform: translateY(-2px);
     }
-    .filter-tab.active::after { transform: scaleX(1); }
-    @media (max-width: 768px) {
-      .filter-tabs { gap: 24px; justify-content: flex-start; padding: 0 4px 16px; }
-      .filter-tab { font-size: 14px; }
+    .filter-tab.active,
+    .filter-tab.active:hover,
+    .filter-tab.active:focus {
+      background: var(--ts-blue) !important;
+      color: #ffffff !important;
+      border-color: var(--ts-blue) !important;
+      box-shadow: 0 6px 18px rgba(46, 109, 180, 0.20);
+      transform: translateY(-1px);
+    }
+    [data-theme="dark"] .filter-tab.active {
+      color: #ffffff !important;
     }
 
     /* ═══ INDUSTRY CARD ═══ */

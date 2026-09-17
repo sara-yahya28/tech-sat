@@ -10,7 +10,7 @@
      NAVBAR TEMPLATE — flat links, no dropdowns
   ───────────────────────────────────────────────────────── */
   var NAVBAR_TPL = '' +
-    '<nav class="navbar navbar-expand-lg navbar-hw" id="mainNav">' +
+    '<nav class="navbar navbar-expand-lg navbar-hw fixed-top" id="mainNav">' +
       '<div class="container">' +
 
         '<a class="hw-logo" href="index.html" aria-label="Tech-Sat">' +
@@ -137,8 +137,6 @@
           '<div class="col-md-6 col-lg-2">' +
             '<h6 data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</h6>' +
             '<div class="footer-contact-item">' +
-              '<span class="ic"><i class="bi bi-geo-alt-fill"></i></span>' +
-              '<span data-en="Aden, Yemen" data-ar="عدن، اليمن">Aden, Yemen</span>' +
             '</div>' +
             '<div class="footer-contact-item">' +
               '<span class="ic"><i class="bi bi-envelope-fill"></i></span>' +
@@ -158,20 +156,6 @@
             '</div>' +
           '</div>' +
 
-        '</div>' +
-
-        /* ─── Newsletter ─── */
-        '<div class="row mt-3">' +
-          '<div class="col-md-6">' +
-            '<h6 data-en="Newsletter" data-ar="النشرة البريدية">Newsletter</h6>' +
-            '<div class="newsletter-input">' +
-              '<input type="email" placeholder="Your email address" aria-label="Email for newsletter" ' +
-                'data-en="Your email address" data-ar="بريدك الإلكتروني">' +
-              '<button type="button" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>' +
-            '</div>' +
-            '<div class="newsletter-note">' +
-            '</div>' +
-          '</div>' +
         '</div>' +
 
         /* ─── Designed By ─── */
@@ -301,6 +285,21 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  function keepNavbarFixed() {
+    var navbar = document.getElementById('mainNav');
+    if (!navbar) return;
+
+    navbar.classList.add('fixed-top');
+
+    function updateNavbar() {
+      navbar.classList.toggle('is-scrolled', window.scrollY > 0);
+    }
+
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  }
+
   function init() {
     var navRoot  = document.getElementById('navbar-root');
     var footRoot = document.getElementById('footer-root');
@@ -310,6 +309,7 @@
 
     markActiveNav();
     rebindChromeControls();
+    keepNavbarFixed();
     injectScrollTop();
     document.dispatchEvent(new Event('layoutReady'));
   }

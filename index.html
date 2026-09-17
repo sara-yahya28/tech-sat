@@ -20,6 +20,9 @@
   <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <link rel="icon" type="image/x-icon" href="assets/satellite-dish.png">
   <style>
     /* لا نعيد تعريف --ts-* — تأتي من palette.css */
@@ -72,7 +75,7 @@
     section { position: relative; }
 
     /* ---------- TOGGLES ---------- */
-    
+
 /* ---------- SERVICE CARD (matches services.html / industries.html) ---------- */
 .service-card {
   background: var(--clr-bg-alt);
@@ -174,7 +177,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   align-self: flex-start;
 }
 .service-card:hover .service-card__cta { gap: 10px; }
-   
+
     /* ---------- HERO ---------- */
     .hero {
       position: relative;
@@ -582,15 +585,41 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
       flex-shrink: 0;
     }
     [data-theme="dark"] .contact-info-item .ic { background: #1E293B; color: #fff; }
-    .map-placeholder {
-      background: var(--ts-blue-light);
-      border-radius: var(--radius);
-      padding: 2.5rem 1rem;
-      text-align: center;
-      color: var(--ts-blue-dark);
+
+    /* ═══════════════════════════════════════════════════════
+       MINI MAP — small location preview inside contact card
+       ═══════════════════════════════════════════════════════ */
+    .mini-map {
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
       margin-top: 1rem;
+      border: 2px solid var(--clr-border);
+      background: #0a1225;
+      z-index: 1;
     }
-    [data-theme="dark"] .map-placeholder { background: #1E293B; color: #E6ECF5; }
+    [data-theme="dark"] .mini-map {
+      border-color: #2A3A5C;
+      background: #0F1729;
+    }
+
+    .mini-map .leaflet-control-attribution {
+      font-size: 8px !important;
+      background: rgba(11, 29, 51, 0.7) !important;
+      color: var(--ts-light-blue) !important;
+      padding: 1px 4px !important;
+    }
+    .mini-map .leaflet-control-attribution a {
+      color: var(--ts-blue) !important;
+    }
+    .mini-map .leaflet-control-zoom {
+      display: none !important;
+    }
+
+    @media (max-width: 576px) {
+      .mini-map { height: 180px; }
+    }
 
     /* ---------- FOOTER ---------- */
         /* ---------- MOBILE STICKY ---------- */
@@ -792,6 +821,193 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
         justify-content: center !important;
       }
     }
+
+    /* ═══════════════════════════════════════════════════════
+       WORLD MAP — same styling as contact.html
+       ═══════════════════════════════════════════════════════ */
+    .map-wrapper {
+      background: var(--ts-navy);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.10);
+    }
+    [data-theme="dark"] .map-wrapper { background: #0F172A; }
+
+    .map-wrapper__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      color: #fff;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .map-wrapper__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .map-wrapper__title i { color: var(--ts-crimson); }
+    .map-wrapper__hint {
+      font-size: 12px;
+      color: var(--ts-light-blue);
+      opacity: 0.75;
+    }
+
+    #map {
+      width: 100%;
+      height: 520px;
+      border-radius: 12px;
+      border: 2px solid rgba(58, 110, 165, 0.3);
+      background: #0a1225;
+      z-index: 1;
+    }
+    @media (max-width: 768px) { #map { height: 400px; } }
+
+    /* ─── Custom Markers ─── */
+    .custom-marker { position: relative; width: 24px; height: 24px; }
+    .custom-marker__ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(58, 110, 165, 0.6);
+      animation: mapPulse 1.8s ease-out infinite;
+    }
+    .custom-marker__dot {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--ts-blue);
+      border: 2px solid #fff;
+      box-shadow: 0 0 12px rgba(58, 110, 165, 0.9);
+    }
+    .custom-marker--hq .custom-marker__ring { background: rgba(209, 216, 224, 0.5); }
+    .custom-marker--hq .custom-marker__dot {
+      width: 20px; height: 20px;
+      background: var(--ts-light-blue);
+      box-shadow: 0 0 25px rgba(209, 216, 224, 1);
+    }
+    .custom-marker--branch .custom-marker__ring { background: rgba(255, 165, 0, 0.55); }
+    .custom-marker--branch .custom-marker__dot {
+      width: 18px; height: 18px;
+      background: #FFA500;
+      box-shadow: 0 0 18px rgba(255, 165, 0, 1);
+    }
+    .custom-marker--ourhq .custom-marker__ring { background: rgba(168, 10, 63, 0.6); }
+    .custom-marker--ourhq .custom-marker__dot {
+      width: 20px; height: 20px;
+      background: var(--ts-crimson);
+      box-shadow: 0 0 22px rgba(168, 10, 63, 1);
+    }
+    .custom-marker--hub .custom-marker__ring { background: rgba(58, 110, 165, 0.5); }
+
+    @keyframes mapPulse {
+      0%   { transform: scale(0.6); opacity: 0.9; }
+      100% { transform: scale(2.6); opacity: 0; }
+    }
+
+    /* ─── Popup ─── */
+    .leaflet-popup-content-wrapper {
+      background: var(--ts-navy);
+      color: #fff;
+      border-radius: 12px;
+      border: 1px solid rgba(58, 110, 165, 0.5);
+      box-shadow: 0 10px 30px rgba(11, 29, 51, 0.4);
+    }
+    [data-theme="dark"] .leaflet-popup-content-wrapper {
+      background: #111C33;
+      border-color: rgba(58, 110, 165, 0.35);
+    }
+    .leaflet-popup-tip {
+      background: var(--ts-navy);
+      border: 1px solid rgba(58, 110, 165, 0.5);
+    }
+    [data-theme="dark"] .leaflet-popup-tip {
+      background: #111C33;
+      border-color: rgba(58, 110, 165, 0.35);
+    }
+    .leaflet-popup-close-button { color: var(--ts-light-blue) !important; }
+    .leaflet-popup-content {
+      margin: 14px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    [dir="rtl"] .leaflet-popup-content { direction: rtl; text-align: right; }
+    [dir="ltr"] .leaflet-popup-content { direction: ltr; text-align: left; }
+
+    .map-popup__title {
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .map-popup__country {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ts-crimson);
+      margin-bottom: 6px;
+    }
+    .map-popup__desc {
+      font-size: 12.5px;
+      color: var(--ts-light-blue);
+      line-height: 1.65;
+      opacity: 0.9;
+      white-space: normal;
+    }
+    .map-popup__desc a { color: var(--ts-crimson); text-decoration: none; }
+    .map-popup__desc a:hover { text-decoration: underline; }
+    .map-popup__badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 800;
+      border-radius: 999px;
+      letter-spacing: .4px;
+    }
+    .map-popup__badge--hq      { background: var(--ts-light-blue); color: var(--ts-navy); }
+    .map-popup__badge--branch  { background: #FFA500; color: #0B1D33; }
+    .map-popup__badge--ourhq   { background: var(--ts-crimson); color: #fff; }
+
+    /* ─── Zoom + Attribution ─── */
+    .leaflet-control-zoom a {
+      background: var(--ts-navy) !important;
+      color: #fff !important;
+      border: 1px solid rgba(58, 110, 165, 0.5) !important;
+    }
+    .leaflet-control-zoom a:hover { background: var(--ts-blue) !important; }
+    [data-theme="dark"] .leaflet-control-zoom a {
+      background: #111C33 !important;
+      border-color: rgba(58, 110, 165, 0.35) !important;
+    }
+    .leaflet-control-attribution {
+      background: rgba(11, 29, 51, 0.85) !important;
+      color: var(--ts-light-blue) !important;
+      font-size: 10px !important;
+    }
+    .leaflet-control-attribution a { color: var(--ts-blue) !important; }
+
+    .supply-line-tooltip {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      color: #FFA500 !important;
+      font-weight: 800;
+      font-size: 11px;
+      text-shadow: 0 0 10px rgba(0,0,0,.6);
+    }
+    .supply-line-tooltip::before { display: none !important; }
   </style>
 </head>
 
@@ -916,7 +1132,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad" id="services">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:700px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
           data-en="Complete suite of satellite services" data-ar="مجموعة كاملة من الخدمات الفضائية">
           Complete suite of satellite services
         </h2>
@@ -1016,7 +1232,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad bg-white" id="products">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:700px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
           data-en="Complete range of satellite products" data-ar="مجموعة كاملة من المنتجات الفضائية">
           Complete range of satellite products
         </h2>
@@ -1188,7 +1404,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad" id="industries">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:640px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
           data-en="Tailored solutions for every industry" data-ar="حلول مخصصة لكل قطاع">
           Tailored solutions for every industry
         </h2>
@@ -1360,7 +1576,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad bg-white" id="why">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:640px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
           data-en="A solution partner you can rely on" data-ar="شريك حلول يمكنك الاعتماد عليه">A solution partner you
           can rely on</h2>
       </div>
@@ -1437,7 +1653,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
     <div class="container">
       <div class="contact-card">
         <div class="text-center mx-auto mb-5" style="max-width:640px;" data-aos="fade-up">
-          <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+          <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
             data-en="From first call to full support" data-ar="من أول اتصال إلى الدعم الكامل">From first call to full
             support</h2>
         </div>
@@ -1479,7 +1695,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad bg-white" id="clients">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:640px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);" data-en="Trusted across sectors"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);" data-en="Trusted across sectors"
           data-ar="موثوقون في كل القطاعات">Trusted across sectors</h2>
       </div>
       <div class="row g-4">
@@ -1542,7 +1758,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
     <div class="container">
       <div class="testi-section p-4 p-md-5" data-aos="zoom-in">
         <div class="text-center mx-auto mb-5" style="max-width:600px;">
-          <h2 class="section-title mt-3 text-white" style="font-size:clamp(1.7rem,3vw,2.3rem);"
+          <h2 class="section-title mt-1 text-white" style="font-size:clamp(1.7rem,3vw,2.3rem);"
             data-en="What our clients say" data-ar="ماذا يقول عملاؤنا">What our clients say</h2>
         </div>
         <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -1692,7 +1908,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
           </div>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
-          <h2 class="section-title mt-3 mb-3" style="font-size:clamp(1.7rem,3vw,2.4rem);"
+          <h2 class="section-title mt-1 mb-3" style="font-size:clamp(1.7rem,3vw,2.4rem);"
             data-en="We connect the unconnected." data-ar="نربط ما لا يمكن ربطه.">
             We connect the unconnected.
           </h2>
@@ -1761,7 +1977,7 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
   <section class="section-pad bg-white" id="contact">
     <div class="container">
       <div class="text-center mx-auto mb-5" style="max-width:640px;" data-aos="fade-up">
-        <h2 class="section-title mt-3" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
+        <h2 class="section-title mt-1" style="font-size:clamp(1.8rem,3.2vw,2.5rem);"
           data-en="Request service or ask a question" data-ar="اطلب الخدمة أو اطرح سؤالاً">Request service or ask a
           question</h2>
       </div>
@@ -1797,8 +2013,9 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
               <div class="text-muted small">00967-2-396056</div>
             </div>
           </div>
-          <div class="map-placeholder"><i class="bi bi-pin-map-fill me-2"></i> <span data-en="Map Embed Placeholder"
-              data-ar="مكان الخريطة">Map Embed Placeholder</span></div>
+
+          <!-- MINI MAP — location preview -->
+          <div id="miniMap" class="mini-map" aria-label="Tech-Sat headquarters location"></div>
         </div>
         <div class="col-lg-7" data-aos="fade-left">
           <div class="contact-card">
@@ -1890,7 +2107,15 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Shared navbar + footer -->
   <script src="assets/js/navbar-footer.js"></script>
+
+  <!-- Map script -->
+  <script src="assets/js/map.js"></script>
 
   <script>
     (function () {
@@ -2004,6 +2229,63 @@ box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
 
       /* ---------- AOS ---------- */
       if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+    })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MINI MAP — Tech-Sat HQ (Aden, Yemen)
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      function initMiniMap() {
+        var el = document.getElementById('miniMap');
+        if (!el || !window.L) return;
+        if (el._leaflet_id) return;   /* منع التكرار */
+
+        var hqLat = 12.7855;
+        var hqLng = 45.0187;
+
+        var map = L.map(el, {
+          center: [hqLat, hqLng],
+          zoom: 11,
+          zoomControl: false,
+          scrollWheelZoom: false,
+          dragging: false,
+          doubleClickZoom: false,
+          touchZoom: false,
+          boxZoom: false,
+          keyboard: false,
+          attributionControl: true
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap',
+          maxZoom: 18
+        }).addTo(map);
+
+        var icon = L.divIcon({
+          className: '',
+          html: '<div class="custom-marker custom-marker--ourhq">' +
+                  '<span class="custom-marker__ring"></span>' +
+                  '<span class="custom-marker__dot"></span>' +
+                '</div>',
+          iconSize: [24, 24],
+          iconAnchor: [12, 12]
+        });
+
+        L.marker([hqLat, hqLng], { icon: icon }).addTo(map)
+          .bindPopup('<strong>Tech-Sat HQ</strong><br>Aden, Yemen');
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMiniMap);
+      } else {
+        initMiniMap();
+      }
+      window.addEventListener('load', initMiniMap);
+      document.addEventListener('layoutReady', initMiniMap);
     })();
   </script>
 
