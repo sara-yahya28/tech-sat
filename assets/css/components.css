@@ -4,41 +4,45 @@
 
 /* ─── Buttons ─── */
 .btn-primary {
-  background: var(--ts-blue);
+  background: var(--ts-crimson);
   color: #fff;
   border: none;
-  padding: 12px 28px;
+  padding: 12px 26px;
+  min-width: 160px;
   border-radius: 10px;
   font-weight: 700;
   transition: all .25s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
-
 .btn-primary:hover {
-  background: var(--ts-navy);
-  box-shadow: var(--ts-glow);
+  background: var(--ts-crimson-dark);
+  box-shadow: var(--ts-glow-crimson);
   color: #fff;
+  transform: translateY(-2px);
 }
+.btn-primary i { font-size: var(--icon-sm); line-height: 1; }
 
 .btn-outline {
   background: transparent;
-  color: var(--ts-blue);
-  border: 2px solid var(--ts-blue);
-  padding: 12px 28px;
+  color: var(--ts-navy);
+  border: 2px solid var(--ts-navy);
+  padding: 12px 26px;
+  min-width: 160px;
   border-radius: 10px;
   font-weight: 700;
   transition: all .25s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
-
 .btn-outline:hover {
-  background: var(--ts-blue);
+  background: var(--ts-navy);
   color: #fff;
 }
 
@@ -1282,3 +1286,377 @@
 }
 
 .ts-rounded { border-radius: 16px; }
+/* ═══════════════════════════════════════════════
+   ICON SYSTEM — unified sizing & alignment
+   Rule: icons use ONLY --icon-sm/md/lg/xl.
+   Rule: icon always sits on the first text line.
+   ═══════════════════════════════════════════════ */
+
+/* Icon inside a heading row */
+.icon-row {
+  display: flex;
+  align-items: flex-start;   /* top-align with first line of text */
+  gap: var(--space-3);
+}
+.icon-row > i,
+.icon-row > .icon-box {
+  flex-shrink: 0;
+  margin-top: 4px;           /* optical alignment with first line */
+  font-size: var(--icon-md);
+  line-height: 1;
+  color: var(--ts-crimson);  /* accent — stands out against navy text */
+}
+
+/* Square icon boxes (cards, stats, industries) */
+.icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--ts-crimson-soft);
+  color: var(--ts-crimson);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--icon-lg);
+  flex-shrink: 0;
+}
+.icon-box--sm { width: 48px; height: 48px; font-size: var(--icon-md); }
+.icon-box--lg { width: 80px; height: 80px; font-size: var(--icon-xl); }
+
+/* Inline icons inside paragraphs/lists */
+p > i, li > i, span > i {
+  font-size: 1em;
+  vertical-align: -0.1em;
+  margin-inline-end: 6px;
+  color: var(--ts-crimson);
+}
+
+/* List with check icon */
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--ts-navy);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.icon-list li::before {
+  content: '\F26E';                 /* bootstrap-icons check */
+  font-family: 'bootstrap-icons';
+  color: var(--ts-crimson);
+  font-size: var(--icon-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ═══ APPENDED — v2 ADDITIONS ═══
+   Icon system, trust strip, modal repositioning, logo, theme btn
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Icon system ───────────────────────────────────────── */
+.icon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.icon-row > i,
+.icon-row > .icon-box {
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: var(--icon-md);
+  line-height: 1;
+  color: var(--ts-crimson);
+}
+.icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--ts-crimson-soft);
+  color: var(--ts-crimson);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--icon-lg);
+  flex-shrink: 0;
+}
+.icon-box--sm { width: 48px; height: 48px; font-size: var(--icon-md); }
+.icon-box--lg { width: 80px; height: 80px; font-size: var(--icon-xl); }
+
+p > i, li > i, span > i {
+  font-size: 1em;
+  vertical-align: -0.1em;
+  margin-inline-end: 6px;
+  color: var(--ts-crimson);
+}
+
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--ts-navy);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.icon-list li::before {
+  content: '\F26E';
+  font-family: 'bootstrap-icons';
+  color: var(--ts-crimson);
+  font-size: var(--icon-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── Section rhythm ────────────────────────────────────── */
+.ts-section        { padding: var(--section-y) 0; }
+.ts-section--alt   { background: var(--surface-2); }
+.ts-section--black { background: var(--surface-black); color: var(--palette-light-blue); }
+
+/* ─── Trust strip ───────────────────────────────────────── */
+.ts-trust-strip {
+  background: var(--surface-2);
+  border-block: 1px solid var(--ts-border);
+  padding: var(--space-6) 0;
+}
+.ts-trust-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.ts-trust-strip__partner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--ts-navy);
+  font-weight: 700;
+  font-size: 15px;
+}
+.ts-trust-strip__partner i {
+  font-size: var(--icon-lg);
+  color: var(--ts-crimson);
+}
+.ts-trust-strip__numbers {
+  display: flex;
+  gap: var(--space-7);
+  flex-wrap: wrap;
+}
+.ts-trust-strip__num { text-align: center; }
+.ts-trust-strip__num strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ts-navy);
+  line-height: 1;
+}
+.ts-trust-strip__num span {
+  display: block;
+  font-size: 12px;
+  color: var(--ts-text-muted);
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 768px) {
+  .ts-trust-strip__inner   { justify-content: center; text-align: center; }
+  .ts-trust-strip__numbers { gap: var(--space-5); justify-content: center; }
+}
+
+/* ─── Black CTA variant ─────────────────────────────────── */
+.ts-cta--black {
+  background: var(--surface-black);
+  border: 1px solid rgba(209, 216, 224, 0.08);
+}
+.ts-cta--black .ts-cta__badge {
+  background: var(--ts-crimson-soft);
+  color: var(--ts-crimson);
+}
+.ts-cta--black .ts-cta__title { color: #fff; }
+.ts-cta--black .ts-cta__desc  { color: var(--palette-light-blue); }
+
+/* ─── Modal — repositioned ──────────────────────────────── */
+.ts-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 29, 51, 0.65);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+.ts-modal.is-open { opacity: 1; visibility: visible; }
+
+.ts-modal__content {
+  position: relative;
+  background: var(--surface-1);
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--ts-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  transform: scale(.95);
+  transition: transform .3s ease;
+}
+.ts-modal.is-open .ts-modal__content { transform: scale(1); }
+
+.ts-modal__close {
+  position: absolute;
+  top: 14px;
+  inset-inline-end: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(11, 29, 51, 0.65);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease;
+}
+.ts-modal__close:hover { background: var(--ts-crimson); }
+
+.ts-modal__chat-cta {
+  position: absolute;
+  bottom: 16px;
+  inset-inline-start: 16px;
+  background: var(--ts-crimson);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: var(--ts-glow-crimson);
+  transition: all .25s ease;
+}
+.ts-modal__chat-cta:hover {
+  background: var(--ts-crimson-dark);
+  transform: translateY(-2px);
+}
+.ts-modal__chat-cta i { font-size: var(--icon-sm); }
+
+.ts-modal__instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--ts-border);
+  color: var(--ts-text-muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.ts-modal__instagram:hover { color: var(--ts-crimson); }
+.ts-modal__instagram i { font-size: var(--icon-sm); color: var(--ts-crimson); }
+
+/* ─── Logo — consistent header placement ────────────────── */
+.ts-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 44px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.ts-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.ts-logo__mark {
+  color: var(--ts-crimson);
+  font-size: 22px;
+  line-height: 1;
+}
+.ts-logo__text {
+  color: var(--ts-navy);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+@media (max-width: 768px) {
+  .ts-logo      { height: 36px; }
+  .ts-logo img  { height: 32px; }
+  .ts-logo__text { font-size: 16px; }
+}
+.ts-logo--light .ts-logo__text { color: #fff; }
+.ts-logo--light .ts-logo__mark { color: var(--ts-crimson); }
+
+/* ─── Theme toggle button ───────────────────────────────── */
+.ts-theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--ts-border);
+  color: var(--ts-navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: var(--icon-sm);
+  transition: all .2s ease;
+}
+.ts-theme-btn:hover {
+  background: var(--ts-crimson-soft);
+  color: var(--ts-crimson);
+  border-color: var(--ts-crimson);
+}
+[data-theme="dark"] .ts-theme-btn i::before { content: '\F5A2'; }
+/* ═══════════════════════════════════════════════════════════
+   INJECTED CONTENT FADE-IN
+   Used for JS-injected cards — avoids AOS timing issues
+   ═══════════════════════════════════════════════════════════ */
+
+.ts-inject {
+  animation: tsInjectFade .55s ease both;
+}
+
+@keyframes tsInjectFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Safety net: any [data-aos] that AOS missed should still be visible */
+[data-aos]:not(.aos-animate):not(.aos-init) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-inject { animation: none; opacity: 1; }
+}
