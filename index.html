@@ -22,24 +22,17 @@
 
   <link rel="icon" type="image/x-icon" href="assets/satellite-dish.png">
   <style>
+    /* لا نعيد تعريف --ts-* — تأتي من palette.css */
     :root {
-      --ts-white: #FFFFFF;
-      --ts-blue-light: #DCE3F0;
-      --ts-blue: #2E6DB4;
-      --ts-blue-dark: #1A2B47;
-      --ts-gray-light: #E8E8E8;
-      --ts-pink: #c21818;
-      --ts-black: #0A0A0A;
-
       --clr-primary: var(--ts-blue);
-      --clr-primary-dark: var(--ts-blue-dark);
-      --clr-accent: var(--ts-pink);
-      --clr-accent-dark: #8e0e0e;
+      --clr-primary-dark: var(--ts-navy);
+      --clr-accent: var(--ts-crimson);
+      --clr-accent-dark: var(--ts-crimson-dark);
       --clr-bg: #F4F7FC;
-      --clr-bg-alt: var(--ts-white);
-      --clr-text: var(--ts-blue-dark);
+      --clr-bg-alt: var(--palette-white);
+      --clr-text: var(--ts-navy);
       --clr-text-muted: #5A6B85;
-      --clr-border: var(--ts-blue-light);
+      --clr-border: var(--ts-light-blue);
 
       --shadow-sm: 0 2px 8px rgba(26, 43, 71, .06);
       --shadow-md: 0 8px 24px rgba(26, 43, 71, .10);
@@ -54,7 +47,6 @@
       --clr-text: #E6ECF5;
       --clr-text-muted: #94A3B8;
       --clr-border: #1E293B;
-      --ts-blue-light: #1E293B;
     }
 
     * { box-sizing: border-box; }
@@ -80,63 +72,7 @@
     section { position: relative; }
 
     /* ---------- TOGGLES ---------- */
-    .ts-toggle {
-      border: 1px solid var(--clr-border);
-      background: transparent;
-      color: var(--clr-text);
-      border-radius: 999px;
-      padding: .35rem .75rem;
-      font-size: .8rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-    .ts-toggle:hover {
-      background: var(--clr-primary);
-      color: #fff;
-      border-color: var(--clr-primary);
-    }
-    [data-theme="dark"] .ts-toggle { border-color: #334155; }
-
-    /* ---------- PRELOADER ---------- */
-    #preloader {
-      position: fixed;
-      inset: 0;
-      background: var(--ts-blue-dark);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity .5s ease, visibility .5s ease;
-    }
-    #preloader.hide { opacity: 0; visibility: hidden; }
-    .preload-ring {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, .15);
-      border-top-color: var(--ts-pink);
-      animation: spin 1s linear infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .preload-heart {
-      color: var(--ts-pink);
-      animation: spin 1s linear infinite reverse;
-      font-size: 1.4rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .preload-text {
-      margin-top: 1.5rem;
-      letter-spacing: 3px;
-      font-size: .8rem;
-      opacity: .7;
-    }
+    
 /* ---------- SERVICE CARD (matches services.html / industries.html) ---------- */
 .service-card {
   background: var(--clr-bg-alt);
@@ -238,114 +174,7 @@
   align-self: flex-start;
 }
 .service-card:hover .service-card__cta { gap: 10px; }
-    /* ---------- NAVBAR ---------- */
-    .navbar-hw {
-      background: rgba(255, 255, 255, .95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--clr-border);
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      padding: .75rem 0;
-      transition: box-shadow .3s ease;
-    }
-    .navbar-hw.scrolled { box-shadow: var(--shadow-sm); }
-    [data-theme="dark"] .navbar-hw { background: rgba(15, 23, 42, .95); }
-
-    .navbar-hw .nav-link {
-      color: var(--clr-text);
-      font-weight: 500;
-      padding: .5rem .85rem;
-      font-size: .9rem;
-      transition: color .2s ease;
-    }
-    .navbar-hw .nav-link:hover,
-    .navbar-hw .nav-link.active,
-    .navbar-hw .nav-link.show { color: var(--clr-accent); }
-
-    .hw-logo {
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: var(--ts-blue-dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-family: 'Poppins', sans-serif;
-    }
-    .hw-logo .dot { color: var(--ts-pink); }
-    .hw-logo-mark {
-      width: 38px; height: 38px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-blue-dark) 100%);
-      color: #fff;
-      font-size: 1.05rem;
-    }
-    [data-theme="dark"] .hw-logo { color: #fff; }
-
-    /* ---------- BUTTONS ---------- */
-    .btn-hw-primary {
-      background: var(--ts-pink);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: .75rem 1.5rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      text-decoration: none;
-      transition: .25s ease;
-      box-shadow: 0 8px 20px rgba(194, 24, 91, .25);
-      font-size: .93rem;
-    }
-    .btn-hw-primary:hover {
-      background: var(--clr-accent-dark);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(194, 24, 91, .35);
-    }
-    .btn-hw-outline {
-      background: transparent;
-      color: var(--clr-text);
-      border: 1.5px solid var(--clr-border);
-      border-radius: 999px;
-      padding: .75rem 1.5rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      text-decoration: none;
-      transition: .25s ease;
-      font-size: .93rem;
-    }
-    .btn-hw-outline:hover {
-      border-color: var(--clr-primary);
-      color: var(--clr-primary);
-    }
-    .btn-cta {
-      background: #fff;
-      color: var(--ts-pink);
-      border: none;
-      border-radius: 999px;
-      padding: .9rem 2rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      cursor: pointer;
-      transition: .25s ease;
-      text-decoration: none;
-    }
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      color: var(--clr-accent-dark);
-    }
-
+   
     /* ---------- HERO ---------- */
     .hero {
       position: relative;
@@ -742,8 +571,7 @@
       border-bottom: 1px solid var(--clr-border);
     }
     .contact-info-item:last-of-type { border-bottom: none; }
-    .contact-info-item .ic,
-    .footer-contact-item .ic {
+    .contact-info-item .ic{
       width: 40px; height: 40px;
       border-radius: 12px;
       background: var(--ts-blue-light);
@@ -753,8 +581,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    [data-theme="dark"] .contact-info-item .ic,
-    [data-theme="dark"] .footer-contact-item .ic { background: #1E293B; color: #fff; }
+    [data-theme="dark"] .contact-info-item .ic { background: #1E293B; color: #fff; }
     .map-placeholder {
       background: var(--ts-blue-light);
       border-radius: var(--radius);
@@ -766,130 +593,7 @@
     [data-theme="dark"] .map-placeholder { background: #1E293B; color: #E6ECF5; }
 
     /* ---------- FOOTER ---------- */
-    .footer-hw {
-      background: var(--ts-blue-dark);
-      color: rgba(255, 255, 255, .8);
-      padding-top: 60px;
-      position: relative;
-    }
-    .footer-hw h6 {
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: .95rem;
-    }
-    .footer-hw p { color: rgba(255, 255, 255, .72); }
-    .footer-wave { display: block; width: 100%; margin-top: -1px; }
-    .footer-link {
-      color: rgba(255, 255, 255, .72);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      padding: .25rem 0;
-      font-size: .85rem;
-      transition: .2s ease;
-    }
-    .footer-link:hover { color: var(--ts-pink); }
-    .footer-link i { font-size: .65rem; color: var(--ts-pink); }
-    .footer-hw ul { list-style: none; padding: 0; margin: 0; }
-    .footer-social { display: flex; gap: .6rem; flex-wrap: wrap; }
-    .footer-social a {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .08);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: .25s ease;
-    }
-    .footer-social a:hover {
-      background: var(--ts-pink);
-      transform: translateY(-2px);
-    }
-    .footer-badges {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .footer-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      background: rgba(255, 255, 255, .08);
-      color: rgba(255, 255, 255, .85);
-      border-radius: 999px;
-      padding: .35rem .8rem;
-      font-size: .72rem;
-    }
-    .footer-badge i { color: var(--ts-pink); }
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .4rem 0;
-      color: rgba(255, 255, 255, .8);
-      font-size: .88rem;
-    }
-    .newsletter-input {
-      display: flex;
-      background: rgba(255, 255, 255, .08);
-      border-radius: 999px;
-      padding: .25rem .25rem .25rem 1rem;
-      align-items: center;
-      margin-top: .5rem;
-    }
-    .newsletter-input input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: #fff;
-      outline: none;
-      font-size: .85rem;
-    }
-    .newsletter-input input::placeholder { color: rgba(255, 255, 255, .5); }
-    .newsletter-input button {
-      background: var(--ts-pink);
-      color: #fff;
-      border: none;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: .25s ease;
-    }
-    .newsletter-input button:hover { background: var(--clr-accent-dark); }
-    .newsletter-note {
-      font-size: .72rem;
-      color: rgba(255, 255, 255, .55);
-      margin-top: .5rem;
-    }
-    .footer-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, .1);
-      margin: 40px 0 20px;
-    }
-    .footer-bottom {
-      font-size: .85rem;
-      color: rgba(255, 255, 255, .65);
-      padding-bottom: 24px;
-    }
-    .footer-bottom a { color: rgba(255, 255, 255, .8); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--ts-pink); }
-    .footer-bottom-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .footer-payments {
-      display: flex;
-      gap: .9rem;
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, .7);
-    }
-
-    /* ---------- MOBILE STICKY ---------- */
+        /* ---------- MOBILE STICKY ---------- */
     .mobile-donate-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
