@@ -447,3 +447,163 @@
     setTimeout(function () { map.invalidateSize(); }, 150);
   });
 })();
+(function () {
+  'use strict';
+
+  /* ═══════════════ LAYOUT READY ═══════════════ */
+  function init() {
+    var html = document.documentElement;
+
+    /* ---------- THEME ---------- */
+    var themeBtn = document.getElementById('themeToggle');
+    var themeIcon = document.getElementById('themeIcon');
+    var savedTheme = localStorage.getItem('ts-theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    if (themeIcon) themeIcon.className = savedTheme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
+
+    if (themeBtn && !themeBtn.dataset.bound) {
+      themeBtn.dataset.bound = '1';
+      themeBtn.addEventListener('click', function () {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ts-theme', next);
+        if (themeIcon) themeIcon.className = next === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
+      });
+    }
+
+    /* ---------- LANGUAGE ---------- */
+    var langBtn = document.getElementById('langToggle');
+    var langLabel = document.getElementById('langLabel');
+
+    function applyLang(lang) {
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      if (langLabel) langLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
+
+      document.querySelectorAll('[data-en][data-ar]').forEach(function (el) {
+        var val = el.getAttribute('data-' + lang);
+        if (val === null) return;
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else if (el.tagName === 'OPTION') {
+          el.textContent = val;
+        } else {
+          el.textContent = val;
+        }
+      });
+      localStorage.setItem('ts-lang', lang);
+    }
+
+    applyLang(localStorage.getItem('ts-lang') || 'ar');
+
+    if (langBtn && !langBtn.dataset.bound) {
+      langBtn.dataset.bound = '1';
+      langBtn.addEventListener('click', function () {
+        var next = html.getAttribute('lang') === 'ar' ? 'en' : 'ar';
+        applyLang(next);
+      });
+    }
+
+    /* ---------- NAVBAR SHADOW ---------- */
+    var nav = document.getElementById('mainNav');
+    if (nav && !nav.dataset.bound) {
+      nav.dataset.bound = '1';
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+      });
+    }
+
+    /* ---------- SCROLL SPY ---------- */
+    var sections = document.querySelectorAll('section[id], header[id]');
+    var navLinks = document.querySelectorAll('.nav-hw .nav-link[href^="#"]');
+    if (sections.length && navLinks.length) {
+      window.addEventListener('scroll', function () {
+        var current = '';
+        sections.forEach(function (s) {
+          var top = s.offsetTop - 140;
+          if (window.scrollY >= top) current = s.id;
+        });
+        navLinks.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+        });
+      });
+    }
+
+    /* ---------- SCROLL TOP ---------- */
+    var topBtn = document.getElementById('scrollTop');
+    if (topBtn && !topBtn.dataset.bound) {
+      topBtn.dataset.bound = '1';
+      window.addEventListener('scroll', function () {
+        topBtn.classList.toggle('show', window.scrollY > 400);
+      });
+      topBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* ---------- COUNTERS ---------- */
+    var counters = document.querySelectorAll('.counter');
+    if (counters.length && !counters[0].dataset.counted) {
+      counters[0].dataset.counted = '1';
+
+      function runCounters() {
+        counters.forEach(function (c) {
+          var target = +c.dataset.target;
+          var current = 0;
+          var step = target / 60;
+          var timer = setInterval(function () {
+            current += step;
+            if (current >= target) { current = target; clearInterval(timer); }
+            c.textContent = Math.floor(current).toLocaleString();
+          }, 20);
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { runCounters(); io.disconnect(); }
+          });
+        }, { threshold: 0.4 });
+        io.observe(counters[0]);
+      } else {
+        runCounters();
+      }
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    var form = document.getElementById('contactForm');
+    if (form && !form.dataset.bound) {
+      form.dataset.bound = '1';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var status = document.getElementById('formStatus');
+        if (status) {
+          status.innerHTML = '<div style="color:#c21818;font-weight:600;padding:.75rem;background:rgba(194,24,24,.08);border-radius:10px;">Thank you. We will contact you shortly.</div>';
+        }
+        form.reset();
+      });
+    }
+  }
+
+  /* شغّل init كل مرة الـ layout يخلص تحميل */
+  document.addEventListener('layoutReady', init);
+
+  /* احتياط: لو layoutReady فات قبل ما main.js يحمّل */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(init, 100); });
+  } else {
+    setTimeout(init, 100);
+  }
+
+  /* ---------- PRELOADER ---------- */
+  window.addEventListener('load', function () {
+    var pre = document.getElementById('preloader');
+    if (pre) setTimeout(function () { pre.classList.add('hide'); }, 400);
+  });
+
+  /* ---------- AOS ---------- */
+  window.addEventListener('load', function () {
+    if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+  });
+})();

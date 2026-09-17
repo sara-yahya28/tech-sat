@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>القطاعات — Tech-Sat</title>
+  <meta name="description" content="القطاعات التي نخدمها — حكومي، إنساني، إعلام، طاقة، مؤسسات، وبحري.">
+
+   <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="assets/css/palette.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* ═══ PAGE HERO ═══ */
+    .page-hero {
+      position: relative; overflow: hidden;
+      min-height: 65vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff;
+      padding: 140px 0 100px;
+      background: var(--ts-navy);
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 29, 51, 0.75), rgba(11, 29, 51, 0.75)),
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&h=900&fit=crop&auto=format');
+      background-size: cover; background-position: center;
+      background-repeat: no-repeat; z-index: 0;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none; z-index: 1;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+    .page-hero h1 {
+      color: #fff; font-size: 52px; font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+    .page-hero p {
+      color: var(--ts-light-blue); font-size: 17px;
+      max-width: 720px; margin: 0 auto; line-height: 1.7;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 768px) {
+      .page-hero { min-height: 55vh; padding: 120px 0 80px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p  { font-size: 15px; }
+    }
+
+    /* ═══ FILTER TABS ═══ */
+    .filter-tabs {
+      display: flex; justify-content: center; align-items: center;
+      gap: 40px; margin-bottom: 56px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--ts-border);
+      position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .filter-tabs::-webkit-scrollbar { display: none; }
+    .filter-tab {
+      position: relative; background: transparent; border: none;
+      padding: 8px 0; font-family: inherit; font-size: 15px; font-weight: 500;
+      color: var(--ts-text-muted); cursor: pointer; white-space: nowrap;
+      transition: color .25s ease;
+    }
+    .filter-tab:hover { color: var(--ts-navy); }
+    [data-theme="dark"] .filter-tab:hover { color: #fff; }
+    .filter-tab.active { color: var(--ts-navy); font-weight: 700; }
+    [data-theme="dark"] .filter-tab.active { color: #fff; }
+    .filter-tab::after {
+      content: ''; position: absolute; bottom: -17px; left: 0; right: 0;
+      height: 2px; background: var(--ts-blue);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform .3s ease;
+    }
+    .filter-tab.active::after { transform: scaleX(1); }
+    @media (max-width: 768px) {
+      .filter-tabs { gap: 24px; justify-content: flex-start; padding: 0 4px 16px; }
+      .filter-tab { font-size: 14px; }
+    }
+
+    /* ═══ INDUSTRY CARD ═══ */
+    .service-card {
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all .3s ease;
+      box-shadow: 0 4px 20px rgba(11,29,51,0.04);
+      text-decoration: none;
+      color: inherit;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11,29,51,0.1);
+      color: inherit;
+    }
+    .service-card__image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #0d1a2d 100%);
+    }
+    .service-card__image img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform .5s ease;
+    }
+    .service-card:hover .service-card__image img {
+      transform: scale(1.08);
+    }
+    .service-card__image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,29,51,0) 40%, rgba(11,29,51,0.65) 100%);
+      pointer-events: none;
+    }
+    .service-card__icon-overlay {
+      position: absolute;
+      bottom: 16px;
+      inset-inline-start: 16px;
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--ts-crimson);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
+      z-index: 2;
+    }
+    .service-card__tag {
+      position: absolute;
+      top: 14px;
+      inset-inline-end: 14px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      color: var(--ts-navy);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+    [data-theme="dark"] .service-card__tag {
+      background: rgba(17, 28, 51, .92);
+      color: #fff;
+    }
+    .service-card__body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-card__body h5 {
+      color: var(--ts-navy);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .service-card__body h5 { color: #fff; }
+    .service-card__body p {
+      color: var(--ts-text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .service-card__cta {
+      color: var(--ts-blue);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s ease;
+      align-self: flex-start;
+    }
+    .service-card:hover .service-card__cta { gap: 10px; }
+
+    .section { padding: 60px 0; }
+        /* ═══ CTA BANNER ═══ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--ts-crimson) 0%, var(--ts-crimson-dark) 100%);
+      border-radius: 22px;
+      color: #fff;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 48px rgba(168, 10, 63, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .cta-banner > * { position: relative; z-index: 2; }
+    .cta-banner h2 {
+      color: #fff;
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.3;
+    }
+    .cta-banner i.bi-broadcast {
+      color: #fff;
+      opacity: .9;
+    }
+
+    .btn-cta {
+      background: #fff;
+      color: var(--ts-crimson);
+      border: none;
+      border-radius: 999px;
+      padding: .9rem 2rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      cursor: pointer;
+      transition: .25s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,.2);
+      color: var(--ts-crimson-dark);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar-root"></div>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+      <div class="container" data-aos="fade-up">
+        <h1 data-en="Industries We Serve" data-ar="القطاعات التي نخدمها">القطاعات التي نخدمها</h1>
+        <p data-en="From secure government networks to remote energy sites and live media broadcasts — tailored satellite connectivity for every sector."
+           data-ar="من الشبكات الحكومية الآمنة إلى مواقع الطاقة النائية والبث الإعلامي المباشر — اتصالات فضائية مخصصة لكل قطاع.">
+          من الشبكات الحكومية الآمنة إلى مواقع الطاقة النائية والبث الإعلامي المباشر — اتصالات فضائية مخصصة لكل قطاع.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ GRID ═══ -->
+    <section class="section">
+      <div class="container">
+
+        <div class="filter-tabs" data-aos="fade-up" role="tablist">
+          <button class="filter-tab active" data-filter="all"         role="tab" data-en="All Industries" data-ar="كل القطاعات">كل القطاعات</button>
+          <button class="filter-tab"        data-filter="government"  role="tab" data-en="Government"     data-ar="حكومي">حكومي</button>
+          <button class="filter-tab"        data-filter="humanitarian" role="tab" data-en="Humanitarian"  data-ar="إنساني">إنساني</button>
+          <button class="filter-tab"        data-filter="media"       role="tab" data-en="Media"          data-ar="إعلام">إعلام</button>
+          <button class="filter-tab"        data-filter="energy"      role="tab" data-en="Energy"         data-ar="طاقة">طاقة</button>
+          <button class="filter-tab"        data-filter="enterprise"  role="tab" data-en="Enterprise"     data-ar="مؤسسات">مؤسسات</button>
+          <button class="filter-tab"        data-filter="maritime"    role="tab" data-en="Maritime"       data-ar="بحري">بحري</button>
+        </div>
+
+        <div class="row g-4" id="industriesGrid">
+
+          <!-- 1. Government -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="government" data-aos="fade-up">
+            <a href="details.html?type=industry&id=government" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Government" data-ar="حكومي">حكومي</span>
+                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&h=420&fit=crop&auto=format" alt="Government" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-bank"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Government Solutions" data-ar="حلول القطاع الحكومي">حلول القطاع الحكومي</h5>
+                <p data-en="Secure, flexible and rapidly deployable communications for defense, emergency response and public institutions."
+                   data-ar="اتصالات آمنة ومرنة وقابلة للنشر السريع للدفاع والاستجابة للطوارئ والمؤسسات العامة.">
+                  اتصالات آمنة ومرنة وقابلة للنشر السريع للدفاع والاستجابة للطوارئ والمؤسسات العامة.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 2. Humanitarian -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="humanitarian" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=industry&id=humanitarian" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Humanitarian" data-ar="إنساني">إنساني</span>
+                <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&h=420&fit=crop&auto=format" alt="Humanitarian" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-heart-pulse-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Humanitarian Solutions" data-ar="الحلول الإنسانية">الحلول الإنسانية</h5>
+                <p data-en="Rapidly deployable connectivity for frontline teams in crisis zones and extreme conditions."
+                   data-ar="اتصالات قابلة للنشر السريع لفرق الميدان في مناطق الأزمات والظروف القصوى.">
+                  اتصالات قابلة للنشر السريع لفرق الميدان في مناطق الأزمات والظروف القصوى.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 3. Media -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="media" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=industry&id=media" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Media" data-ar="إعلام">إعلام</span>
+                <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&h=420&fit=crop&auto=format" alt="Media" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-broadcast"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Media Solutions" data-ar="حلول الإعلام">حلول الإعلام</h5>
+                <p data-en="Live reporting and SNG systems for broadcasters covering breaking news on the move."
+                   data-ar="أنظمة البث المباشر وSNG للقنوات الإخبارية أثناء التنقل.">
+                  أنظمة البث المباشر وSNG للقنوات الإخبارية أثناء التنقل.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 4. Energy -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="energy" data-aos="fade-up">
+            <a href="details.html?type=industry&id=energy" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Energy" data-ar="طاقة">طاقة</span>
+                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=420&fit=crop&auto=format" alt="Energy" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-lightning-charge-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Energy Solutions" data-ar="حلول الطاقة">حلول الطاقة</h5>
+                <p data-en="Fixed and mobile satellite services, SCADA/M2M and systems integration for remote energy sites."
+                   data-ar="خدمات فضائية ثابتة ومتنقلة، SCADA/M2M وتكامل الأنظمة لمواقع الطاقة النائية.">
+                  خدمات فضائية ثابتة ومتنقلة، SCADA/M2M وتكامل الأنظمة لمواقع الطاقة النائية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 5. Enterprise -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="enterprise" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=industry&id=enterprise" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Enterprise" data-ar="مؤسسات">مؤسسات</span>
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=420&fit=crop&auto=format" alt="Enterprise" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-buildings"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Enterprise Solutions" data-ar="حلول المؤسسات">حلول المؤسسات</h5>
+                <p data-en="Keep remote offices connected to email, calls and critical business applications — anywhere."
+                   data-ar="أبقِ مكاتبك النائية متصلة بالبريد والمكالمات والتطبيقات الحيوية في أي مكان.">
+                  أبقِ مكاتبك النائية متصلة بالبريد والمكالمات والتطبيقات الحيوية في أي مكان.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 6. Maritime -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="maritime" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=industry&id=maritime" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Maritime" data-ar="بحري">بحري</span>
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=420&fit=crop&auto=format" alt="Maritime" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-water"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Maritime Solutions" data-ar="الحلول البحرية">الحلول البحرية</h5>
+                <p data-en="Reliable, cost-effective voice and data connectivity on board, on any ocean."
+                   data-ar="اتصالات صوت وبيانات موثوقة واقتصادية على متن السفن في أي محيط.">
+                  اتصالات صوت وبيانات موثوقة واقتصادية على متن السفن في أي محيط.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <div id="noResults" class="text-center py-5" style="display:none;">
+          <p style="color:var(--ts-text-muted); font-size:16px;"
+             data-en="No industries in this category." data-ar="لا توجد قطاعات في هذا التصنيف.">
+            لا توجد قطاعات في هذا التصنيف.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner" data-aos="zoom-in">
+          <i class="bi bi-broadcast" style="font-size:2.4rem;"></i>
+          <h2 class="mt-3" data-en="Don't see your industry? We'll design a solution for you."
+              data-ar="لا ترى قطاعك؟ سنصمم لك حلاً مخصصاً.">
+            لا ترى قطاعك؟ سنصمم لك حلاً مخصصاً.
+          </h2>
+          <p class="mb-4" style="opacity:.92;"
+             data-en="Every sector has unique challenges. Our engineers design tailored satellite solutions for any mission."
+             data-ar="لكل قطاع تحدياته الفريدة. مهندسونا يصممون حلولاً فضائية مخصصة لأي مهمة.">
+            لكل قطاع تحدياته الفريدة. مهندسونا يصممون حلولاً فضائية مخصصة لأي مهمة.
+          </p>
+          <a href="contact.html" class="btn-cta">
+            <i class="bi bi-headset me-2"></i>
+            <span data-en="Talk to an Engineer" data-ar="تحدث مع مهندس">تحدث مع مهندس</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/navbar-footer.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* Filter tabs */
+      var tabs = document.querySelectorAll('.filter-tab');
+      var items = document.querySelectorAll('.service-item');
+      var noResults = document.getElementById('noResults');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          var filter = tab.dataset.filter;
+          var visibleCount = 0;
+          items.forEach(function (item) {
+            var match = (filter === 'all') || (item.dataset.category === filter);
+            if (match) { item.style.display = ''; visibleCount++; }
+            else { item.style.display = 'none'; }
+          });
+          if (noResults) noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+          if (window.AOS) window.AOS.refresh();
+        });
+      });
+
+      /* Navbar shadow */
+      var nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', function () {
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      /* AOS */
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
+    })();
+  </script>
+
+</body>
+
+</html>

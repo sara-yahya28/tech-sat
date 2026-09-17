@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 
 <head>
   <meta charset="utf-8">
@@ -7,52 +7,105 @@
   <title>المنتجات — Tech-Sat</title>
   <meta name="description" content="كتالوج منتجات Tech-Sat — محطات فضائية، هوائيات، مودمات، وملحقات اتصالات عالية الجودة.">
 
-  <!-- Favicons -->
+   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Shared CSS -->
-  <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/palette.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/pages/products.css" rel="stylesheet">
 
   <style>
-    /* Search Bar Styling */
-    .search-box-container {
-      max-width: 680px;
-      margin: 0 auto 36px;
-    }
-    .search-input-wrapper {
+    /* ===== PAGE HERO ===== */
+    .page-hero {
       position: relative;
+      overflow: hidden;
+      min-height: 60vh;
       display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 140px 0 100px;
+      background: var(--ts-navy, #0B1D33);
     }
-    .search-input-wrapper .search-icon {
+    .page-hero::before {
+      content: '';
       position: absolute;
-      right: 18px;
-      color: var(--ts-blue);
-      font-size: 1.25rem;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 29, 51, 0.72), rgba(11, 29, 51, 0.72)),
+        url('img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
+      background-size: 30px 30px;
       pointer-events: none;
-      z-index: 5;
+      z-index: 1;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+    .page-hero .subtitle-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ts-light-blue, #D1D8E0);
+      margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .page-hero h1 strong { font-weight: 800; }
+    .page-hero p {
+      color: var(--ts-light-blue, #D1D8E0);
+      font-size: 17px;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .page-hero { min-height: 50vh; padding: 120px 0 80px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p  { font-size: 15px; }
+    }
+
+    /* ===== SEARCH ===== */
+    .search-box-container { max-width: 680px; margin: 0 auto 36px; }
+    .search-input-wrapper { position: relative; display: flex; align-items: center; }
+    .search-input-wrapper .search-icon {
+      position: absolute; right: 18px;
+      color: var(--ts-blue); font-size: 1.25rem;
+      pointer-events: none; z-index: 5;
     }
     .search-input-wrapper .search-input {
       padding: 14px 50px 14px 44px;
       border-radius: 999px;
-      border: 2px solid var(--ts-blue-light);
-      background: var(--ts-white);
+      border: 2px solid var(--ts-border);
+      background: var(--surface-1);
       font-size: 15px;
       box-shadow: 0 4px 16px rgba(26, 43, 71, 0.06);
       transition: all 0.3s ease;
+      width: 100%;
     }
     .search-input-wrapper .search-input:focus {
       border-color: var(--ts-blue);
@@ -60,416 +113,358 @@
       outline: none;
     }
     .btn-clear-search {
-      position: absolute;
-      left: 16px;
-      background: none;
-      border: none;
-      color: #94a3b8;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 5;
-      padding: 0;
+      position: absolute; left: 16px;
+      background: none; border: none;
+      color: #94a3b8; font-size: 1.1rem;
+      cursor: pointer; z-index: 5; padding: 0;
     }
-    .btn-clear-search:hover { color: var(--ts-pink); }
+    .btn-clear-search:hover { color: var(--ts-crimson); }
 
-    /* Product Card Image Box */
-    .product-card__image-box {
-      width: 100%;
-      height: 220px;
-      position: relative;
+    /* ===== FILTER TABS ===== */
+    .filter-tabs {
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+      margin: 0 auto 45px; padding: 0; border: none;
+    }
+    .filter-tabs .filter-tab {
+      appearance: none;
+      border: 1px solid var(--ts-border);
+      border-radius: 30px;
+      background: var(--surface-1);
+      color: var(--ts-text-muted);
+      padding: 10px 24px;
+      font-family: "Tajawal", sans-serif;
+      font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .filter-tabs .filter-tab:not(.active):hover {
+      background: var(--surface-2);
+      color: var(--ts-blue);
+      border-color: var(--ts-blue);
+      transform: translateY(-2px);
+    }
+    .filter-tabs .filter-tab.active,
+    .filter-tabs .filter-tab.active:hover,
+    .filter-tabs .filter-tab.active:focus {
+      background: var(--ts-blue) !important;
+      color: #ffffff !important;
+      border-color: var(--ts-blue) !important;
+      box-shadow: 0 6px 18px rgba(46, 109, 180, 0.20);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 576px) {
+      .filter-tabs { gap: 8px; margin-bottom: 30px; }
+      .filter-tabs .filter-tab { padding: 8px 16px; font-size: 13px; }
+    }
+
+    /* ===== PRODUCT CARD ===== */
+    .product-card {
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
       overflow: hidden;
+      height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1A2B47 0%, #0d1a2d 100%);
-      border-radius: 14px 14px 0 0;
+      flex-direction: column;
+      transition: all .3s ease;
+      box-shadow: 0 4px 20px rgba(11, 29, 51, 0.04);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11, 29, 51, 0.10);
+      color: inherit;
+    }
+    .product-card__image-box {
+      width: 100%; height: 220px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #0d1a2d 100%);
     }
     .product-card__image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
       transition: transform 0.4s ease;
     }
-    .product-card:hover .product-card__image-box img {
-      transform: scale(1.08);
+    .product-card:hover .product-card__image-box img { transform: scale(1.08); }
+
+    .product-card__body {
+      padding: 22px;
+      display: flex; flex-direction: column; flex: 1;
     }
-    .product-card__tag {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: var(--ts-pink);
-      color: #fff;
-      padding: 4px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      z-index: 2;
+    .product-card__body h5 {
+      color: var(--ts-navy);
+      font-size: 17px; font-weight: 700;
+      margin-bottom: 8px;
     }
-    /* =====================================================
-   PRODUCT FILTER TABS
-   ===================================================== */
-
-.filter-tabs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  margin: 0 auto 45px;
-  padding: 0;
-  border: none;
-}
-
-/* Buttons */
-.filter-tabs .filter-tab {
-  appearance: none;
-  -webkit-appearance: none;
-
-  border: 1px solid #d9e2ec;
-  border-radius: 30px;
-
-  background: #ffffff;
-  color: #52647d;
-
-  padding: 10px 24px;
-
-  font-family: "Tajawal", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: all 0.25s ease;
-}
-
-/* Hover - الزر غير المختار */
-.filter-tabs .filter-tab:not(.active):hover {
-  background: #f1f6fc;
-  color: var(--ts-blue);
-  border-color: var(--ts-blue);
-
-  transform: translateY(-2px);
-}
-
-/* Selected / Active - الزر المختار */
-.filter-tabs .filter-tab.active,
-.filter-tabs .filter-tab.active:hover,
-.filter-tabs .filter-tab.active:focus {
-  background: var(--ts-blue) !important;
-  color: #ffffff !important;
-
-  border-color: var(--ts-blue) !important;
-
-  box-shadow: 0 6px 18px rgba(46, 109, 180, 0.20);
-
-  transform: translateY(-1px);
-}
-
-/* Focus */
-.filter-tabs .filter-tab:focus {
-  outline: none;
-}
-
-.filter-tabs .filter-tab:focus-visible {
-  outline: 3px solid rgba(46, 109, 180, 0.20);
-  outline-offset: 3px;
-}
-
-
-/* =====================================================
-   MOBILE
-   ===================================================== */
-
-@media (max-width: 576px) {
-
-  .filter-tabs {
-    gap: 8px;
-    margin-bottom: 30px;
-  }
-
-  .filter-tabs .filter-tab {
-    padding: 8px 16px;
-    font-size: 13px;
-  }
-}
-
-    /* Product Modal Styling */
-    .product-modal-backdrop {
-      position: fixed; inset: 0;
-      background: rgba(10, 10, 10, 0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 9999;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
+    .product-card__body p {
+      color: var(--ts-text-muted);
+      font-size: 13.5px; line-height: 1.6;
+      margin-bottom: 16px; flex: 1;
     }
-    .product-modal-backdrop.is-open {
-      opacity: 1; visibility: visible;
+    .product-card__cta {
+      color: var(--ts-blue);
+      font-weight: 700; font-size: 13px;
+      display: inline-flex; align-items: center;
+      gap: 6px; transition: gap .2s ease;
+      align-self: flex-start;
     }
-    .product-modal {
-      background: #fff;
-      border-radius: 24px;
-      width: 100%; max-width: 720px; max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-      transform: scale(0.92) translateY(20px);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .product-modal-backdrop.is-open .product-modal {
-      transform: scale(1) translateY(0);
-    }
-    .product-modal__close {
-      position: absolute; top: 16px; left: 16px;
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: var(--ts-blue-dark); font-size: 20px;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      z-index: 10; transition: all 0.25s ease;
-    }
-    .product-modal__close:hover {
-      background: var(--ts-pink); color: #fff; transform: rotate(90deg);
-    }
-    .modal-hero {
-      position: relative; height: 260px;
-      background: linear-gradient(135deg, var(--ts-blue-dark) 0%, #0d1a2d 100%);
-      border-radius: 24px 24px 0 0; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-hero img { width: 100%; height: 100%; object-fit: cover; }
-    .modal-body-content { padding: 32px 36px 36px; }
-    .modal-body-content h3 {
-      font-size: 26px; font-weight: 800; color: var(--ts-blue-dark); margin-bottom: 12px;
-    }
-    .modal-body-content .modal-desc {
-      color: #5A6B85; font-size: 15px; line-height: 1.8; margin-bottom: 24px;
-    }
-    .modal-specs-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;
-    }
-    @media (max-width: 576px) { .modal-specs-grid { grid-template-columns: 1fr; } }
-    .spec-item {
-      background: #F4F7FC; border: 1px solid var(--ts-blue-light); border-radius: 12px;
-      padding: 12px 16px; display: flex; align-items: center; gap: 12px;
-    }
-    .spec-item i { font-size: 20px; color: var(--ts-blue); }
-    .spec-item .spec-label { font-size: 11px; font-weight: 700; color: #94a3b8; display: block; }
-    .spec-item .spec-value { font-size: 13.5px; font-weight: 700; color: var(--ts-blue-dark); }
-    .modal-features-list { list-style: none; padding: 0; margin: 0 0 28px; }
-    .modal-features-list li {
-      font-size: 14px; color: var(--ts-blue-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
-    }
-    .modal-features-list li i { color: #22c55e; }
-    .modal-actions { display: flex; gap: 12px; }
-    .btn-modal-primary {
-      flex: 1; background: var(--ts-blue); color: #fff; border: none; border-radius: 12px;
-      padding: 14px; font-weight: 700; font-size: 15px; text-align: center; text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-modal-primary:hover { background: var(--ts-blue-dark); color: #fff; }
+    .product-card:hover .product-card__cta { gap: 10px; }
+
+    .section { padding: 50px 0; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <!-- HEADER / NAVBAR -->
   <div id="navbar-root"></div>
 
   <main class="main">
 
-    <!-- Catalog Hero Section -->
+    <!-- ───── PAGE HERO ───── -->
     <section class="page-hero">
-      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="Satellite Communication Equipment" class="page-hero__bg">
-      <div class="page-hero__overlay"></div>
-      <div class="container position-relative z-2 text-center">
-        <div class="page-hero__content" data-aos="fade-up">
-          <div class="subtitle-tag mb-2">
-            <i class="bi bi-satellite me-1"></i> منتجات Tech-Sat
-          </div>
-          <h1 class="text-white fw-bold display-4 mb-3">
-            حلول الاتصالات <strong style="color: var(--ts-pink);">الفضائية</strong>
-          </h1>
-          <p class="lead text-white-50 mx-auto max-width-700">
-            معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل بكفاءة وموثوقية في مختلف البيئات والتضاريس.
-          </p>
-        </div>
+      <div class="container" data-aos="fade-up">
+        <span class="subtitle-tag" data-en="Tech-Sat Products" data-ar="منتجات Tech-Sat">منتجات Tech-Sat</span>
+        <h1 data-en="Satellite Communication Solutions" data-ar="حلول الاتصالات الفضائية">
+          حلول الاتصالات <strong style="color: var(--ts-crimson);" data-en="Solutions" data-ar="الفضائية">الفضائية</strong>
+        </h1>
+        <p data-en="Advanced satellite communication equipment and solutions, engineered for efficiency and reliability in every environment."
+           data-ar="معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل بكفاءة وموثوقية في مختلف البيئات والتضاريس.">
+          معدات وحلول اتصالات فضائية متقدمة، مصممة للعمل بكفاءة وموثوقية في مختلف البيئات والتضاريس.
+        </p>
       </div>
     </section>
 
-    <!-- Main Products Catalog Section -->
+    <!-- ───── PRODUCTS GRID ───── -->
     <section class="section" id="productsSection">
       <div class="container">
 
-        <!-- Live Search Bar -->
         <div class="search-box-container" data-aos="fade-up">
           <div class="search-input-wrapper">
             <i class="bi bi-search search-icon"></i>
-            <input type="text" id="productSearchInput" class="form-control search-input" placeholder="ابحث عن منتج بالاسم، الفئة، أو الوصف..." aria-label="بحث عن منتج">
+            <input type="text" id="productSearchInput" class="form-control search-input"
+                   placeholder="ابحث عن منتج..."
+                   aria-label="بحث عن منتج"
+                   data-en="Search products…" data-ar="ابحث عن منتج...">
             <button type="button" id="clearProductSearch" class="btn-clear-search" style="display:none;" aria-label="مسح البحث">
               <i class="bi bi-x-circle-fill"></i>
             </button>
           </div>
         </div>
 
-        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل المنتجات</button>
-          <button class="filter-tab" data-filter="terminals" role="tab">محطات</button>
-          <button class="filter-tab" data-filter="antennas" role="tab">هوائيات</button>
-          <button class="filter-tab" data-filter="modems" role="tab">مودمات</button>
-          <button class="filter-tab" data-filter="accessories" role="tab">ملحقات</button>
+          <button class="filter-tab active" data-filter="all"         role="tab" data-en="All Products"  data-ar="كل المنتجات">كل المنتجات</button>
+          <button class="filter-tab"        data-filter="terminals"   role="tab" data-en="Terminals"     data-ar="محطات">محطات</button>
+          <button class="filter-tab"        data-filter="antennas"    role="tab" data-en="Antennas"      data-ar="هوائيات">هوائيات</button>
+          <button class="filter-tab"        data-filter="modems"      role="tab" data-en="Modems"        data-ar="مودمات">مودمات</button>
+          <button class="filter-tab"        data-filter="accessories" role="tab" data-en="Accessories"   data-ar="ملحقات">ملحقات</button>
         </div>
 
-        <!-- Products Grid -->
         <div class="row g-4" id="productsGrid">
-
-          <!-- 1. VSAT Portable -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up">
-            <div class="product-card" data-product-id="vsat-portable">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">محطة</span>
-                <img src="assets/img/products/vsat-portable.png" alt="محطة VSAT محمولة" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>محطة VSAT محمولة</h5>
-                <p>محطة أرضية مع اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية، مثالية للبعثات الميدانية.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Ku-Band Antenna -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card" data-product-id="ku-antenna">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">هوائي</span>
-                <img src="assets/img/products/ku-antenna.png" alt="هوائي Ku-Band" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>هوائي Ku-Band</h5>
-                <p>هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Managed Modem -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card" data-product-id="managed-modem">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">مودم</span>
-                <img src="assets/img/products/managed-modem.png" alt="مودم فضائي مُدار" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>مودم فضائي مُدار</h5>
-                <p>مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. RF Cables -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up">
-            <div class="product-card" data-product-id="rf-cables">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">ملحق</span>
-                <img src="assets/img/products/rf-cables.png" alt="طقم كابلات RF" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>طقم كابلات RF</h5>
-                <p>كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية للاستخدام الخارجي الدائم.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. Manpack -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card" data-product-id="manpack">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">محطة</span>
-                <img src="assets/img/products/manpack.png" alt="محطة Manpack" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>محطة Manpack</h5>
-                <p>محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية والتركيب السريع أثناء الحركة.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Vehicle Antenna -->
-          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card" data-product-id="vehicle-antenna">
-              <div class="product-card__image-box">
-                <span class="product-card__tag">هوائي</span>
-                <img src="assets/img/products/vehicle-antenna.png" alt="هوائي مثبت على المركبات" loading="lazy">
-              </div>
-              <div class="product-card__body">
-                <h5>هوائي مثبت على المركبات</h5>
-                <p>هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية، يضمن اتصالات مستمرة أثناء الحركة.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
-              </div>
-            </div>
-          </div>
-
           <!-- 7. IoT Modem -->
           <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up">
-            <div class="product-card" data-product-id="iot-modem">
+            <a href="details.html?type=product&id=iot-modem" class="product-card">
               <div class="product-card__image-box">
-                <span class="product-card__tag">مودم</span>
+                <span class="product-card__tag" data-en="Modem" data-ar="مودم">مودم</span>
                 <img src="img product/MDM2510_white-Photoroom.png" alt="مودم إنترنت الأشياء IoT" loading="lazy">
               </div>
               <div class="product-card__body">
-                <h5>مودم إنترنت الأشياء IoT</h5>
-                <p>مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="IoT Satellite Modem" data-ar="مودم إنترنت الأشياء IoT">مودم إنترنت الأشياء IoT</h5>
+                <p data-en="Low-power satellite modem designed for remote sensors and telemetry systems."
+                   data-ar="مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.">
+                  مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
 
           <!-- 8. PSU -->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="50">
-            <div class="product-card" data-product-id="psu">
+            <a href="details.html?type=product&id=psu" class="product-card">
               <div class="product-card__image-box">
-                <span class="product-card__tag">ملحق</span>
+                <span class="product-card__tag" data-en="Accessory" data-ar="ملحق">ملحق</span>
                 <img src="img product/images-Photoroom.png" alt="وحدة إمداد طاقة PSU" loading="lazy">
               </div>
               <div class="product-card__body">
-                <h5>وحدة إمداد طاقة PSU</h5>
-                <p>وحدة إمداد طاقة احتياطية بمدى جهد واسع تضمن استمرارية التشغيل للعمليات الميدانية.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="PSU Power Supply" data-ar="وحدة إمداد طاقة PSU">وحدة إمداد طاقة PSU</h5>
+                <p data-en="Backup power supply with wide voltage range for continuous field operations."
+                   data-ar="وحدة إمداد طاقة احتياطية بمدى جهد واسع تضمن استمرارية التشغيل للعمليات الميدانية.">
+                  وحدة إمداد طاقة احتياطية بمدى جهد واسع تضمن استمرارية التشغيل للعمليات الميدانية.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
 
           <!-- 9. Deploy Case -->
           <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up" data-aos-delay="100">
-            <div class="product-card" data-product-id="deploy-case">
+            <a href="details.html?type=product&id=deploy-case" class="product-card">
               <div class="product-card__image-box">
-                <span class="product-card__tag">ملحق</span>
+                <span class="product-card__tag" data-en="Accessory" data-ar="ملحق">ملحق</span>
                 <img src="img product/images (1)-Photoroom.png" alt="حقيبة نقل Deploy Case" loading="lazy">
               </div>
               <div class="product-card__body">
-                <h5>حقيبة نقل Deploy Case</h5>
-                <p>حقيبة سفر واستخدام عسكري مقاومة للصدمات والماء لنقل المحطات الفضائية بأمان تام.</p>
-                <span class="product-card__cta"><span>اعرض التفاصيل</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Deploy Transport Case" data-ar="حقيبة نقل Deploy Case">حقيبة نقل Deploy Case</h5>
+                <p data-en="Shock and water-resistant transport case for safely carrying satellite terminals."
+                   data-ar="حقيبة سفر واستخدام عسكري مقاومة للصدمات والماء لنقل المحطات الفضائية بأمان تام.">
+                  حقيبة سفر واستخدام عسكري مقاومة للصدمات والماء لنقل المحطات الفضائية بأمان تام.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
+          <!-- 1. VSAT Portable -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up">
+            <a href="details.html?type=product&id=vsat-portable" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Terminal" data-ar="محطة">محطة</span>
+                <img src="assets/img/products/vsat-portable.png" alt="محطة VSAT محمولة" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="Portable VSAT Terminal" data-ar="محطة VSAT محمولة">محطة VSAT محمولة</h5>
+                <p data-en="Ground station with automatic satellite acquisition and rugged casing, ideal for field missions."
+                   data-ar="محطة أرضية مع اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية، مثالية للبعثات الميدانية.">
+                  محطة أرضية مع اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية، مثالية للبعثات الميدانية.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 2. Ku-Band Antenna -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=product&id=ku-antenna" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Antenna" data-ar="هوائي">هوائي</span>
+                <img src="assets/img/products/ku-antenna.png" alt="هوائي Ku-Band" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="Ku-Band Antenna" data-ar="هوائي Ku-Band">هوائي Ku-Band</h5>
+                <p data-en="Lightweight antenna designed for rapid deployment in remote sites and tactical environments."
+                   data-ar="هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية.">
+                  هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 3. Managed Modem -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="modems" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=product&id=managed-modem" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Modem" data-ar="مودم">مودم</span>
+                <img src="assets/img/products/managed-modem.png" alt="مودم فضائي مُدار" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="Managed Satellite Modem" data-ar="مودم فضائي مُدار">مودم فضائي مُدار</h5>
+                <p data-en="Enterprise-grade modem supporting dual Ku/Ka band, with remote monitoring and full support."
+                   data-ar="مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل.">
+                  مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 4. RF Cables -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="accessories" data-aos="fade-up">
+            <a href="details.html?type=product&id=rf-cables" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Accessory" data-ar="ملحق">ملحق</span>
+                <img src="assets/img/products/rf-cables.png" alt="طقم كابلات RF" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="RF Cables Kit" data-ar="طقم كابلات RF">طقم كابلات RF</h5>
+                <p data-en="Low-loss coaxial cables with weather-resistant connectors for permanent outdoor use."
+                   data-ar="كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية للاستخدام الخارجي الدائم.">
+                  كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية للاستخدام الخارجي الدائم.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 5. Manpack -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="terminals" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=product&id=manpack" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Terminal" data-ar="محطة">محطة</span>
+                <img src="assets/img/products/manpack.png" alt="محطة Manpack" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="Manpack Terminal" data-ar="محطة Manpack">محطة Manpack</h5>
+                <p data-en="Backpack satellite terminal designed for tactical field operations and rapid setup on the move."
+                   data-ar="محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية والتركيب السريع أثناء الحركة.">
+                  محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية والتركيب السريع أثناء الحركة.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 6. Vehicle Antenna -->
+          <div class="col-md-6 col-lg-4 product-item" data-category="antennas" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=product&id=vehicle-antenna" class="product-card">
+              <div class="product-card__image-box">
+                <span class="product-card__tag" data-en="Antenna" data-ar="هوائي">هوائي</span>
+                <img src="assets/img/products/vehicle-antenna.png" alt="هوائي مثبت على المركبات" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <h5 data-en="Vehicle-Mounted Antenna" data-ar="هوائي مثبت على المركبات">هوائي مثبت على المركبات</h5>
+                <p data-en="Auto-tracking antenna for moving vehicles and maritime platforms, ensuring continuous connectivity."
+                   data-ar="هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية، يضمن اتصالات مستمرة أثناء الحركة.">
+                  هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية، يضمن اتصالات مستمرة أثناء الحركة.
+                </p>
+                <span class="product-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
 
         </div><!-- /productsGrid -->
 
-        <!-- No Results Message -->
         <div id="noProductsFound" class="text-center py-5" style="display:none;">
           <i class="bi bi-search text-muted display-3 mb-3"></i>
-          <h4 class="fw-bold text-dark mb-2">لم نتمكن من العثور على نتائج</h4>
-          <p class="text-muted">حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.</p>
+          <h4 class="fw-bold mb-2" data-en="No results found" data-ar="لم نتمكن من العثور على نتائج">
+            لم نتمكن من العثور على نتائج
+          </h4>
+          <p class="text-muted"
+             data-en="Try different keywords or choose another category."
+             data-ar="حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.">
+            حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.
+          </p>
         </div>
 
       </div>
@@ -477,47 +472,17 @@
 
   </main>
 
-  <!-- FOOTER -->
   <div id="footer-root"></div>
-
-  <!-- Product Detail Modal Backdrop -->
-  <div class="product-modal-backdrop" id="productModalBackdrop">
-    <div class="product-modal" id="productModal">
-      <button type="button" class="product-modal__close" id="closeProductModal" aria-label="إغلاق">
-        <i class="bi bi-x-lg"></i>
-      </button>
-
-      <div class="modal-hero">
-        <span class="modal-hero__tag" id="modalProductTag">محطة</span>
-        <img src="" alt="" id="modalProductImg">
-      </div>
-
-      <div class="modal-body-content">
-        <h3 id="modalProductTitle">عنوان المنتج</h3>
-        <p class="modal-desc" id="modalProductDesc">وصف المنتج التفصيلي...</p>
-
-        <h6 class="fw-bold text-dark mb-3"><i class="bi bi-sliders me-1 text-primary"></i> المواصفات التقنية</h6>
-        <div class="modal-specs-grid" id="modalProductSpecs"></div>
-
-        <h6 class="fw-bold text-dark mb-3"><i class="bi bi-check-circle me-1 text-success"></i> أهم المميزات</h6>
-        <ul class="modal-features-list" id="modalProductFeatures"></ul>
-
-        <div class="modal-actions">
-          <a href="contact.html" class="btn-modal-primary">اطلب عرض سعر <i class="bi bi-send-fill ms-1"></i></a>
-          <button type="button" class="btn btn-outline-secondary px-4 rounded-3 fw-bold" id="closeProductModalBtn">إغلاق</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/js/navbar-footer.js"></script>
-  <script src="assets/js/main.js"></script>
 
-  <!-- Product Search & Filter Script -->
+  <!-- Shared navbar + footer -->
+  <script src="assets/js/navbar-footer.js"></script>
+
+  <!-- Search & Filter -->
   <script>
     (function () {
       'use strict';
@@ -526,7 +491,6 @@
       var filterTabs = document.querySelectorAll('.filter-tab');
       var productItems = document.querySelectorAll('.product-item');
       var noResults = document.getElementById('noProductsFound');
-
       var currentFilter = 'all';
 
       function filterProducts() {
@@ -536,7 +500,6 @@
         productItems.forEach(function (item) {
           var category = item.getAttribute('data-category');
           var text = item.textContent.toLowerCase();
-
           var matchesFilter = (currentFilter === 'all' || category === currentFilter);
           var matchesSearch = (!query || text.indexOf(query) !== -1);
 
@@ -548,13 +511,8 @@
           }
         });
 
-        if (clearBtn) {
-          clearBtn.style.display = query ? 'block' : 'none';
-        }
-
-        if (noResults) {
-          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-        }
+        if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
+        if (noResults) noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
       }
 
       filterTabs.forEach(function (tab) {
@@ -566,9 +524,7 @@
         });
       });
 
-      if (searchInput) {
-        searchInput.addEventListener('input', filterProducts);
-      }
+      if (searchInput) searchInput.addEventListener('input', filterProducts);
 
       if (clearBtn) {
         clearBtn.addEventListener('click', function () {
@@ -577,206 +533,15 @@
           searchInput.focus();
         });
       }
+
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
     })();
   </script>
 
-  <!-- Product Detail Popup Modal Script -->
-  <script>
-    (function () {
-      'use strict';
-      var PRODUCTS = {
-        'vsat-portable': {
-          title: 'محطة VSAT محمولة',
-          tag: 'محطة',
-          img: 'assets/img/products/vsat-portable.png',
-          description: 'محطة أرضية احترافية مزودة بنظام اكتساب تلقائي للقمر الصناعي وهيكل مقاوم للظروف القاسية والمطر والغبار. مثالية للبعثات الميدانية والاستخدام التكتيكي في المناطق النائية.',
-          specs: [
-            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band / Ka-Band' },
-            { icon: 'bi-lightning-charge', label: 'استهلاك الطاقة', value: '< 45W' },
-            { icon: 'bi-thermometer-half', label: 'درجات التشغيل', value: '-30°C إلى +60°C' },
-            { icon: 'bi-shield-check', label: 'معيار الحماية', value: 'IP67 مقاوم للماء' }
-          ],
-          features: [
-            'اكتساب تلقائي للقمر الصناعي خلال 3 دقائق',
-            'هيكل ألومنيوم خفيف الوزن ومتين',
-            'يعمل بالبطاريات أو الطاقة الشمسية',
-            'دعم التشفير العسكري AES-256'
-          ]
-        },
-        'ku-antenna': {
-          title: 'هوائي Ku-Band',
-          tag: 'هوائي',
-          img: 'assets/img/products/ku-antenna.png',
-          description: 'هوائي خفيف الوزن مصمم للتركيب السريع في المواقع النائية والبيئات التكتيكية. يوفر أداءً عالياً مع حد أدنى من التعقيد في التركيب والإعداد.',
-          specs: [
-            { icon: 'bi-broadcast', label: 'قطر الطبق', value: '1.2 متر / 1.8 متر' },
-            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band (12–18 GHz)' },
-            { icon: 'bi-wind', label: 'مقاومة الرياح', value: 'حتى 130 كم/ساعة' }
-          ],
-          features: [
-            'هيكل مقاوم للتآكل والصدأ',
-            'تصميم قابل للطي للنقل السهل',
-            'إمالة يدوية وآزيموث قابل للضبط'
-          ]
-        },
-        'managed-modem': {
-          title: 'مودم فضائي مُدار',
-          tag: 'مودم',
-          img: 'assets/img/products/managed-modem.png',
-          description: 'مودم بمعايير مؤسسية يدعم النطاق المزدوج Ku/Ka، مع مراقبة عن بعد ودعم فني متكامل على مدار الساعة. مثالي للحلول المؤسسية والحكومية.',
-          specs: [
-            { icon: 'bi-speedometer2', label: 'سرعة الإرسال', value: 'حتى 200 Mbps' },
-            { icon: 'bi-reception-4', label: 'النطاق الترددي', value: 'Ku-Band / Ka-Band' }
-          ],
-          features: [
-            'إدارة مركزية عبر منصة سحابية',
-            'دعم QoS لأولوية حركة المرور',
-            'دعم فني 24/7 بالعربية والإنجليزية'
-          ]
-        },
-        'rf-cables': {
-          title: 'طقم كابلات RF',
-          tag: 'ملحق',
-          img: 'assets/img/products/rf-cables.png',
-          description: 'كابلات محورية منخفضة الفقدان مع موصلات مقاومة للماء والعوامل الجوية. مصممة للاستخدام الخارجي الدائم في البيئات القاسية.',
-          specs: [
-            { icon: 'bi-lightning', label: 'فقدان الإشارة', value: '< 0.15 dB/m' },
-            { icon: 'bi-shield-check', label: 'مقاومة الماء', value: 'IP68' }
-          ],
-          features: [
-            'موصلات N-Type ذهبية مقاومة للأكسدة',
-            'غلاف خارجي مقاوم للأشعة فوق البنفسجية'
-          ]
-        },
-        'manpack': {
-          title: 'محطة Manpack',
-          tag: 'محطة',
-          img: 'assets/img/products/manpack.png',
-          description: 'محطة فضائية بحقيبة ظهر مصممة للعمليات الميدانية التكتيكية. تركيب فوري أثناء الحركة مع إمكانية الاتصال في غضون دقائق من الوصول إلى الموقع.',
-          specs: [
-            { icon: 'bi-bag', label: 'الوزن الكلي', value: '8.5 كغ مع الهوائي' },
-            { icon: 'bi-clock', label: 'وقت الإعداد', value: 'أقل من 5 دقائق' }
-          ],
-          features: [
-            'تصميم مدمج بوزن أقل من 9 كغ',
-            'بطارية ليثيوم قابلة للاستبدال بسرعة'
-          ]
-        },
-        'vehicle-antenna': {
-          title: 'هوائي مثبت على المركبات',
-          tag: 'هوائي',
-          img: 'assets/img/products/vehicle-antenna.png',
-          description: 'هوائي بتتبع تلقائي للمركبات المتحركة والمنصات البحرية. يحافظ على الاتصال الفضائي المستمر حتى أثناء الحركة بسرعات عالية.',
-          specs: [
-            { icon: 'bi-speedometer', label: 'سرعة التتبع', value: '60°/ثانية' },
-            { icon: 'bi-truck', label: 'التركيب', value: 'سقف المركبة / المنصة' }
-          ],
-          features: [
-            'تتبع ديناميكي مستمر أثناء الحركة',
-            'مقاوم للصدمات والاهتزازات الشديدة'
-          ]
-        },
-        'iot-modem': {
-          title: 'مودم إنترنت الأشياء IoT',
-          tag: 'مودم',
-          img: 'img product/MDM2510_white-Photoroom.png',
-          description: 'مودم فضائي منخفض الطاقة مصمم لأجهزة الاستشعار النائية وأنظمة القياس عن بعد.',
-          specs: [
-            { icon: 'bi-lightning', label: 'استهلاك الطاقة', value: '< 2W' }
-          ],
-          features: [
-            'استهلاك طاقة فائق الانخفاض',
-            'إدارة أسطول الأجهزة عبر السحابة'
-          ]
-        },
-        'psu': {
-          title: 'وحدة إمداد طاقة PSU',
-          tag: 'ملحق',
-          img: 'img product/images-Photoroom.png',
-          description: 'وحدة إمداد طاقة احتياطية بمدى جهد واسع مصممة للعمليات الميدانية الطويلة.',
-          specs: [
-            { icon: 'bi-plug', label: 'مدى الجهد', value: '90–264V AC' }
-          ],
-          features: [
-            'كفاءة تحويل تصل إلى 92%',
-            'حماية مدمجة ضد الحمل الزائد'
-          ]
-        },
-        'deploy-case': {
-          title: 'حقيبة نقل Deploy Case',
-          tag: 'ملحق',
-          img: 'img product/images (1)-Photoroom.png',
-          description: 'حقيبة نقل مقاومة للصدمات والماء لحماية المحطات الفضائية أثناء التنقل.',
-          specs: [
-            { icon: 'bi-box-seam', label: 'معيار الحماية', value: 'IP67' }
-          ],
-          features: [
-            'رغوة داخلية مقطوعة خصيصاً',
-            'صمامات تنفيس الضغط التلقائي'
-          ]
-        }
-      };
-
-      var backdrop = document.getElementById('productModalBackdrop');
-      var closeBtn = document.getElementById('closeProductModal');
-      var closeBtn2 = document.getElementById('closeProductModalBtn');
-
-      function openModal(id) {
-        var p = PRODUCTS[id];
-        if (!p) return;
-
-        document.getElementById('modalProductTitle').textContent = p.title;
-        document.getElementById('modalProductTag').textContent = p.tag;
-        document.getElementById('modalProductImg').src = p.img;
-        document.getElementById('modalProductDesc').textContent = p.description;
-
-        var specsContainer = document.getElementById('modalProductSpecs');
-        specsContainer.innerHTML = '';
-        (p.specs || []).forEach(function (s) {
-          specsContainer.innerHTML += `
-            <div class="spec-item">
-              <i class="bi ${s.icon}"></i>
-              <div>
-                <span class="spec-label">${s.label}</span>
-                <span class="spec-value">${s.value}</span>
-              </div>
-            </div>`;
-        });
-
-        var featuresContainer = document.getElementById('modalProductFeatures');
-        featuresContainer.innerHTML = '';
-        (p.features || []).forEach(function (f) {
-          featuresContainer.innerHTML += `<li><i class="bi bi-check-circle-fill"></i> ${f}</li>`;
-        });
-
-        backdrop.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        backdrop.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('.product-card').forEach(function (card) {
-        card.addEventListener('click', function () {
-          var id = this.getAttribute('data-product-id');
-          openModal(id);
-        });
-      });
-
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (closeBtn2) closeBtn2.addEventListener('click', closeModal);
-      if (backdrop) {
-        backdrop.addEventListener('click', function (e) {
-          if (e.target === backdrop) closeModal();
-        });
-      }
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-      });
-    })();
-  </script>
 </body>
 
 </html>

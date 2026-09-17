@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 
 <head>
   <meta charset="utf-8">
@@ -7,288 +7,462 @@
   <title>الخدمات — Tech-Sat</title>
   <meta name="description" content="خدمات Tech-Sat — حلول VSAT، صوت وبيانات، تكامل أنظمة، خدمات ميدانية، شبكات مُدارة، ودعم فني 24/7.">
 
-  <!-- Favicons -->
+   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Shared CSS -->
-  <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/palette.css" rel="stylesheet">
-  <link href="assets/css/pages/services.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Search Bar Styling */
-    .search-box-container {
-      max-width: 680px;
-      margin: 0 auto 36px;
+    /* ═══ PAGE HERO ═══ */
+    .page-hero {
+      position: relative; overflow: hidden;
+      min-height: 65vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff;
+      padding: 140px 0 100px;
+      background: var(--ts-navy);
     }
-    .search-input-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 29, 51, 0.72), rgba(11, 29, 51, 0.72)),
+        url('assets/img/hero-subPages.jpg');
+      background-size: cover; background-position: center;
+      background-repeat: no-repeat; z-index: 0;
     }
-    .search-input-wrapper .search-icon {
-      position: absolute;
-      right: 18px;
-      color: var(--ts-blue);
-      font-size: 1.25rem;
-      pointer-events: none;
-      z-index: 5;
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(209,216,224,0.10) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none; z-index: 1;
     }
-    .search-input-wrapper .search-input {
-      padding: 14px 50px 14px 44px;
-      border-radius: 999px;
-      border: 2px solid var(--ts-blue-light);
-      background: var(--ts-white);
-      font-size: 15px;
-      box-shadow: 0 4px 16px rgba(26, 43, 71, 0.06);
-      transition: all 0.3s ease;
+    .page-hero .container { position: relative; z-index: 2; }
+    .page-hero h1 {
+      color: #fff; font-size: 52px; font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     }
-    .search-input-wrapper .search-input:focus {
-      border-color: var(--ts-blue);
-      box-shadow: 0 8px 24px rgba(46, 109, 180, 0.15);
-      outline: none;
+    .page-hero p {
+      color: var(--ts-light-blue); font-size: 17px;
+      max-width: 720px; margin: 0 auto; line-height: 1.7;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
     }
-    .btn-clear-search {
-      position: absolute;
-      left: 16px;
-      background: none;
-      border: none;
-      color: #94a3b8;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 5;
-      padding: 0;
+    @media (max-width: 768px) {
+      .page-hero { min-height: 55vh; padding: 120px 0 80px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p  { font-size: 15px; }
     }
-    .btn-clear-search:hover { color: var(--ts-pink); }
 
-    /* Service Card Image Box */
-    .service-card__image-box {
-      width: 100%;
-      height: 220px;
-      position: relative;
+    /* ═══ FILTER TABS ═══ */
+    .filter-tabs {
+      display: flex; justify-content: center; align-items: center;
+      gap: 40px; margin-bottom: 56px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--ts-border);
+      position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .filter-tabs::-webkit-scrollbar { display: none; }
+    .filter-tab {
+      position: relative; background: transparent; border: none;
+      padding: 8px 0; font-family: inherit; font-size: 15px; font-weight: 500;
+      color: var(--ts-text-muted); cursor: pointer; white-space: nowrap;
+      transition: color .25s ease;
+    }
+    .filter-tab:hover { color: var(--ts-navy); }
+    [data-theme="dark"] .filter-tab:hover { color: #fff; }
+    .filter-tab.active { color: var(--ts-navy); font-weight: 700; }
+    [data-theme="dark"] .filter-tab.active { color: #fff; }
+    .filter-tab::after {
+      content: ''; position: absolute; bottom: -17px; left: 0; right: 0;
+      height: 2px; background: var(--ts-blue);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform .3s ease;
+    }
+    .filter-tab.active::after { transform: scaleX(1); }
+    @media (max-width: 768px) {
+      .filter-tabs { gap: 24px; justify-content: flex-start; padding: 0 4px 16px; }
+      .filter-tab { font-size: 14px; }
+    }
+
+    /* ═══ SERVICE CARD ═══ */
+    .service-card {
+      background: var(--surface-1);
+      border: 1px solid var(--ts-border);
+      border-radius: 16px;
       overflow: hidden;
+      height: 100%;
       display: flex;
+      flex-direction: column;
+      transition: all .3s ease;
+      box-shadow: 0 4px 20px rgba(11,29,51,0.04);
+      text-decoration: none;
+      color: inherit;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ts-blue);
+      box-shadow: 0 20px 40px rgba(11,29,51,0.1);
+      color: inherit;
+    }
+
+    .service-card__image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--palette-dark-navy) 0%, #0d1a2d 100%);
+    }
+    .service-card__image img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform .5s ease;
+    }
+    .service-card:hover .service-card__image img {
+      transform: scale(1.08);
+    }
+    .service-card__image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,29,51,0) 40%, rgba(11,29,51,0.55) 100%);
+      pointer-events: none;
+    }
+    .service-card__icon-overlay {
+      position: absolute;
+      bottom: 16px;
+      inset-inline-start: 16px;
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--ts-crimson);
+      color: #fff;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1A2B47 0%, #0d1a2d 100%);
-      border-radius: 14px 14px 0 0;
-    }
-    .service-card__image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.4s ease;
-    }
-    .service-card:hover .service-card__image-box img {
-      transform: scale(1.08);
+      font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(168, 10, 63, 0.4);
+      z-index: 2;
     }
     .service-card__tag {
       position: absolute;
       top: 14px;
-      right: 14px;
-      background: var(--ts-pink);
-      color: #fff;
+      inset-inline-end: 14px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      color: var(--ts-navy);
       padding: 4px 14px;
       border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
       z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
     }
+    [data-theme="dark"] .service-card__tag {
+      background: rgba(17, 28, 51, .92);
+      color: #fff;
+    }
+
+    .service-card__body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-card__body h5 {
+      color: var(--ts-navy);
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    [data-theme="dark"] .service-card__body h5 { color: #fff; }
+    .service-card__body p {
+      color: var(--ts-text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .service-card__cta {
+      color: var(--ts-blue);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s ease;
+      align-self: flex-start;
+    }
+    .service-card:hover .service-card__cta { gap: 10px; }
+
+    .section { padding: 50px 0; }
   </style>
 </head>
 
 <body class="index-page">
 
-  <!-- HEADER / NAVBAR -->
   <div id="navbar-root"></div>
 
   <main class="main">
 
-    <!-- Services Hero Section -->
-    <section class="page-hero services-hero">
-      <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="خدمات Tech-Sat" class="page-hero__bg">
-      <div class="page-hero__overlay"></div>
-      <div class="container position-relative z-2 text-center">
-        <div class="page-hero__content" data-aos="fade-up">
-          <div class="subtitle-tag mb-2">
-            <i class="bi bi-gear-wide-connected me-1"></i> خدمات Tech-Sat
-          </div>
-          <h1 class="text-white fw-bold display-4 mb-3">
-            حلول وتكامُل <strong style="color: var(--ts-pink);">الاتصالات</strong>
-          </h1>
-          <p class="lead text-white-50 mx-auto max-width-700">
-            نقدم مجموعة متكاملة من خدمات الاتصالات الفضائية والتصميم الميداني للقطاعات الحكومية والإنسانية والمؤسسية.
-          </p>
-        </div>
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+      <div class="container" data-aos="fade-up">
+        <h1 data-en="Our Services" data-ar="خدماتنا">خدماتنا</h1>
+        <p data-en="A complete suite of satellite communication services built around your mission — from connectivity and voice & data to managed networks, cybersecurity and 24/7 support."
+           data-ar="مجموعة كاملة من خدمات الاتصالات الفضائية مبنية حول مهمتك — من الاتصالات والصوت والبيانات إلى الشبكات المُدارة والأمن السيبراني والدعم 24/7.">
+          مجموعة كاملة من خدمات الاتصالات الفضائية مبنية حول مهمتك — من الاتصالات والصوت والبيانات إلى الشبكات المُدارة والأمن السيبراني والدعم 24/7.
+        </p>
       </div>
     </section>
 
-    <!-- Services Catalog Section -->
-    <section class="section" id="servicesSection">
+    <!-- ═══ SERVICES GRID ═══ -->
+    <section class="section">
       <div class="container">
 
-        <!-- Live Search Bar -->
-        <div class="search-box-container" data-aos="fade-up">
-          <div class="search-input-wrapper">
-            <i class="bi bi-search search-icon"></i>
-            <input type="text" id="serviceSearchInput" class="form-control search-input" placeholder="ابحث عن خدمة بالاسم، الفئة، أو المميزات..." aria-label="بحث عن خدمة">
-            <button type="button" id="clearServiceSearch" class="btn-clear-search" style="display:none;" aria-label="مسح البحث">
-              <i class="bi bi-x-circle-fill"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Filter Tabs -->
         <div class="filter-tabs" data-aos="fade-up" role="tablist">
-          <button class="filter-tab active" data-filter="all" role="tab">كل الخدمات</button>
-          <button class="filter-tab" data-filter="connectivity" role="tab">اتصالات</button>
-          <button class="filter-tab" data-filter="integration" role="tab">تكامل أنظمة</button>
-          <button class="filter-tab" data-filter="field" role="tab">خدمات ميدانية</button>
-          <button class="filter-tab" data-filter="support" role="tab">دعم فني</button>
+          <button class="filter-tab active" data-filter="all"          role="tab" data-en="All Services"    data-ar="كل الخدمات">كل الخدمات</button>
+          <button class="filter-tab"        data-filter="connectivity" role="tab" data-en="Connectivity"    data-ar="اتصالات">اتصالات</button>
+          <button class="filter-tab"        data-filter="integration"  role="tab" data-en="Integration"     data-ar="تكامل">تكامل</button>
+          <button class="filter-tab"        data-filter="field"        role="tab" data-en="Field"           data-ar="ميدانية">ميدانية</button>
+          <button class="filter-tab"        data-filter="support"      role="tab" data-en="Support"         data-ar="دعم">دعم</button>
         </div>
 
-        <!-- Services Grid -->
         <div class="row g-4" id="servicesGrid">
 
-          <!-- 1. VSAT Solutions -->
+          <!-- ─── 1. VSAT Solutions ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">اتصالات</span>
-                <img src="img product/bernd-dittrich-FIdxhTGKmps-unsplash.jpg" alt="حلول VSAT" loading="lazy">
+            <a href="details.html?type=service&id=vsat" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=420&fit=crop&auto=format" alt="VSAT Solutions" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-broadcast-pin"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>حلول VSAT</h5>
-                <p>اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>سرعات تصل إلى 100 Mbps</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية Ku و C-Band</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تركيب خلال 24-48 ساعة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="VSAT Solutions" data-ar="حلول VSAT">حلول VSAT</h5>
+                <p data-en="High-speed satellite connectivity for fixed and mobile sites, with comprehensive coverage in the toughest locations."
+                   data-ar="اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.">
+                  اتصالات فضائية عالية السرعة للثابت والمتنقل، بتغطية شاملة في أصعب المواقع الجغرافية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-          <!-- 2. Voice & Data -->
+          <!-- ─── 2. Voice & Data ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="50">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">اتصالات</span>
-                <img src="img product/spacex-VBNb52J8Trk-unsplash.jpg" alt="صوت وبيانات" loading="lazy">
+            <a href="details.html?type=service&id=voice" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&h=420&fit=crop&auto=format" alt="Voice & Data" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-telephone-outbound"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>صوت وبيانات</h5>
-                <p>خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>VoIP عالي الجودة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>بث فيديو مباشر</span></li>
-                  <li><i class="bi bi-check2"></i> <span>نقل بيانات آمن</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Voice & Data" data-ar="صوت وبيانات">صوت وبيانات</h5>
+                <p data-en="Voice and data services with VoIP and live broadcast over satellite, for all sectors."
+                   data-ar="خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.">
+                  خدمات صوتية وبيانات شاملة بتقنيات VoIP والبث الحي عبر الأقمار الصناعية، لكل القطاعات.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-          <!-- 3. System Integration -->
+          <!-- ─── 3. Managed Networks ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="100">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">تكامل</span>
-                <img src="img product/kevin-stadnyk-HsqBGASgXJA-unsplash.jpg" alt="تكامل الأنظمة" loading="lazy">
+            <a href="details.html?type=service&id=net" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=420&fit=crop&auto=format" alt="Managed Networks" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-hdd-network"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>تكامل الأنظمة</h5>
-                <p>تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>تصميم مخصص</span></li>
-                  <li><i class="bi bi-check2"></i> <span>دمج مع الأنظمة الحالية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>اختبارات كاملة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Managed Networks" data-ar="شبكات مُدارة">شبكات مُدارة</h5>
+                <p data-en="Full network management with 24/7 NOC monitoring and Service Level Agreements (SLA)."
+                   data-ar="إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).">
+                  إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-          <!-- 4. Field Services -->
+          <!-- ─── 4. Field Services ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="field" data-aos="fade-up">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">ميدانية</span>
-                <img src="img product/aaa.jpg" alt="خدمات ميدانية" loading="lazy">
+            <a href="details.html?type=service&id=field" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Field" data-ar="ميدانية">ميدانية</span>
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=420&fit=crop&auto=format" alt="Field Services" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-tools"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>خدمات ميدانية</h5>
-                <p>تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>فرق فنية متخصصة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تغطية كل المحافظات</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تدريب الموظفين</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Field Services" data-ar="خدمات ميدانية">خدمات ميدانية</h5>
+                <p data-en="Installation, maintenance, and operation of VSAT stations at any site in Yemen, by specialized technical teams."
+                   data-ar="تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.">
+                  تركيب وصيانة وتشغيل محطات VSAT في أي موقع داخل اليمن، بفرق فنية متخصصة.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-          <!-- 5. Managed Networks -->
+          <!-- ─── 5. Systems Integration ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">تكامل</span>
-                <img src="assets/img/products/managed-modem.png" alt="شبكات مُدارة" loading="lazy">
+            <a href="details.html?type=service&id=integr" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=420&fit=crop&auto=format" alt="Systems Integration" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-diagram-3"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>شبكات مُدارة</h5>
-                <p>إدارة كاملة للشبكة مع مراقبة NOC على مدار الساعة واتفاقيات مستوى خدمة (SLA).</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>مراقبة 24/7</span></li>
-                  <li><i class="bi bi-check2"></i> <span>تقارير أداء دورية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>SLA مضمون</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="Systems Integration" data-ar="تكامل الأنظمة">تكامل الأنظمة</h5>
+                <p data-en="Design and integration of complete communication solutions with existing systems, end-to-end."
+                   data-ar="تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.">
+                  تصميم ودمج حلول الاتصالات الكاملة مع أنظمة العميل الحالية، من البداية للنهاية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-          <!-- 6. Technical Support -->
+          <!-- ─── 6. 24/7 Support ─── -->
           <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
-            <a href="contact.html" class="service-card">
-              <div class="service-card__image-box">
-                <span class="service-card__tag">دعم</span>
-                <img src="assets/img/products/rf-cables.png" alt="دعم فني 24/7" loading="lazy">
+            <a href="details.html?type=service&id=support" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Support" data-ar="دعم">دعم</span>
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=420&fit=crop&auto=format" alt="24/7 Support" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-headset"></i></span>
               </div>
               <div class="service-card__body">
-                <h5>دعم فني 24/7</h5>
-                <p>فريق دعم فني متخصص يعمل على مدار الساعة لتقديم المساندة وحل المشكلات فوراً.</p>
-                <ul class="service-card__features">
-                  <li><i class="bi bi-check2"></i> <span>دعم باللغة العربية</span></li>
-                  <li><i class="bi bi-check2"></i> <span>استجابة في أقل من 15 دقيقة</span></li>
-                  <li><i class="bi bi-check2"></i> <span>قنوات تواصل متعددة</span></li>
-                </ul>
-                <span class="service-card__cta"><span>طلب الخدمة</span> <i class="bi bi-arrow-left"></i></span>
+                <h5 data-en="24/7 Technical Support" data-ar="دعم فني 24/7">دعم فني 24/7</h5>
+                <p data-en="Dedicated support team available around the clock, with field response within 24 hours maximum."
+                   data-ar="فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.">
+                  فريق دعم متخصص متاح على مدار الساعة، مع استجابة ميدانية خلال 24 ساعة كحد أقصى.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
               </div>
             </a>
           </div>
 
-        </div><!-- /servicesGrid -->
+          <!-- ─── 7. OptiShield Cybersecurity ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="support" data-aos="fade-up">
+            <a href="details.html?type=service&id=optishield" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Support" data-ar="دعم">دعم</span>
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=420&fit=crop&auto=format" alt="OptiShield Cybersecurity" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-shield-lock-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OptiShield Cybersecurity" data-ar="أمن سيبراني (OptiShield)">أمن سيبراني (OptiShield)</h5>
+                <p data-en="Protect connected operations with managed cybersecurity and network security services."
+                   data-ar="حماية العمليات المتصلة بخدمات الأمن السيبراني وأمن الشبكات المُدارة.">
+                  حماية العمليات المتصلة بخدمات الأمن السيبراني وأمن الشبكات المُدارة.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
 
-        <!-- No Results Message -->
-        <div id="noServicesFound" class="text-center py-5" style="display:none;">
-          <i class="bi bi-search text-muted display-3 mb-3"></i>
-          <h4 class="fw-bold text-dark mb-2">لم نتمكن من العثور على نتائج</h4>
-          <p class="text-muted">حاول استخدام كلمات بحث أخرى أو اختيار تصنيف مختلف من القائمة.</p>
+          <!-- ─── 8. OptiView Platform ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up" data-aos-delay="50">
+            <a href="details.html?type=service&id=optiview" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=420&fit=crop&auto=format" alt="OptiView Platform" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-bar-chart-line-fill"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OptiView Platform" data-ar="منصة إدارة الشبكة (OptiView)">منصة إدارة الشبكة (OptiView)</h5>
+                <p data-en="One platform for complete visibility over your connected environment — monitor performance, usage, and remote sites."
+                   data-ar="منصة واحدة للحصول على رؤية كاملة لبيئتك المتصلة — راقب الأداء والاستخدام والمواقع النائية.">
+                  منصة واحدة للحصول على رؤية كاملة لبيئتك المتصلة — راقب الأداء والاستخدام والمواقع النائية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 9. Traksat PTT & Tracking ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="connectivity" data-aos="fade-up" data-aos-delay="100">
+            <a href="details.html?type=service&id=traksat" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Connectivity" data-ar="اتصالات">اتصالات</span>
+                <img src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=420&fit=crop&auto=format" alt="Traksat PTT & Tracking" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-broadcast"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="Traksat PTT & Tracking" data-ar="Traksat PTT والتتبع">Traksat PTT والتتبع</h5>
+                <p data-en="Keep remote teams connected with push-to-talk, tracking, and location visibility over satellite."
+                   data-ar="أبقِ الفرق النائية متصلة عبر الضغط-للتحدث والتتبع ورؤية الموقع عبر الأقمار الصناعية.">
+                  أبقِ الفرق النائية متصلة عبر الضغط-للتحدث والتتبع ورؤية الموقع عبر الأقمار الصناعية.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- ─── 10. OneGate Value-Added Services ─── -->
+          <div class="col-md-6 col-lg-4 service-item" data-category="integration" data-aos="fade-up">
+            <a href="details.html?type=service&id=onegate" class="service-card">
+              <div class="service-card__image">
+                <span class="service-card__tag" data-en="Integration" data-ar="تكامل">تكامل</span>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=420&fit=crop&auto=format" alt="OneGate Services" loading="lazy">
+                <span class="service-card__icon-overlay"><i class="bi bi-sliders"></i></span>
+              </div>
+              <div class="service-card__body">
+                <h5 data-en="OneGate Services" data-ar="خدمات OneGate">خدمات OneGate</h5>
+                <p data-en="A suite of value-added services optimizing SATCOM — data compression, email, VPN, and bandwidth optimization."
+                   data-ar="مجموعة خدمات مضافة لتحسين SATCOM — ضغط البيانات والبريد الإلكتروني وVPN وتحسين النطاق.">
+                  مجموعة خدمات مضافة لتحسين SATCOM — ضغط البيانات والبريد الإلكتروني وVPN وتحسين النطاق.
+                </p>
+                <span class="service-card__cta">
+                  <span data-en="View Details" data-ar="اعرض التفاصيل">اعرض التفاصيل</span>
+                  <i class="bi bi-arrow-left"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <div id="noResults" class="text-center py-5" style="display:none;">
+          <p style="color:var(--ts-text-muted); font-size:16px;"
+             data-en="No services in this category currently."
+             data-ar="لا توجد خدمات في هذا التصنيف حاليًا.">
+            لا توجد خدمات في هذا التصنيف حاليًا.
+          </p>
         </div>
 
       </div>
@@ -296,78 +470,70 @@
 
   </main>
 
-  <!-- FOOTER -->
   <div id="footer-root"></div>
 
-  <!-- Vendor JS -->
+  <!-- SCROLL TOP -->
+  <a href="#" id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- SCRIPTS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/js/navbar-footer.js"></script>
-  <script src="assets/js/main.js"></script>
 
-  <!-- Service Search & Filter Script -->
+  <script src="assets/js/navbar-footer.js"></script>
+
   <script>
     (function () {
       'use strict';
-      var searchInput = document.getElementById('serviceSearchInput');
-      var clearBtn = document.getElementById('clearServiceSearch');
-      var filterTabs = document.querySelectorAll('.filter-tab');
-      var serviceItems = document.querySelectorAll('.service-item');
-      var noResults = document.getElementById('noServicesFound');
 
-      var currentFilter = 'all';
+      /* ─── Filter tabs ─── */
+      var tabs = document.querySelectorAll('.filter-tab');
+      var items = document.querySelectorAll('.service-item');
+      var noResults = document.getElementById('noResults');
 
-      function filterServices() {
-        var query = searchInput.value.trim().toLowerCase();
-        var visibleCount = 0;
-
-        serviceItems.forEach(function (item) {
-          var category = item.getAttribute('data-category');
-          var text = item.textContent.toLowerCase();
-
-          var matchesFilter = (currentFilter === 'all' || category === currentFilter);
-          var matchesSearch = (!query || text.indexOf(query) !== -1);
-
-          if (matchesFilter && matchesSearch) {
-            item.style.display = 'block';
-            visibleCount++;
-          } else {
-            item.style.display = 'none';
-          }
-        });
-
-        if (clearBtn) {
-          clearBtn.style.display = query ? 'block' : 'none';
-        }
-
-        if (noResults) {
-          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-        }
-      }
-
-      filterTabs.forEach(function (tab) {
+      tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-          filterTabs.forEach(function (t) { t.classList.remove('active'); });
-          this.classList.add('active');
-          currentFilter = this.getAttribute('data-filter');
-          filterServices();
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+
+          var filter = tab.dataset.filter;
+          var visibleCount = 0;
+
+          items.forEach(function (item) {
+            var match = (filter === 'all') || (item.dataset.category === filter);
+            if (match) { item.style.display = ''; visibleCount++; }
+            else { item.style.display = 'none'; }
+          });
+
+          if (noResults) noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+          if (window.AOS) window.AOS.refresh();
         });
       });
 
-      if (searchInput) {
-        searchInput.addEventListener('input', filterServices);
-      }
-
-      if (clearBtn) {
-        clearBtn.addEventListener('click', function () {
-          searchInput.value = '';
-          filterServices();
-          searchInput.focus();
+      /* ─── Navbar shadow + scroll-top ─── */
+      var topBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', function () {
+        if (topBtn) topBtn.classList.toggle('show', window.scrollY > 400);
+        var nav = document.getElementById('mainNav');
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+      });
+      if (topBtn) {
+        topBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+
+      /* ─── AOS ─── */
+      function initAOS() {
+        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
+      }
+      document.addEventListener('layoutReady', initAOS);
+      window.addEventListener('load', initAOS);
     })();
   </script>
+
 </body>
 
 </html>

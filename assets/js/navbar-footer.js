@@ -1,607 +1,300 @@
-/*  
-   TECH-SAT — Unified Navbar + Footer
+/* ═══════════════════════════════════════════════════════════
+   TECH-SAT — Navbar + Footer + Chrome Controls
+   Injects into #navbar-root / #footer-root on every page.
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
-  /* ═══════════════════════════════════════════════
-     NAVIGATION LINKS
-     ═══════════════════════════════════════════════ */
+  /* ─────────────────────────────────────────────────────────
+     NAVBAR TEMPLATE — flat links, no dropdowns
+  ───────────────────────────────────────────────────────── */
+  var NAVBAR_TPL = '' +
+    '<nav class="navbar navbar-expand-lg navbar-hw" id="mainNav">' +
+      '<div class="container">' +
 
-  var NAV_LINKS = [
-    {
-      label: 'الرئيسية',
-      href: 'index.html'
-    },
-    {
-      label: 'الخدمات',
-      href: 'services.html'
-    },
-    {
-      label: 'المنتجات',
-      href: 'products.html'
-    },
-    {
-      label: 'من نحن',
-      href: 'about.html'
-    },
-    {
-      label: 'تواصل معنا',
-      href: 'contact.html'
-    }
-  ];
+        '<a class="hw-logo" href="index.html" aria-label="Tech-Sat">' +
+          '<img src="assets/img/techSatLogo.webp" alt="Tech-Sat" class="hw-logo-img">' +
+        '</a>' +
 
+        '<div class="d-flex align-items-center gap-2 order-lg-3">' +
+          '<button class="ts-toggle" id="langToggle" type="button" aria-label="Switch language">' +
+            '<i class="bi bi-translate"></i> <span id="langLabel">AR</span>' +
+          '</button>' +
+          '<button class="ts-toggle" id="themeToggle" type="button" aria-label="Switch theme">' +
+            '<i class="bi bi-moon-stars" id="themeIcon"></i>' +
+          '</button>' +
+          '<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" ' +
+            'data-bs-target="#navMenu" aria-label="Toggle navigation">' +
+            '<i class="bi bi-list fs-2"></i>' +
+          '</button>' +
+        '</div>' +
 
-  /* ═══════════════════════════════════════════════
-     GET CURRENT PAGE
-     ═══════════════════════════════════════════════ */
+        '<div class="collapse navbar-collapse order-lg-2" id="navMenu">' +
+          '<ul class="navbar-nav nav-hw mx-auto mt-3 mt-lg-0">' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="services.html" data-en="Services" data-ar="الخدمات">Services</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="products.html" data-en="Products" data-ar="المنتجات">Products</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="industries.html" data-en="Industries" data-ar="القطاعات">Industries</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="about.html" data-en="Why Us" data-ar="لماذا نحن">Why Us</a>' +
+            '</li>' +
+
+            '<li class="nav-item">' +
+              '<a class="nav-link" href="contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a>' +
+            '</li>' +
+
+          '</ul>' +
+
+          '<a href="contact.html" class="btn-hw-primary d-none d-lg-inline-flex" ' +
+            'data-en="Request Service" data-ar="اطلب الخدمة">' +
+            'Request Service <i class="bi bi-arrow-right"></i>' +
+          '</a>' +
+        '</div>' +
+      '</div>' +
+    '</nav>';
+
+  /* ─────────────────────────────────────────────────────────
+     FOOTER TEMPLATE
+  ───────────────────────────────────────────────────────── */
+  var FOOTER_TPL = '' +
+    '<footer class="footer-hw">' +
+
+      '<div class="container footer-top">' +
+        '<div class="row g-3">' +
+
+          /* ─── Brand column ─── */
+          '<div class="col-lg-4 col-md-6">' +
+            '<a class="hw-logo hw-logo--light" href="index.html" aria-label="Tech-Sat">' +
+              '<img src="assets/img/techSatLogo.webp" alt="Tech-Sat" class="hw-logo-img">' +
+            '</a>' +
+            '<p class="mt-2" ' +
+              'data-en="Tech-Sat is a leading IT company providing managed network communication solutions, and the only reseller in Yemen of IEC Global Telecom." ' +
+              'data-ar="تك-سات شركة تقنية معلومات رائدة تقدم حلول اتصالات شبكية مُدارة، والموزع الوحيد في اليمن لشركة IEC Global Telecom.">' +
+              'Tech-Sat is a leading IT company providing managed network communication solutions, ' +
+              'and the only reseller in Yemen of IEC Global Telecom.' +
+            '</p>' +
+            '<div class="footer-social mt-2">' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>' +
+              '<a href="https://www.facebook.com/profile.php?id=100064730084237#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>' +
+            '</div>' +
+          '</div>' +
+
+          /* ─── Services column ─── */
+          '<div class="col-6 col-md-3 col-lg-2">' +
+            '<h6 data-en="Services" data-ar="الخدمات">Services</h6>' +
+            '<ul>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Satellite Connectivity" data-ar="الاتصالات الفضائية">Satellite Connectivity</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Network Service" data-ar="خدمات الشبكة">Network Service</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Systems Integration" data-ar="تكامل الأنظمة">Systems Integration</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="Field Services" data-ar="خدمات ميدانية">Field Services</span></a></li>' +
+              '<li><a class="footer-link" href="services.html"><i class="bi bi-caret-right-fill"></i><span data-en="24/7 Support" data-ar="دعم فني 24/7">24/7 Support</span></a></li>' +
+            '</ul>' +
+          '</div>' +
+
+          /* ─── Products column ─── */
+          '<div class="col-6 col-md-3 col-lg-2">' +
+            '<h6 data-en="Products" data-ar="المنتجات">Products</h6>' +
+            '<ul>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Voice & Low Data" data-ar="الصوت والبيانات">Voice &amp; Low Data</span></a></li>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Broadband Data" data-ar="بيانات عريضة">Broadband Data</span></a></li>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="VSAT Solutions" data-ar="حلول VSAT">VSAT Solutions</span></a></li>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Mobile & Vehicular" data-ar="المتنقلة والمركبات">Mobile &amp; Vehicular</span></a></li>' +
+              '<li><a class="footer-link" href="products.html"><i class="bi bi-caret-right-fill"></i><span data-en="Terminals & Hardware" data-ar="الأجهزة والمعدات">Terminals &amp; Hardware</span></a></li>' +
+            '</ul>' +
+          '</div>' +
+
+          /* ─── Industries column ─── */
+          '<div class="col-6 col-md-3 col-lg-2">' +
+            '<h6 data-en="Industries" data-ar="القطاعات">Industries</h6>' +
+            '<ul>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Government" data-ar="الحكومة">Government</span></a></li>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Humanitarian" data-ar="إنساني">Humanitarian</span></a></li>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Media" data-ar="إعلام">Media</span></a></li>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Energy" data-ar="الطاقة">Energy</span></a></li>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Enterprise" data-ar="مؤسسات">Enterprise</span></a></li>' +
+              '<li><a class="footer-link" href="industries.html"><i class="bi bi-caret-right-fill"></i><span data-en="Maritime" data-ar="بحري">Maritime</span></a></li>' +
+            '</ul>' +
+          '</div>' +
+
+          /* ─── Contact column ─── */
+          '<div class="col-md-6 col-lg-2">' +
+            '<h6 data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</h6>' +
+            '<div class="footer-contact-item">' +
+              '<span class="ic"><i class="bi bi-geo-alt-fill"></i></span>' +
+              '<span data-en="Aden, Yemen" data-ar="عدن، اليمن">Aden, Yemen</span>' +
+            '</div>' +
+            '<div class="footer-contact-item">' +
+              '<span class="ic"><i class="bi bi-envelope-fill"></i></span>' +
+              '<span>info@tech-sat.com</span>' +
+            '</div>' +
+            '<div class="footer-contact-item">' +
+              '<span class="ic"><i class="bi bi-briefcase-fill"></i></span>' +
+              '<span>Sales@tech-sat.com</span>' +
+            '</div>' +
+            '<div class="footer-contact-item">' +
+              '<span class="ic"><i class="bi bi-headset"></i></span>' +
+              '<span>Support@tech-sat.com</span>' +
+            '</div>' +
+            '<div class="footer-contact-item">' +
+              '<span class="ic"><i class="bi bi-telephone-fill"></i></span>' +
+              '<span>00967-711188100</span>' +
+            '</div>' +
+          '</div>' +
+
+        '</div>' +
+
+        /* ─── Newsletter ─── */
+        '<div class="row mt-3">' +
+          '<div class="col-md-6">' +
+            '<h6 data-en="Newsletter" data-ar="النشرة البريدية">Newsletter</h6>' +
+            '<div class="newsletter-input">' +
+              '<input type="email" placeholder="Your email address" aria-label="Email for newsletter" ' +
+                'data-en="Your email address" data-ar="بريدك الإلكتروني">' +
+              '<button type="button" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>' +
+            '</div>' +
+            '<div class="newsletter-note">' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        /* ─── Designed By ─── */
+        '<div class="footer-designed-by">' +
+          '<div class="footer-designed-by__text" data-en="DESIGNED BY" data-ar="تصميم وتطوير">' +
+            'DESIGNED BY' +
+          '</div>' +
+          '<div class="footer-designed-by__name" data-en="YOU FOR INFORMATION TECHNOLOGY" data-ar="YOU FOR INFORMATION TECHNOLOGY">' +
+            'YOU FOR INFORMATION TECHNOLOGY' +
+          '</div>' +
+          '<img src="assets/img/you-logo.png" alt="YOU For Information Technology" class="footer-designed-by__logo">' +
+        '</div>' +
+
+      '</div>' +
+    '</footer>';
+
+  /* ─────────────────────────────────────────────────────────
+     HELPERS
+  ───────────────────────────────────────────────────────── */
 
   function getCurrentPage() {
-
     var path = window.location.pathname.split('/').pop();
-
-    if (!path || path === '/') {
-      path = 'index.html';
-    }
-
+    if (!path || path === '/') path = 'index.html';
     return path.toLowerCase();
   }
 
-
-  /* ═══════════════════════════════════════════════
-     CHECK ACTIVE PAGE
-     ═══════════════════════════════════════════════ */
-
-  function isActivePage(href, currentPage) {
-
-    if (href === currentPage) {
-      return true;
-    }
-
-    if (href.indexOf('#') !== -1) {
-
-      var basePage = href.split('#')[0];
-
-      if (basePage === currentPage) {
-        return true;
+  function markActiveNav() {
+    var current = getCurrentPage();
+    document.querySelectorAll('#mainNav .nav-link[href]').forEach(function (a) {
+      var href = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
+      if (href && href === current) {
+        a.classList.add('active');
       }
-    }
-
-    return false;
+    });
   }
 
+  /* ─────────────────────────────────────────────────────────
+     THEME + LANGUAGE CONTROLS
+  ───────────────────────────────────────────────────────── */
 
-  /* ═══════════════════════════════════════════════
-     NAVBAR
-     ═══════════════════════════════════════════════ */
+  function rebindChromeControls() {
+    var html = document.documentElement;
 
-  function renderNavbar() {
+    /* ── THEME ── */
+    var themeBtn  = document.getElementById('themeToggle');
+    var themeIcon = document.getElementById('themeIcon');
+    var savedTheme = localStorage.getItem('ts-theme') || 'light';
 
-    var root = document.getElementById('navbar-root');
-
-    if (!root) {
-      return;
+    html.setAttribute('data-theme', savedTheme);
+    if (themeIcon) {
+      themeIcon.className = savedTheme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
     }
 
-    var currentPage = getCurrentPage();
-
-    var linksHtml = NAV_LINKS.map(function (link) {
-
-      var activeClass = isActivePage(
-        link.href,
-        currentPage
-      )
-        ? ' class="active"'
-        : '';
-
-
-     return (
-        '<li>' +
-          '<a href="' + link.href + '"' + activeClass + '>' +
-            link.label +
-          '</a>' +
-        '</li>'
-      );
-
-    }).join('');
-
-
-    root.innerHTML =
-
-      '<header id="header" class="header fixed-top">' +
-
-        /* ═════════════════════════════════════════
-           TOP ROW
-           ═════════════════════════════════════════ */
-
-        '<div class="container-fluid container-xl position-relative">' +
-
-          '<div class="top-row d-flex align-items-center justify-content-between">' +
-
-            /* Logo */
-
-            '<a href="index.html" class="logo d-flex align-items-center">' +
-              '<h1 class="sitename">Tech Sat</h1>' +
-            '</a>' +
-
-
-            /* Social Links */
-
-            '<div class="d-flex align-items-center">' +
-
-              '<div class="social-links">' +
-
-                '<a ' +
-                  'href="https://www.facebook.com/people/Tech-Sat/100064730084237/#" ' +
-                  'class="facebook" ' +
-                  'target="_blank" ' +
-                  'rel="noopener noreferrer">' +
-                  '<i class="bi bi-facebook"></i>' +
-                '</a>' +
-
-                '<a href="#" class="instagram">' +
-                  '<i class="bi bi-instagram"></i>' +
-                '</a>' +
-
-                '<a href="#" class="linkedin">' +
-                  '<i class="bi bi-linkedin"></i>' +
-                '</a>' +
-
-              '</div>' +
-
-            '</div>' +
-
-          '</div>' +
-
-        '</div>' +
-
-
-        /* ═════════════════════════════════════════
-           NAVIGATION
-           ═════════════════════════════════════════ */
-
-        '<div class="nav-wrap">' +
-
-          '<div class="container d-flex justify-content-center position-relative">' +
-
-            '<nav id="navmenu" class="navmenu">' +
-
-              '<ul>' +
-                linksHtml +
-              '</ul>' +
-
-              '<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>' +
-
-            '</nav>' +
-
-          '</div>' +
-
-        '</div>' +
-
-      '</header>';
-  }
-
-
-  /* ═══════════════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════════════ */
-
-  function renderFooter() {
-
-    var root = document.getElementById('footer-root');
-
-    if (!root) {
-      return;
+    if (themeBtn && !themeBtn.dataset.bound) {
+      themeBtn.dataset.bound = '1';
+      themeBtn.addEventListener('click', function () {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('ts-theme', next);
+        if (themeIcon) {
+          themeIcon.className = next === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
+        }
+      });
     }
 
-
-    root.innerHTML =
-
-      '<footer id="footer" class="footer dark-background">' +
-
-
-        /* ═════════════════════════════════════════
-           FOOTER MAIN
-           ═════════════════════════════════════════ */
-
-        '<div class="container">' +
-
-          '<div class="row gy-5">' +
-
-
-            /* ═════════════════════════════════════
-               COLUMN 1 — ABOUT
-               ═════════════════════════════════════ */
-
-            '<div class="col-lg-4">' +
-
-              '<div class="footer-content">' +
-
-                '<a ' +
-                  'href="index.html" ' +
-                  'class="logo d-flex align-items-center mb-4">' +
-
-                  '<span class="sitename">' +
-                    'Tech-Sat' +
-                  '</span>' +
-
-                '</a>' +
-
-
-                '<p class="mb-4">' +
-
-                  'الموزع الحصري لـ IEC Global Telecom في اليمن. ' +
-
-                  'حلول اتصالات فضائية موثوقة للقطاعات الحيوية: ' +
-
-                  'الحكومة، الإنساني، البحري، الطاقة، الإعلام، والمؤسسات.' +
-
-                '</p>' +
-
-
-                /* Newsletter */
-
-                '<div class="newsletter-form">' +
-
-                  '<h5>ابقَ على تواصل</h5>' +
-
-                  '<form ' +
-                    'action="#" ' +
-                    'method="post" ' +
-                    'class="php-email-form">' +
-
-                    '<div class="input-group">' +
-
-                      '<input ' +
-                        'type="email" ' +
-                        'name="email" ' +
-                        'class="form-control" ' +
-                        'placeholder="أدخل بريدك الإلكتروني" ' +
-                        'required>' +
-
-                      '<button ' +
-                        'type="submit" ' +
-                        'class="btn-subscribe">' +
-
-                        '<i class="bi bi-send"></i>' +
-
-                      '</button>' +
-
-                    '</div>' +
-
-
-                    '<div class="loading">' +
-                      'جاري التحميل' +
-                    '</div>' +
-
-                    '<div class="error-message"></div>' +
-
-                    '<div class="sent-message">' +
-                      'شكرًا لاشتراكك!' +
-                    '</div>' +
-
-                  '</form>' +
-
-                '</div>' +
-
-              '</div>' +
-
-            '</div>' +
-
-
-            /* ═════════════════════════════════════
-               COLUMN 2 — COMPANY
-               ═════════════════════════════════════ */
-
-            '<div class="col-lg-2 col-6">' +
-
-              '<div class="footer-links">' +
-
-                '<h4>الشركة</h4>' +
-
-                '<ul>' +
-
-                  '<li>' +
-                    '<a href="about.html">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' من نحن' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="services.html">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' الخدمات' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="products.html">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' المنتجات' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="contact.html">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' تواصل معنا' +
-                    '</a>' +
-                  '</li>' +
-
-                '</ul>' +
-
-              '</div>' +
-
-            '</div>' +
-
-
-            /* ═════════════════════════════════════
-               COLUMN 3 — SOLUTIONS
-               ═════════════════════════════════════ */
-
-            '<div class="col-lg-2 col-6">' +
-
-              '<div class="footer-links">' +
-
-                '<h4>حلولنا</h4>' +
-
-                '<ul>' +
-
-                  '<li>' +
-                    '<a href="index.html#features">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' حلول VSAT' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="index.html#features">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' صوت وبيانات' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="index.html#features">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' تكامل الأنظمة' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="index.html#features">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' شبكات مُدارة' +
-                    '</a>' +
-                  '</li>' +
-
-                  '<li>' +
-                    '<a href="index.html#features">' +
-                      '<i class="bi bi-chevron-left"></i>' +
-                      ' دعم فني 24/7' +
-                    '</a>' +
-                  '</li>' +
-
-                '</ul>' +
-
-              '</div>' +
-
-            '</div>' +
-
-
-            /* ═════════════════════════════════════
-               COLUMN 4 — CONTACT
-               ═════════════════════════════════════ */
-
-            '<div class="col-lg-4">' +
-
-              '<div class="footer-contact">' +
-
-                '<h4>تواصل معنا</h4>' +
-
-
-                /* Location */
-
-                '<div class="contact-item">' +
-
-                  '<div class="contact-icon">' +
-                    '<i class="bi bi-geo-alt"></i>' +
-                  '</div>' +
-
-                  '<div class="contact-info">' +
-                    '<p>عدن، اليمن</p>' +
-                  '</div>' +
-
-                '</div>' +
-
-
-                /* Phone */
-
-                '<div class="contact-item">' +
-
-                  '<div class="contact-icon">' +
-                    '<i class="bi bi-telephone"></i>' +
-                  '</div>' +
-
-                  '<div class="contact-info">' +
-                    '<p>+967 2 396 056</p>' +
-                  '</div>' +
-
-                '</div>' +
-
-
-                /* Email */
-
-                '<div class="contact-item">' +
-
-                  '<div class="contact-icon">' +
-                    '<i class="bi bi-envelope"></i>' +
-                  '</div>' +
-
-                  '<div class="contact-info">' +
-                    '<p>info@tech-sat.com</p>' +
-                  '</div>' +
-
-                '</div>' +
-
-
-                /* Support */
-
-                '<div class="contact-item">' +
-
-                  '<div class="contact-icon">' +
-                    '<i class="bi bi-headset"></i>' +
-                  '</div>' +
-
-                  '<div class="contact-info">' +
-
-                    '<p>' +
-                      'Support: support@tech-sat.com' +
-                      '<br>' +
-                      '00967-711188100' +
-                    '</p>' +
-
-                  '</div>' +
-
-                '</div>' +
-
-
-                /* Social Media */
-
-                '<div class="social-links">' +
-
-                  '<a href="#">' +
-                    '<i class="bi bi-facebook"></i>' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    '<i class="bi bi-twitter-x"></i>' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    '<i class="bi bi-linkedin"></i>' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    '<i class="bi bi-youtube"></i>' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    '<i class="bi bi-instagram"></i>' +
-                  '</a>' +
-
-                '</div>' +
-
-              '</div>' +
-
-            '</div>' +
-
-
-          '</div>' +
-
-        '</div>' +
-
-
-        /* ═════════════════════════════════════════
-           FOOTER BOTTOM
-           ═════════════════════════════════════════ */
-
-        '<div class="footer-bottom">' +
-
-          '<div class="container">' +
-
-            '<div class="row align-items-center">' +
-
-
-              /* Copyright */
-
-              '<div class="col-lg-6">' +
-
-                '<div class="copyright">' +
-
-                  '<p>' +
-
-                    '© ' +
-
-                    '<span>حقوق النشر</span> ' +
-
-                    '<strong class="px-1 sitename">' +
-                      'Tech-Sat' +
-                    '</strong> ' +
-
-                    '<span>جميع الحقوق محفوظة 2026</span>' +
-
-                  '</p>' +
-
-                '</div>' +
-
-              '</div>' +
-
-
-              /* Legal Links */
-
-              '<div class="col-lg-6">' +
-
-                '<div class="footer-bottom-links">' +
-
-                  '<a href="#">' +
-                    'سياسة الخصوصية' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    'الشروط والأحكام' +
-                  '</a>' +
-
-                  '<a href="#">' +
-                    'سياسة الكوكيز' +
-                  '</a>' +
-
-                '</div>' +
-
-              '</div>' +
-
-
-            '</div>' +
-
-          '</div>' +
-
-        '</div>' +
-
-
-      '</footer>';
+    /* ── LANGUAGE ── */
+    var langBtn   = document.getElementById('langToggle');
+    var langLabel = document.getElementById('langLabel');
+
+    function applyLang(lang) {
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      if (langLabel) langLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
+
+      document.querySelectorAll('[data-en][data-ar]').forEach(function (el) {
+        var val = el.getAttribute('data-' + lang);
+        if (val === null) return;
+
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else if (el.tagName === 'OPTION') {
+          el.textContent = val;
+        } else {
+          el.textContent = val;
+        }
+      });
+
+      localStorage.setItem('ts-lang', lang);
+    }
+
+    var savedLang = localStorage.getItem('ts-lang') || 'en';
+    applyLang(savedLang);
+
+    if (langBtn && !langBtn.dataset.bound) {
+      langBtn.dataset.bound = '1';
+      langBtn.addEventListener('click', function () {
+        var next = html.getAttribute('lang') === 'ar' ? 'en' : 'ar';
+        applyLang(next);
+      });
+    }
   }
 
-
-  /* ═══════════════════════════════════════════════
-     INITIALIZATION
-     ═══════════════════════════════════════════════ */
+  /* ─────────────────────────────────────────────────────────
+     INIT
+  ───────────────────────────────────────────────────────── */
 
   function init() {
+    var navRoot  = document.getElementById('navbar-root');
+    var footRoot = document.getElementById('footer-root');
 
-    renderNavbar();
+    if (navRoot)  navRoot.innerHTML  = NAVBAR_TPL;
+    if (footRoot) footRoot.innerHTML = FOOTER_TPL;
 
-    renderFooter();
+    markActiveNav();
+    rebindChromeControls();
 
+    document.dispatchEvent(new Event('layoutReady'));
   }
 
-
-  /* ═══════════════════════════════════════════════
-     DOM READY
-     ═══════════════════════════════════════════════ */
-
   if (document.readyState === 'loading') {
-
-    document.addEventListener(
-      'DOMContentLoaded',
-      init
-    );
-
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-
     init();
-
   }
 
 })();
