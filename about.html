@@ -7,6 +7,19 @@
   <title>من نحن — Tech-Sat</title>
   <meta name="description" content="تعرّف على Tech-Sat — شركة يمنية رائدة في حلول الاتصالات الفضائية، الموزع الحصري لـ IEC Global Telecom.">
 
+  <!-- ── Instant language restore (prevents flash) ── -->
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem('techsat-lang');
+        if (l === 'en') {
+          document.documentElement.setAttribute('lang', 'en');
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+
   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -24,7 +37,62 @@
 
   <style>
 
-        /* ═══════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════
+       FONT PER DIRECTION
+    ═══════════════════════════════════════════════════════ */
+    html[dir="rtl"] body { font-family: 'Tajawal', 'Poppins', sans-serif; }
+    html[dir="ltr"] body,
+    html[dir="ltr"] .btn-cta,
+    html[dir="ltr"] .hero-btn,
+    html[dir="ltr"] .lang-toggle {
+      font-family: 'Poppins', 'Tajawal', sans-serif;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       LANGUAGE TOGGLE
+    ═══════════════════════════════════════════════════════ */
+    .lang-toggle {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1100;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 12px 9px;
+      background: var(--ts-navy, #0B1D33);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 0;
+      border-radius: 0 14px 14px 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      line-height: 1;
+      box-shadow: 0 10px 26px rgba(11, 29, 51, .28);
+      transition: background .25s ease, padding .25s ease, box-shadow .25s ease;
+    }
+    .lang-toggle i { font-size: 15px; }
+    .lang-toggle:hover {
+      background: var(--ts-crimson, #A80A3F);
+      padding-left: 14px;
+      padding-right: 14px;
+      box-shadow: 0 12px 30px rgba(168, 10, 63, .35);
+    }
+    .lang-toggle:focus-visible {
+      outline: 2px solid var(--ts-light-blue, #D1D8E0);
+      outline-offset: 2px;
+    }
+    @media (max-width: 576px) {
+      .lang-toggle { padding: 10px 7px; font-size: 11px; border-radius: 0 12px 12px 0; }
+      .lang-toggle i { font-size: 13px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
        ABOUT HERO — same structure as contact.html
     ═══════════════════════════════════════════════════════ */
     .about-hero {
@@ -65,23 +133,8 @@
       max-width: 720px;
       margin: 0 auto;
     }
-    .about-hero .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(255, 255, 255, .12);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, .2);
-      backdrop-filter: blur(6px);
-      padding: .45rem 1rem;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    .about-hero .eyebrow i { color: var(--ts-crimson); }
+
+    /* ── Heading ── */
     .about-hero h1 {
       margin: 0 0 20px;
       color: #fff;
@@ -90,6 +143,8 @@
       line-height: 1.15;
     }
     .about-hero h1 strong { color: var(--ts-crimson); font-weight: 800; }
+
+    /* ── Paragraph ── */
     .about-hero p {
       color: var(--ts-light-blue, #D1D8E0);
       font-size: 17px;
@@ -149,6 +204,7 @@
       .about-hero .page-hero__buttons { flex-direction: column; width: 100%; }
       .about-hero .hero-btn { width: 100%; }
     }
+
     /* ═══════════════════════════════════════════════════════
        SECTIONS BASE
     ═══════════════════════════════════════════════════════ */
@@ -171,7 +227,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════
-       STATS CARDS (from Financial Reports)
+       STATS CARDS
     ═══════════════════════════════════════════════════════ */
     .fin-stat-card {
       background: var(--surface-1);
@@ -234,7 +290,7 @@
     [data-theme="dark"] .fin-stat-trend.up { background: rgba(34,197,94,.18); color: #4ade80; }
 
     /* ═══════════════════════════════════════════════════════
-       FOCUS DISTRIBUTION RING (from Financial allocation)
+       FOCUS DISTRIBUTION RING
     ═══════════════════════════════════════════════════════ */
     .allocation-panel {
       background: var(--surface-1);
@@ -322,7 +378,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════
-       COMPANY STORY (from About)
+       COMPANY STORY
     ═══════════════════════════════════════════════════════ */
     .company-story {
       display: grid;
@@ -388,7 +444,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════
-       MILESTONE CARDS (from About)
+       MILESTONE CARDS
     ═══════════════════════════════════════════════════════ */
     .card-grid {
       display: grid;
@@ -462,7 +518,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════
-       TRUST STRIP (from Financial Reports)
+       TRUST STRIP
     ═══════════════════════════════════════════════════════ */
     .trust-strip {
       background: linear-gradient(135deg, var(--ts-navy) 0%, #16294a 100%);
@@ -509,7 +565,7 @@
     @media (max-width: 768px) { .trust-strip { padding: 32px 24px; } }
 
     /* ═══════════════════════════════════════════════════════
-       VALUE CARDS (from About)
+       VALUE CARDS
     ═══════════════════════════════════════════════════════ */
     .value-card {
       background: var(--surface-1);
@@ -586,7 +642,7 @@
     .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.15); color: var(--ts-crimson-dark); }
 
     /* ═══════════════════════════════════════════════════════
-       SCROLL TOP with PROGRESS RING (from Financial)
+       SCROLL TOP with PROGRESS RING
     ═══════════════════════════════════════════════════════ */
     #scrollTop {
       position: fixed;
@@ -643,20 +699,35 @@
 
   <div id="navbar-root"></div>
 
+  <!-- ───── LANGUAGE TOGGLE ───── -->
+  <button id="langToggle" class="lang-toggle" type="button"
+          aria-label="Switch to English" title="Switch language">
+    <i class="bi bi-translate" aria-hidden="true"></i>
+    <span class="lang-toggle__label" id="langToggleLabel">EN</span>
+  </button>
+
   <main>
 
     <!-- ═══════════════ HERO ═══════════════ -->
     <section class="about-hero">
       <div class="container">
         <div class="page-hero__content" data-aos="fade-up">
-          <h1>شركاؤك في الاتصال الفضائي</h1>
-          <p>شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.</p>
+          <h1 data-en="Your Partners in  Satellite Communication "
+              data-ar="شركاؤك في  الاتصال الفضائي ">
+            شركاؤك في  الاتصال الفضائي 
+          </h1>
+          <p data-en="A Yemeni company specialized in fixed and mobile satellite communication solutions, and the exclusive distributor of IEC Global Telecom in Yemen."
+             data-ar="شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.">
+            شركة يمنية متخصصة في حلول الاتصالات الفضائية الثابتة والمتنقلة، والموزع الحصري لـ IEC Global Telecom في اليمن.
+          </p>
           <div class="page-hero__buttons">
-            <a href="#about" class="hero-btn primary">
-              تعرف علينا <i class="bi bi-arrow-down"></i>
+            <a href="#about" class="hero-btn primary"
+               data-en="Learn About Us" data-ar="تعرف علينا">
+              تعرف علينا <i class="bi bi-arrow-down" aria-hidden="true"></i>
             </a>
-            <a href="contact.html" class="hero-btn secondary">
-              تواصل معنا <i class="bi bi-arrow-left"></i>
+            <a href="contact.html" class="hero-btn secondary"
+               data-en="Contact Us" data-ar="تواصل معنا">
+              تواصل معنا <i class="bi bi-arrow-left" data-dir-icon aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -669,34 +740,46 @@
         <div class="row g-4">
           <div class="col-6 col-lg-3" data-aos="fade-up">
             <div class="fin-stat-card">
-              <div class="fin-stat-ic"><i class="bi bi-calendar-check-fill"></i></div>
+              <div class="fin-stat-ic"><i class="bi bi-calendar-check-fill" aria-hidden="true"></i></div>
               <div class="fin-stat-val">10+</div>
-              <div class="fin-stat-label">سنوات من الخبرة</div>
-              <div class="fin-stat-trend neutral"><i class="bi bi-award-fill"></i> منذ 2015</div>
+              <div class="fin-stat-label" data-en="Years of Experience" data-ar="سنوات من الخبرة">سنوات من الخبرة</div>
+              <div class="fin-stat-trend neutral">
+                <i class="bi bi-award-fill" aria-hidden="true"></i>
+                <span data-en="Since 2015" data-ar="منذ 2015">منذ 2015</span>
+              </div>
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
             <div class="fin-stat-card">
-              <div class="fin-stat-ic"><i class="bi bi-globe-americas"></i></div>
+              <div class="fin-stat-ic"><i class="bi bi-globe-americas" aria-hidden="true"></i></div>
               <div class="fin-stat-val">40+</div>
-              <div class="fin-stat-label">دولة مغطاة</div>
-              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> عبر IEC</div>
+              <div class="fin-stat-label" data-en="Countries Covered" data-ar="دولة مغطاة">دولة مغطاة</div>
+              <div class="fin-stat-trend up">
+                <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                <span data-en="Via IEC" data-ar="عبر IEC">عبر IEC</span>
+              </div>
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
             <div class="fin-stat-card">
-              <div class="fin-stat-ic"><i class="bi bi-broadcast-pin"></i></div>
+              <div class="fin-stat-ic"><i class="bi bi-broadcast-pin" aria-hidden="true"></i></div>
               <div class="fin-stat-val">200+</div>
-              <div class="fin-stat-label">مشروع منجز</div>
-              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> +22% سنوياً</div>
+              <div class="fin-stat-label" data-en="Projects Delivered" data-ar="مشروع منجز">مشروع منجز</div>
+              <div class="fin-stat-trend up">
+                <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                <span data-en="+22% Annually" data-ar="+22% سنوياً">+22% سنوياً</span>
+              </div>
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
             <div class="fin-stat-card">
-              <div class="fin-stat-ic"><i class="bi bi-shield-check"></i></div>
+              <div class="fin-stat-ic"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
               <div class="fin-stat-val">99.9%</div>
-              <div class="fin-stat-label">جاهزية الشبكة</div>
-              <div class="fin-stat-trend up"><i class="bi bi-arrow-up-right"></i> SLA مضمون</div>
+              <div class="fin-stat-label" data-en="Network Availability" data-ar="جاهزية الشبكة">جاهزية الشبكة</div>
+              <div class="fin-stat-trend up">
+                <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                <span data-en="Guaranteed SLA" data-ar="SLA مضمون">SLA مضمون</span>
+              </div>
             </div>
           </div>
         </div>
@@ -708,25 +791,32 @@
       <div class="container">
         <div class="company-story">
           <div class="company-story__text" data-aos="fade-left">
-            <h2>من نحن؟</h2>
-            <p class="lead">
+            <h2 data-en="Who We Are" data-ar="من نحن؟">من نحن؟</h2>
+            <p class="lead"
+               data-en="Tech-Sat was founded as a specialized solutions company providing and delivering highly reliable fixed and mobile satellite communication solutions for enterprises, public institutions, and consumers."
+               data-ar="تأسست شركة Tech-Sat كشركة حلول متخصصة في توفير وتسليم حلول الاتصالات الفضائية الثابتة والمتنقلة عالية الموثوقية للشركات والمؤسسات العامة والمستهلكين.">
               تأسست شركة Tech-Sat كشركة حلول متخصصة في توفير وتسليم حلول الاتصالات الفضائية الثابتة والمتنقلة عالية الموثوقية للشركات والمؤسسات العامة والمستهلكين.
             </p>
-            <p>
+            <p data-en="Tech-Sat provides high-quality satellite-based technology, giving clients comprehensive and effective voice and data services, whenever and wherever it matters. We believe our integrated approach to in-house design and engineering expertise gives us a unique competitive advantage in the region."
+               data-ar="توفر Tech-Sat تقنية عالية الجودة تعتمد على الأقمار الصناعية، وتمنح العملاء خدمات صوتية وبيانات شاملة وفعالة، متى وأينما كان ذلك مهمًا. نؤمن بأن نهجنا المتكامل في التصميم الداخلي والخبرة الهندسية يمنحنا ميزة تنافسية فريدة في المنطقة.">
               توفر Tech-Sat تقنية عالية الجودة تعتمد على الأقمار الصناعية، وتمنح العملاء خدمات صوتية وبيانات شاملة وفعالة، متى وأينما كان ذلك مهمًا. نؤمن بأن نهجنا المتكامل في التصميم الداخلي والخبرة الهندسية يمنحنا ميزة تنافسية فريدة في المنطقة.
             </p>
-            <p>
+            <p data-en="We serve vital sectors including government, humanitarian, wireless, media, energy, enterprises, and maritime — with solutions tailored to each sector's unique needs."
+               data-ar="نخدم قطاعات حيوية تشمل الحكومة، والقطاع الإنساني، واللاسلكي، والإعلام، والطاقة، والمؤسسات، والقطاع البحري — بحلول مصممة خصيصًا لكل قطاع حسب احتياجاته الفريدة.">
               نخدم قطاعات حيوية تشمل الحكومة، والقطاع الإنساني، واللاسلكي، والإعلام، والطاقة، والمؤسسات، والقطاع البحري — بحلول مصممة خصيصًا لكل قطاع حسب احتياجاته الفريدة.
             </p>
-            <p>
+            <p data-en="Thanks to our partnership with IEC Global Telecom, we deliver our services across the Middle East, Africa, and Europe, with full commitment to quality and reliability."
+               data-ar="بفضل شراكتنا مع IEC Global Telecom، نقدم خدماتنا في الشرق الأوسط وأفريقيا وأوروبا، مع التزام كامل بالجودة والموثوقية.">
               بفضل شراكتنا مع IEC Global Telecom، نقدم خدماتنا في الشرق الأوسط وأفريقيا وأوروبا، مع التزام كامل بالجودة والموثوقية.
             </p>
           </div>
 
           <div class="company-story__images" data-aos="fade-right">
-            <img class="img-large" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800" alt="محطة VSAT">
-            <img class="img-small-1" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600" alt="قمر صناعي">
-            <img class="img-small-2" src="assets/img/nasa.jpg" alt="اتصالات بحرية">
+            <img class="img-large" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800"
+                 alt="VSAT Station">
+            <img class="img-small-1" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600"
+                 alt="Satellite">
+            <img class="img-small-2" src="assets/img/nasa.jpg" alt="Maritime Communications">
           </div>
         </div>
       </div>
@@ -741,43 +831,49 @@
               <div class="allocation-ring">
                 <div class="allocation-ring-label">
                   <span class="big">40%</span>
-                  <span class="small">تركيزنا الأساسي على القطاع الحكومي</span>
+                  <span class="small"
+                        data-en="Our primary focus on the government sector"
+                        data-ar="تركيزنا الأساسي على القطاع الحكومي">تركيزنا الأساسي على القطاع الحكومي</span>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
 
-              <h2 class="section-title mt-3 mb-4" style="text-align:start; font-size:clamp(1.6rem,2.8vw,2.1rem);">
+              <h2 class="section-title mt-3 mb-4" style="text-align:start; font-size:clamp(1.6rem,2.8vw,2.1rem);"
+                  data-en="How We Distribute Our Expertise Across Sectors"
+                  data-ar="كيف نوزّع خبراتنا على القطاعات">
                 كيف نوزّع خبراتنا على القطاعات
               </h2>
               <ul class="allocation-legend">
                 <li>
                   <span class="allocation-dot" style="background: var(--ts-blue);"></span>
-                  الحلول الحكومية والدفاعية
+                  <span data-en="Government &amp; Defense Solutions" data-ar="الحلول الحكومية والدفاعية">الحلول الحكومية والدفاعية</span>
                   <span class="pct">40%</span>
                 </li>
                 <li>
                   <span class="allocation-dot" style="background: var(--ts-crimson);"></span>
-                  الحلول الإنسانية والإغاثية
+                  <span data-en="Humanitarian &amp; Relief Solutions" data-ar="الحلول الإنسانية والإغاثية">الحلول الإنسانية والإغاثية</span>
                   <span class="pct">25%</span>
                 </li>
                 <li>
                   <span class="allocation-dot" style="background: #16a34a;"></span>
-                  الطاقة والنفط
+                  <span data-en="Energy &amp; Oil" data-ar="الطاقة والنفط">الطاقة والنفط</span>
                   <span class="pct">17%</span>
                 </li>
                 <li>
                   <span class="allocation-dot" style="background: #f59e0b;"></span>
-                  الإعلام والبث
+                  <span data-en="Media &amp; Broadcasting" data-ar="الإعلام والبث">الإعلام والبث</span>
                   <span class="pct">10%</span>
                 </li>
                 <li>
                   <span class="allocation-dot" style="background: #8b5cf6;"></span>
-                  المؤسسات والبحرية
+                  <span data-en="Enterprise &amp; Maritime" data-ar="المؤسسات والبحرية">المؤسسات والبحرية</span>
                   <span class="pct">8%</span>
                 </li>
               </ul>
-              <p class="text-muted mt-3 mb-0" style="font-size:.88rem;">
+              <p class="text-muted mt-3 mb-0" style="font-size:.88rem;"
+                 data-en="Based on the distribution of projects delivered over the last 5 years."
+                 data-ar="بناءً على توزيع المشاريع المنجزة خلال آخر 5 سنوات.">
                 بناءً على توزيع المشاريع المنجزة خلال آخر 5 سنوات.
               </p>
             </div>
@@ -790,34 +886,51 @@
     <section class="section">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>محطات مهمة في رحلتنا</h2>
-          <p>من شركة ناشئة إلى الموزع الحصري لشركة عالمية</p>
+          <h2 data-en="Key Milestones in Our Journey" data-ar="محطات مهمة في رحلتنا">محطات مهمة في رحلتنا</h2>
+          <p data-en="From a startup to the exclusive distributor of a global company"
+             data-ar="من شركة ناشئة إلى الموزع الحصري لشركة عالمية">من شركة ناشئة إلى الموزع الحصري لشركة عالمية</p>
         </div>
 
         <div class="card-grid">
           <div class="milestone-card" data-aos="fade-up">
             <span class="milestone-card__year">2015</span>
             <div class="milestone-card__divider"></div>
-            <h3 class="milestone-card__title">التأسيس</h3>
-            <p class="milestone-card__desc">انطلاق Tech-Sat في اليمن كشركة حلول متخصصة في الاتصالات الفضائية، برؤية واضحة لتقديم حلول موثوقة للقطاعات الحيوية.</p>
+            <h3 class="milestone-card__title" data-en="Founded" data-ar="التأسيس">التأسيس</h3>
+            <p class="milestone-card__desc"
+               data-en="Tech-Sat launched in Yemen as a solutions company specialized in satellite communications, with a clear vision to deliver reliable solutions for vital sectors."
+               data-ar="انطلاق Tech-Sat في اليمن كشركة حلول متخصصة في الاتصالات الفضائية، برؤية واضحة لتقديم حلول موثوقة للقطاعات الحيوية.">
+              انطلاق Tech-Sat في اليمن كشركة حلول متخصصة في الاتصالات الفضائية، برؤية واضحة لتقديم حلول موثوقة للقطاعات الحيوية.
+            </p>
           </div>
           <div class="milestone-card" data-aos="fade-up" data-aos-delay="100">
             <span class="milestone-card__year">2018</span>
             <div class="milestone-card__divider"></div>
-            <h3 class="milestone-card__title">شراكة IEC</h3>
-            <p class="milestone-card__desc">أصبحنا الموزع الحصري لـ IEC Global Telecom في اليمن، مع توسيع نطاق الخدمات ليشمل الشرق الأوسط وأفريقيا وأوروبا.</p>
+            <h3 class="milestone-card__title" data-en="IEC Partnership" data-ar="شراكة IEC">شراكة IEC</h3>
+            <p class="milestone-card__desc"
+               data-en="We became the exclusive distributor of IEC Global Telecom in Yemen, expanding our services to cover the Middle East, Africa, and Europe."
+               data-ar="أصبحنا الموزع الحصري لـ IEC Global Telecom في اليمن، مع توسيع نطاق الخدمات ليشمل الشرق الأوسط وأفريقيا وأوروبا.">
+              أصبحنا الموزع الحصري لـ IEC Global Telecom في اليمن، مع توسيع نطاق الخدمات ليشمل الشرق الأوسط وأفريقيا وأوروبا.
+            </p>
           </div>
           <div class="milestone-card" data-aos="fade-up" data-aos-delay="200">
             <span class="milestone-card__year">2021</span>
             <div class="milestone-card__divider"></div>
-            <h3 class="milestone-card__title">توسّع إقليمي</h3>
-            <p class="milestone-card__desc">توسّعنا لخدمة 15 دولة عبر تقنيات Ku و C-Band، مع إطلاق خدمات الشبكات المُدارة والدعم الفني على مدار الساعة.</p>
+            <h3 class="milestone-card__title" data-en="Regional Expansion" data-ar="توسّع إقليمي">توسّع إقليمي</h3>
+            <p class="milestone-card__desc"
+               data-en="We expanded to serve 15 countries via Ku and C-Band technologies, launching managed network services and 24/7 technical support."
+               data-ar="توسّعنا لخدمة 15 دولة عبر تقنيات Ku و C-Band، مع إطلاق خدمات الشبكات المُدارة والدعم الفني على مدار الساعة.">
+              توسّعنا لخدمة 15 دولة عبر تقنيات Ku و C-Band، مع إطلاق خدمات الشبكات المُدارة والدعم الفني على مدار الساعة.
+            </p>
           </div>
           <div class="milestone-card" data-aos="fade-up" data-aos-delay="300">
             <span class="milestone-card__year">2025</span>
             <div class="milestone-card__divider"></div>
-            <h3 class="milestone-card__title">+200 مشروع</h3>
-            <p class="milestone-card__desc">تجاوزنا 200 مشروع منجز و500 عميل موثوق، مع خبرة متراكمة في خدمة الحكومة والإنساني والبحري والطاقة والإعلام.</p>
+            <h3 class="milestone-card__title" data-en="+200 Projects" data-ar="+200 مشروع">+200 مشروع</h3>
+            <p class="milestone-card__desc"
+               data-en="We surpassed 200 delivered projects and 500 trusted clients, with accumulated expertise serving government, humanitarian, maritime, energy, and media sectors."
+               data-ar="تجاوزنا 200 مشروع منجز و500 عميل موثوق، مع خبرة متراكمة في خدمة الحكومة والإنساني والبحري والطاقة والإعلام.">
+              تجاوزنا 200 مشروع منجز و500 عميل موثوق، مع خبرة متراكمة في خدمة الحكومة والإنساني والبحري والطاقة والإعلام.
+            </p>
           </div>
         </div>
       </div>
@@ -829,16 +942,27 @@
         <div class="trust-strip" data-aos="zoom-in">
           <div class="content row align-items-center g-4">
             <div class="col-lg-8">
-              <h3><i class="bi bi-patch-check-fill me-2" style="color: #4ade80;"></i> الموزع الحصري لـ IEC Global Telecom في اليمن</h3>
-              <p>شراكة استراتيجية تمنحنا وصولاً مباشراً إلى أحدث تقنيات الأقمار الصناعية وشبكات الاتصال العالمية، مع دعم فني متكامل من فريق IEC في الشرق الأوسط وأفريقيا وأوروبا.</p>
+              <h3>
+                <i class="bi bi-patch-check-fill me-2" style="color: #4ade80;" aria-hidden="true"></i>
+                <span data-en="Exclusive Distributor of IEC Global Telecom in Yemen"
+                      data-ar="الموزع الحصري لـ IEC Global Telecom في اليمن">الموزع الحصري لـ IEC Global Telecom في اليمن</span>
+              </h3>
+              <p data-en="A strategic partnership that gives us direct access to the latest satellite technologies and global communication networks, with full technical support from the IEC team across the Middle East, Africa, and Europe."
+                 data-ar="شراكة استراتيجية تمنحنا وصولاً مباشراً إلى أحدث تقنيات الأقمار الصناعية وشبكات الاتصال العالمية، مع دعم فني متكامل من فريق IEC في الشرق الأوسط وأفريقيا وأوروبا.">
+                شراكة استراتيجية تمنحنا وصولاً مباشراً إلى أحدث تقنيات الأقمار الصناعية وشبكات الاتصال العالمية، مع دعم فني متكامل من فريق IEC في الشرق الأوسط وأفريقيا وأوروبا.
+              </p>
               <div class="trust-badge">
-                <i class="bi bi-shield-fill-check"></i>
-                <span>Only IEC Reseller in Yemen · Since 2018</span>
+                <i class="bi bi-shield-fill-check" aria-hidden="true"></i>
+                <span data-en="Only IEC Reseller in Yemen · Since 2018"
+                      data-ar="الموزع الحصري الوحيد لـ IEC في اليمن · منذ 2018">
+                  Only IEC Reseller in Yemen · Since 2018
+                </span>
               </div>
             </div>
             <div class="col-lg-4 text-lg-end">
               <a href="contact.html" class="btn-cta" style="background: #fff; color: var(--ts-crimson); display:inline-flex; align-items:center; gap:8px;">
-                <i class="bi bi-envelope-fill"></i> تواصل معنا
+                <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                <span data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</span>
               </a>
             </div>
           </div>
@@ -850,30 +974,47 @@
     <section class="section section--alt">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>قيم الشركة</h2>
-          <p>المبادئ التي توجّه عملنا اليومي وعلاقتنا مع عملائنا وشركائنا</p>
+          <h2 data-en="Company Values" data-ar="قيم الشركة">قيم الشركة</h2>
+          <p data-en="The principles that guide our daily work and our relationships with clients and partners"
+             data-ar="المبادئ التي توجّه عملنا اليومي وعلاقتنا مع عملائنا وشركائنا">المبادئ التي توجّه عملنا اليومي وعلاقتنا مع عملائنا وشركائنا</p>
         </div>
 
         <div class="card-grid">
           <div class="value-card" data-aos="fade-up">
-            <div class="value-card__icon"><i class="bi bi-shield-check"></i></div>
-            <h3 class="value-card__title">الموثوقية</h3>
-            <p class="value-card__desc">نضمن استمرارية الاتصال على مدار الساعة، مع بنية تحتية مستقرة وخطوط احتياطية وتغطية شاملة في أصعب الظروف.</p>
+            <div class="value-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+            <h3 class="value-card__title" data-en="Reliability" data-ar="الموثوقية">الموثوقية</h3>
+            <p class="value-card__desc"
+               data-en="We guarantee continuous connectivity around the clock, with stable infrastructure, backup lines, and comprehensive coverage in the toughest conditions."
+               data-ar="نضمن استمرارية الاتصال على مدار الساعة، مع بنية تحتية مستقرة وخطوط احتياطية وتغطية شاملة في أصعب الظروف.">
+              نضمن استمرارية الاتصال على مدار الساعة، مع بنية تحتية مستقرة وخطوط احتياطية وتغطية شاملة في أصعب الظروف.
+            </p>
           </div>
           <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="value-card__icon"><i class="bi bi-lightbulb"></i></div>
-            <h3 class="value-card__title">الابتكار</h3>
-            <p class="value-card__desc">نتبنّى أحدث تقنيات الأقمار الصناعية في Ku و Ka-Band، ونطوّر حلولاً مخصصة تلبي كل تحدٍّ تقني.</p>
+            <div class="value-card__icon"><i class="bi bi-lightbulb" aria-hidden="true"></i></div>
+            <h3 class="value-card__title" data-en="Innovation" data-ar="الابتكار">الابتكار</h3>
+            <p class="value-card__desc"
+               data-en="We adopt the latest satellite technologies in Ku and Ka-Band, developing custom solutions that meet every technical challenge."
+               data-ar="نتبنّى أحدث تقنيات الأقمار الصناعية في Ku و Ka-Band، ونطوّر حلولاً مخصصة تلبي كل تحدٍّ تقني.">
+              نتبنّى أحدث تقنيات الأقمار الصناعية في Ku و Ka-Band، ونطوّر حلولاً مخصصة تلبي كل تحدٍّ تقني.
+            </p>
           </div>
           <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="value-card__icon"><i class="bi bi-speedometer2"></i></div>
-            <h3 class="value-card__title">السرعة</h3>
-            <p class="value-card__desc">نستجيب بسرعة لاحتياجات عملائنا، مع تركيب احترافي خلال 24-48 ساعة ودعم فني على مدار الساعة.</p>
+            <div class="value-card__icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
+            <h3 class="value-card__title" data-en="Speed" data-ar="السرعة">السرعة</h3>
+            <p class="value-card__desc"
+               data-en="We respond quickly to our clients' needs, with professional installation within 24-48 hours and around-the-clock technical support."
+               data-ar="نستجيب بسرعة لاحتياجات عملائنا، مع تركيب احترافي خلال 24-48 ساعة ودعم فني على مدار الساعة.">
+              نستجيب بسرعة لاحتياجات عملائنا، مع تركيب احترافي خلال 24-48 ساعة ودعم فني على مدار الساعة.
+            </p>
           </div>
           <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="value-card__icon"><i class="bi bi-people"></i></div>
-            <h3 class="value-card__title">التركيز على العميل</h3>
-            <p class="value-card__desc">نستمع، نفهم، ونصمم حلولاً تناسب احتياج كل عميل على حدة، ونتشارك معه رحلة النجاح خطوة بخطوة.</p>
+            <div class="value-card__icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+            <h3 class="value-card__title" data-en="Customer Focus" data-ar="التركيز على العميل">التركيز على العميل</h3>
+            <p class="value-card__desc"
+               data-en="We listen, understand, and design solutions that fit each client's individual needs, sharing the journey of success step by step."
+               data-ar="نستمع، نفهم، ونصمم حلولاً تناسب احتياج كل عميل على حدة، ونتشارك معه رحلة النجاح خطوة بخطوة.">
+              نستمع، نفهم، ونصمم حلولاً تناسب احتياج كل عميل على حدة، ونتشارك معه رحلة النجاح خطوة بخطوة.
+            </p>
           </div>
         </div>
       </div>
@@ -883,14 +1024,20 @@
     <section class="section">
       <div class="container">
         <div class="cta-banner" data-aos="zoom-in">
-          <i class="bi bi-broadcast" style="font-size:2.4rem;"></i>
-          <h2 class="mt-3">جاهز تبدأ؟ لنصمم الحل المناسب لمهمتك.</h2>
-          <p class="mb-4" style="opacity:.92;">
+          <i class="bi bi-broadcast" style="font-size:2.4rem;" aria-hidden="true"></i>
+          <h2 class="mt-3"
+              data-en="Ready to Start? Let's Design the Right Solution for Your Mission."
+              data-ar="جاهز تبدأ؟ لنصمم الحل المناسب لمهمتك.">
+            جاهز تبدأ؟ لنصمم الحل المناسب لمهمتك.
+          </h2>
+          <p class="mb-4" style="opacity:.92;"
+             data-en="From secure government networks to remote energy sites and live media broadcasting — Tech-Sat connects you to the world wherever you are."
+             data-ar="من الشبكات الحكومية الآمنة إلى مواقع الطاقة النائية والبث الإعلامي المباشر — Tech-Sat تصلك بالعالم أينما كنت.">
             من الشبكات الحكومية الآمنة إلى مواقع الطاقة النائية والبث الإعلامي المباشر — Tech-Sat تصلك بالعالم أينما كنت.
           </p>
           <a href="contact.html" class="btn-cta">
-            <i class="bi bi-headset me-2"></i>
-            <span>تحدث مع مهندس</span>
+            <i class="bi bi-headset me-2" aria-hidden="true"></i>
+            <span data-en="Talk to an Engineer" data-ar="تحدث مع مهندس">تحدث مع مهندس</span>
           </a>
         </div>
       </div>
@@ -906,8 +1053,142 @@
       <circle cx="26" cy="26" r="23"></circle>
       <circle class="progress" cx="26" cy="26" r="23"></circle>
     </svg>
-    <i class="bi bi-arrow-up"></i>
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
   </button>
+
+  <!-- ═══════════════════════════════════════════════════
+       i18n ENGINE — English / Arabic
+  ═══════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'techsat-lang';
+      var DEFAULT_LANG = 'ar';
+      var root = document.documentElement;
+
+      var META = {
+        ar: {
+          title: 'من نحن — Tech-Sat',
+          desc: 'تعرّف على Tech-Sat — شركة يمنية رائدة في حلول الاتصالات الفضائية، الموزع الحصري لـ IEC Global Telecom.',
+          toggleLabel: 'EN',
+          toggleAria: 'Switch to English'
+        },
+        en: {
+          title: 'About Us — Tech-Sat',
+          desc: 'Discover Tech-Sat — a leading Yemeni company in satellite communication solutions and the exclusive distributor of IEC Global Telecom.',
+          toggleLabel: 'ع',
+          toggleAria: 'التبديل إلى العربية'
+        }
+      };
+
+      function getLang() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'ar' || saved === 'en') return saved;
+        } catch (e) { /* ignore */ }
+        return DEFAULT_LANG;
+      }
+
+      function setLang(lang) {
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+      }
+
+      /* Flip directional arrow icons (RTL ⟷ LTR) */
+      function swapArrowIcons(dir) {
+        var icons = document.querySelectorAll('[data-dir-icon]');
+        for (var i = 0; i < icons.length; i++) {
+          var el = icons[i];
+          el.classList.remove('bi-arrow-left', 'bi-arrow-right');
+          el.classList.add(dir === 'rtl' ? 'bi-arrow-left' : 'bi-arrow-right');
+        }
+      }
+
+      /* Apply a language to the whole document */
+      function applyLang(lang) {
+        var isAr = lang === 'ar';
+        var dir = isAr ? 'rtl' : 'ltr';
+
+        root.setAttribute('lang', lang);
+        root.setAttribute('dir', dir);
+
+        /* 1. Text content */
+        var textEls = document.querySelectorAll('[data-en]');
+        for (var i = 0; i < textEls.length; i++) {
+          var el = textEls[i];
+          var val = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null && val !== undefined) el.innerHTML = val;
+        }
+
+        /* 2. Placeholders (none on this page, but keep for safety) */
+        var phEls = document.querySelectorAll('[data-en-placeholder]');
+        for (var j = 0; j < phEls.length; j++) {
+          var pEl = phEls[j];
+          var ph = isAr ? pEl.getAttribute('data-ar-placeholder')
+                        : pEl.getAttribute('data-en-placeholder');
+          if (ph !== null && ph !== undefined) pEl.setAttribute('placeholder', ph);
+        }
+
+        /* 3. Directional icons */
+        swapArrowIcons(dir);
+
+        /* 4. Document metadata */
+        var m = META[lang] || META.ar;
+        document.title = m.title;
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', m.desc);
+
+        /* 5. Toggle button */
+        var btn = document.getElementById('langToggle');
+        var lbl = document.getElementById('langToggleLabel');
+        if (btn) btn.setAttribute('aria-label', m.toggleAria);
+        if (lbl) lbl.textContent = m.toggleLabel;
+
+        /* 6. Notify other scripts */
+        try {
+          document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { lang: lang, dir: dir }
+          }));
+        } catch (e) {
+          var evt = document.createEvent('Event');
+          evt.initEvent('languageChanged', true, true);
+          evt.detail = { lang: lang, dir: dir };
+          document.dispatchEvent(evt);
+        }
+      }
+
+      /* Toggle handler */
+      function initToggle() {
+        var btn = document.getElementById('langToggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var next = getLang() === 'ar' ? 'en' : 'ar';
+          setLang(next);
+          applyLang(next);
+        });
+      }
+
+      /* Boot */
+      function boot() {
+        applyLang(getLang());
+        initToggle();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+
+      /* Public API for other page scripts */
+      window.TechSatI18n = {
+        get lang() { return getLang(); },
+        get dir() { return root.getAttribute('dir'); },
+        set: function (l) { setLang(l); applyLang(l); },
+        t: function (ar, en) { return getLang() === 'ar' ? ar : en; }
+      };
+    })();
+  </script>
 
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -964,6 +1245,13 @@
       }
       document.addEventListener('layoutReady', initAOS);
       window.addEventListener('load', initAOS);
+
+      /* ─── Re-run AOS after language switch (content may shift) ─── */
+      document.addEventListener('languageChanged', function () {
+        if (window.AOS) {
+          setTimeout(function () { AOS.refresh(); }, 60);
+        }
+      });
 
     })();
   </script>
