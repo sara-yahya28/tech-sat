@@ -29,7 +29,7 @@
   --ts-pink:       var(--palette-crimson);
 --ts-pink-dark:  var(--palette-crimson-dark);
 --ts-blue-dark:  var(--palette-navy-soft);
---ts-blue-light: var(--palette-light-blue)
+--ts-blue-light: var(--palette-light-blue);
   --ts-light-blue:   var(--palette-light-blue);
   --ts-white:        var(--palette-white);
   --ts-black:        var(--palette-black);

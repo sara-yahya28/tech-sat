@@ -277,7 +277,30 @@
   /* ─────────────────────────────────────────────────────────
      INIT
   ───────────────────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────
+     SCROLL TO TOP — injected on every page
+  ───────────────────────────────────────────────────────── */
+  function injectScrollTop() {
+    if (document.querySelector('.ts-scroll-top')) return;   /* منع التكرار */
 
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ts-scroll-top';
+    btn.setAttribute('aria-label', 'Scroll to top');
+    btn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+    document.body.appendChild(btn);
+
+    function toggleBtn() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    }
+
+    window.addEventListener('scroll', toggleBtn, { passive: true });
+    toggleBtn();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   function init() {
     var navRoot  = document.getElementById('navbar-root');
     var footRoot = document.getElementById('footer-root');
@@ -287,7 +310,7 @@
 
     markActiveNav();
     rebindChromeControls();
-
+    injectScrollTop();
     document.dispatchEvent(new Event('layoutReady'));
   }
 

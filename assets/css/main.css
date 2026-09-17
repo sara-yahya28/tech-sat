@@ -5571,3 +5571,63 @@ body.quote-modal-open {
     height: 32px !important;
   }
 }
+/* ═══════════════════════════════════════════════════════════
+   SCROLL TO TOP BUTTON
+   ═══════════════════════════════════════════════════════════ */
+.ts-scroll-top {
+  position: fixed;
+  bottom: 24px;
+  inset-inline-end: 24px;
+  width: 52px;
+  height: 52px;
+  background: var(--ts-navy);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease, background .25s ease;
+  transform: translateY(8px);
+  z-index: 999;
+  box-shadow: 0 6px 18px rgba(11, 29, 51, .25);
+}
+
+.ts-scroll-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.ts-scroll-top:hover {
+  background: var(--ts-crimson);
+  transform: translateY(-3px);
+}
+
+.ts-scroll-top i {
+  font-size: 24px;
+  line-height: 1;
+}
+
+[data-theme="dark"] .ts-scroll-top {
+  background: #1E293B;
+}
+[data-theme="dark"] .ts-scroll-top:hover {
+  background: var(--ts-crimson);
+}
+
+@media (max-width: 576px) {
+  .ts-scroll-top {
+    bottom: 90px;          /* فوق mobile-donate-bar */
+    inset-inline-end: 16px;
+    width: 44px;
+    height: 44px;
+  }
+  .ts-scroll-top i { font-size: 20px; }
+}
+
+/* إخفاء القديم لو موجود بالـ id القديم */
+#scrollTop { display: none !important; }
