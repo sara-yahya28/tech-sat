@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — Injected by navbar-footer.js on every page
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-hw {
+  background: var(--ts-navy);
+  color: rgba(255,255,255,.8);
+  padding-top: 40px;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* ── Headings ──────────────────────────────────────────── */
+.footer-hw h6 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  margin-top: 0;
+  font-size: .95rem;
+}
+
+.footer-hw p {
+  color: rgba(255,255,255,.72);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.footer-hw ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Links ─────────────────────────────────────────────── */
+.footer-link {
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: 0.15rem 0;
+  font-size: 0.82rem;
+  transition: .2s ease;
+}
+.footer-link:hover {
+  color: var(--ts-crimson);
+}
+.footer-link i {
+  font-size: .65rem;
+  color: var(--ts-crimson);
+}
+[dir="rtl"] .footer-link i {
+  transform: scaleX(-1);
+}
+
+/* ── Social ────────────────────────────────────────────── */
+.footer-social {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: .25s ease;
+}
+.footer-social a:hover {
+  background: var(--ts-crimson);
+  transform: translateY(-2px);
+}
+
+/* ── Badges ────────────────────────────────────────────── */
+.footer-badges {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.85);
+  border-radius: 999px;
+  padding: .35rem .8rem;
+  font-size: .72rem;
+}
+.footer-badge i {
+  color: var(--ts-crimson);
+}
+
+/* ── Contact items ─────────────────────────────────────── */
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 0.3rem 0;
+  color: rgba(255,255,255,.8);
+  font-size: 0.85rem;
+}
+.footer-contact-item .ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--ts-light-blue);
+  color: var(--ts-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Newsletter ────────────────────────────────────────── */
+.newsletter-input {
+  display: flex;
+  background: rgba(255,255,255,.08);
+  border-radius: 999px;
+  padding: .2rem .2rem .2rem .9rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+[dir="rtl"] .newsletter-input {
+  padding: .2rem .9rem .2rem .2rem;
+}
+.newsletter-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: .85rem;
+  min-width: 0;
+}
+.newsletter-input input::placeholder {
+  color: rgba(255,255,255,.5);
+}
+.newsletter-input button {
+  background: var(--ts-crimson);
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .25s ease;
+  flex-shrink: 0;
+}
+.newsletter-input button:hover {
+  background: var(--ts-crimson-dark);
+}
+.newsletter-note {
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+  margin-top: .5rem;
+}
+
+/* ── Divider + Bottom ──────────────────────────────────── */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 40px 0 20px;
+}
+.footer-bottom {
+  font-size: .85rem;
+  color: rgba(255,255,255,.65);
+  padding-bottom: 24px;
+}
+.footer-bottom a {
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+}
+.footer-bottom a:hover {
+  color: var(--ts-crimson);
+}
+.footer-bottom-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-payments {
+  display: flex;
+  gap: .9rem;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,.7);
+}
+
+/* ── Tightened spacing for footer rows ─────────────────── */
+.footer-hw .row.mt-3,
+.footer-hw .row.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* ── Designed By ───────────────────────────────────────── */
+.footer-designed-by {
+  margin-top: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.footer-designed-by__text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .85);
+  margin: 0;
+}
+
+.footer-designed-by__name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .55);
+  margin-bottom: 10px;
+}
+
+.footer-designed-by__logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  opacity: .9;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.footer-designed-by__logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   --ts-navy flips to light in dark mode, so we force a fixed
+   dark background for the footer.
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] .footer-hw {
+  background: #0F1729 !important;
+  color: rgba(255, 255, 255, .8) !important;
+}
+
+[data-theme="dark"] .footer-hw h6,
+[data-theme="dark"] .footer-hw .hw-logo,
+[data-theme="dark"] .footer-hw strong {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .footer-hw p,
+[data-theme="dark"] .footer-hw li,
+[data-theme="dark"] .footer-hw span,
+[data-theme="dark"] .footer-hw a,
+[data-theme="dark"] .footer-hw .footer-link,
+[data-theme="dark"] .footer-hw .footer-contact-item {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+[data-theme="dark"] .footer-hw a:hover,
+[data-theme="dark"] .footer-hw .footer-link:hover {
+  color: var(--ts-crimson) !important;
+}
+
+[data-theme="dark"] .footer-hw .footer-link i {
+  color: var(--ts-crimson) !important;
+}
+
+[data-theme="dark"] .footer-hw .footer-contact-item .ic {
+  background: #1E293B !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .newsletter-input {
+  background: rgba(255, 255, 255, .08) !important;
+}
+[data-theme="dark"] .newsletter-input input {
+  color: #fff !important;
+}
+[data-theme="dark"] .newsletter-input input::placeholder {
+  color: rgba(255, 255, 255, .5) !important;
+}
+[data-theme="dark"] .newsletter-note {
+  color: rgba(255, 255, 255, .55) !important;
+}
+
+[data-theme="dark"] .footer-designed-by {
+  border-top-color: rgba(255, 255, 255, .1) !important;
+}
+[data-theme="dark"] .footer-designed-by__text {
+  color: rgba(255, 255, 255, .85) !important;
+}
+[data-theme="dark"] .footer-designed-by__name {
+  color: rgba(255, 255, 255, .55) !important;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-hw {
+    padding-top: 30px;
+  }
+  .footer-designed-by {
+    margin-top: 18px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .footer-designed-by__logo {
+    height: 32px;
+  }
+}

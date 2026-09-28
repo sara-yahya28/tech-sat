@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════
+   LOGO — Adaptive to theme
+   Used by: navbar + footer (via navbar-footer.js)
+   ═══════════════════════════════════════════════════════════ */
+
+.hw-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--ts-navy);
+  text-decoration: none;
+  font-family: 'Poppins', 'Tajawal', sans-serif;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.hw-logo .dot {
+  color: var(--ts-crimson);
+}
+
+.hw-logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ts-blue) 0%, var(--ts-navy) 100%);
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+[data-theme="dark"] .hw-logo {
+  color: #fff;
+}
+
+/* ── Image version ─────────────────────────────────────── */
+.hw-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity .2s ease, filter .3s ease;
+}
+.hw-logo:hover .hw-logo-img {
+  opacity: .85;
+}
+
+/* Footer version (always light logo on dark bg) */
+.hw-logo--light .hw-logo-img {
+  filter: brightness(0) invert(1);
+}
+
+/* Dark mode navbar — invert light logo */
+[data-theme="dark"] .navbar-hw .hw-logo:not(.hw-logo--light) .hw-logo-img {
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .hw-logo-img { height: 28px; }
+}
+@media (max-width: 480px) {
+  .hw-logo-img { height: 24px; }
+}
