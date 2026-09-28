@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════════════════════════════
+   SEARCH — Search box for products page
+   Used by: products.html
+   ═══════════════════════════════════════════════════════════ */
+
+.search-box-container {
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrapper .search-icon {
+  position: absolute;
+  right: 18px;
+  color: var(--ts-blue);
+  font-size: 1.25rem;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.search-input-wrapper .search-input {
+  padding: 14px 50px 14px 44px;
+  border-radius: 999px;
+  border: 2px solid var(--ts-border);
+  background: var(--surface-1);
+  color: var(--ts-text);
+  font-size: 15px;
+  box-shadow: 0 4px 16px rgba(26, 43, 71, 0.06);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+[data-theme="dark"] .search-input-wrapper .search-input {
+  color: #fff;
+  caret-color: #fff;
+}
+
+[data-theme="dark"] .search-input-wrapper .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input-wrapper .search-input:focus {
+  border-color: var(--ts-blue);
+  box-shadow: 0 8px 24px rgba(46, 109, 180, 0.15);
+  outline: none;
+}
+
+.btn-clear-search {
+  position: absolute;
+  left: 16px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+}
+
+.btn-clear-search:hover {
+  color: var(--ts-crimson);
+}

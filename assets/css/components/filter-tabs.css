@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════════════════
+   FILTER TABS — Pill style
+   Used by: industries.html, products.html, services.html
+   ═══════════════════════════════════════════════════════════ */
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto 40px;
+  padding: 0;
+  border: none;
+}
+
+.filter-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--surface-1);
+  border: 1px solid var(--ts-border);
+  border-radius: 30px;
+  color: var(--ts-text-muted);
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: none;
+  outline: none;
+}
+
+.filter-tab:not(.active):hover {
+  background: var(--surface-2);
+  color: var(--ts-blue);
+  border-color: var(--ts-blue);
+  transform: translateY(-2px);
+}
+
+.filter-tab.active,
+.filter-tab.active:hover,
+.filter-tab.active:focus {
+  background: var(--ts-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--ts-blue) !important;
+  box-shadow: 0 6px 18px rgba(46, 109, 180, 0.20);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .filter-tab.active {
+  color: #ffffff !important;
+}
+
+@media (max-width: 576px) {
+  .filter-tabs {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .filter-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════════════
+   QUOTE MODAL — Request a quote popup
+   Controlled by main.js
+   ═══════════════════════════════════════════════════════════ */
+
+.quote-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.quote-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── Backdrop ──────────────────────────────────────────── */
+.quote-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 29, 51, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ── Dialog ────────────────────────────────────────────── */
+.quote-modal__dialog {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 40px;
+  box-shadow: 0 30px 80px rgba(11, 29, 51, 0.25);
+  transform: translateY(20px) scale(0.97);
+  transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quote-modal.is-open .quote-modal__dialog {
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 576px) {
+  .quote-modal__dialog {
+    padding: 28px 22px;
+    border-radius: 16px;
+  }
+}
+
+/* ── Close button ──────────────────────────────────────── */
+.quote-modal__close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(11, 29, 51, 0.05);
+  border: none;
+  color: var(--palette-dark-navy);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+}
+.quote-modal__close:hover {
+  background: var(--palette-mid-blue);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* ── Header ────────────────────────────────────────────── */
+.quote-modal__header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.quote-modal__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(58, 110, 165, 0.1);
+  color: var(--palette-mid-blue);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.quote-modal__title {
+  color: var(--palette-dark-navy);
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.quote-modal__subtitle {
+  color: #64748B;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+  .quote-modal__title { font-size: 22px; }
+  .quote-modal__subtitle { font-size: 13px; }
+}
+
+/* ── Form ──────────────────────────────────────────────── */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quote-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 576px) {
+  .quote-form__row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.quote-form__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--palette-dark-navy);
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+.quote-form__field label span {
+  color: #DC2626;
+  margin-right: 2px;
+}
+
+.quote-form__field input,
+.quote-form__field select,
+.quote-form__field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--palette-light-blue);
+  border-radius: 10px;
+  background: #F8F9FA;
+  color: var(--palette-dark-navy);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all .2s ease;
+  text-align: right;
+}
+
+.quote-form__field input:focus,
+.quote-form__field select:focus,
+.quote-form__field textarea:focus {
+  outline: none;
+  border-color: var(--palette-mid-blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.12);
+}
+
+.quote-form__field input::placeholder,
+.quote-form__field textarea::placeholder {
+  color: rgba(11, 29, 51, 0.35);
+}
+
+.quote-form__field textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.6;
+}
+
+.quote-form__field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230B1D33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 14px center;
+  padding-left: 36px;
+}
+
+/* ── Actions ───────────────────────────────────────────── */
+.quote-form__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quote-form__submit {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--palette-mid-blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.quote-form__submit:hover {
+  background: var(--palette-dark-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(58, 110, 165, 0.3);
+}
+.quote-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quote-form__cancel {
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--palette-dark-navy);
+  border: 1px solid var(--palette-light-blue);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.quote-form__cancel:hover {
+  border-color: var(--palette-dark-navy);
+  background: #F8F9FA;
+}
+
+/* ── Status message ────────────────────────────────────── */
+.quote-form__status {
+  display: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.quote-form__status.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.1);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.quote-form__status.error {
+  display: block;
+  background: rgba(220, 38, 38, 0.08);
+  color: #B91C1C;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* ── Prevent body scroll when open ─────────────────────── */
+body.quote-modal-open {
+  overflow: hidden;
+}
