@@ -89,8 +89,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        url('');
+  background-image:url('/img-product/pic1.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
