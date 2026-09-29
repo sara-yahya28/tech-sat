@@ -388,33 +388,7 @@
   <script src="assets/vendor/aos/aos.js"></script>
 
   <!-- ⚠️ navbar-footer في النهاية، ليس في head -->
-  <script src="assets/js/navbar-footer.js"></script>
-
-  <script>
-    (function () {
-      'use strict';
-
-      /* ─── AOS ─── */
-      function initAOS() {
-        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
-      }
-      document.addEventListener('layoutReady', initAOS);
-      window.addEventListener('load', initAOS);
-
-      /* ─── Re-run AOS after language switch (content may shift) ─── */
-      document.addEventListener('languageChanged', function () {
-        if (window.AOS) {
-          setTimeout(function () { AOS.refresh(); }, 60);
-        }
-      });
-      /* ─── Re-run AOS after language switch (content may shift) ─── */
-      document.addEventListener('languageChanged', function () {
-        if (window.AOS) {
-          setTimeout(function () { AOS.refresh(); }, 60);
-        }
-      });
-    })();
-  </script>
+  <script type="module" src="assets/js/core/chrome.js"></script>
 
 </body>
 

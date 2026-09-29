@@ -1,13 +1,11 @@
-/* ═══════════════════════════════════════════════════════════
+/* =========================================================
    WORLD MAP (Leaflet) — Tech-Sat Regional Network
-   ═══════════════════════════════════════════════════════════ */
+   ========================================================= */
 
-(function () {
-  'use strict';
-
-  var mapEl = document.getElementById('map');
-  if (!mapEl) return;
-  if (typeof L === 'undefined') { console.warn('[map] Leaflet not loaded'); return; }
+export function initWorldMap() {
+const mapEl = document.getElementById('map');
+if (!mapEl) return;
+ if (typeof L === 'undefined') { console.warn('[map] Leaflet not loaded'); return; }
 
   /* ═══ LOCATIONS ═══ */
   var LOCATIONS = [
@@ -269,4 +267,4 @@
     setTimeout(function () { map.invalidateSize(); }, 150);
   });
 
-})();
+}

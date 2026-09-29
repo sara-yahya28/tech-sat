@@ -1,8 +1,8 @@
 /* =========================================================
-   SERVICES PAGE — Filter Tabs
+   INDUSTRIES PAGE — Filter Tabs
    ========================================================= */
 
-export function initServicesPage() {
+export function initIndustriesPage() {
   const tabs = document.querySelectorAll('.filter-tab');
   const items = document.querySelectorAll('.service-item');
   const noResults = document.getElementById('noResults');
@@ -35,9 +35,9 @@ export function initServicesPage() {
   });
 }
 
-document.addEventListener('layoutReady', initServicesPage);
+document.addEventListener('layoutReady', initIndustriesPage);
 
 /* Fallback */
 if (window.__chromeReady) {
-  initServicesPage();
+  initIndustriesPage();
 }
