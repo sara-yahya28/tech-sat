@@ -1,7 +1,11 @@
 
-(function () {
-  'use strict';
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
 
+import { initWorldMap } from '../map.js';
+
+export function initContactPage() {
   var form = document.getElementById('contactForm');
   var status = document.getElementById('formStatus');
   var sendBtn = document.getElementById('sendBtn');
@@ -18,22 +22,27 @@
 
     if (!name || !email || !subject || !message) {
       status.className = 'form-status error';
-      status.textContent = 'الرجاء تعبئة جميع الحقول الإلزامية.';
+      status.textContent = document.documentElement.lang === 'en'
+        ? 'Please fill in all required fields.'
+        : 'الرجاء تعبئة جميع الحقول الإلزامية.';
       return;
     }
 
     if (sendBtn) {
       sendBtn.disabled = true;
-      sendBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> جاري الإرسال...';
+      sendBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> ' +
+        (document.documentElement.lang === 'en' ? 'Sending...' : 'جاري الإرسال...');
     }
 
     setTimeout(function () {
       status.className = 'form-status success';
-      status.textContent = '✓ تم استلام رسالتك. سنتواصل معك خلال 24 ساعة.';
-      if (sendBtn) {
-        sendBtn.disabled = false;
-        sendBtn.innerHTML = '<i class="bi bi-send"></i> إرسال الرسالة';
-      }
+      status.textContent = document.documentElement.lang === 'en'
+        ? ' Message received. We will contact you within 24 hours.'
+        : ' تم استلام رسالتك. سنتواصل معك خلال 24 ساعة.'; if (sendBtn) {
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = '<i class="bi bi-send"></i> ' +
+            (document.documentElement.lang === 'en' ? 'Send Message' : 'إرسال الرسالة');
+        }
       form.reset();
       setTimeout(function () {
         status.className = 'form-status';
@@ -41,4 +50,14 @@
       }, 6000);
     }, 800);
   });
-})();
+}
+document.addEventListener('layoutReady', function () {
+  initContactPage();
+  initWorldMap();
+});
+
+/* Fallback */
+if (window.__chromeReady) {
+  initContactPage();
+  initWorldMap();
+}
