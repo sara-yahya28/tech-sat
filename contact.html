@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light"
-      data-title-ar="اتصل بنا — Tech-Sat"
-      data-title-en="Contact Us — Tech-Sat"
-      data-desc-ar="تواصل مع Tech-Sat — فريق المبيعات والدعم الفني في خدمتك."
-      data-desc-en="Contact Tech-Sat — our sales and technical support team is ready to help.">
+<html lang="ar" dir="rtl" data-theme="light" data-title-ar="اتصل بنا — Tech-Sat" data-title-en="Contact Us — Tech-Sat"
+  data-desc-ar="تواصل مع Tech-Sat — فريق المبيعات والدعم الفني في خدمتك."
+  data-desc-en="Contact Tech-Sat — our sales and technical support team is ready to help.">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>تواصل معنا — Tech-Sat</title>
   <meta name="description" content="تواصل مع Tech-Sat — فريقنا جاهز للإجابة على استفساراتك على مدار الساعة.">
 
-  <!-- ── Instant language restore (prevents flash) ── -->
   <script>
     (function () {
       try {
-        var l = localStorage.getItem('techsat-lang');
+        var l = localStorage.getItem('ts-lang');
         if (l === 'en') {
           document.documentElement.setAttribute('lang', 'en');
           document.documentElement.setAttribute('dir', 'ltr');
         }
-      } catch (e) { /* ignore */ }
+      } catch (e) { }
     })();
   </script>
 
@@ -28,15 +26,16 @@
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
-<link href="assets/css/pages/contact.css" rel="stylesheet">
+  <link href="assets/css/pages/contact.css" rel="stylesheet">
 
   <!-- Leaflet Map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -52,31 +51,26 @@
     <section class="page-hero">
       <div class="container" data-aos="fade-up">
 
-        <span class="subtitle-tag"
-              data-en="Contact Tech-Sat"
-              data-ar="تواصل مع Tech-Sat">
+        <span class="subtitle-tag" data-en="Contact Tech-Sat" data-ar="تواصل مع Tech-Sat">
           تواصل مع Tech-Sat
         </span>
 
-        <h1 data-en="We're here to help"
-            data-ar="نحن هنا لمساعدتك">
+        <h1 data-en="We're here to help" data-ar="نحن هنا لمساعدتك">
           نحن هنا <strong>لمساعدتك</strong>
         </h1>
 
         <p data-en="Our team is available to answer your inquiries and help you choose the right satellite communication solutions for your needs."
-           data-ar="فريقنا متاح للإجابة على استفساراتك ومساعدتك في اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.">
+          data-ar="فريقنا متاح للإجابة على استفساراتك ومساعدتك في اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.">
           فريقنا متاح للإجابة على استفساراتك ومساعدتك في
           اختيار حلول الاتصالات الفضائية المناسبة لاحتياجاتك.
         </p>
 
         <div class="page-hero__buttons">
-          <a href="#contact" class="hero-btn primary"
-             data-en="Contact Us" data-ar="تواصل معنا">
+          <a href="#contact" class="hero-btn primary" data-en="Contact Us" data-ar="تواصل معنا">
             تواصل معنا
             <i class="bi bi-arrow-down" aria-hidden="true"></i>
           </a>
-          <a href="products.html" class="hero-btn secondary"
-             data-en="Explore Products" data-ar="استكشف منتجاتنا">
+          <a href="products.html" class="hero-btn secondary" data-en="Explore Products" data-ar="استكشف منتجاتنا">
             استكشف منتجاتنا
             <i class="bi bi-arrow-left" data-dir-icon aria-hidden="true"></i>
           </a>
@@ -93,26 +87,25 @@
           <div class="col-lg-7" data-aos="fade-up">
             <div class="contact-form-wrap">
               <h3 data-en="Send us a message" data-ar="أرسل لنا رسالة">أرسل لنا رسالة</h3>
-              <p data-en="We'll reply within 24 hours." data-ar="سنرد عليك خلال 24 ساعة كحد أقصى.">سنرد عليك خلال 24 ساعة كحد أقصى.</p>
+              <p data-en="We'll reply within 24 hours." data-ar="سنرد عليك خلال 24 ساعة كحد أقصى.">سنرد عليك خلال 24
+                ساعة كحد أقصى.</p>
 
               <form id="contactForm" novalidate>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل <span>*</span></label>
-                      <input type="text" name="name" id="userName" required
-                             placeholder="مثال: أحمد الشامي"
-                             data-ar-placeholder="مثال: أحمد الشامي"
-                             data-en-placeholder="e.g. Ahmed Al-Shami">
+                      <label for="userName" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل
+                        <span>*</span></label>
+                      <input type="text" name="name" id="userName" required placeholder="مثال: أحمد الشامي"
+                        data-ar-placeholder="مثال: أحمد الشامي" data-en-placeholder="e.g. Ahmed Al-Shami">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
-                      <label for="userEmail" data-en="Email Address" data-ar="البريد الإلكتروني">البريد الإلكتروني <span>*</span></label>
-                      <input type="email" name="email" id="userEmail" required
-                             placeholder="you@company.com"
-                             data-ar-placeholder="you@company.com"
-                             data-en-placeholder="you@company.com">
+                      <label for="userEmail" data-en="Email Address" data-ar="البريد الإلكتروني">البريد الإلكتروني
+                        <span>*</span></label>
+                      <input type="email" name="email" id="userEmail" required placeholder="you@company.com"
+                        data-ar-placeholder="you@company.com" data-en-placeholder="you@company.com">
                     </div>
                   </div>
                 </div>
@@ -121,29 +114,24 @@
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userPhone" data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
-                      <input type="tel" name="phone" id="userPhone"
-                             placeholder="+967 7XX XXX XXX"
-                             data-ar-placeholder="+967 7XX XXX XXX"
-                             data-en-placeholder="+967 7XX XXX XXX">
+                      <input type="tel" name="phone" id="userPhone" placeholder="+967 7XX XXX XXX"
+                        data-ar-placeholder="+967 7XX XXX XXX" data-en-placeholder="+967 7XX XXX XXX">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-field">
                       <label for="userSubject" data-en="Subject" data-ar="الموضوع">الموضوع <span>*</span></label>
-                      <input type="text" name="subject" id="userSubject" required
-                             placeholder="طلب عرض سعر / استفسار"
-                             data-ar-placeholder="طلب عرض سعر / استفسار"
-                             data-en-placeholder="Quote request / Inquiry">
+                      <input type="text" name="subject" id="userSubject" required placeholder="طلب عرض سعر / استفسار"
+                        data-ar-placeholder="طلب عرض سعر / استفسار" data-en-placeholder="Quote request / Inquiry">
                     </div>
                   </div>
                 </div>
 
                 <div class="form-field">
                   <label for="userMessage" data-en="Message" data-ar="الرسالة">الرسالة <span>*</span></label>
-                  <textarea name="message" id="userMessage" rows="5" required
-                            placeholder="أخبرنا عن احتياجاتك..."
-                            data-ar-placeholder="أخبرنا عن احتياجاتك..."
-                            data-en-placeholder="Tell us about your needs..."></textarea>
+                  <textarea name="message" id="userMessage" rows="5" required placeholder="أخبرنا عن احتياجاتك..."
+                    data-ar-placeholder="أخبرنا عن احتياجاتك..."
+                    data-en-placeholder="Tell us about your needs..."></textarea>
                 </div>
 
                 <button type="submit" class="send-button" id="sendBtn">
@@ -163,7 +151,7 @@
               <div class="sidebar-header">
                 <h3 data-en="Contact Information" data-ar="معلومات الاتصال">معلومات الاتصال</h3>
                 <p data-en="Reach us through any of the following channels"
-                   data-ar="تواصل معنا عبر أي من القنوات التالية">تواصل معنا عبر أي من القنوات التالية</p>
+                  data-ar="تواصل معنا عبر أي من القنوات التالية">تواصل معنا عبر أي من القنوات التالية</p>
               </div>
 
               <a href="tel:+9672396056" class="mini-card mini-card--primary">
@@ -205,7 +193,8 @@
                   <i class="bi bi-tools" aria-hidden="true"></i>
                 </div>
                 <div class="mini-card__body">
-                  <span class="mini-card__label" data-en="Technical Support" data-ar="قسم الدعم الفني">قسم الدعم الفني</span>
+                  <span class="mini-card__label" data-en="Technical Support" data-ar="قسم الدعم الفني">قسم الدعم
+                    الفني</span>
                   <span class="mini-card__value">Support@tech-sat.com</span>
                   <span class="mini-card__sub" dir="ltr">+967 711 188 100</span>
                 </div>
@@ -266,7 +255,7 @@
         <div class="section-title" data-aos="fade-up">
           <h2 data-en="Global Coverage" data-ar="تغطيتنا العالمية">تغطيتنا العالمية</h2>
           <p data-en="Connecting Yemen to the world through a strategic network of IEC Global Telecom offices."
-             data-ar="نربط اليمن بالعالم عبر شبكة استراتيجية من مكاتب IEC Global Telecom.">
+            data-ar="نربط اليمن بالعالم عبر شبكة استراتيجية من مكاتب IEC Global Telecom.">
             نربط اليمن بالعالم عبر شبكة استراتيجية من مكاتب IEC Global Telecom.
           </p>
         </div>
@@ -275,11 +264,11 @@
           <div class="map-wrapper__head">
             <h3 class="map-wrapper__title">
               <i class="bi bi-globe2" aria-hidden="true"></i>
-              <span data-en="Tech-Sat · Regional Network" data-ar="شبكة Tech-Sat الإقليمية">شبكة Tech-Sat الإقليمية</span>
+              <span data-en="Tech-Sat · Regional Network" data-ar="شبكة Tech-Sat الإقليمية">شبكة Tech-Sat
+                الإقليمية</span>
             </h3>
-            <span class="map-wrapper__hint"
-                  data-en="Click markers to explore locations"
-                  data-ar="اضغط على العلامات لاستكشاف المواقع">
+            <span class="map-wrapper__hint" data-en="Click markers to explore locations"
+              data-ar="اضغط على العلامات لاستكشاف المواقع">
               اضغط على العلامات لاستكشاف المواقع
             </span>
           </div>
@@ -295,7 +284,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2 data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">الأسئلة الشائعة</h2>
         <p data-en="Everything you need to know about our services and solutions"
-           data-ar="كل ما تحتاج معرفته عن خدماتنا وحلولنا">كل ما تحتاج معرفته عن خدماتنا وحلولنا</p>
+          data-ar="كل ما تحتاج معرفته عن خدماتنا وحلولنا">كل ما تحتاج معرفته عن خدماتنا وحلولنا</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -314,11 +303,10 @@
                         <i class="bi bi-satellite"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title"
-                              data-en="What are the core services Tech-Sat provides?"
-                              data-ar="ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟">ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟</span>
-                        <span class="shadcn-accordion-subtitle"
-                              data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
+                        <span class="shadcn-accordion-title" data-en="What are the core services Tech-Sat provides?"
+                          data-ar="ما هي الخدمات الأساسية التي تقدمها Tech-Sat؟">ما هي الخدمات الأساسية التي تقدمها
+                          Tech-Sat؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -326,9 +314,10 @@
                 </h2>
                 <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                   <div class="accordion-body shadcn-accordion-content"
-                       data-en="We provide fixed and mobile VSAT solutions, voice and data services, system integration, field services, managed networks, and 24/7 technical support. We also deliver tailored solutions for every sector according to its needs."
-                       data-ar="نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.">
-                    نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.
+                    data-en="We provide fixed and mobile VSAT solutions, voice and data services, system integration, field services, managed networks, and 24/7 technical support. We also deliver tailored solutions for every sector according to its needs."
+                    data-ar="نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.">
+                    نقدم حلول VSAT الثابتة والمتنقلة، خدمات الصوت والبيانات، تكامل الأنظمة، الخدمات الميدانية، الشبكات
+                    المُدارة، والدعم الفني على مدار الساعة. كما نوفر حلولاً مخصصة لكل قطاع حسب احتياجاته.
                   </div>
                 </div>
               </div>
@@ -343,11 +332,9 @@
                         <i class="bi bi-geo-alt"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title"
-                              data-en="Do your services cover all regions of Yemen?"
-                              data-ar="هل تغطي خدماتكم جميع مناطق اليمن؟">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
-                        <span class="shadcn-accordion-subtitle"
-                              data-en="Coverage" data-ar="التغطية">التغطية</span>
+                        <span class="shadcn-accordion-title" data-en="Do your services cover all regions of Yemen?"
+                          data-ar="هل تغطي خدماتكم جميع مناطق اليمن؟">هل تغطي خدماتكم جميع مناطق اليمن؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Coverage" data-ar="التغطية">التغطية</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -355,9 +342,10 @@
                 </h2>
                 <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                   <div class="accordion-body shadcn-accordion-content"
-                       data-en="Yes. Our coverage includes all Yemeni governorates in addition to neighboring countries such as Saudi Arabia, Djibouti, and Oman. We use Ku-Band and C-Band technologies to ensure comprehensive coverage even in the most remote areas."
-                       data-ar="نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.">
-                    نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.
+                    data-en="Yes. Our coverage includes all Yemeni governorates in addition to neighboring countries such as Saudi Arabia, Djibouti, and Oman. We use Ku-Band and C-Band technologies to ensure comprehensive coverage even in the most remote areas."
+                    data-ar="نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.">
+                    نعم، تغطيتنا تشمل جميع المحافظات اليمنية إضافة إلى دول الجوار كالسعودية وجيبوتي وعُمان. نستخدم
+                    تقنيات Ku-Band و C-Band لضمان تغطية شاملة حتى في أكثر المناطق النائية.
                   </div>
                 </div>
               </div>
@@ -372,11 +360,9 @@
                         <i class="bi bi-tools"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title"
-                              data-en="How long does VSAT installation take?"
-                              data-ar="كم يستغرق تركيب نظام VSAT؟">كم يستغرق تركيب نظام VSAT؟</span>
-                        <span class="shadcn-accordion-subtitle"
-                              data-en="Installation" data-ar="التركيب">التركيب</span>
+                        <span class="shadcn-accordion-title" data-en="How long does VSAT installation take?"
+                          data-ar="كم يستغرق تركيب نظام VSAT؟">كم يستغرق تركيب نظام VSAT؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Installation" data-ar="التركيب">التركيب</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -384,9 +370,10 @@
                 </h2>
                 <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                   <div class="accordion-body shadcn-accordion-content"
-                       data-en="Installation usually takes 24 to 48 hours depending on the client's location and the type of system. In urban areas it may be completed within a single working day, while mountainous or remote areas may require additional time."
-                       data-ar="يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.">
-                    يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.
+                    data-en="Installation usually takes 24 to 48 hours depending on the client's location and the type of system. In urban areas it may be completed within a single working day, while mountainous or remote areas may require additional time."
+                    data-ar="يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.">
+                    يستغرق التركيب عادة من 24 إلى 48 ساعة حسب موقع العميل ونوع النظام. في المناطق الحضرية قد يتم التركيب
+                    خلال يوم عمل واحد، بينما قد يحتاج إلى وقت إضافي في المناطق الجبلية أو النائية.
                   </div>
                 </div>
               </div>
@@ -401,11 +388,10 @@
                         <i class="bi bi-headset"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title"
-                              data-en="Do you offer 24/7 technical support?"
-                              data-ar="هل توفرون دعمًا فنيًا على مدار الساعة؟">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
-                        <span class="shadcn-accordion-subtitle"
-                              data-en="Support" data-ar="الدعم الفني">الدعم الفني</span>
+                        <span class="shadcn-accordion-title" data-en="Do you offer 24/7 technical support?"
+                          data-ar="هل توفرون دعمًا فنيًا على مدار الساعة؟">هل توفرون دعمًا فنيًا على مدار الساعة؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Support" data-ar="الدعم الفني">الدعم
+                          الفني</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -413,9 +399,10 @@
                 </h2>
                 <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                   <div class="accordion-body shadcn-accordion-content"
-                       data-en="Yes. Our technical support team is available 24/7/365 via phone, email, and live chat. We also provide on-site support when needed, and we guarantee a response within 24 hours at most."
-                       data-ar="نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.">
-                    نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.
+                    data-en="Yes. Our technical support team is available 24/7/365 via phone, email, and live chat. We also provide on-site support when needed, and we guarantee a response within 24 hours at most."
+                    data-ar="نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.">
+                    نعم، فريق الدعم الفني متاح 24/7/365 عبر الهاتف والبريد الإلكتروني والدردشة المباشرة. كما نوفر دعمًا
+                    ميدانيًا عند الحاجة، ونضمن الاستجابة خلال 24 ساعة كحد أقصى.
                   </div>
                 </div>
               </div>
@@ -430,11 +417,9 @@
                         <i class="bi bi-file-earmark-text"></i>
                       </span>
                       <span class="shadcn-accordion-text">
-                        <span class="shadcn-accordion-title"
-                              data-en="How can I get a custom quote?"
-                              data-ar="كيف أحصل على عرض سعر مخصص؟">كيف أحصل على عرض سعر مخصص؟</span>
-                        <span class="shadcn-accordion-subtitle"
-                              data-en="Pricing" data-ar="الأسعار">الأسعار</span>
+                        <span class="shadcn-accordion-title" data-en="How can I get a custom quote?"
+                          data-ar="كيف أحصل على عرض سعر مخصص؟">كيف أحصل على عرض سعر مخصص؟</span>
+                        <span class="shadcn-accordion-subtitle" data-en="Pricing" data-ar="الأسعار">الأسعار</span>
                       </span>
                     </span>
                     <i class="bi bi-plus-lg shadcn-accordion-plus" aria-hidden="true"></i>
@@ -442,9 +427,10 @@
                 </h2>
                 <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                   <div class="accordion-body shadcn-accordion-content"
-                       data-en="Contact us through the contact form or by phone, and our sales team will analyze your requirements and send a customized quote within 24 hours. The first consultation is completely free."
-                       data-ar="تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.">
-                    تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.
+                    data-en="Contact us through the contact form or by phone, and our sales team will analyze your requirements and send a customized quote within 24 hours. The first consultation is completely free."
+                    data-ar="تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.">
+                    تواصل معنا عبر نموذج الاتصال أو الهاتف المباشر، وسيقوم فريق المبيعات بتحليل احتياجاتك وإرسال عرض سعر
+                    مخصص خلال 24 ساعة. الاستشارة الأولى مجانية تمامًا.
                   </div>
                 </div>
               </div>
@@ -463,29 +449,13 @@
   <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <!-- Shared navbar + footer -->
-  <script src="assets/js/navbar-footer.js"></script>
-
-  <!-- Page scripts -->
-  <script src="assets/js/map.js"></script>
-  <script src="assets/js/pages/contact.js"></script>
-
-  <!-- AOS init -->
-  <script>
-    (function () {
-      'use strict';
-      function initAOS() {
-        if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
-      }
-      document.addEventListener('layoutReady', initAOS);
-      window.addEventListener('load', initAOS);
-    })();
-  </script>
+  <script type="module" src="assets/js/core/chrome.js"></script>
+<script type="module" src="assets/js/pages/contact.js"></script>
 
 </body>
 

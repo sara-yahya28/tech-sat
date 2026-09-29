@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech-Sat &mdash; Reliable Satellite Communications, Anywhere</title>
+  <title>Tech-Sat</title>
   <meta name="description"
     content="Tech-Sat delivers highly reliable mobile and fixed satellite communications solutions. Only reseller in Yemen of IEC Global Telecom.">
 
@@ -12,18 +12,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link href="assets/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- ✅ Shared design tokens -->
   <link href="assets/css/palette.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 <link href="assets/css/pages/home.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Leaflet Map (mini map only) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <link rel="icon" type="image/x-icon" href="assets/satellite-dish.png">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 </head>
 
@@ -1077,191 +1078,11 @@
         Service</span> <i class="bi bi-headset"></i></a>
   </div>
 
-  <!-- SCROLL TOP -->
-  <button id="scrollTop" aria-label="Scroll to top" type="button">
-    <i class="bi bi-arrow-up"></i>
-  </button>
-
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-
-  <!-- Leaflet JS (mini map only) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Shared navbar + footer -->
-  <script src="assets/js/navbar-footer.js"></script>
-
-  <script>
-    (function () {
-      'use strict';
-      var html = document.documentElement;
-
-      /* ---------- PRELOADER ---------- */
-      window.addEventListener('load', function () {
-        var pre = document.getElementById('preloader');
-        if (pre) setTimeout(function () { pre.classList.add('hide'); }, 400);
-      });
-
-      /* ---------- THEME ---------- */
-      var themeBtn = document.getElementById('themeToggle');
-      var themeIcon = document.getElementById('themeIcon');
-      var savedTheme = localStorage.getItem('ts-theme') || 'light';
-      html.setAttribute('data-theme', savedTheme);
-      if (themeIcon) themeIcon.className = savedTheme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
-      if (themeBtn) {
-        themeBtn.addEventListener('click', function () {
-          var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-          html.setAttribute('data-theme', next);
-          localStorage.setItem('ts-theme', next);
-          themeIcon.className = next === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
-        });
-      }
-
-      /* ---------- LANGUAGE ---------- */
-      var langBtn = document.getElementById('langToggle');
-      var langLabel = document.getElementById('langLabel');
-
-      function applyLang(lang) {
-        html.setAttribute('lang', lang);
-        html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        if (langLabel) langLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
-
-        document.querySelectorAll('[data-en][data-ar]').forEach(function (el) {
-          var val = el.getAttribute('data-' + lang);
-          if (val === null) return;
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = val;
-          } else if (el.tagName === 'OPTION') {
-            el.textContent = val;
-          } else {
-            el.textContent = val;
-          }
-        });
-        localStorage.setItem('ts-lang', lang);
-      }
-
-      var savedLang = localStorage.getItem('ts-lang') || 'en';
-      applyLang(savedLang);
-
-      if (langBtn) {
-        langBtn.addEventListener('click', function () {
-          var next = html.getAttribute('lang') === 'ar' ? 'en' : 'ar';
-          applyLang(next);
-        });
-      }
-
-      /* ---------- NAVBAR SHADOW ---------- */
-      var nav = document.getElementById('mainNav');
-      window.addEventListener('scroll', function () {
-        if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
-      });
-
-      /* ---------- SCROLL TOP ---------- */
-      var topBtn = document.getElementById('scrollTop');
-      if (topBtn) {
-        window.addEventListener('scroll', function () {
-          topBtn.classList.toggle('show', window.scrollY > 400);
-        });
-        topBtn.addEventListener('click', function () {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      /* ---------- COUNTERS ---------- */
-      var counters = document.querySelectorAll('.counter');
-      function runCounters() {
-        counters.forEach(function (c) {
-          var target = +c.dataset.target;
-          var current = 0;
-          var step = target / 60;
-          var timer = setInterval(function () {
-            current += step;
-            if (current >= target) { current = target; clearInterval(timer); }
-            c.textContent = Math.floor(current).toLocaleString();
-          }, 20);
-        });
-      }
-      if ('IntersectionObserver' in window && counters.length) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) { runCounters(); io.disconnect(); }
-          });
-        }, { threshold: 0.4 });
-        io.observe(counters[0]);
-      }
-
-      /* ---------- FORM ---------- */
-      var form = document.getElementById('contactForm');
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var status = document.getElementById('formStatus');
-          status.innerHTML = '<div style="color:#A80A3F;font-weight:600;padding:.75rem;background:rgba(194,24,91,.08);border-radius:10px;">Thank you. We will contact you shortly.</div>';
-          form.reset();
-        });
-      }
-
-      /* ---------- AOS ---------- */
-      if (window.AOS) AOS.init({ duration: 700, once: true, offset: 80 });
-    })();
-  </script>
-
-  <!-- ═══════════════════════════════════════════════════════
-       MINI MAP — Tech-Sat HQ (Aden, Yemen)
-       ═══════════════════════════════════════════════════════ -->
-  <script>
-    (function () {
-      'use strict';
-
-      function initMiniMap() {
-        var el = document.getElementById('miniMap');
-        if (!el || !window.L) return;
-        if (el._leaflet_id) return;   /* منع التكرار */
-
-        var hqLat = 12.7855;
-        var hqLng = 45.0187;
-
-        var map = L.map(el, {
-          center: [hqLat, hqLng],
-          zoom: 11,
-          zoomControl: false,
-          scrollWheelZoom: false,
-          dragging: false,
-          doubleClickZoom: false,
-          touchZoom: false,
-          boxZoom: false,
-          keyboard: false,
-          attributionControl: true
-        });
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap',
-          maxZoom: 18
-        }).addTo(map);
-
-        var icon = L.divIcon({
-          className: '',
-          html: '<div class="custom-marker custom-marker--ourhq">' +
-                  '<span class="custom-marker__ring"></span>' +
-                  '<span class="custom-marker__dot"></span>' +
-                '</div>',
-          iconSize: [24, 24],
-          iconAnchor: [12, 12]
-        });
-
-        L.marker([hqLat, hqLng], { icon: icon }).addTo(map)
-          .bindPopup('<strong>Tech-Sat HQ</strong><br>Aden, Yemen');
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initMiniMap);
-      } else {
-        initMiniMap();
-      }
-      window.addEventListener('load', initMiniMap);
-      document.addEventListener('layoutReady', initMiniMap);
-    })();
-  </script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="assets/js/core/chrome.js"></script>
+<script type="module" src="assets/js/pages/home.js"></script>
 
 </body>
 
